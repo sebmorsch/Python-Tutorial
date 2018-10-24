@@ -18,9 +18,16 @@ Folgende syntaktische Besonderheiten Bringt Python mit:
 Um in Python Blöcke auszuzeichnen können nicht wie in Java und C++ geschweifte Klammern genutzt werden. 
 In Python ist hierfür entweder der Tabulator oder 4 aufeinander folgende Leerzeichen vorgesehen.
 Somit kann bei zum Beispiel einer IF-Abfrage der nachfolgende Block leicht falsch zugeordnet werden wenn in den nachfolgenden Zeilen die Einrückung übersehen wird.
-\subsubsection{Case Sensitiv}
 \subsubsection{Kommentare}
+Innerhalb Python wird zwischen Zeilen und Blockkommentaren unterschieden.
+Blockkommentare werden über das Rautensymbol (\# ) eingeleitet.
+Blockkommentare über drei aufeinander folgenden Anführungzeichen ('''''').
+Im folgenden jeweils ein Beispiel.
+\lstinputlisting{chapters/sections/listings/comment.py}
 \subsubsection{Typsicherheit}
+Anders als bei Java und C++ ist Python eine nur schwach typisierte Sprache.
+Somit ist bei der Initialisierung keine Typangabe erforderlich. 
+Der Datentyp wird beim Initialisieren dynamisch ermittelt und automatisch zugewiesen.
 \subsubsection{prozedurale Programmierung}
 \subsection{Interpreter}
 übersetz das ihm übergebene Script
