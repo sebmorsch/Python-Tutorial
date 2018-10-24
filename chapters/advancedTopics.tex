@@ -1,2 +1,82 @@
 % !TeX root = ../pythonTutorial.tex
 \chapter{Weiterführende Themen}
+\section{Maschinelles Lernen in Python}
+Python bietet im Bereich des maschinellen Lernens unterschiedliche Möglichkeiten an. Eine weit verbreitete Möglichkeit ist das Einbinden von Module, die bereits gewissen Funktionalitäten von Haus auf anbieten. Eine zweite Möglichkeit ist die Integration der Programmiersprache R. Beide Möglichkeiten werden im Folgenden weiter beschrieben.
+
+\subsection{Datenanlyse, Visualisierung und Präsentation}
+Die folgenden Module erweitern die Standardfunktionalität und geben so die Möglichkeit numerische Lösungen zu mathematischen Problemen zu erzeugen.
+
+Zwei bekannte Module sind \textit{numpy} und \textit{scipy}, mit denen beispielsweise Gleichungen und Optimierungsprobleme gelöst werden können. Außerdem lassen sich Integrale berechnen, statistische Berechnungen durchführen und auch simulieren. Als das wird für maschinelles Lernen benötigt. Da die Berechnungen mit Routinen nah an der Hardware durchgeführt werden, lassen sich bei entsprechender Programmierung effiziente Programme schreiben. Ergebnisse solcher Berechnungen können mithilfe des Moduls \textit{matplotlib} visualisiert werden. ~\cite{Python3}
+
+%https://www.david-benjamin-hentschel.de/maschinelles-lernen-mit-python/
+
+%https://data-science-blog.com/blog/2015/05/24/top-10-der-python-bibliotheken-fur-data-science/
+
+Die Module müssen meist erst installiert werden, bevor sie genutzt werden können.
+
+\textbf{numpy}\\
+In diesem Modul wird ein flexibler Datentyp für mehrdimensionale Arrays zur Verfügung gestellt. Dies ermöglicht eine effiziente Durchführung von komplexen Rechnungen.
+~\cite{numpyreference}
+
+\textbf{scipy}\\
+Ergänzend bzw. aufbauen auf numpy werden durch scipy viele mathematische Operationen bereit gestellt. 
+
+Das Modul scipy ist sehr mächtig und daher nochmal in Untermodule aufgeteilt. Innerhalb der Untermodule werden bestimmte Funktionalitäten gruppiert. Die genauen Untermodule können aus der Onlinedokumentation ~\cite{scipyreference}
+
+\textbf{pandas}\\
+andas is a Python package providing fast, flexible, and expressive data structures designed to make working with relational or labeled data both easy and intuitive. ~\cite{pandas}
+
+\textbf{matplotlib}\\
+Mit dem Modul matplotlib können Daten in einem Diagramm dargestellt werden. Hiermit kann ein erstes Verständnis der Daten oder Ergebnisse erreicht werden. Es werden unter anderem Liniendiagramme, Histogramme, Balkendiagramme aber auch Heatmaps unterstützt. Hier können sowohl Achsen, Farben und auch Beschriftungen nach Bedarf angepasst werden.
+
+Der Link zur Modulseite findet sich im Literaturverzeichnis unter: ~\cite{matplotlib}
+
+
+
+
+\subsubsection{Machine Learning}
+Um die Integration der oben genannte zu Verdeutlichen wird im folgenden ein Beispiel dargestellt.
+
+\begin{lstlisting}
+import numpy as np
+import scipy as sc
+import matplotlib as mpl
+\end{lstlisting}
+
+
+
+\textbf{R-Integration}\\
+Der zweite Ansatz ist die Integration von R-Komponenten. 
+
+
+
+\begin{lstlisting}
+import rpy2.robjects as R
+\end{lstlisting}
+
+
+
+
+\subsubsection{Erweiterungsmöglichkeiten}
+
+SymPy is a Python library for symbolic mathematics. 
+
+
+
+
+
+%Datenanlyse, Visualisierung und Präsentation
+%    Numpy
+%    Matplotlib
+%    Pandas 
+%Machine Learning
+%    Machine Learning: Terminologie
+%    Einführung in Scikit
+%    k-nearest Neighbor Classifier
+%    Einführung in Neuronale Netzwerke in Python
+%    Neural Networks mit Scikit
+%    Naive-Bayes-Klassifikator, Grundlagen und einfache Implementierungen in Python
+%    Naive-Bayes-Klassifikator mit Scikit
+%    Einführung in die Text-Klassifikation mit Naive-Bayes-Klassifikator
+%    Python-Implementierung der Textklassifikation 
+
