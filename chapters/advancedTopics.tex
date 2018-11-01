@@ -1,12 +1,8 @@
 % !TeX root = ../pythonTutorial.tex
 \chapter{Weiterführende Themen}
 \section{Maschinelles Lernen in Python}
-Das Themengebiet des maschinellen Lernens kann verschiedene Stufen von Komplexität erreichen. Grundlegend ist das mathematische Verständnis über die verschiedenen im Machine Learning eingesetzten Algorhtymen. Diese werden in diesem Tutorial nicht beschrieben.\\
-Ist man mit diesen vertraut und möchte diese nun mittels Python anwenden, bietet es sich zum Einstieg an mit kleinen Projekten zu starten. Hierbei sollte sich bereits zu Beginn eine Vorgehensweise überlegt werden. Das beginnt unter anderem mit dem Design der Machine Learning Anwendung. Dies kann den Grundstein dafür legen, was überhaupt benötigt wird. Denn Python bietet im Bereich des maschinellen Lernens unterschiedliche Möglichkeiten an. Eine weit verbreitete Möglichkeit ist das Einbinden von Module, die bereits gewissen Funktionalitäten von Haus auf anbieten.\\
-Eine zweite Möglichkeit ist die Integration von R. Bei R handelt es sich um eine eigene Programmiersprache, welche den Schwerpunkt in mathematischen Problemlösungen hat. Python und R lassen sich beide sowohl eigenständig, also auch in Verbindung miteinander einsetzen.
-
-Im Folgenden Abschnitt gibt es eine Übersicht, über wichtige und bekannte Bibliotheken aus dem Bereich maschinelles Lernen. Die Anzahl der Bibliotheken macht ein Einstieg nicht ganz leicht, da man erst die Stärken und Schwächen kennen sollte. Im Besten Fall anhand eines eigenen kleinen Projekts.
-Dies baut man sich beispielsweise mithilfe dieser 5 Schritte zusammen.
+Das Themengebiet des maschinellen Lernens kann verschiedene Stufen von Komplexität erreichen. Grundlegend ist das mathematische Verständnis über die verschiedenen im Machine Learning eingesetzten Algorithmen. Diese werden in diesem Tutorial nicht beschrieben.\\
+Ist man mit diesen vertraut und möchte diese nun mittels Python anwenden, bietet es sich zum Einstieg an mit kleinen Projekten zu starten. Hierbei sollte sich bereits zu Beginn eine Vorgehensweise überlegt werden, wie auch bei allen anderen Projekten. Dies kann den Grundstein dafür legen, was überhaupt benötigt wird. Python bietet im Bereich des maschinellen Lernens viele unterschiedliche Möglichkeiten an, sodass man sich frühzeitig Gedanken über den Aufbau machen sollte. Grob kann ein Projekt in 5 Schritt aufgeteilt werden, anhand derer man später das Ergebnis verifizieren kann.\\
 
 1. Problem definieren\\
 2. Daten vorbereiten\\
@@ -14,10 +10,15 @@ Dies baut man sich beispielsweise mithilfe dieser 5 Schritte zusammen.
 4. Ergebnisse verbessern\\
 5. Ergebnisse darstellen\\
 
-%\subsection{Datenanlyse, Visualisierung und Präsentation}
-\subsection{Bibliotheken}
-Im Bereich maschinelles Lernen sind schon viele Bibliotheken vorhanden, die unterschiedliche Schwerpunkte in dem Bereich bedienen. Aus diesem Grund erfolgt zuerst eine Übersicht über verbreitete Bibliotheken.
 
+Eine weit verbreitete Möglichkeit ist das Einbinden von bereits existierenden Bibliotheken, die bereits gewissen Funktionalitäten von Haus auf anbieten. Eine eigene Nachbildung von verbreiteten Algorithmen aus dem Bereich Machine Learing ist daher meist nicht nötig.\\
+Eine zweite Möglichkeit ist die Integration von R. Bei R handelt es sich um eine eigene Programmiersprache, welche den Schwerpunkt in mathematischen Problemlösungen hat. Python und R lassen sich beide sowohl eigenständig, also auch in Verbindung miteinander einsetzen.
+
+Im Folgenden Abschnitt gibt es eine Übersicht, über wichtige und bekannte Bibliotheken aus dem Bereich maschinelles Lernen. Die Anzahl der Bibliotheken macht ein Einstieg nicht ganz leicht, sodass man sich die Stärken und Schwächen der einzelnen Bibliotheken betrachten sollte. 
+
+
+\subsection{Bekannte Bibliotheken}
+Im Bereich maschinelles Lernen sind schon viele Bibliotheken vorhanden, die unterschiedliche Schwerpunkte in dem Bereich bedienen. Aus diesem Grund erfolgt zuerst eine Übersicht über verbreitete Bibliotheken.
 
 
 \textbf{Download und Installation}\\
@@ -48,36 +49,36 @@ numpy: 1.13.3
 
 Auf diese Art und Weise sollte alle Bibliotheken geprüft werden, da so eventuelle Kompabilitätsprobleme oder fehlerhafte Installation erkannt werden können.
 
+\subsubsection{Bibliotheken}
+Grob kann man zwischen Datenanalyse und Visualisierung unterscheiden. Zwei bekannte Bibliotheken aus dem Bereich Datenanalyse sind \textit{numpy} und \textit{pandas}, mit denen beispielsweise Gleichungen und Optimierungsprobleme gelöst werden können. Außerdem lassen sich Integrale berechnen, statistische Berechnungen durchführen und auch simulieren. All das wird für maschinelles Lernen benötigt. Da die Berechnungen mit Routinen nah an der Hardware durchgeführt werden, lassen sich bei entsprechender Programmierung effiziente Programme schreiben. Ergebnisse solcher Berechnungen können mithilfe des Moduls \textit{matplotlib} visualisiert werden. ~\cite{Python3}
 
-Grob kann man zwischen Datenanalyse und Visualisierung unterscheiden. Zwei bekannte Bibliotheken aus dem Bereich Datenanalyse sind \textit{numpy} und \textit{üandas}, mit denen beispielsweise Gleichungen und Optimierungsprobleme gelöst werden können. Außerdem lassen sich Integrale berechnen, statistische Berechnungen durchführen und auch simulieren. Als das wird für maschinelles Lernen benötigt. Da die Berechnungen mit Routinen nah an der Hardware durchgeführt werden, lassen sich bei entsprechender Programmierung effiziente Programme schreiben. Ergebnisse solcher Berechnungen können mithilfe des Moduls \textit{matplotlib} visualisiert werden. ~\cite{Python3}
 
-
-\subsubsection{numpy}
+\textbf{numpy}\\
 In diesem Modul wird ein flexibler Datentyp für mehrdimensionale Arrays zur Verfügung gestellt. Dies ermöglicht eine effiziente Durchführung von komplexen Rechnungen.
 ~\cite{numpyreference}
 
 Die Arrays in \textit{numpy} sind dreidimensional und können so eine Vielzahl von Anwendungsfällen abbilden. Der Fokus von \textit{numpy} liegt in der Datenhaltung und Manipulation von Daten. Hier speziell die numerische Manipulation aus dem Bereich der linearen Algebra. Mit den Matrizen können beispielsweise Multiplikationen und Dekompositionen durchgeführt werden. Aus diesem Grund sind \textit{numpy}-Array oft die Datenstruktur, mit der weiterführende Bibliotheken arbeiten können.
 
 
-\subsubsection{pandas}
+\textbf{pandas}\\
 Die Webseite zum Paket ~\cite{pandas} beschreibt dieses Paket als gute Wahl zur schnellen und flexiblen Aufbereitung von Daten. Pandas bietet hier Möglichkeiten, um schnell auf Einträge zuzugreifen. Dies ist möglich, da mittels Pandas Serien und Dataframes erzeugt werden können, die im Gegensatz zu einem Array in Python auch Spaltentitel und Indexes können.
 
 Die describe()-Methode bietet hierbei einen ersten Überblick über die im Dataframe enthalten Daten. Ohne weitere Programmierung werden Informationen wie Maximalwert, Minimalwert und Durchschnitte für jede Spalte berechnet und angezeigt. 
 
 Spalten und Zeilen können mittels Pandas gefiltert, erweitert und verändert werden, sodass Pandas oft im ersten Schritt genutzt wird, um die auszuwertenden Daten zu laden und genauer analysieren zu können.
 
-\subsubsection{scipy}
+\textbf{scipy}\\
 Ergänzend bzw. aufbauen auf \textit{numpy} werden durch scipy viele mathematische Operationen bereit gestellt. 
 Das Modul \textit{scipy} ist sehr mächtig und daher nochmal in Untermodule aufgeteilt. Innerhalb der Untermodule werden bestimmte Funktionalitäten gruppiert. Die genauen Untermodule können aus der Onlinedokumentation ~\cite{scipyreference}
 
 
-\subsubsection{scikit-learn}
+\textbf{scikit-learn}\\
 Viele DataMining bzw. Machine Learning Funktionalitäten werden bereits durch die \textit{scikit-learn} Bibliothek (manchmal aus sklearn abgekürzt) zur Verfügung gestellt. Die klassischen Algorithmen, wie \textit{k-Means} oder \textit{knn} sind bereits integriert. Des Weiteren ist auch mit \textit{scikit-learn} eine Aufbereitung der Daten möglich. Hier werden beispielsweise Normalierung und Skalierung unterstützt. Insgesamt handelt es sich um eine sehr mächtige Bibliothek, mit der es möglich ist unterschiedliche Algorithmen zu probieren und verschiedene Test- und Trainingsverfahren zu zu testen. Es können auch neue Daten anhand der gelernten Modelle klassifiziert und vorhergesagt werden.~\cite{scikit}
 
 
-\subsubsection{rpy2}
+\textbf{rpy2}\\
 Eine weitere Möglichkeit ist das Einbinden des Pakets \textit{rpy2}. Hierbei handelt es sich um eine Bibliothek, welche Komponenten aus R zur Verfügung stellt.~\cite{rpy2}
 
 
-\subsubsection{matplotlib}
+\textbf{matplotlib}\\
 Mit dem Modul \textit{matplotlib} können Daten in einem Diagramm dargestellt werden. Hiermit kann ein erstes Verständnis der Daten oder Ergebnisse erreicht werden. Es werden unter anderem Liniendiagramme, Histogramme, Balkendiagramme aber auch Heatmaps unterstützt. Hier können sowohl Achsen, Farben und auch Beschriftungen nach Bedarf angepasst werden. \textit{matplotlib} unterstützt sowohl \textit{pandas} als auch \textit{numpy} und ist oft daher bereits am Anfang von hoher Bedeutung, um einen Überblick über die Daten zu bekommen. ~\cite{matplotlib}
