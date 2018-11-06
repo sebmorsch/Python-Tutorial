@@ -1,19 +1,30 @@
 
 \section{Grundlagen}
+\subsection{Was ist Python?} %TODO ADD INFORMATION AND INTRODUCTION
 Die Programmiersprache Python wurde Anfang der 1990er Jahre von Guido van Rossum entwickelt.
 Der Name der Sprache beruht auf der Komikergruppe  Monty Python.
-Hierzu lassen sich auch Zahlreiche Anspielung in der Dokumentation von Python finden.
+Hierzu lassen sich auch zahlreiche Anspielung in der Dokumentation von Python finden.
 Python wurde mit dem Ziel größter Einfachheit sowie Übersichtlichkeit entworfen.
-Dies wird nicht zuletzt durch die große übersichtlichkeit in der Standardbibliothek versucht zu erreichen sondern auch durch die Modulare Erweiterbarkeit.
-
+Dies wird nicht zuletzt durch die große Übersichtlichkeit in der Standardbibliothek versucht zu erreichen sondern auch durch die Modulare Erweiterbarkeit.
+Python kann auf der Webseite https://www.python.org bezogen werden.
+Im folgenden wird die Python in der Version 3 behandelt.
 %Python ist eine Scriptsprache die 
 %scriptsprache
 %anwendungszweck
+%TODO INSTALLATION
 
-\subsection{Installation des Interpreters}
-Python kann auf der Webseite https://www.python.org bezogen werden.
-Im folgenden wird die Python in der Version 3 behandelt.
+\subsection{Python Interpreter} %WIP ROGU 
+%TODO ADD LINKS TO OTHER SECTIONS %WHAT IS PYTHON CODE?
+Die einfachste Möglichkeit, Python Code auszuführen, ist direkte Übergabe des Codes an den sogenannten Python Interpreter. Dabei handelt es sich um eine Konsolenanwendung, welche die Ergebnisse eines Ausdruckes ausgibt. Dabei kann ein Nutzer den Code entweder direkt in die Konsole eingeben oder diesen aus einer Datei auslesen lassen. Wie bei anderen Programmiersprachen auch stehen verschiedene IDEs\footnote{Integrated Development Environment} zur Verfügung, welche in Kapitel \ref{} behandelt werden. Für die ersten Versuche mit Python reicht der Interpreter jedoch völlig aus. Dieser wird standardmäßig mit Python installiert.\\
+%TODO ADD PICTURE OF THE INTERPRETER
+In Abbildung \ref{} ist der Interpreter zu sehen. 
+\paragraph{Interaktiver Modus} Wird der Interpreter ohne Angabe einer Quellcodedatei gestartet, befindet dieser sich im interaktiven Modus. Der Nutzer kann hier direkt Anweisungen eingeben. Durch die Ausgabe der Zeichen ''>>>'' zeigt die Konsole an, dass sie eine Anweisung erwartet. In Python existieren auch mehrzeilige Anweisungen. Nach der Eingabe der ersten Zeile, werden die Zeichen ''...'' ausgegeben, was bedeutet, dass Folgeanweisungen erwartet werden. 
+\paragraph{Einlesen einer Datei}
+Im Folgenden werden zu einzelnen Bestandteilen von Python Beispiele beigefügt, welche leicht im Interpreter ausführbar sind. Es wird dem Leser empfohlen, diese zum besseren Verständnis nachzuvollziehen, am besten durch eigenständiges Ausprobieren.
 
+\subsection{Ausdrücke} %WIP ROGU
+Anders als bei anderen Programmiersprachen wie beispielsweise Java, benötigt Python keine Klassenkonstrukte... %TODO AUSDRÜCKE, kein fester Rahmen zur Ausführung benötigt
+\subsection{Einfache Datentypen}
 
 
 
@@ -40,7 +51,7 @@ Der Datentyp wird beim Initialisieren dynamisch ermittelt und automatisch zugewi
 %kann als Umgebung genutzt werden
 
 
-\subsection{Beispiel \glqq Hallo World!\grqq}
-Hier ein einfaches \glqq Hallo World!\grqq -Beispiel.
+\subsection{Beispiel \glqq Hello World!\grqq}
+Hier ein einfaches \glqq Hello World!\grqq -Beispiel.
 
 \lstinputlisting{chapters/sections/listings/helloworld.py}
