@@ -6,13 +6,17 @@ Der Name der Sprache beruht auf der Komikergruppe  Monty Python.
 Hierzu lassen sich auch zahlreiche Anspielung in der Dokumentation von Python finden.
 Python wurde mit dem Ziel größter Einfachheit sowie Übersichtlichkeit entworfen.
 Dies wird nicht zuletzt durch die größe Übersichtlichkeit in der Standardbibliothek versucht zu erreichen sondern auch durch die Modulare Erweiterbarkeit.
-Python kann auf der Webseite https://www.python.org bezogen werden.
 Im folgenden wird die Python in der Version 3 behandelt.
 
 \subsection{Installation}
-Nach dem Download des Installationsassistenten kann dieser gestartet werden.
+Python kann auf der Webseite https://www.python.org bezogen werden.
+Nach dem Download des Installationsassistenten kann dieser gestartet werden und führt den Nutzer anschließend durch den Installationsprozess.
+\subsubsection{Installation unter Windows}
+%TODO Installation + Hinweis zur Pfad Variable
+\subsubsection{Installation unter Mac}
 Im Folgenden wird die Installation unter Mac OSX gezeigt.
 Der Installationsprozess unterscheidet sich zwischen den Betriebssystemen nur gering bis gar nicht.
+
 \begin{figure}[ht]
 	\centering
 \includegraphics[scale=0.5]{images/Installationsassistent.png} 
@@ -27,35 +31,46 @@ Somit erscheint nach Ende der Installation der Python Ordner im Finder (Dateiexp
 	\caption{Fertige Installation}
 	\label{fig:FinishInstall}
 \end{figure}
-Nach Abschluss der Installation stehen die dem Anwender verschieden Programme zur Auswahl.
+Nach Abschluss der Installation stehen dem Anwender die verschieden Programme zur Verfügung.
 Unter /Application/Python[Version] befindet sich \textit{IDLE}, die mitgelieferte Standard Entwicklungsumgebung zu Python.
 Der \textit{PythonLauncher}, welcher für das ausführen von Python-Scripts per Doppelklick zuständig ist.
 Das \textit{Build Applet} um Python Script zu lauffähigen Anwendungen zusammen zu packen.
 Zuletzte wurde durch den Assistent unter /Library/Frameworks/Python.framework noch das Python Framework abgelegt.
 Ohne dieses wäre das Arbeiten mit Python nicht möglich.
+%TODO Skript versus Programm
+
 \subsection{Python Interpreter} %WIP ROGU 
 %TODO ADD LINKS TO OTHER SECTIONS %WHAT IS PYTHON CODE?
-Die einfachste Möglichkeit, Python Code auszuführen, ist direkte Übergabe des Codes an den sogenannten Python Interpreter. Dabei handelt es sich um eine Konsolenanwendung, welche die Ergebnisse eines Ausdruckes ausgibt. Dabei kann ein Nutzer den Code entweder direkt in die Konsole eingeben oder diesen aus einer Datei auslesen lassen. Wie bei anderen Programmiersprachen auch stehen verschiedene IDEs\footnote{Integrated Development Environment} zur Verfügung, welche in Kapitel \ref{} behandelt werden. Für die ersten Versuche mit Python reicht der Interpreter jedoch völlig aus. Dieser wird standardmäßig mit Python installiert.\\
+Die einfachste Möglichkeit, Python Code auszuführen, ist direkte Übergabe des Codes an den sogenannten Python Interpreter. 
+Dabei handelt es sich um eine Konsolenanwendung, welche Code ausführt und gegebenenfalls Ergebnisse ausgibt. 
+Dabei kann ein Nutzer den Code entweder direkt in die Konsole eingeben oder diesen aus einer Datei auslesen lassen. 
+Wie bei anderen Programmiersprachen auch, stehen verschiedene IDEs\footnote{Integrated Development Environment} zur Verfügung, welche in Kapitel \ref{} behandelt werden. 
+Für die ersten Versuche mit Python reicht der Interpreter jedoch völlig aus. Dieser wird standardmäßig mit Python installiert.\\
+In Abbildung \ref{fig:Interpreter} ist der Interpreter zu sehen. 
+Zusätzlich zur Version werden auch noch der Herausgeber von Python sowie die Uhrzeit angezeigt.
+Bereits jetzt kann erster Code ausgeführt werden.
+Im Folgenden werden zu einzelnen Bestandteilen von Python Beispiele beigefügt, welche leicht im Interpreter ausführbar sind. Es wird dem Leser empfohlen, diese zum besseren Verständnis nachzuvollziehen, falls möglich durch eigenständiges Ausprobieren.
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.8\textwidth]{images/Interpreter.png} 
 	\caption{Ansicht nach Start des Interpreters}
 	\label{fig:Interpreter}
 \end{figure}
-In Abbildung \ref{fig:Interpreter} ist der Interpreter zu sehen. 
-\paragraph{Interaktiver Modus} Wird der Interpreter ohne Angabe einer Quellcodedatei gestartet, befindet dieser sich im interaktiven Modus. Der Nutzer kann hier direkt Anweisungen eingeben. Durch die Ausgabe der Zeichen ''>>>'' zeigt die Konsole an, dass sie eine Anweisung erwartet. In Python existieren auch mehrzeilige Anweisungen. Nach der Eingabe der ersten Zeile, werden die Zeichen ''...'' ausgegeben, was bedeutet, dass Folgeanweisungen erwartet werden. 
-\paragraph{Einlesen einer Datei}
-Im Folgenden werden zu einzelnen Bestandteilen von Python Beispiele beigefügt, welche leicht im Interpreter ausführbar sind. Es wird dem Leser empfohlen, diese zum besseren Verständnis nachzuvollziehen, am besten durch eigenständiges Ausprobieren.
-
-\subsection{Ausdrücke} %WIP ROGU
-Anders als bei anderen Programmiersprachen wie beispielsweise Java, benötigt Python keine Klassenkonstrukte... %TODO AUSDRÃœCKE, kein fester Rahmen zur AusfÃ¼hrung benÃ¶tigt
-\subsection{Einfache Datentypen}
-
-
-
-
+ 
+\paragraph{Interaktiver Modus} 
+Wird der Interpreter ohne Angabe einer Quellcodedatei gestartet, befindet dieser sich im interaktiven Modus. 
+Der Nutzer kann hier direkt Anweisungen eingeben. Durch die Ausgabe der Zeichen ''>>>'' zeigt die Konsole an, dass sie eine Anweisung erwartet. 
+In Python existieren auch mehrzeilige Anweisungen. 
+Nach der Eingabe der ersten Zeile, werden die Zeichen ''...'' ausgegeben, was bedeutet, dass Folgeanweisungen erwartet werden. 
+\paragraph{Einlesen einer Datei} %WIP ROGU
+Dateien, welche Python Code enthalten werden mit der Dateiendung ''.py'' gekennzeichnet. 
+Sie können direkt mit dem der Konsole ausgeführt werden.
+Dazu muss der ausführbaren Datei ''python.exe'' der Pfad der Python-Datei übergeben werden. 
 \subsection{Syntax}
 Folgende syntaktische Besonderheiten Bringt Python mit:
+\subsubsection{Ausdrücke} %WIP ROGU
+Anders als bei anderen Programmiersprachen wie beispielsweise Java, benötigt Python keine Klassenkonstrukte... %TODO AUSDRÃœCKE, kein fester Rahmen zur AusfÃ¼hrung benÃ¶tigt
+\subsubsection{Einfache Datentypen}
 \subsubsection{Leerzeichen und Einrückung}
 Um in Python Blöcke auszuzeichnen können nicht wie in Java und C++ geschweifte Klammern genutzt werden. 
 In Python ist hierfür entweder der Tabulator oder 4 aufeinander folgende Leerzeichen vorgesehen.
@@ -70,7 +85,7 @@ Im folgenden jeweils ein Beispiel für Zeilenweise Kommentare sowie Blockkommenta
 Anders als bei Java und C++ ist Python eine nur schwach typisierte Sprache.
 Somit ist bei der Initialisierung keine Typangabe erforderlich. 
 Der Datentyp wird beim Initialisieren dynamisch ermittelt und automatisch zugewiesen.
-\subsubsection{prozedurale Programmierung}
+\subsubsection{Prozedurale Programmierung}
 \subsection{Interpreter}
 %Ã¼bersetz das ihm Ã¼bergebene Script
 %kann als Umgebung genutzt werden
