@@ -4,26 +4,51 @@
 Die Programmiersprache Python wurde Anfang der 1990er Jahre von Guido van Rossum entwickelt.
 Der Name der Sprache beruht auf der Komikergruppe  Monty Python.
 Hierzu lassen sich auch zahlreiche Anspielung in der Dokumentation von Python finden.
-Python wurde mit dem Ziel grÃ¶ÃŸter Einfachheit sowie Ãœbersichtlichkeit entworfen.
-Dies wird nicht zuletzt durch die groÃŸe Ãœbersichtlichkeit in der Standardbibliothek versucht zu erreichen sondern auch durch die Modulare Erweiterbarkeit.
+Python wurde mit dem Ziel größter Einfachheit sowie Übersichtlichkeit entworfen.
+Dies wird nicht zuletzt durch die größe Übersichtlichkeit in der Standardbibliothek versucht zu erreichen sondern auch durch die Modulare Erweiterbarkeit.
 Python kann auf der Webseite https://www.python.org bezogen werden.
 Im folgenden wird die Python in der Version 3 behandelt.
-%Python ist eine Scriptsprache die 
-%scriptsprache
-%anwendungszweck
-%TODO INSTALLATION
 
+\subsection{Installation}
+Nach dem Download des Installationsassistenten kann dieser gestartet werden.
+Im Folgenden wird die Installation unter Mac OSX gezeigt.
+Der Installationsprozess unterscheidet sich zwischen den Betriebssystemen nur gering bis gar nicht.
+\begin{figure}[ht]
+	\centering
+\includegraphics[scale=0.5]{images/Installationsassistent.png} 
+	\caption{Start des Installationsassistenten}
+	\label{fig:InstallAssist}
+\end{figure}
+Neben der Bestätigung der Lizenzvereinbarung muss während der Installation keine Auswahl getroffen werden.
+Somit erscheint nach Ende der Installation der Python Ordner im Finder (Dateiexplorer).
+\begin{figure}[ht]
+	\centering
+\includegraphics[scale=0.5]{images/PythonFinder.png} 
+	\caption{Fertige Installation}
+	\label{fig:FinishInstall}
+\end{figure}
+Nach Abschluss der Installation stehen die dem Anwender verschieden Programme zur Auswahl.
+Unter /Application/Python[Version] befindet sich \textit{IDLE}, die mitgelieferte Standard Entwicklungsumgebung zu Python.
+Der \textit{PythonLauncher}, welcher für das ausführen von Python-Scripts per Doppelklick zuständig ist.
+Das \textit{Build Applet} um Python Script zu lauffähigen Anwendungen zusammen zu packen.
+Zuletzte wurde durch den Assistent unter /Library/Frameworks/Python.framework noch das Python Framework abgelegt.
+Ohne dieses wäre das Arbeiten mit Python nicht möglich.
 \subsection{Python Interpreter} %WIP ROGU 
 %TODO ADD LINKS TO OTHER SECTIONS %WHAT IS PYTHON CODE?
-Die einfachste MÃ¶glichkeit, Python Code auszufÃ¼hren, ist direkte Ãœbergabe des Codes an den sogenannten Python Interpreter. Dabei handelt es sich um eine Konsolenanwendung, welche die Ergebnisse eines Ausdruckes ausgibt. Dabei kann ein Nutzer den Code entweder direkt in die Konsole eingeben oder diesen aus einer Datei auslesen lassen. Wie bei anderen Programmiersprachen auch stehen verschiedene IDEs\footnote{Integrated Development Environment} zur VerfÃ¼gung, welche in Kapitel \ref{} behandelt werden. FÃ¼r die ersten Versuche mit Python reicht der Interpreter jedoch vÃ¶llig aus. Dieser wird standardmÃ¤ÃŸig mit Python installiert.\\
-%TODO ADD PICTURE OF THE INTERPRETER
-In Abbildung \ref{} ist der Interpreter zu sehen. 
+Die einfachste Möglichkeit, Python Code auszuführen, ist direkte Übergabe des Codes an den sogenannten Python Interpreter. Dabei handelt es sich um eine Konsolenanwendung, welche die Ergebnisse eines Ausdruckes ausgibt. Dabei kann ein Nutzer den Code entweder direkt in die Konsole eingeben oder diesen aus einer Datei auslesen lassen. Wie bei anderen Programmiersprachen auch stehen verschiedene IDEs\footnote{Integrated Development Environment} zur Verfügung, welche in Kapitel \ref{} behandelt werden. Für die ersten Versuche mit Python reicht der Interpreter jedoch völlig aus. Dieser wird standardmäßig mit Python installiert.\\
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.8\textwidth]{images/Interpreter.png} 
+	\caption{Ansicht nach Start des Interpreters}
+	\label{fig:Interpreter}
+\end{figure}
+In Abbildung \ref{fig:Interpreter} ist der Interpreter zu sehen. 
 \paragraph{Interaktiver Modus} Wird der Interpreter ohne Angabe einer Quellcodedatei gestartet, befindet dieser sich im interaktiven Modus. Der Nutzer kann hier direkt Anweisungen eingeben. Durch die Ausgabe der Zeichen ''>>>'' zeigt die Konsole an, dass sie eine Anweisung erwartet. In Python existieren auch mehrzeilige Anweisungen. Nach der Eingabe der ersten Zeile, werden die Zeichen ''...'' ausgegeben, was bedeutet, dass Folgeanweisungen erwartet werden. 
 \paragraph{Einlesen einer Datei}
-Im Folgenden werden zu einzelnen Bestandteilen von Python Beispiele beigefÃ¼gt, welche leicht im Interpreter ausfÃ¼hrbar sind. Es wird dem Leser empfohlen, diese zum besseren VerstÃ¤ndnis nachzuvollziehen, am besten durch eigenstÃ¤ndiges Ausprobieren.
+Im Folgenden werden zu einzelnen Bestandteilen von Python Beispiele beigefügt, welche leicht im Interpreter ausführbar sind. Es wird dem Leser empfohlen, diese zum besseren Verständnis nachzuvollziehen, am besten durch eigenständiges Ausprobieren.
 
-\subsection{AusdrÃ¼cke} %WIP ROGU
-Anders als bei anderen Programmiersprachen wie beispielsweise Java, benÃ¶tigt Python keine Klassenkonstrukte... %TODO AUSDRÃœCKE, kein fester Rahmen zur AusfÃ¼hrung benÃ¶tigt
+\subsection{Ausdrücke} %WIP ROGU
+Anders als bei anderen Programmiersprachen wie beispielsweise Java, benötigt Python keine Klassenkonstrukte... %TODO AUSDRÃœCKE, kein fester Rahmen zur AusfÃ¼hrung benÃ¶tigt
 \subsection{Einfache Datentypen}
 
 
@@ -31,15 +56,15 @@ Anders als bei anderen Programmiersprachen wie beispielsweise Java, benÃ¶tigt Py
 
 \subsection{Syntax}
 Folgende syntaktische Besonderheiten Bringt Python mit:
-\subsubsection{Leerzeichen und EinrÃ¼ckung}
-Um in Python BlÃ¶cke auszuzeichnen kÃ¶nnen nicht wie in Java und C++ geschweifte Klammern genutzt werden. 
-In Python ist hierfÃ¼r entweder der Tabulator oder 4 aufeinander folgende Leerzeichen vorgesehen.
-Somit kann bei zum Beispiel einer IF-Abfrage der nachfolgende Block leicht falsch zugeordnet werden wenn in den nachfolgenden Zeilen die EinrÃ¼ckung Ã¼bersehen wird.
+\subsubsection{Leerzeichen und Einrückung}
+Um in Python Blöcke auszuzeichnen können nicht wie in Java und C++ geschweifte Klammern genutzt werden. 
+In Python ist hierfür entweder der Tabulator oder 4 aufeinander folgende Leerzeichen vorgesehen.
+Somit kann bei zum Beispiel einer IF-Abfrage der nachfolgende Block leicht falsch zugeordnet werden wenn in den nachfolgenden Zeilen die Einrückung Übersehen wird.
 \subsubsection{Kommentare}
 Innerhalb Python wird zwischen Zeilen und Blockkommentaren unterschieden.
-Zeilenweise Kommentare werden Ã¼ber das Rautensymbol (\# ) eingeleitet.
-Blockkommentare Ã¼ber drei aufeinander folgenden AnfÃ¼hrungzeichen ('''''').
-Im folgenden jeweils ein Beispiel fÃ¼r Zeilenweise Kommentare sowie Blockkommentare.
+Zeilenweise Kommentare werden Über das Rautensymbol (\# ) eingeleitet.
+Blockkommentare Über drei aufeinander folgenden Anführungzeichen ('''''').
+Im folgenden jeweils ein Beispiel für Zeilenweise Kommentare sowie Blockkommentare.
 \lstinputlisting{chapters/sections/listings/comment.py}
 \subsubsection{Typsicherheit}
 Anders als bei Java und C++ ist Python eine nur schwach typisierte Sprache.
