@@ -2,13 +2,13 @@
 
 \section{Elementare Datentypen}
 
-Ähnlich wie zu Java und C oder C++, gibt es auch in Python Variablen. Allerdings gibt es dabei immense Unterschiede zu den anderen Programmiersprachen, weshalb sich ein genauerer Blick auf die einzelnen Datentypen in jedem Fall lohnt.
-In den uns bekannten Sprachen muss eine Variable einem bestimmten Datentyp zugeordnet (deklariert) werden. Der Datentyp kann darauf folgend zur Laufzeit nicht wieder geändert werden, der Wert innerhalb des Datentyps allerdings schon. Ist eine Variable einmal zum Beispiel dem Datentyp Integer zugeordnet, so lässt sich der Variable anschließend nicht mehr in einen String-Wert umwandeln. In Python hingegen, ist dies ohne weiteres möglich. Hier wird nämlich gänzlich auf eine explizite Typdeklaration verzichtet. Zeigt eine Variable beispielsweise auf eine ganze Zahl, so wird diese als ein Objekt vom Typ Integer interpretiert. Allerdings kann man sie im nächsten Schritt einfach auf ein String-Objekt zeigen lassen. 
+Ähnlich wie bei Java und C oder C++, gibt es auch in Python Variablen. Allerdings gibt es dabei immense Unterschiede zu den anderen Programmiersprachen, weshalb sich ein genauerer Blick auf die einzelnen Datentypen in jedem Fall lohnt. Bei vielen bekannten Sprachen wird einer Variablen ein bestimmter Datentyp zugeordnet (deklariert). Der Datentyp kann darauf folgend zur Laufzeit nicht wieder geändert werden, der Wert innerhalb des Datentyps allerdings schon. So lassen sich in eine Variable des Typ Integer beispielsweise keine String-Werte speichern. In Python hingegen, ist dies ohne weiteres möglich. Hier wird nämlich gänzlich auf eine explizite Typdeklaration verzichtet. Zeigt eine Variable beispielsweise auf eine ganze Zahl, so wird diese als ein Objekt vom Typ Integer interpretiert. Allerdings kann man sie im nächsten Schritt einfach auf ein String-Objekt zeigen lassen. 
 Soviel zum allgemeinen Unterschied zu den anderen Programmiersprachen. Betrachten wir nun die Datentypen etwas genauer.
 
-\textbf{Zahlenoperatoren}
+\subsection{Zahlenoperatoren}
 
-Da in Python auf Typdeklarationen verzichtet wird, ist es für den Programmierer nur von untergeordneter Rolle, einen genauen Datentyp zu planen. Benötigt man eine ganze Zahl Integer, kann man diese falls nötig auch in eine Gleitkommazahl float umwandeln, ohne groß etwas am Code zu ändern. Python deklariert im Hintergrund selbst und spart so unnötige Komplexitäten und Fehlerquellen. \textit{Beispiel(e)}
+Da in Python auf Typdeklarationen verzichtet wird, muss dieser nicht beim Anlegen der Variable berücksichtigt werden. Benötigt man eine ganze Zahl (Integer), kann man diese falls nötig auch in eine Gleitkommazahl (float) umwandeln, ohne groß etwas am Code zu ändern. Python deklariert im Hintergrund selbst und spart so unnötige Komplexitäten und Fehlerquellen.
+
 
 \begin{lstlisting}
 i = 42
@@ -21,7 +21,7 @@ type(i)
 
 \textbf{Boolean}
 
-Boolean gibt an, ob ein Statement true oder false ist. Dadurch lassen sich Fallunterscheidungen oder Abfragen ermöglichen. \textit{Beispiel(e)}
+Boolean gibt an, ob ein Statement true oder false ist. Dadurch lassen sich Fallunterscheidungen oder Abfragen ermöglichen. 
 
 \begin{lstlisting}
 i = True
@@ -32,11 +32,11 @@ i
 
 \textbf{String}
 
-Der String ist eine Zeichenkette, also eine Aneinanderreihung von verschiedenen Zeichen. Dazu zählen Wörter, aber auch beispielsweise Hexadezimal-Codes oder E-Mail Adressen. \textit{Beispiel(e)}
+Der String ist eine Zeichenkette, also eine Aneinanderreihung von verschiedenen Zeichen. Dazu zählen Wörter, aber auch beispielsweise Hexadezimal-Codes oder E-Mail Adressen.
 
-Wie in den meisten objektorientierten Programmiersprachen, lassen sich auch in Python die einzelnen Zeichen eines Strings abrufen in dem der dazugehörige Index abgerufen wird. \textit{Beispiel(e)}
+Wie in den meisten objektorientierten Programmiersprachen, lassen sich auch in Python die einzelnen Zeichen eines Strings abrufen in dem der dazugehörige Index abgerufen wird.
 
-Auch die Länge des gesamten Strings kann durch einfache Abfrage angezeigt werden.  \textit{Beispiel(e)}
+Auch die Länge des gesamten Strings kann durch einfache Abfrage angezeigt werden. 
 
 \begin{lstlisting}
 i = "Python"

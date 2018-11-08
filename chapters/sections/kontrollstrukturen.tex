@@ -2,13 +2,13 @@
 
 \section{Kontrollstrukturen}
 
-Die Kontrollstrukturen in Python haben einen formalen Unterschied zu Java oder C++, funktional sind sie identisch. In Python werden keine geschweiften Klammern benötigt, um die Blöcke der einzelnen Abfragen abzugrenzen. Dazu genügt das Einrücken der Anweisung. Dies gilt sowohl für if-then-else-Bedingungen und Conditional Expressions, als auch für Schleifen. Im Folgenden schauen wir uns die einzelnen Strukturen im Detail und mit Beispielen an.
+Die Kontrollstrukturen in Python haben einen formalen Unterschied zu Java oder C++, funktional sind sie identisch. In Python werden keine geschweiften Klammern genutzt, um die Blöcke der einzelnen Abfragen abzugrenzen. Dazu genügt das Einrücken der Anweisung. Dies gilt sowohl für if-then-else-Bedingungen und Conditional Expressions, als auch für Schleifen. Im Folgenden schauen wir uns die einzelnen Strukturen im Detail und mit Beispielen an.
 
-\textbf{If-then-else}
+\subsection{If-then-else}
 
-Die if-then-else-Struktur ermöglicht es - wie wir es bereits kennen - simple wenn-dann Abfragen zu tätigen. \textit{(Beispiel für einmal else, dann if)}
+Die if-then-else-Struktur ermöglicht es - wie wir es bereits kennen - simple wenn-dann Abfragen zu tätigen.
 
-Mehrere Abfragemöglichkeiten werden mit elif markiert. \textit{(Beispiel)}
+Mehrere Abfragemöglichkeiten werden mit elif markiert. 
 
 \begin{lstlisting}
 if statement1:
@@ -22,7 +22,7 @@ else:
 
 \textbf{Conditional Expressions}
 
-Die Conditional Expressions (= bedingte Ausdrücke) stellen eine kompaktere Schreibweise als if-then-else-Bedinungen dar.  \textit{(Beipspiel)}
+Die Conditional Expressions (= bedingte Ausdrücke) stellen eine kompaktere Schreibweise als if-then-else-Bedinungen dar.  
 
 \begin{lstlisting}
 // Klassisches If-Else
@@ -37,9 +37,9 @@ x = ("los" if wort == "start" else "halt")
 \end{lstlisting}
 
 \newpage
-\textbf{Schleifen}
+\subsection{Schleifen}
 
-Python hat sowohl while- als auch for-Schleifen, welche wir uns beide im Folgenden genauer ansehen werden. Schleifen bestehen aus einer Anweisung und einem Kontrollblock, welcher solange durchlaufen wird, bis die Anweisung oder ein Abbruchkriterium erfüllt wurde. Schleifen die niemals ein Abbruchkriterium erfüllen und so endlos durchlaufen werden heißen Endlosschleifen. Diese führen dazu, dass der Compiler irgendwann den Geist aufgibt und abbricht. \textit{(Beispiele für while und for)}
+Python hat sowohl while- als auch for-Schleifen, welche wir uns beide im Folgenden genauer ansehen werden. Schleifen bestehen aus einer Anweisung und einem Kontrollblock, welcher solange durchlaufen wird, bis die Anweisung oder ein Abbruchkriterium erfüllt wurde. Schleifen die niemals ein Abbruchkriterium erfüllen und so endlos durchlaufen werden heißen Endlosschleifen. Diese führen dazu, dass der Interpreter irgendwann den Geist aufgibt und abbricht.
 
 \begin{lstlisting}
 // While Schleife
@@ -73,7 +73,7 @@ for Variable in Objekt:
 \newpage
 \textbf{Enums}
 
-Enums dienen in den objektorientierten Programmiersprachen zur Aufzählung von Ausdrücken einer endlichen Menge. So werden zum Beispiel Jahreszeiten, Monate oder Farben oft als Enums umgesetzt. \textit{(Beispiel(e))}
+Enums dienen in den objektorientierten Programmiersprachen zur Aufzählung von Ausdrücken einer endlichen Menge. So werden zum Beispiel Jahreszeiten, Monate oder Farben oft als Enums umgesetzt. 
 
 \begin{lstlisting}
 from enum import Enum
