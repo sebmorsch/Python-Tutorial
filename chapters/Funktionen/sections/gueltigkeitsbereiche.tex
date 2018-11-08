@@ -1,0 +1,121 @@
+\section{Gültigkeitsbereich von Variablen}
+
+Je nachdem, wie und wo Funktionen definiert sind, können diese nach einem Aufruf zu anderen Ergebnissen führen. Zur Verdeutlichung folgt ein einfaches Beispiel.
+
+\begin{lstlisting}[caption=Code-Beispiel zum Gültigkeitsbereich, label=simpleScope]
+def myFunction():
+  # lokaler Gültigkeitsereich der Funktion
+  a = 1
+  print('myFunction:', a)
+
+# globaler Gültigkeitsbereich
+a = 0
+myFunction()
+print('global:', a)
+\end{lstlisting}
+
+Wenn wir diesen Code ausführen, sehen wir folgenden Output:
+
+myFunction: 1
+\\*
+Global: 0
+
+In beiden Bereichen benutzen wir die Variable \textbf{a}.
+Die Funktion wird nach dem Initialisieren der Variable aufgerufen,
+warum erhalten wir also zwei unterschiedliche Werte?
+
+Der Grund dafür ist, weil es sich eben nicht um die gleiche Variable handelt, denn beide wurden in verschiedenen Gültigkeitsbereichen definiert.
+Würden wir die globale Zuweisung auslassen, würde zweimal der Wert 0 gedruckt werden.
+Python sucht nach dem nächstmöglichen Gültigkeitsbereich: lokal, umschließend, global und \textit{built-in}.
+
+Nun ein Beispiel, mit verschachtelten Funktionen:
+
+
+\begin{lstlisting}[caption=Verschachtelte Funktionen, label=enclosingScope]
+def enclosing():
+  a = 1
+
+  def innerFunction():
+    a = 2
+    print('innerste:', a)
+
+  innerFunction()
+  print('umschließend:', a)
+
+a = 0
+enclosing()
+print('global:', a)
+\end{lstlisting}
+
+Nach dem Ausdrucken erhalten wir:
+
+innerste: 2
+\\*
+umschließend: 1
+\\*
+global: 0
+
+
+\subsection{Statements zu Gültigkeitsbereichen - global und nonlocal}
+
+Nicht nur durch die Positionen werden Gültigkeitsbereiche definiert, durch die Schlüsselwörter \textit{global} und \textit{nonlocal} können wir den Gültigkeitsbereich bestimmen.
+
+Durch nonlocal wird eine Variable auf die nächst umschließende Definition festgelegt. 
+
+
+\begin{lstlisting}[caption=Nonlocal Statement, label=nonlocalStatement]
+def enclosing():
+  a = 1
+
+  def innerFunction():
+    \textbf{nonlocal a}
+    a = 2
+    print('innerste:', a)
+
+  innerFunction()
+  print('umschließend:', a)
+
+a = 0
+enclosing()
+print('global:', a)
+\end{lstlisting}
+
+Nach dem Ausdrucken erhalten wir:
+
+innerste: 2
+\\*
+umschließend: 2
+\\*
+global: 0
+
+Achtung: Würde in der enclosing-Funktion \textbf{a} auf nonlocal gesetzt, dann käme es zu einer \textit{Exception}, da die nächste Ebene global ist.
+
+Das gleiche können wir mit dem globalen Gültigkeitsbereich machen.
+
+\begin{lstlisting}[caption=Global Statement, label=globalStatement]
+def enclosing():
+  a = 1
+
+  def inner():
+    \textbf{global a}
+    a = 2
+    print('innerste:', a)
+
+  innereFunction()
+  print('umschließend:', a)
+
+a = 0
+enclosing()
+print('global:', a)
+\end{lstlisting}
+
+Nach dem Ausdrucken erhalten wir:
+
+innerste: 2
+\\*
+umschließend: 1
+\\*
+global: 2
+
+
+Während nonlocal nur den nächst umschließenden Gültigkeitsbereich wählt -  in welcher die Variable deklariert wurde - greift global immer auf den globalen Gültigkeitsbereich zu.
