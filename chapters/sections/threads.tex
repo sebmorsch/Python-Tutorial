@@ -2,3 +2,5 @@
 \section{Threads}
 
 \label{threads}
+
+In Python werden zwei APIs zur Verwendung von Threads angeboten, die Low-Level API aus dem \_thread-Modul und die Higher-Level API aud dem threading-Modul. Es wird sich an dieser Stelle auf das threading-Modul beschränkt, da es Intern auf dem \_thread-Modul basiert und eine Schnittstelle anbietet, welche das Programmieren von Multithreaded Applikationen erleichert. Diese Schnittstelle ist an der Thread-Schnittstelle aus Java angelehnt und sollte daher für Java-Entwickler leicht zu verwenden sein. Allerdings gibt es einige Unterschiede zwischen dem Python-Modul und der Java-Implementierung. So sind Bedingungsvariablen und Locks seperate Objekte in Python und es ist auch nur eine Teilmenge des Verhaltens eine Java-Threads in Python verfügbar. Ein Python-Thread kennt keine Prioritäten und Thread-Gruppen und er kann nicht zerstört, gestopped, angehalten, fortgesetzt oder unterbrochen werden. Soweit vorhanden sind die statischen Methoden aus der Java-Thread-Klasse auf Modul-Ebene in Python implementiert.
