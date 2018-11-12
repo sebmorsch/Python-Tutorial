@@ -8,6 +8,7 @@ Python wurde mit dem Ziel größter Einfachheit sowie Übersichtlichkeit entworfen.
 Dies wird nicht zuletzt durch die größe Übersichtlichkeit in der Standardbibliothek versucht zu erreichen sondern auch durch die Modulare Erweiterbarkeit.
 Im folgenden wird die Python in der Version 3 behandelt.
 
+
 \subsection{Installation}
 Python kann auf der Webseite https://www.python.org bezogen werden.
 Nach dem Download des Installationsassistenten kann dieser gestartet werden und führt den Nutzer anschließend durch den Installationsprozess.
@@ -35,8 +36,25 @@ Nach Abschluss der Installation stehen dem Anwender die verschieden Programme zu
 Unter /Application/Python[Version] befindet sich \textit{IDLE}, die mitgelieferte Standard Entwicklungsumgebung zu Python.
 Der \textit{PythonLauncher}, welcher für das ausführen von Python-Scripts per Doppelklick zuständig ist.
 Das \textit{Build Applet} um Python Script zu lauffähigen Anwendungen zusammen zu packen.
-Zuletzte wurde durch den Assistent unter /Library/Frameworks/Python.framework noch das Python Framework abgelegt.
+Zuletzt wurde durch den Assistent unter /Library/Frameworks/Python.framework noch das Python Framework abgelegt.
 Ohne dieses wäre das Arbeiten mit Python nicht möglich.
+
+\subsection{Installation unter Linux(Ubuntu)}
+Im folgenden wird die Installation an Ubuntu Version 18.04.1 LTS verdeutlicht.
+Ubuntu bring von Haus aus einen Python Interpreter in der Version 3.6.6 mit.
+Allerdings ist hier nicht die Standard Entwicklungsumgebung IDLE enthalten.
+Diese kann über das Paket \textit{IDLE} nachinstalliert werden.
+Sollte kein Python vorhanden sein kann man dies über das Terminal mit folgendem Befehl installieren.
+
+\begin{lstlisting}
+sudo apt-get install python3 python-doc
+\end{lstlisting}
+
+Diese Installation umfasst unter anderem auch die Dokumentation von Python.
+Nach Abschluss der Installationsroutine kann wie mit jedem anderen Betriebssystem mit Python gearbeitet werden.
+
+
+
 %TODO Skript versus Programm
 
 \subsection{Python Interpreter} %WIP ROGU 
@@ -78,14 +96,14 @@ Somit kann bei zum Beispiel einer IF-Abfrage der nachfolgende Block leicht falsc
 \subsubsection{Kommentare}
 Innerhalb Python wird zwischen Zeilen und Blockkommentaren unterschieden.
 Zeilenweise Kommentare werden Über das Rautensymbol (\# ) eingeleitet.
-Blockkommentare Über drei aufeinander folgenden Anführungzeichen ('''''').
+Blockkommentare Über drei aufeinander folgenden Anführungszeichen ('''''').
 Im folgenden jeweils ein Beispiel für Zeilenweise Kommentare sowie Blockkommentare.
 \lstinputlisting{chapters/sections/listings/comment.py}
 \subsubsection{Typsicherheit}
 Anders als bei Java und C++ ist Python eine nur schwach typisierte Sprache.
 Somit ist bei der Initialisierung keine Typangabe erforderlich. 
 Der Datentyp wird beim Initialisieren dynamisch ermittelt und automatisch zugewiesen.
-Um eine Variable eines bestimmten Typs zu bekommen kann man diese mit werten dieses Typs vorinitialisieren.
+Um eine Variable zu typisieren kann man diese mit einem Typ Initialisieren.
 
 
 \subsubsection{Prozedurale Programmierung}
