@@ -14,7 +14,7 @@ print(liste)
 liste.sort(reverse=True)
 print(liste)
 
-# sortieren nach der Länge einzelner Objekte
+# sortieren nach der Laenge einzelner Objekte
 liste = ["aa", "aaa", "a"]
 
 

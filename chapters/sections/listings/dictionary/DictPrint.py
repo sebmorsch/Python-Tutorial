@@ -1,0 +1,1 @@
+print(dictionary["k1"])
