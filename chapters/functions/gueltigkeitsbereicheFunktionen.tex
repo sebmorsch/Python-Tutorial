@@ -1,8 +1,9 @@
+% !TeX root = ../../pythonTutorial.tex
 \section{Gültigkeitsbereich von Variablen}
 
-Je nachdem, wie und wo Funktionen definiert sind, können diese nach einem Aufruf zu anderen Ergebnissen führen. Zur Verdeutlichung folgt ein einfaches Beispiel.
+Je nachdem, wie und wo Funktionen definiert sind, können diese nach einem Aufruf zu anderen Ergebnissen führen. Zur Verdeutlichung folgt ein einfaches Beispiel (\ref{gueltigkeitsbereicheFunktionen:lst:simpleScope}).
 
-\begin{lstlisting}[caption=Code-Beispiel zum Gültigkeitsbereich, label=simpleScope]
+\begin{lstlisting}[caption=Code-Beispiel zum Gültigkeitsbereich, label=gueltigkeitsbereicheFunktionen:lst:simpleScope]
 def myFunction():
   # lokaler Gültigkeitsereich der Funktion
   a = 1
@@ -18,7 +19,7 @@ Wenn wir diesen Code ausführen, sehen wir folgenden Output:
 
 myFunction: 1
 \\*
-Global: 0
+global: 0
 
 In beiden Bereichen benutzen wir die Variable \textbf{a}.
 Die Funktion wird nach dem Initialisieren der Variable aufgerufen,
@@ -30,8 +31,7 @@ Python sucht nach dem nächstmöglichen Gültigkeitsbereich: lokal, umschließend, g
 
 Nun ein Beispiel, mit verschachtelten Funktionen:
 
-
-\begin{lstlisting}[caption=Verschachtelte Funktionen, label=enclosingScope]
+\begin{lstlisting}[caption=Verschachtelte Funktionen, label=gueltigkeitsbereicheFunktionen:lst:enclosingScope]
 def enclosing():
   a = 1
 
@@ -60,10 +60,9 @@ global: 0
 
 Nicht nur durch die Positionen werden Gültigkeitsbereiche definiert, durch die Schlüsselwörter \textit{global} und \textit{nonlocal} können wir den Gültigkeitsbereich bestimmen.
 
-Durch nonlocal wird eine Variable auf die nächst umschließende Definition festgelegt. 
+Durch nonlocal wird eine Variable auf die nächst umschließende Definition festgelegt (\ref{gueltigkeitsbereicheFunktionen:lst:nonlocalStatement}). 
 
-
-\begin{lstlisting}[caption=Nonlocal Statement, label=nonlocalStatement]
+\begin{lstlisting}[caption=Nonlocal Statement, label=gueltigkeitsbereicheFunktionen:lst:nonlocalStatement]
 def enclosing():
   a = 1
 
@@ -90,9 +89,9 @@ global: 0
 
 Achtung: Würde in der enclosing-Funktion \textbf{a} auf nonlocal gesetzt, dann käme es zu einer \textit{Exception}, da die nächste Ebene global ist.
 
-Das gleiche können wir mit dem globalen Gültigkeitsbereich machen.
+Das gleiche können wir mit dem globalen Gültigkeitsbereich machen, wie in \ref{gueltigkeitsbereicheFunktionen:lst:globalStatement} gezeigt.
 
-\begin{lstlisting}[caption=Global Statement, label=globalStatement]
+\begin{lstlisting}[caption=Global Statement, label=gueltigkeitsbereicheFunktionen:lst:globalStatement]
 def enclosing():
   a = 1
 

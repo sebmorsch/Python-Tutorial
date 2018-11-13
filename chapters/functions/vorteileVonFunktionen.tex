@@ -1,7 +1,7 @@
 % !TeX root = ../../pythonTutorial.tex
 \section{Vorteile von Funktionen}
 
-Warum benutzt man eigentlich Funktionen? Diese bieten nun mal
+Warum benutzen Programmierer eigentlich Funktionen? Diese bieten nun mal
 eine Vielzahl an Vorteilen, wie z.B.
 
 \begin{itemize}
@@ -23,7 +23,7 @@ Schritte die immer wieder gebraucht werden, wären das Abfangen, Auslesen, Interp
 und Aufbereiten von Daten. Anfängern könnte es passieren, diese Aufgaben in einer
 großen komplexen Funktion zu schreiben.
 
-\begin{lstlisting}[caption=Schlechter Umgang mit komplexen Prozessen, label=badComplexFunction]
+\begin{lstlisting}[caption=Schlechter Umgang mit komplexen Prozessen, label=vorteileVonFunktionen:lst:badComplexFunction]
 def processData(source):
   ...
   return finalData
@@ -33,7 +33,7 @@ Es ist mehr als mühselig herauszufinden, was denn genau in dieser Funktion passi
 Ein Beispiel zum Aufteilen des Code-Blocks, könnte da schon etwas mehr Licht ins Dunkel
 bringen.
 
-\begin{lstlisting}[caption=Komplexität aufgeteilt in mehrere Funktionen, label=goodComplexFunction]
+\begin{lstlisting}[caption=Komplexität aufgeteilt in mehrere Funktionen, label=vorteileVonFunktionen:lst:goodComplexFunction]
 def processData(source)
 	rawData = readData(source)
 	parsedData = parseData(rawData)
@@ -47,9 +47,8 @@ def processData(source)
 Gewisse Prozesse werden beim Programmieren immer wieder benötigt.
 Beim Arbeiten mit Datensätzen ist es üblich, diese nach gewissen Kriterien zu sortieren. 
 In einer Datenbank ist die Sortierung nach der Identifikationsnummer von großem Vorteil.
-Nun möchte man nicht für jeden Datensatzaufruf, diese \textbf{Funktion} duplizieren.
-Daher speichert man diesen Prozess in einer Funktion, auf welche man von verschiedenen
-Positionen im Programm zugreifen kann.
+Nun möchten wir nicht für jeden Datensatzaufruf, diese \textbf{Funktion} duplizieren.
+Daher wird dieser Prozess in einer Funktionen gespeichert, auf welche wir von verschiedenen Positionen im Programm zugreifen können.
 
 \subsection{Bessere Lesbarkeit, Erweiterbarkeit, Veränderbarkeit}
 
@@ -70,6 +69,6 @@ nur in die calculateArray-Funktion sehen, sind die Werte falsch sortiert, so wir
 näher betrachtet.
 
 Durch das Kapseln von Prozessen in einzelnen Funktionen, sind diese auch einfach erweiterbar und veränderbar.
-Wäre der Code nur dupliziert worden, müsste man diesen an allen Stellen ändern.
+Wäre der Code nur dupliziert worden, müsste der Nutzer diesen an allen Stellen ändern.
 Da das Programm aber an diesen Stellen nur die Funktion aufruft, muss nur
-diese Funktioniert erweitert oder verändert werden.
+diese Funktion erweitert oder verändert werden.
