@@ -1,4 +1,4 @@
-% !TeX root = ../pythonTutorial.tex
+% !TeX root = ../../pythonTutorial.tex
 
 \section{Elementare Datentypen}
 
@@ -8,10 +8,10 @@ Soviel zum allgemeinen Unterschied zu den anderen Programmiersprachen. Betrachte
 \newpage
 \subsection{Zahlenoperatoren}
 
-Da in Python auf Typdeklarationen verzichtet wird, muss dieser nicht beim Anlegen der Variable berücksichtigt werden. Wird eine ganze Zahl (Integer)benötigt, kann diese falls nötig auch in eine Gleitkommazahl (float) umgewandelt werden, ohne groß etwas am Code zu ändern. Python deklariert im Hintergrund selbst und spart so unnötige Komplexitäten und Fehlerquellen. \ref{refzahl}
+Da in Python auf Typdeklarationen verzichtet wird, muss dieser nicht beim Anlegen der Variable berücksichtigt werden. Wird eine ganze Zahl (Integer)benötigt, kann diese falls nötig auch in eine Gleitkommazahl (float) umgewandelt werden, ohne groß etwas am Code zu ändern. Python deklariert im Hintergrund selbst und spart so unnötige Komplexitäten und Fehlerquellen (Beispiel in \ref{basicDatatypes:lst:refzahl}).
 
 
-\begin{lstlisting}[caption={Zahlenoperatoren},label=refzahl]
+\begin{lstlisting}[caption={Zahlenoperatoren},label=basicDatatypes:lst:refzahl]
 i = 42
 type(i)
 // Ausgabe: <class 'int'>
@@ -22,9 +22,9 @@ type(i)
 
 \textbf{Boolean}
 
-Boolean gibt an, ob ein Statement true oder false ist. Dadurch lassen sich Fallunterscheidungen oder Abfragen ermöglichen. \ref{refbool}
+Boolean gibt an, ob ein Statement true oder false ist. Dadurch lassen sich Fallunterscheidungen oder Abfragen ermöglichen (Beispiel in Listing \ref{basicDatatypes:lst:refbool}). 
 
-\begin{lstlisting}[caption={Boolean},label=refbool]
+\begin{lstlisting}[caption={Boolean},label=basicDatatypes:lst:refbool]
 i = True
 i
 // Ausgabe: True
@@ -37,9 +37,9 @@ Der String ist eine Zeichenkette, also eine Aneinanderreihung von verschiedenen 
 
 Wie in den meisten objektorientierten Programmiersprachen, lassen sich auch in Python die einzelnen Zeichen eines Strings abrufen in dem der dazugehörige Index abgerufen wird.
 
-Auch die Länge des gesamten Strings kann durch einfache Abfrage angezeigt werden. \ref{refstring}
+Wie in Listing \ref{basicDatatypes:lst:refstring} kann die Länge des gesamten Strings durch einfache Abfrage angezeigt werden. 
 
-\begin{lstlisting}[caption={Strings},label=refstring]
+\begin{lstlisting}[caption={Strings},label=basicDatatypes:lst:refstring]
 i = "Python"
 print (i)
 // Ausgabe: Python

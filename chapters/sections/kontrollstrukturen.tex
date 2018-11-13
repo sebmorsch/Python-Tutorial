@@ -1,4 +1,4 @@
-% !TeX root = ../pythonTutorial.tex
+% !TeX root = ../../pythonTutorial.tex
 
 \section{Kontrollstrukturen}
 
@@ -6,25 +6,23 @@ Die Kontrollstrukturen in Python haben einen formalen Unterschied zu Java oder C
 
 \subsection{If-then-else}
 
-Die if-then-else-Struktur ermöglicht es - wie wir es bereits kennen - simple wenn-dann Abfragen zu tätigen.
+Die if-then-else-Struktur ermöglicht es - wie wir es bereits kennen - simple wenn-dann Abfragen zu tätigen.\\
+Mehrere Abfragemöglichkeiten werden mit elif markiert. Vergleich hierzu Listing \ref{kontrollstrukturen:lst:refif}.
 
-Mehrere Abfragemöglichkeiten werden mit elif markiert. \ref{refif}
-
-\begin{lstlisting}[caption={If-then-else},label=refif]
+\begin{lstlisting}[caption={If-then-else},label=kontrollstrukturen:lst:refif]
 if statement1:
 	print("Fall 1")
 elif statement2:
 	print("Fall 2")
 else:
 	print("Fall 3")
-
 \end{lstlisting}
 
 \textbf{Conditional Expressions}
 
-Die Conditional Expressions (engl. bedingte Ausdrücke) stellen eine kompaktere Schreibweise als if-then-else-Bedinungen dar. \ref{refcond}
+Die Conditional Expressions (engl. bedingte Ausdrücke) stellen eine kompaktere Schreibweise als if-then-else-Bedinungen dar. Ein Beispiel ist in Listing \ref{kontrollstrukturen:lst:refcond} zu finden. 
 
-\begin{lstlisting}[caption={Conditional Expressions},label=refcond]
+\begin{lstlisting}[caption={Conditional Expressions},label=kontrollstrukturen:lst:refcond]
 // Klassisches If-Else
 if wort == "start":
 	x = "los"
@@ -39,9 +37,9 @@ x = ("los" if wort == "start" else "halt")
 \newpage
 \subsection{Schleifen}
 
-Python hat sowohl while- \ref{refwhile} als auch for-Schleifen \ref{reffor}, welche wir uns beide im Folgenden genauer ansehen werden. Schleifen bestehen aus einer Anweisung und einem Kontrollblock, welcher solange durchlaufen wird, bis die Anweisung oder ein Abbruchkriterium erfüllt wurde. Schleifen die niemals ein Abbruchkriterium erfüllen und so endlos durchlaufen werden heißen Endlosschleifen. Diese führen dazu, dass der Interpreter irgendwann den Geist aufgibt und abbricht.
+Python hat sowohl while-  als auch for-Schleifen, welche wir uns beide im Folgenden genauer ansehen werden (vgl. Listing \ref{kontrollstrukturen:lst:refwhile} und \ref{kontrollstrukturen:lst:reffor}). Schleifen bestehen aus einer Anweisung und einem Kontrollblock, welcher solange durchlaufen wird, bis die Anweisung oder ein Abbruchkriterium erfüllt wurde. Schleifen die niemals ein Abbruchkriterium erfüllen und so endlos durchlaufen werden heißen Endlosschleifen. Diese führen dazu, dass der Interpreter irgendwann den Geist aufgibt und abbricht.
 
-\begin{lstlisting}[caption={While-Schleife},label=refwhile]
+\begin{lstlisting}[caption={While-Schleife},label=kontrollstrukturen:lst:refwhile]
 // While Schleife
 while Bedingung:
 	Anweisungsblock
@@ -55,7 +53,7 @@ while Bedingung:
 
 \end{lstlisting}
 
-\begin{lstlisting}[caption={For-Schleife},label=reffor]
+\begin{lstlisting}[caption={For-Schleife},label=kontrollstrukturen:lst:reffor]
 // For Schleife
 for Variable in Objekt:
 	Anweisungsblock
@@ -73,9 +71,9 @@ for Variable in Objekt:
 \newpage
 \textbf{Enums}
 
-Enums dienen in den objektorientierten Programmiersprachen zur Aufzählung von Ausdrücken einer endlichen Menge. So werden zum Beispiel Jahreszeiten, Monate oder Farben oft als Enums umgesetzt. \ref{refenum}
+Enums dienen in den objektorientierten Programmiersprachen zur Aufzählung von Ausdrücken einer endlichen Menge. So werden zum Beispiel Jahreszeiten, Monate oder Farben oft als Enums umgesetzt. Siehe hierzu Listing \ref{kontrollstrukturen:lst:refenum}.
 
-\begin{lstlisting}[caption={Enums},label=refenum]
+\begin{lstlisting}[caption={Enums},label=kontrollstrukturen:lst:refenum]
 from enum import Enum
 class Color(Enum):
 	RED = 1
