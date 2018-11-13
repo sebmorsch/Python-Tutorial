@@ -3,7 +3,7 @@
 
 In Python 3 existieren nativ die vier Datenstrukturen List, Tuple, Set und Dictionary, welche im Folgenden vorgestellt werden.
 
-%------------------------------------------------------------------------------------------------------------------------
+
 \subsection{List}
 Die Datenstruktur List bietet einen geordneten und veränderbaren Behälter für Python-Objekte, welcher  Duplikate von Elementen erlaubt. Da eine List immer sortiert ist, können einzelne Elemente aus der Datenstruktur über den entsprechenden Index ausgewählt und verändert werden. Python unterstützt intern keine Arrays, alternativ hierzu kann eine List verwendet werden.
 
@@ -85,14 +85,12 @@ Invertiert die Folge der Objekte in der List.
 \lstinputlisting{chapters/sections/listings/list/ListSort.py}
 Sortiert die List.
     
-%------------------------------------------------------------------------------------------------------------------------
 \subsection{Tuple}
 
 Ein Tuple stellt einen geordneten und unveränderbaren Behälter für Python-Objekte dar. Dieser erlaubt, wie eine List, Duplikate und den Zugriff auf einzelne Elemente über einen Index. Tuple sind Datenstrukturen, die ausschließlich gelesen werden können.
 
 Ein Tuple wird mit folgender Syntax erzeugt:
 \lstinputlisting{chapters/sections/listings/tuple/TupleInit.py}
-
 
 Es ist möglich leere Tuple zu erzeugen. Wie zuvor erwähnt, ist deren Inhalt unveränderlich.
 
@@ -115,13 +113,10 @@ Liefert die Anzahl des gewählten Wertes in einem Tuple.
 \lstinputlisting{chapters/sections/listings/tuple/TupleCount.py}    
 
 
-
 \textbf{index():}
 Liefert die Position des ersten Wertes, der mit dem spezifizierten Wert übereinstimmt.
 \lstinputlisting{chapters/sections/listings/tuple/TupleIndexMethode.py}
 
-
-%------------------------------------------------------------------------------------------------------------------------
 \subsection{Set}
 Ein Set ist durch das Hinzufügen oder Entfernen von Objekten veränderbar und erlaubt keine Duplikate. Das Initialisieren mit mehrfach identischen Werten führt nicht zu einem Fehler, jedoch werden die überzähligen Werte aus dem Set entfernt. Die enthalten Elemente sind unveränderlich. Zudem ist die Datenstruktur ungeordnet, weshalb nicht auf einzelne Objekte, mittels Index, zugegriffen werden kann. 
 
@@ -185,7 +180,7 @@ Entfernt das gewählte Element aus dem Set. Sollte das gewählte Element nicht in 
 \lstinputlisting{chapters/sections/listings/set/SetRemove.py}
     
 \textbf{symmetric\_difference():}
-LIefert ein Set, das die Vereinigung zweier Sets, ohne deren Schnittmenge enthält.
+Liefert ein Set, das die Vereinigung zweier Sets, ohne deren Schnittmenge enthält.
 \lstinputlisting{chapters/sections/listings/set/SetSymDiff.py}
     
 \textbf{symmetric\_difference\_update():}
@@ -200,13 +195,11 @@ Liefert ein Set, welches die Vereinigung zweier Sets darstellt. Duplikate werden
 Fügt einem Set die Items eines Anderen hinzu. Duplikate werden entfernt.
 \lstinputlisting{chapters/sections/listings/set/SetUpdate.py}
     
-%------------------------------------------------------------------------------------------------------------------------
 \subsubsection{Frozenset}
 
 Im Gegensatz zu einem \glqq{}normalen\grqq{} Set kann ein Frozenset nicht mehr verändert werden. Das Hinzufügen eines neuen Elementes ist nicht erlaubt und führt zu einem Fehler.
 \lstinputlisting{chapters/sections/listings/set/SetFrozen.py}
 
-%------------------------------------------------------------------------------------------------------------------------
 \subsection{Dictionary}
 Ein Dictionary ist eine ungeordnete, veränderbare Datenstruktur, die keine Duplikate erlaubt und Schlüssel-Objekt-Paare beinhaltet. Bei einer Ausgabe werden die Werte in zufälliger Reihenfolge ausgegeben, denn ein Dictionary besitzt keine Ordnung.
 
@@ -240,7 +233,7 @@ Liefert das Objekt, welches dem angegebenen Schlüssel zugeordnet ist.
 Liefert eine List mit einem Tuple für jedes Schlüssel-Objekt-Paar.
 \lstinputlisting{chapters/sections/listings/dictionary/DictItems.py}
 
-\textbf{keys()}
+\textbf{keys():}
 Liefert eine List von allen im Dictionary verwendeten Schlüsseln.
 \lstinputlisting{chapters/sections/listings/dictionary/DictKeys.py}
 
@@ -264,10 +257,5 @@ Fügt dem Dictionary ein Schlüssel-Objekt-Paar hinzu.
 Liefert eine Liste mit allen im Dictionary enthaltenen Werten.
 \lstinputlisting{chapters/sections/listings/dictionary/DictValues.py}
 
-
-
-
-
-%------------------------------------------------------------------------------------------------------------------------
 \subsection{Zusammenfassung}
 In diesem Abschnitt haben wir also gesehen das Python 3 uns mehrere Collections zur Aufbewahrung von Daten bereitstellt. Diese können je nach Datenstruktur unterschiedliche Eigenschaften aufweisen. Während eine List die Daten sortiert vorhält und Duplikate zulässt, werden bei einer Set entsprechende Doppelte Einträge vermieden. Betrachtet man das Set und seine Methoden genauer, ist dies der dahinter liegenden Mathematik, konkret der Mengenlehre geschuldet. Aus diesem Grund können alle gängigen Mathematischen Operation auf Sets angewendet werden. Zum Schluss haben wir in diesem Abschnitt das Dictionary kennengelernt. Dieses ist ähnlich den Maps in Java. Dabei besteht ein Dictionary aus Schlüssel-Objekt-Paaren die hinter jedem Schlüssel ein entsprechendes Objekt bereitstellen bzw. Mappen.
