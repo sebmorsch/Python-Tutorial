@@ -14,7 +14,7 @@ eine Vielzahl an Vorteilen, wie z.B.
 Im Folgenden werden die Punkte näher betrachtet.
 
 \subsection{Aufteilen von komplexen Aufgaben}
-
+\label{vorteileVonFunktionen:subsection:splitComplexTask}
 Bei komplexen Aufgaben kommt es schnell zu einer hohen Anzahl an
 Code-Zeilen. Darunter leidet nicht nur der Programmierer, sondern auch Kollegen,
 welche an dieser Aufgabe mitarbeiten, erweitern oder verändern sollen.
@@ -47,21 +47,22 @@ def processData(source)
 Gewisse Prozesse werden beim Programmieren immer wieder benötigt.
 Beim Arbeiten mit Datensätzen ist es üblich, diese nach gewissen Kriterien zu sortieren. 
 In einer Datenbank ist die Sortierung nach der Identifikationsnummer von großem Vorteil.
-Nun möchten wir nicht für jeden Datensatzaufruf, diese \textbf{Funktion} duplizieren.
+Nun möchten wir nicht für jeden Datensatzaufruf diese \textit{Funktion} duplizieren.
 Daher wird dieser Prozess in einer Funktionen gespeichert, auf welche wir von verschiedenen Positionen im Programm zugreifen können.
 
 \subsection{Bessere Lesbarkeit, Erweiterbarkeit, Veränderbarkeit}
 
-Wie im Unterabschnitt \textit{Aufteilen von komplexen Aufgaben} zu sehen ist,
+Wie in Unterabschnitt \ref{vorteileVonFunktionen:subsection:splitComplexTask} zu sehen ist,
 bringt das Aufteilen des Codes in spezifische Funktionen eine bessere Lesbarkeit mit sich.
 Der Nutzer muss den Code nicht erst interpretieren, bei intelligent gewählten 
 Funktionsnamen, versteht er, was in der Funktion passiert. Besonders beim Debuggen 
 kann das große Vorteile mit sich bringen, da der Programmierer nicht an den falschen 
 Stellen zu suchen braucht.
-
+\begin{lstlisting}[]
 array = calculateArray()
 
 sortedArray = quickSort(array)
+\end{lstlisting}
 
 In diesem Beispiel weiß der Nutzer, dass das Array durch einen QuickSort-Algorithmus sortiert wird.
 Sollte nun auffallen, dass es sich um falsche Werte handelt, dann muss der Programmierer

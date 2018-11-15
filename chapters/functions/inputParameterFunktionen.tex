@@ -21,7 +21,7 @@ myFunction(x)
 print(x)
 \end{lstlisting}
 
-Da es sich hier (\ref{inputParameterFunktionen:lst:nonPrimitiveParameter}) nicht um einen primitiven Datentypen handelt, stellt der Input-Parameter eine Referenz dar, womit der Wert von x auch in der Methode geändert wird. Beim Ausdrucken erhalten wir: \textbf{[100,1,2]}
+Da es sich hier (\ref{inputParameterFunktionen:lst:nonPrimitiveParameter}) nicht um einen primitiven Datentypen handelt, stellt der Input-Parameter eine Referenz dar, womit der Wert von x auch in der Methode geändert wird. Beim Ausdrucken erhalten wir: \lstinline$[100,1,2]$.
 
 Es ist wichtig, sich dieses Verhalten zu merken, da beim objekt-orientierten Programmieren sonst schnell Fehler auftreten.
 
@@ -61,7 +61,7 @@ def myFunction(x,y,z):
 Standard-Parameter folgen einer ähnlichen Syntax wie Schlüsselwort-Parameter, jedoch
 werden sie in der Funktionsdefinition festgelegt und nicht beim Aufruf.
 Zu beachten ist, dass beim Verwenden von positionalen und Standard-Parametern
-alle Standard-Parameter \textbf{nach} den positionalen schreiben muss.
+alle Standard-Parameter \textit{nach} den positionalen schreiben muss.
 
 \begin{lstlisting}[caption=Funktion mit Standard-Parametern, label=inputParameterFunktionen:lst:standardParameter]
 def myFunction(x, y = 10, z = 20):

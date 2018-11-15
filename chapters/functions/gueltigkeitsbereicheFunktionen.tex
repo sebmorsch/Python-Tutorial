@@ -21,13 +21,13 @@ myFunction: 1
 \\*
 global: 0
 
-In beiden Bereichen benutzen wir die Variable \textbf{a}.
+In beiden Bereichen benutzen wir die Variable \lstinline$a$.
 Die Funktion wird nach dem Initialisieren der Variable aufgerufen,
 warum erhalten wir also zwei unterschiedliche Werte?
 
 Der Grund dafür ist, weil es sich eben nicht um die gleiche Variable handelt, denn beide wurden in verschiedenen Gültigkeitsbereichen definiert.
 Würden wir die globale Zuweisung auslassen, würde zweimal der Wert 0 gedruckt werden.
-Python sucht nach dem nächstmöglichen Gültigkeitsbereich: lokal, umschließend, global und \textit{built-in}.
+Python sucht nach dem nächstmöglichen Gültigkeitsbereich: lokal, umschließend, global und \lstinline$built-in$.
 
 Nun ein Beispiel, mit verschachtelten Funktionen:
 
@@ -58,7 +58,7 @@ global: 0
 
 \subsection{Statements zu Gültigkeitsbereichen - global und nonlocal}
 
-Nicht nur durch die Positionen werden Gültigkeitsbereiche definiert, durch die Schlüsselwörter \textit{global} und \textit{nonlocal} können wir den Gültigkeitsbereich bestimmen.
+Nicht nur durch die Positionen werden Gültigkeitsbereiche definiert, durch die Schlüsselwörter \lstinline$global$ und \lstinline$nonlocal$ können wir den Gültigkeitsbereich bestimmen.
 
 Durch nonlocal wird eine Variable auf die nächst umschließende Definition festgelegt (\ref{gueltigkeitsbereicheFunktionen:lst:nonlocalStatement}). 
 
@@ -87,7 +87,7 @@ umschließend: 2
 \\*
 global: 0
 
-Achtung: Würde in der enclosing-Funktion \textbf{a} auf nonlocal gesetzt, dann käme es zu einer \textit{Exception}, da die nächste Ebene global ist.
+Achtung: Würde in der enclosing-Funktion \lstinline$a$ auf nonlocal gesetzt, dann käme es zu einer \lstinline$Exception$, da die nächste Ebene global ist.
 
 Das gleiche können wir mit dem globalen Gültigkeitsbereich machen, wie in \ref{gueltigkeitsbereicheFunktionen:lst:globalStatement} gezeigt.
 
