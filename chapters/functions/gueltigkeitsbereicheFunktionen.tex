@@ -26,7 +26,7 @@ Die Funktion wird nach dem Initialisieren der Variable aufgerufen,
 warum erhalten wir also zwei unterschiedliche Werte?
 
 Der Grund dafür ist, weil es sich eben nicht um die gleiche Variable handelt, denn beide wurden in verschiedenen Gültigkeitsbereichen definiert.
-Würden wir die globale Zuweisung auslassen, würde zweimal der Wert 0 gedruckt werden.
+Würden wir die lokale Zuweisung auslassen, würde zweimal der Wert 0 gedruckt werden.
 Python sucht nach dem nächstmöglichen Gültigkeitsbereich: lokal, umschließend, global und \lstinline$built-in$.
 
 Nun ein Beispiel, mit verschachtelten Funktionen:
