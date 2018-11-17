@@ -5,12 +5,12 @@ In Python 3 existieren nativ die vier Datenstrukturen List, Tuple, Set und Dicti
 
 
 \subsection{List}
-Die Datenstruktur List bietet einen geordneten und veränderbaren Behälter für Python-Objekte, welcher  Duplikate von Elementen erlaubt. Da eine List immer sortiert ist, können einzelne Elemente aus der Datenstruktur über den entsprechenden Index ausgewählt und verändert werden. Python unterstützt intern keine Arrays, alternativ hierzu kann eine List verwendet werden.
+Die Datenstruktur List bietet einen geordneten und veränderbaren Behälter für Python-Objekte, der Duplikate von Elementen erlaubt. Da eine List immer sortiert ist, können einzelne Elemente aus der Datenstruktur über den entsprechenden Index ausgewählt und verändert werden. Python unterstützt intern keine Arrays, alternativ hierzu kann eine List verwendet werden.
 
-Eine List kann wie folgt Initialisiert werden:
+Eine List kann wie folgt initialisiert werden:
 \lstinputlisting{chapters/sections/listings/list/ListInit.py}
 
-Dabei kann diese jegliche Art von Objekten beinhalten, der Datentyp spielt hierbei keine Rolle. 
+Dabei kann sie jegliche Art von Objekten beinhalten; der Datentyp spielt hierbei keine Rolle. 
 
 Beispiel:
 \lstinputlisting{chapters/sections/listings/list/ListDataType.py}
@@ -18,7 +18,7 @@ Beispiel:
 
 Im Gegensatz zu Java und C++ muss der Programmierer darauf achten und sicherstellen, dass die Datenstruktur mit Werten des entsprechenden Datentyps befüllt wird, um Fehler aufgrund unterschiedlicher Datentypen zu vermeiden.
 
-Der Inhalt einer List kann über die print-Methode ausgegeben werden. Im Folgenden Beispiel werden verschiedene Elemente der List auf der Konsole ausgegeben.
+Der Inhalt einer List kann über die print-Methode ausgegeben werden. Im folgenden Beispiel werden verschiedene Elemente der List auf der Konsole ausgegeben.
 Wird die List als Parameter gewählt, wird der Inhalt ausgegeben.
 \lstinputlisting{chapters/sections/listings/list/ListPrint.py}
 
@@ -29,13 +29,13 @@ Python erlaubt die Nutzung von negativen Indizes. Mit diesen kann der Inhalt der
 \lstinputlisting{chapters/sections/listings/list/ListNegativeIndex.py}
     
 
-In Python existiert für die Datenstruktur List keine Methode die mit contains() in Java oder der find() aus C++ vergleichbar ist. Stattdessen stehen die Membership Operatoren \glqq{}in\grqq{} oder \glqq{}not in\grqq{} zur Verfügung, welche auf eine beliebige Sequenz oder die hier beschriebenen Collections angewendet, Auskunft darüber gibt, ob das spezifizierte Element darin enthalten ist.
+In Python existiert für die Datenstruktur List keine Methode, die mit \textit{contains()} in Java oder der \textit{find()} aus C++ vergleichbar ist. Stattdessen stehen die Membership Operatoren \textit{\glqq{}in\grqq{}} oder \textit{\glqq{}not in\grqq{}} zur Verfügung, welche auf eine beliebige Sequenz oder die hier beschriebenen Collections angewendet, Auskunft darüber gibt, ob das spezifizierte Element darin enthalten ist.
 \lstinputlisting{chapters/sections/listings/list/ListInOperator.py}
     
 Der Python Interpreter stellt nativ einige Funktionen zur Verfügung. Eine davon ist die len -Methode, welche die Anzahl an Elementen in einem Objekt liefert.
 \lstinputlisting{chapters/sections/listings/list/ListLen.py}
     
-Das del -Statement erlaubt das Löschen einzelner Elemente oder der gesamten List.
+Das del-Statement erlaubt das Löschen einzelner Elemente oder der gesamten List.
 \lstinputlisting{chapters/sections/listings/list/ListDelete.py}
     
 
@@ -53,16 +53,17 @@ Entfernt sämtliche Objekte aus der List.
 Liefert eine Kopie der List.
 \lstinputlisting{chapters/sections/listings/list/ListClear.py}
     
+%\newpage
 \textbf{count():}
+Liefert die Anzahl des spezifizierten Objekts in der List.
 \lstinputlisting{chapters/sections/listings/list/ListCount.py}
-Liefert die Anzahl des spezifizierten Objektes in der List.
-    
+
 \textbf{extend():} 
 Fügt der liste1 den Inhalt der liste2 am Ende hinzu.
 \lstinputlisting{chapters/sections/listings/list/ListExtend.py}
     
 \textbf{index():}
-Liefert den Index der Position an der sich das erste spezifizierte Objekt in der List befindet.
+Liefert den Index der Position, an der sich das erste spezifizierte Objekt in der List befindet.
 \lstinputlisting{chapters/sections/listings/list/ListIndex.py}
     
 \textbf{insert():}
@@ -70,11 +71,11 @@ Fügt ein Objekt an der gewählten Position der List hinzu.
 \lstinputlisting{chapters/sections/listings/list/ListInsert.py}
 
 \textbf{pop():}
-Entfernt das Objekt, welches sich an der durch den Index spezifizierten Position befindet.
+Entfernt das Objekt, das sich an der durch den Index spezifizierten Position befindet.
 \lstinputlisting{chapters/sections/listings/list/ListPop.py}
     
 \textbf{remove():}
-Entfernt das erste Objekt der List, welches der Spezifikation entspricht.
+Entfernt das erste Objekt der List, das der Spezifikation entspricht.
 \lstinputlisting{chapters/sections/listings/list/ListRemove.py}
     
 \textbf{reverse():}
@@ -82,8 +83,9 @@ Invertiert die Folge der Objekte in der List.
 \lstinputlisting{chapters/sections/listings/list/ListReverse.py}
 
 \textbf{sort():}
-\lstinputlisting{chapters/sections/listings/list/ListSort.py}
 Sortiert die List.
+\lstinputlisting{chapters/sections/listings/list/ListSort.py}
+
     
 \subsection{Tuple}
 
@@ -92,47 +94,49 @@ Ein Tuple stellt einen geordneten und unveränderbaren Behälter für Python-Objekt
 Ein Tuple wird mit folgender Syntax erzeugt:
 \lstinputlisting{chapters/sections/listings/tuple/TupleInit.py}
 
-Es ist möglich leere Tuple zu erzeugen. Wie zuvor erwähnt, ist deren Inhalt unveränderlich.
+Es ist möglich, leere Tuple zu erzeugen. Wie zuvor erwähnt, ist deren Inhalt unveränderlich.
 
 \subsubsection{Arbeiten mit einem Tuple}
 
-Der Inhalt eines Tuple kann, analog zur List, auf der Konsole ausgegeben werden. Das Zuweisen eines neuen Objektes mittels Index führt im Gegensatz zur List zu einem Fehler.
+Der Inhalt eines Tuple kann, analog zur List, auf der Konsole ausgegeben werden. Das Zuweisen eines neuen Objekts mittels Index führt im Gegensatz zur List zu einem Fehler.
 \lstinputlisting{chapters/sections/listings/tuple/TupleIndex.py}
     
-Die Verwendung der Operatoren ?in? und ?not in? ist, wie die len -Methode, analog zur List -Datenstruktur.
+Die Verwendung der Operatoren \textit{\glqq{} in\grqq{}} und \textit{\glqq{}not in\grqq{}} ist, wie die len-Methode, analog zur List -Datenstruktur.
 \lstinputlisting{chapters/sections/listings/tuple/TupleInLen.py}
     
-Das del - Statement erlaubt das Löschen des Tuple. Aufgrund der Unveränderbarkeit der Datenstruktur können keine einzelnen Elemente entfernt werden.
+Das del-Statement erlaubt das Löschen des Tuple. Aufgrund der Unveränderbarkeit der Datenstruktur können keine einzelnen Elemente entfernt werden.
 \lstinputlisting{chapters/sections/listings/tuple/TupleDelete.py}
     
 
 \subsubsection{Methoden eines Tuple}
 
 \textbf{count():}
-Liefert die Anzahl des gewählten Wertes in einem Tuple.
+Liefert die Anzahl des gewählten Werts in einem Tuple.
 \lstinputlisting{chapters/sections/listings/tuple/TupleCount.py}    
 
 
 \textbf{index():}
-Liefert die Position des ersten Wertes, der mit dem spezifizierten Wert übereinstimmt.
+Liefert die Position des ersten Werts, der mit dem spezifizierten Wert übereinstimmt.
 \lstinputlisting{chapters/sections/listings/tuple/TupleIndexMethode.py}
 
 \subsection{Set}
-Ein Set ist durch das Hinzufügen oder Entfernen von Objekten veränderbar und erlaubt keine Duplikate. Das Initialisieren mit mehrfach identischen Werten führt nicht zu einem Fehler, jedoch werden die überzähligen Werte aus dem Set entfernt. Die enthalten Elemente sind unveränderlich. Zudem ist die Datenstruktur ungeordnet, weshalb nicht auf einzelne Objekte, mittels Index, zugegriffen werden kann. 
+Ein Set ist durch das Hinzufügen oder Entfernen von Objekten veränderbar und erlaubt keine Duplikate. Das Initialisieren mit mehrfach identischen Werten führt nicht zu einem Fehler, jedoch werden die überzähligen Werte aus dem Set entfernt. Die enthalten Elemente sind unveränderlich. Zudem ist die Datenstruktur ungeordnet, weshalb nicht auf einzelne Objekte mittels Index zugegriffen werden kann. 
 
 Ein Datenbehälter vom Typ Set kann mit folgender Syntax erzeugt werden:
 \lstinputlisting{chapters/sections/listings/set/SetInit.py}
     
 \subsubsection{Arbeiten mit Sets}
-Bei der Ausgabe eines Set auf der Konsole ist die Reihenfolge der Elemente zufällig.
+Bei der Ausgabe eines Set auf der Konsole ist die Reihenfolge der Elemente zufällig. %TODO überarbeiten NICHT ZUFÄLLIG!
+
 % TODO
 % Wird der Inhalt eines Sets auf der Konsole ausgegeben, erscheint die Reihenfolge der Elemente willkürlich, da diese nicht geordnet sind.
 % Der Inhalt eines Sets ist nicht geordnet. Dies führt zu einer willkürlichen Reihenfolge der Elemente auf der Konsole. 
 % "in"
 
-Die Syntax für die Ausgabe auf der Konsole ist analog zur List. Die Verwendung eines Indexes ist nicht erlaubt und führt zu einem Fehler.
+Die Syntax für die Ausgabe auf der Konsole ist analog zur List. Die Verwendung eines Index ist nicht erlaubt und führt zu einem Fehler.
 \lstinputlisting{chapters/sections/listings/set/SetPrint.py}
  
+%\newpage
 \subsubsection{Methoden eines Sets}
 
 \textbf{add():}
@@ -148,19 +152,20 @@ Liefert eine Kopie des Sets.
 \lstinputlisting{chapters/sections/listings/set/SetCopy.py}    
 
 \textbf{difference():}
-Liefert ein Set, das diejenigen Elemente enthält, die ausschließlich in setX vorkommen. Alle Element, die mit denen von setY übereinstimmen, werden aus dem ersten entfernt. Alternativ ist dies auch mit der Angabe des  \glqq{}-\grqq{} Operators möglich.
+Liefert ein Set, das diejenigen Elemente enthält, die ausschließlich in setX vorkommen. Alle Element, die mit denen von setY übereinstimmen, werden aus dem ersten entfernt. Alternativ ist dies auch mit der Angabe des \textit{\glqq{}-\grqq{}}Operators möglich.
 \lstinputlisting{chapters/sections/listings/set/SetDifference.py}
     
 \textbf{difference\_update():}
 Entfernt diejenigen Elemente aus dem ersten Set, die mit denen aus dem zweiten übereinstimmen.
 \lstinputlisting{chapters/sections/listings/set/SetDifferenceUpdate.py}
-    
+ 
+%\newpage
 \textbf{discard():}
 Entfernt das gewählte Element aus dem Set. Duplikate werden ebenfalls entfernt.
 \lstinputlisting{chapters/sections/listings/set/SetDiscard.py}
 
 \textbf{intersection():}
-Liefert ein Set mit der Schnittmenge zweier Sets. Alternativ ist dies auch mit der Angabe des \glqq{}\&\grqq{}-Zeichen möglich.
+Liefert ein Set mit der Schnittmenge zweier Sets. Alternativ ist dies auch mit der Angabe des \textit{\glqq{}\&\grqq{}}-Zeichen möglich.
 \lstinputlisting{chapters/sections/listings/set/SetIntersection.py}
 
 \textbf{intersection\_update():}
@@ -168,7 +173,7 @@ Liefert ein Set mit der Schnittmenge zweier Sets. Alternativ ist dies auch mit d
 Entfernt alle Elemente, die sich nicht in der Schnittmenge beider Sets befinden.
     
 \textbf{isdisjoint():}
-Gibt Auskunft darüber, ob zwei Sets eine Schnittmenge besitzen. Liefert \glqq{}True\grqq{}, wenn kein Element des ersten Sets im zweiten enthalten ist.
+Gibt Auskunft darüber, ob zwei Sets eine Schnittmenge besitzen. Liefert \textit{\glqq{}True\grqq{}}, wenn kein Element des ersten Sets im zweiten enthalten ist.
 \lstinputlisting{chapters/sections/listings/set/SetIsDisJoint.py}
     
 \textbf{issubset():}
@@ -184,24 +189,24 @@ Entfernt das gewählte Element aus dem Set. Sollte das gewählte Element nicht in 
 \lstinputlisting{chapters/sections/listings/set/SetRemove.py}
     
 \textbf{symmetric\_difference():}
-Liefert ein Set, das die Vereinigung zweier Sets, ohne deren Schnittmenge enthält.
+Liefert ein Set, das die Vereinigung zweier Sets ohne deren Schnittmenge enthält.
 \lstinputlisting{chapters/sections/listings/set/SetSymDiff.py}
     
 \textbf{symmetric\_difference\_update():}
-Vereinigt zwei Sets und entfernt deren Schnittmenge.
+Vereinigt zwei Sets und entfernt deren Schnittmenge.%TODO
 \lstinputlisting{chapters/sections/listings/set/SetSymDiffUpdate.py}
     
 \textbf{union():}
-Liefert ein Set, welches die Vereinigung zweier Sets darstellt. Duplikate werden entfernt.
+Liefert ein Set, das die Vereinigung zweier Sets darstellt. Duplikate werden entfernt.
 \lstinputlisting{chapters/sections/listings/set/SetUnion.py}
     
 \textbf{update():}
-Fügt einem Set die Items eines Anderen hinzu. Duplikate werden entfernt.
+Fügt einem Set die Items eines anderen hinzu. Duplikate werden entfernt.
 \lstinputlisting{chapters/sections/listings/set/SetUpdate.py}
     
 \subsubsection{Frozenset}
 
-Im Gegensatz zu einem \glqq{}normalen\grqq{} Set kann ein Frozenset nicht mehr verändert werden. Das Hinzufügen eines neuen Elementes ist nicht erlaubt und führt zu einem Fehler.
+Im Gegensatz zu einem \glqq{}normalen\grqq{} Set kann ein Frozenset nicht mehr verändert werden. Das Hinzufügen eines neuen Elements ist nicht erlaubt und führt zu einem Fehler.
 \lstinputlisting{chapters/sections/listings/set/SetFrozen.py}
 
 \subsection{Dictionary}
@@ -213,7 +218,7 @@ Ein Datenbehälter vom Typ Dictionary kann mit folgender Syntax erzeugt werden:
 Demnach befindet sich hinter dem Schlüssel \glqq{}k1\grqq{} das Objekt \glqq{}v1\grqq{} und analog dazu die weiteren Schlüssel-Objekt-Paare. Über den Schlüssel  \glqq{}k1\grqq{} lässt sich auf das Objekt \glqq{}v1\grqq{} direkt zugreifen. Ebenso kann ein neues Objekt unter dem Schlüssel \glqq{}k1\grqq{} zugewiesen werden.
 \lstinputlisting{chapters/sections/listings/dictionary/DictPrint.py}
 
-Eine alternative Möglichkeit ein Dictionary zu erstellen, ist die Methode zip(). Mit deren Hilfe kann aus zwei separaten List-Behältern ein Dictionary generiert werden.
+Eine alternative Möglichkeit, ein Dictionary zu erstellen, ist die Methode zip(). Mit deren Hilfe kann aus zwei separaten List-Behältern ein Dictionary generiert werden.
 \lstinputlisting{chapters/sections/listings/dictionary/DictZip.py}
 
 % TODO
@@ -222,6 +227,7 @@ Eine alternative Möglichkeit ein Dictionary zu erstellen, ist die Methode zip().
 % Ausgaebe
 % Values ändern
 
+%\newline 
 \subsubsection{Methoden eines Dictionary}
 \textbf{clear():}
 Entfernt alle Einträge aus dem Dictionary.
@@ -236,7 +242,7 @@ Liefert ein Dictionary mit den angegebenen Schlüsseln und Objekten.
 \lstinputlisting{chapters/sections/listings/dictionary/DictFromKeys.py}
 
 \textbf{get():}
-Liefert das Objekt, welches dem angegebenen Schlüssel zugeordnet ist.
+Liefert das Objekt, das dem angegebenen Schlüssel zugeordnet ist.
 \lstinputlisting{chapters/sections/listings/dictionary/DictGet.py}
 
 \textbf{items():}
@@ -268,4 +274,4 @@ Liefert eine Liste mit allen im Dictionary enthaltenen Werten.
 \lstinputlisting{chapters/sections/listings/dictionary/DictValues.py}
 
 \subsection{Zusammenfassung}
-In diesem Abschnitt haben wir also gesehen das Python 3 uns mehrere Collections zur Aufbewahrung von Daten bereitstellt. Diese können je nach Datenstruktur unterschiedliche Eigenschaften aufweisen. Während eine List die Daten sortiert vorhält und Duplikate zulässt, werden bei einer Set entsprechende Doppelte Einträge vermieden. Betrachtet man das Set und seine Methoden genauer, ist dies der dahinter liegenden Mathematik, konkret der Mengenlehre geschuldet. Aus diesem Grund können alle gängigen Mathematischen Operation auf Sets angewendet werden. Zum Schluss haben wir in diesem Abschnitt das Dictionary kennengelernt. Dieses ist ähnlich den Maps in Java. Dabei besteht ein Dictionary aus Schlüssel-Objekt-Paaren die hinter jedem Schlüssel ein entsprechendes Objekt bereitstellen bzw. Mappen.
+In diesem Abschnitt haben wir gesehen, das Python 3 uns mehrere Collections zur Aufbewahrung von Daten bereitstellt. Diese können je nach Datenstruktur unterschiedliche Eigenschaften aufweisen. Während eine List die Daten sortiert vorhält und Duplikate zulässt, werden bei einer Set entsprechende doppelte Einträge vermieden. Betrachtet man das Set und seine Methoden genauer, ist dies der dahinter liegenden Mathematik, konkret der Mengenlehre geschuldet. Aus diesem Grund können alle gängigen mathematischen Operation auf Sets angewendet werden. Zum Schluss haben wir in diesem Abschnitt das Dictionary kennengelernt. Dieses ist ähnlich den Maps in Java. Dabei besteht ein Dictionary aus Schlüssel-Objekt-Paaren, die hinter jedem Schlüssel ein entsprechendes Objekt Mappen bzw. bereitstellen.
