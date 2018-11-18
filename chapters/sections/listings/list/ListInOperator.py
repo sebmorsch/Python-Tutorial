@@ -1,3 +1,6 @@
+# listings/ListInOperator.py
+# Verwendung des "in"-Operators
+
 liste = [1, 2, 3]
 
 print(2 in liste)

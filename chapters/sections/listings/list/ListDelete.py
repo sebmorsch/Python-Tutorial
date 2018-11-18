@@ -1,3 +1,6 @@
+# listings/ListDelete.py
+# Beispiel zur Verwendung des del-Operators
+
 liste = [1, 2, 3]
 print(liste)
 
@@ -6,5 +9,4 @@ print(liste)
 
 del liste
 
-# Erzeugt einen Error, da die Liste nicht mehr existiert!
-print(liste)
+print(liste)  # ERROR, da die Liste nicht mehr existiert!
