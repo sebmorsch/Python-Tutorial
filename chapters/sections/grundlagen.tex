@@ -11,13 +11,11 @@ Im folgenden wird die Python in der Version 3 behandelt.
 
 \subsection{Installation}
 Python kann auf der Webseite https://www.python.org bezogen werden.
-Nach dem Download des Installationsassistenten kann dieser gestartet werden und führt den Nutzer anschließend durch den Installationsprozess.
+Nach dem Download des Installationsassistenten kann dieser gestartet werden und führt den Nutzer anschließend durch den Installationsprozess. Er unterscheidet sich zwischen den Betriebssystemen nur gering bis gar nicht.
 \subsubsection{Installation unter Windows}
 %TODO Installation + Hinweis zur Pfad Variable
 \subsubsection{Installation unter Mac}
 Im Folgenden wird die Installation unter Mac OSX gezeigt.
-Der Installationsprozess unterscheidet sich zwischen den Betriebssystemen nur gering bis gar nicht.
-
 \begin{figure}[ht]
 	\centering
 \includegraphics[scale=0.5]{images/Installationsassistent.png} 
@@ -32,6 +30,7 @@ Somit erscheint nach Ende der Installation der Python Ordner im Finder (Dateiexp
 	\caption{Fertige Installation}
 	\label{fig:FinishInstall}
 \end{figure}
+%TODO MOVE COMMON STUFF TO COMMON INSTALLATION SECTION
 Nach Abschluss der Installation stehen dem Anwender die verschieden Programme zur Verfügung.
 Unter /Application/Python[Version] befindet sich \textit{IDLE}, die mitgelieferte Standard Entwicklungsumgebung zu Python.
 Der \textit{PythonLauncher}, welcher für das ausführen von Python-Scripts per Doppelklick zuständig ist.
@@ -40,16 +39,13 @@ Zuletzt wurde durch den Assistent unter /Library/Frameworks/Python.framework noc
 Ohne dieses wäre das Arbeiten mit Python nicht möglich.
 
 \subsection{Installation unter Linux(Ubuntu)}
-Im folgenden wird die Installation an Ubuntu Version 18.04.1 LTS verdeutlicht.
-Ubuntu bring von Haus aus einen Python Interpreter in der Version 3.6.6 mit.
-Allerdings ist hier nicht die Standard Entwicklungsumgebung IDLE enthalten.
+Im Folgenden wird die Installation für Ubuntu Version 18.04.1 LTS erläutert.
+Im Gegensatz zu den anderen Betriebssystemen, wird hier von Haus aus ein Python Interpreter in der Version 3.6.6 mitgeliefert, jedoch nicht die Standard Entwicklungsumgebung IDLE.
 Diese kann über das Paket \textit{IDLE} nachinstalliert werden.
-Sollte kein Python vorhanden sein kann man dies über das Terminal mit folgendem Befehl installieren.
-
+Sollte trotzdem noch kein Python vorhanden sein, kann man dies manuell durch das Terminal mit folgendem Befehl installieren.
 \begin{lstlisting}
 sudo apt-get install python3 python-doc
 \end{lstlisting}
-
 Diese Installation umfasst unter anderem auch die Dokumentation von Python.
 Nach Abschluss der Installationsroutine kann wie mit jedem anderen Betriebssystem mit Python gearbeitet werden.
 
@@ -89,7 +85,7 @@ Folgende syntaktische Besonderheiten Bringt Python mit:
 \subsubsection{Ausdrücke} %WIP ROGU
 Anders als bei anderen Programmiersprachen wie beispielsweise Java, benötigt Python keine Klassenkonstrukte... %TODO AUSDRÃœCKE, kein fester Rahmen zur AusfÃ¼hrung benÃ¶tigt
 \subsubsection{Einfache Datentypen}
-\subsubsection{Leerzeichen und Einrückung}
+\subsubsection{Leerzeichen und Einrückung} %TODO FORMULIERUNG
 Um in Python Blöcke auszuzeichnen können nicht wie in Java und C++ geschweifte Klammern genutzt werden. 
 In Python ist hierfür entweder der Tabulator oder 4 aufeinander folgende Leerzeichen vorgesehen.
 Somit kann bei zum Beispiel einer IF-Abfrage der nachfolgende Block leicht falsch zugeordnet werden wenn in den nachfolgenden Zeilen die Einrückung Übersehen wird.
@@ -97,8 +93,8 @@ Somit kann bei zum Beispiel einer IF-Abfrage der nachfolgende Block leicht falsc
 Innerhalb Python wird zwischen Zeilen und Blockkommentaren unterschieden.
 Zeilenweise Kommentare werden Über das Rautensymbol (\# ) eingeleitet.
 Blockkommentare Über drei aufeinander folgenden Anführungszeichen ('''''').
-Im folgenden jeweils ein Beispiel für Zeilenweise Kommentare sowie Blockkommentare.
-\lstinputlisting{chapters/sections/listings/comment.py}
+Hier wird jeweils ein Beispiel gezeigt:
+\lstinputlisting{chapters/sections/listings/comment.py} %TODO FIX LISTING (Ü and overhang)
 \subsubsection{Typsicherheit}
 Anders als bei Java und C++ ist Python eine nur schwach typisierte Sprache.
 Somit ist bei der Initialisierung keine Typangabe erforderlich. 
@@ -106,13 +102,14 @@ Der Datentyp wird beim Initialisieren dynamisch ermittelt und automatisch zugewi
 Um eine Variable zu typisieren kann man diese mit einem Typ Initialisieren.
 
 
-\subsubsection{Prozedurale Programmierung}
-\subsection{Interpreter}
+\subsubsection{Prozedurale Programmierung} %TODO NOT NEEDED ANYMORE?
+
+
 %Ã¼bersetz das ihm Ã¼bergebene Script
 %kann als Umgebung genutzt werden
+%Was hat das damit zu tun?
 
-
-\subsection{Beispiel \glqq Hello World!\grqq}
+\subsection{Beispiel \glqq Hello World!\grqq} %TODO ADD MORE STUFF
 Hier ein einfaches \glqq Hello World!\grqq -Beispiel.
 
 \lstinputlisting{chapters/sections/listings/helloworld.py}
