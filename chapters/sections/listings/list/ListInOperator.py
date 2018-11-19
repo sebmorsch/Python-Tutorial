@@ -1,5 +1,5 @@
 # listings/ListInOperator.py
-# Verwendung des "in"-Operators
+# Verwendung des in-Operators
 
 liste = [1, 2, 3]
 
