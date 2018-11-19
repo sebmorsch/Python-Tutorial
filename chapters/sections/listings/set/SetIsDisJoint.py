@@ -1,3 +1,6 @@
+# listings/SetIsDisJoint.py
+# Verwendung der isdisjoint-Methode
+
 setX = {1, 2, 3, 4, 5}
 setY = {6, 7, 8, 9, 10}
 print(setX.isdisjoint(setY))  # Liefert True

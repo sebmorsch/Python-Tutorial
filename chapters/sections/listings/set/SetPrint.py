@@ -1,3 +1,6 @@
+# listings/SetPrint.py
+# Ausgabe des Inhalts eines Set auf der Konsole
+
 set1 = {1, 2, 3}
 print(set1)
 for x in set1:

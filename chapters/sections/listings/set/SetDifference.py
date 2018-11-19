@@ -1,3 +1,7 @@
+# listings/SetDifference.py
+# Verwendung der difference-Methode
+
+
 set1 = {1, 2, 3}
 set2 = {3, 8, 4}
 x = set1.difference(set2)

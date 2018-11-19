@@ -1,5 +1,5 @@
 # listings/ListNegativeIndex.py
-# Beispiel für die Verwendung eines negativen Indexes
+# Beispiel fuer die Verwendung eines negativen Index
 
 liste = [1, 2, 3]
 print(liste[-1])
