@@ -1,3 +1,6 @@
+# listings/DictClear.py
+# Verwendung der clear-Methode
+
 dictionary = {
     "k1": "v1",
     "k2": "v2",

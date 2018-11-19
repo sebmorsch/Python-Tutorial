@@ -1,3 +1,6 @@
+# listings/DictPopItem.py
+# Verwendung der popitem-Methode
+
 dictionary = {
     "k1": "v1",
     "k2": "v2",

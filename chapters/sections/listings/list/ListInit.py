@@ -1,5 +1,5 @@
 # listings/ListInit.py
-# Die Initialisierung einer List
+# Initialisierung einer List
 
 liste = [1, 2, 3]
 
