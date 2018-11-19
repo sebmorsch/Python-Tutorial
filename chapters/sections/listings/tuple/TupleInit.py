@@ -1,3 +1,6 @@
+# listings/TupleInit.py
+# Die Initialisierung eines Tuples
+
 tupel = (1, 2, 3)
 
 # oder

@@ -107,44 +107,54 @@ Sortiert die List.
 
     
 \subsection{Tuple}
+\label{collections:tuple}
 
 Ein Tuple stellt einen geordneten und unveränderbaren Behälter für Python-Objekte dar. Dieser erlaubt, wie eine List, Duplikate und den Zugriff auf einzelne Elemente über einen Index. Tuple sind Datenstrukturen, die ausschließlich gelesen werden können.
 
 Ein Tuple wird mit folgender Syntax erzeugt:
 \lstinputlisting{chapters/sections/listings/tuple/TupleInit.py}
+\label{collections:lst:tupleinit}
 
 Es ist möglich, leere Tuple zu erzeugen. Wie zuvor erwähnt, ist deren Inhalt unveränderlich.
 
 \subsubsection{Arbeiten mit einem Tuple}
+\label{collections:workwithtuple} 
 
 Der Inhalt eines Tuple kann, analog zur List, auf der Konsole ausgegeben werden. Das Zuweisen eines neuen Objekts mittels Index führt im Gegensatz zur List zu einem Fehler.
 \lstinputlisting{chapters/sections/listings/tuple/TupleIndex.py}
+\label{collections:lst:tupleindex}    
     
-Die Verwendung der Operatoren \lstinline$in$ und \lstinline$not in$ ist, wie die \lstinline$len()$-Methode, analog zur List -Datenstruktur.
+Die Verwendung der Operatoren \lstinline$in$ und \lstinline$not in$ ist, wie die \lstinline$len()$-Methode, analog zur List-Datenstruktur.
 \lstinputlisting{chapters/sections/listings/tuple/TupleInLen.py}
+\label{collections:lst:tupleinlen} 
     
 Das \lstinline$del$-Statement erlaubt das Löschen des Tuple. Aufgrund der Unveränderbarkeit der Datenstruktur können keine einzelnen Elemente entfernt werden.
 \lstinputlisting{chapters/sections/listings/tuple/TupleDelete.py}
-    
+\label{collections:lst:tupledelete}      
 
 \subsubsection{Methoden eines Tuple}
+\label{collections:tuplemethodes}
 
 \textbf{count():}
 Liefert die Anzahl des gewählten Werts in einem Tuple.
 \lstinputlisting{chapters/sections/listings/tuple/TupleCount.py}    
-
+\label{collections:lst:tuplecount}  
 
 \textbf{index():}
 Liefert die Position des ersten Werts, der mit dem spezifizierten Wert übereinstimmt.
 \lstinputlisting{chapters/sections/listings/tuple/TupleIndexMethode.py}
+\label{collections:lst:tupleindexmethode}  
 
 \subsection{Set}
+\label{collections:set}
 Ein Set ist durch das Hinzufügen oder Entfernen von Objekten veränderbar und erlaubt keine Duplikate. Das Initialisieren mit mehrfach identischen Werten führt nicht zu einem Fehler, jedoch werden die überzähligen Werte aus dem Set entfernt. Die enthaltenen Elemente sind unveränderlich. Zudem ist die Datenstruktur ungeordnet, weshalb nicht auf einzelne Objekte mittels Index zugegriffen werden kann. 
 
 Ein Datenbehälter vom Typ Set kann mit folgender Syntax erzeugt werden:
 \lstinputlisting{chapters/sections/listings/set/SetInit.py}
+\label{collections:lst:setinit}  
     
 \subsubsection{Arbeiten mit Sets}
+\label{collections:workwithset}
 Bei der Ausgabe eines Set auf der Konsole ist die Reihenfolge der Elemente zufällig. %TODO überarbeiten NICHT ZUFÄLLIG!
 
 % TODO
@@ -154,79 +164,98 @@ Bei der Ausgabe eines Set auf der Konsole ist die Reihenfolge der Elemente zufäl
 
 Die Syntax für die Ausgabe auf der Konsole ist analog zur List. Die Verwendung eines Index ist nicht erlaubt und führt zu einem Fehler.
 \lstinputlisting{chapters/sections/listings/set/SetPrint.py}
+\label{collections:lst:setprint} 
  
 %\newpage
 \subsubsection{Methoden eines Sets}
+\label{collections:setmethodes} 
 
 \textbf{add():}
 Fügt dem Set ein Objekt hinzu.
-\lstinputlisting{chapters/sections/listings/set/SetAdd.py}    
+\lstinputlisting{chapters/sections/listings/set/SetAdd.py}   
+\label{collections:lst:setadd}  
 
 \textbf{clear():}
 Entfernt alle Elemente aus dem Set.
-\lstinputlisting{chapters/sections/listings/set/SetClear.py}    
+\lstinputlisting{chapters/sections/listings/set/SetClear.py}
+\label{collections:lst:setclear}     
 
 \textbf{copy():}
 Liefert eine Kopie des Sets.
-\lstinputlisting{chapters/sections/listings/set/SetCopy.py}    
+\lstinputlisting{chapters/sections/listings/set/SetCopy.py}
+\label{collections:lst:setcopy}     
 
 \textbf{difference():}
 Liefert ein Set, das diejenigen Elemente enthält, die ausschließlich in \lstinline$setX$ vorkommen. Alle Element, die mit denen von \lstinline$setY$ übereinstimmen, werden aus dem ersten entfernt. Alternativ ist dies auch über den Operator \lstinline$-$ möglich.
 \lstinputlisting{chapters/sections/listings/set/SetDifference.py}
+\label{collections:lst:setdifference} 
     
 \textbf{difference\_update():}
 Entfernt diejenigen Elemente aus dem ersten Set, die mit denen aus dem zweiten übereinstimmen.
 \lstinputlisting{chapters/sections/listings/set/SetDifferenceUpdate.py}
+\label{collections:lst:setdifferenceupdate}  
  
 %\newpage
 \textbf{discard():}
 Entfernt das gewählte Element aus dem Set. Duplikate werden ebenfalls entfernt.
 \lstinputlisting{chapters/sections/listings/set/SetDiscard.py}
+\label{collections:lst:setdiscard} 
 
 \textbf{intersection():}
 Liefert ein Set mit der Schnittmenge zweier Sets. Alternativ ist dies auch mit der Angabe des \lstinline$&$-Operators möglich.
 \lstinputlisting{chapters/sections/listings/set/SetIntersection.py}
+\label{collections:lst:setintersection} 
 
 \textbf{intersection\_update():}
-\lstinputlisting{chapters/sections/listings/set/SetIntersectionUpdate.py}
 Entfernt alle Elemente, die sich nicht in der Schnittmenge beider Sets befinden.
+\lstinputlisting{chapters/sections/listings/set/SetIntersectionUpdate.py}
+\label{collections:lst:setintersectionupdate} 
     
 \textbf{isdisjoint():}
 Gibt Auskunft darüber, ob zwei Sets eine Schnittmenge besitzen. Liefert \lstinline$True$, wenn kein Element des ersten Sets im zweiten enthalten ist.
 \lstinputlisting{chapters/sections/listings/set/SetIsDisJoint.py}
+\label{collections:lst:setisdisjoint} 
     
 \textbf{issubset():}
 Gibt an, ob das gewählte Set eine Teilmenge enthält, die exakt dem ersten Set entspricht. Alternativ kann das Zeichen \lstinline$<$ verwendet werden.
 \lstinputlisting{chapters/sections/listings/set/SetIsSubSet.py}
+\label{collections:lst:setissubset} 
     
 \textbf{pop():}
 Entfernt ein beliebiges Element aus dem Set. Sollte das Set leer sein, wird ein Fehler generiert.
 \lstinputlisting{chapters/sections/listings/set/SetPop.py}
+\label{collections:lst:setpop} 
     
 \textbf{remove():}
 Entfernt das gewählte Element aus dem Set. Sollte das gewählte Element nicht in dem Set enthalten sein, wird ein Fehler angezeigt.
 \lstinputlisting{chapters/sections/listings/set/SetRemove.py}
+\label{collections:lst:setremove} 
     
 \textbf{symmetric\_difference():}
 Liefert ein Set, das die Vereinigung zweier Sets ohne deren Schnittmenge enthält.
 \lstinputlisting{chapters/sections/listings/set/SetSymDiff.py}
+\label{collections:lst:setsymdiff} 
     
 \textbf{symmetric\_difference\_update():}
 Vereinigt zwei Sets und entfernt deren Schnittmenge.%TODO
 \lstinputlisting{chapters/sections/listings/set/SetSymDiffUpdate.py}
+\label{collections:lst:setsymdiffupdate} 
     
 \textbf{union():}
 Liefert ein Set, das die Vereinigung zweier Sets darstellt. Duplikate werden entfernt.
 \lstinputlisting{chapters/sections/listings/set/SetUnion.py}
+\label{collections:lst:setunion} 
     
 \textbf{update():}
 Fügt einem Set die Items eines anderen hinzu. Duplikate werden entfernt.
 \lstinputlisting{chapters/sections/listings/set/SetUpdate.py}
+\label{collections:lst:setupdate} 
     
 \subsubsection{Frozenset}
 
 Im Gegensatz zu einem \glqq{}normalen\grqq{} Set kann ein Frozenset nicht mehr verändert werden. Das Hinzufügen eines neuen Elements ist nicht erlaubt und führt zu einem Fehler.
 \lstinputlisting{chapters/sections/listings/set/SetFrozen.py}
+\label{collections:lst:setfrozen} 
 
 \subsection{Dictionary}
 Ein Dictionary ist eine ungeordnete, veränderbare Datenstruktur, die keine Duplikate erlaubt und Schlüssel-Objekt-Paare beinhaltet. Bei einer Ausgabe werden die Werte in zufälliger Reihenfolge ausgegeben, denn ein Dictionary besitzt keine Ordnung.

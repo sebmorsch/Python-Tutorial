@@ -1,3 +1,6 @@
+# listings/SetInit.py
+# Die Initialisierung eines Sets
+
 set1 = {1, 2, 3}
 
 # oder
