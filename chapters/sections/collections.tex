@@ -1,90 +1,109 @@
 % !TeX root = ../../pythonTutorial.tex
 \section{Collections}
+\label{collections}
 
 In Python 3 existieren nativ die vier Datenstrukturen List, Tuple, Set und Dictionary, welche im Folgenden vorgestellt werden.
 
-
 \subsection{List}
+\label{collections:list}
 Die Datenstruktur List bietet einen geordneten und veränderbaren Behälter für Python-Objekte, der Duplikate von Elementen erlaubt. Da eine List immer sortiert ist, können einzelne Elemente aus der Datenstruktur über den entsprechenden Index ausgewählt und verändert werden. Python unterstützt intern keine Arrays, alternativ hierzu kann eine List verwendet werden.
 
 Eine List kann wie folgt initialisiert werden:
-\lstinputlisting{chapters/sections/listings/list/ListInit.py}
+\lstinputlisting[language=Python]{chapters/sections/listings/list/ListInit.py}
+\label{collections:lst:listinit}
 
 Dabei kann sie jegliche Art von Objekten beinhalten; der Datentyp spielt hierbei keine Rolle. 
 
 Beispiel:
 \lstinputlisting{chapters/sections/listings/list/ListDataType.py}
-
+\label{collections:lst:listdatatype}
 
 Im Gegensatz zu Java und C++ muss der Programmierer darauf achten und sicherstellen, dass die Datenstruktur mit Werten des entsprechenden Datentyps befüllt wird, um Fehler aufgrund unterschiedlicher Datentypen zu vermeiden.
 
 Der Inhalt einer List kann über die \lstinline$print()$-Methode ausgegeben werden. Im folgenden Beispiel werden verschiedene Elemente der List auf der Konsole ausgegeben.
 Wird die List als Parameter gewählt, wird der Inhalt ausgegeben.
 \lstinputlisting{chapters/sections/listings/list/ListPrint.py}
+\label{collections:lst:listprint}
 
 Wie zuvor erwähnt, ähnelt die Verwaltung einer List der eines Arrays aus Java oder C++. Durch die Verwendung eines Index können einzelne Elemente ausgewählt oder verändert werden.
 \lstinputlisting{chapters/sections/listings/list/ListIndex.py}
+\label{collections:lst:listindex}
 
 Python erlaubt die Nutzung von negativen Indizes. Mit diesen kann der Inhalt der List in umgekehrter Reihenfolge ausgegeben werden. Ein Index von \lstinline$-1$ wird dem letzten Element der List zugeordnet, \lstinline$-2$ dem vorletzten.
 \lstinputlisting{chapters/sections/listings/list/ListNegativeIndex.py}
-    
+\label{collections:lst:lsitnegativeindex}
 
 In Python existiert für die Datenstruktur List keine Methode, die mit \lstinline$contains()$ in Java oder der \lstinline$find()$ aus C++ vergleichbar ist. Stattdessen stehen die Membership Operatoren \lstinline$in$ oder \lstinline$not in$ zur Verfügung, welche auf eine beliebige Sequenz oder die hier beschriebenen Collections angewendet, Auskunft darüber gibt, ob das spezifizierte Element darin enthalten ist.
 \lstinputlisting{chapters/sections/listings/list/ListInOperator.py}
+\label{collections:lst:listinoperator}
     
 Der Python Interpreter stellt nativ einige Funktionen zur Verfügung. Eine davon ist die \lstinline$len()$-Methode, welche die Anzahl an Elementen in einem Objekt liefert.
 \lstinputlisting{chapters/sections/listings/list/ListLen.py}
+\label{collections:lst:listlen}
     
 Das \lstinline$del$-Statement erlaubt das Löschen einzelner Elemente oder der gesamten List.
 \lstinputlisting{chapters/sections/listings/list/ListDelete.py}
+\label{collections:lst:listdel}
     
 
 \subsubsection{Methoden einer List}
+\label{collections:listmethodes}
 
 \textbf{append():}
 Fügt am Ende der List ein Objekt hinzu.
 \lstinputlisting{chapters/sections/listings/list/ListAppend.py}
+\label{collections:lst:listappend}
 
 \textbf{clear():}
 Entfernt sämtliche Objekte aus der List.
 \lstinputlisting{chapters/sections/listings/list/ListClear.py}
+\label{collections:lst:listclear}
 
 \textbf{copy():}
 Liefert eine Kopie der List.
-\lstinputlisting{chapters/sections/listings/list/ListClear.py}
+\lstinputlisting{chapters/sections/listings/list/ListCopy.py}
+\label{collections:lst:listcopy}
     
 %\newpage
 \textbf{count():}
 Liefert die Anzahl des spezifizierten Objekts in der List.
 \lstinputlisting{chapters/sections/listings/list/ListCount.py}
+\label{collections:lst:listcount}
 
 \textbf{extend():} 
 Fügt der \lstinline$liste1$ den Inhalt der \lstinline$liste2$ am Ende hinzu.
 \lstinputlisting{chapters/sections/listings/list/ListExtend.py}
+\label{collections:lst:listextend}
     
 \textbf{index():}
 Liefert den Index der Position, an der sich das erste spezifizierte Objekt in der List befindet.
-\lstinputlisting{chapters/sections/listings/list/ListIndex.py}
+\lstinputlisting{chapters/sections/listings/list/ListIndexMethode.py}
+\label{collections:lst:listindexmethode}
     
 \textbf{insert():}
 Fügt ein Objekt an der gewählten Position der List hinzu.
 \lstinputlisting{chapters/sections/listings/list/ListInsert.py}
+\label{collections:lst:listinsert}
 
 \textbf{pop():}
 Entfernt das Objekt, das sich an der durch den Index spezifizierten Position befindet.
 \lstinputlisting{chapters/sections/listings/list/ListPop.py}
+\label{collections:lst:listpop}
     
 \textbf{remove():}
 Entfernt das erste Objekt der List, das der Spezifikation entspricht.
 \lstinputlisting{chapters/sections/listings/list/ListRemove.py}
+\label{collections:lst:listremove}
     
 \textbf{reverse():}
 Invertiert die Folge der Objekte in der List.
 \lstinputlisting{chapters/sections/listings/list/ListReverse.py}
+\label{collections:lst:listreverse}
 
 \textbf{sort():}
 Sortiert die List.
 \lstinputlisting{chapters/sections/listings/list/ListSort.py}
+\label{collections:lst:listsort}
 
     
 \subsection{Tuple}
