@@ -11,11 +11,17 @@ Im folgenden wird die Python in der Version 3 behandelt.
 
 \subsection{Installation}
 Python kann auf der Webseite https://www.python.org bezogen werden.
-Nach dem Download des Installationsassistenten kann dieser gestartet werden und führt den Nutzer anschließend durch den Installationsprozess. Er unterscheidet sich zwischen den Betriebssystemen nur gering bis gar nicht.
+Nach dem Download des Installationsassistenten kann dieser gestartet werden und führt den Nutzer anschließend durch den Installationsprozess. 
+Er unterscheidet sich zwischen den Betriebssystemen nur gering bis gar nicht.
+
+Nach Abschluss der Installation stehen dem Anwender die verschieden Programme zur Verfügung.
+Unter /Application/Python[Version] befindet sich \textit{IDLE}, die mitgelieferte Standard Entwicklungsumgebung zu Python.
+Der \textit{PythonLauncher}, welcher für das ausführen von Python-Scripts per Doppelklick zuständig ist.
+Das \textit{Build Applet} um Python Script zu lauffähigen Anwendungen zusammen zu packen.
 \subsubsection{Installation unter Windows}
 %TODO Installation + Hinweis zur Pfad Variable
 \subsubsection{Installation unter Mac}
-Im Folgenden wird die Installation unter Mac OSX gezeigt.
+Im Folgenden wird die Installation unter macOS X gezeigt.
 \begin{figure}[ht]
 	\centering
 \includegraphics[scale=0.5]{images/Installationsassistent.png} 
@@ -30,11 +36,7 @@ Somit erscheint nach Ende der Installation der Python Ordner im Finder (Dateiexp
 	\caption{Fertige Installation}
 	\label{fig:FinishInstall}
 \end{figure}
-%TODO MOVE COMMON STUFF TO COMMON INSTALLATION SECTION
-Nach Abschluss der Installation stehen dem Anwender die verschieden Programme zur Verfügung.
-Unter /Application/Python[Version] befindet sich \textit{IDLE}, die mitgelieferte Standard Entwicklungsumgebung zu Python.
-Der \textit{PythonLauncher}, welcher für das ausführen von Python-Scripts per Doppelklick zuständig ist.
-Das \textit{Build Applet} um Python Script zu lauffähigen Anwendungen zusammen zu packen.
+
 Zuletzt wurde durch den Assistent unter /Library/Frameworks/Python.framework noch das Python Framework abgelegt.
 Ohne dieses wäre das Arbeiten mit Python nicht möglich.
 
@@ -49,10 +51,7 @@ sudo apt-get install python3 python-doc
 Diese Installation umfasst unter anderem auch die Dokumentation von Python.
 Nach Abschluss der Installationsroutine kann wie mit jedem anderen Betriebssystem mit Python gearbeitet werden.
 
-
-
 %TODO Skript versus Programm
-
 \subsection{Python Interpreter} %WIP ROGU 
 %TODO ADD LINKS TO OTHER SECTIONS %WHAT IS PYTHON CODE?
 Die einfachste Möglichkeit, Python Code auszuführen, ist direkte Übergabe des Codes an den sogenannten Python Interpreter. 
@@ -94,7 +93,7 @@ Innerhalb Python wird zwischen Zeilen und Blockkommentaren unterschieden.
 Zeilenweise Kommentare werden Über das Rautensymbol (\# ) eingeleitet.
 Blockkommentare Über drei aufeinander folgenden Anführungszeichen ('''''').
 Hier wird jeweils ein Beispiel gezeigt:
-\lstinputlisting{chapters/sections/listings/comment.py} %TODO FIX LISTING (Ü and overhang)
+\lstinputlisting{chapters/sections/listings/comment.py}
 \subsubsection{Typsicherheit}
 Anders als bei Java und C++ ist Python eine nur schwach typisierte Sprache.
 Somit ist bei der Initialisierung keine Typangabe erforderlich. 
