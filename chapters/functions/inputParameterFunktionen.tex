@@ -11,9 +11,9 @@ myFunction(x)
 print(x)
 \end{lstlisting}
 
-Mittels Codes (\ref{inputParameterFunktionen:lst:primitiveParameter}) wird der Wert '2' ausgedruckt. Aus dem vorherigen Abschnitt über Gültigkeitsbereiche wissen wir, dass es sich hierbei - trotz gleichem Namen - um zwei verschiedene Variablen handelt. Eine Integer-Variable im \textit{lokalen} und eine im \textit{globalen} Gültigkeitsbereich. Dies gilt jedoch nur für primitive Datentypen, für nicht-primitive Datentypen, verhält es sich anders.
+Mittels Codes (\ref{inputParameterFunktionen:lst:primitiveParameter}) wird der Wert '2' ausgedruckt. Aus dem vorherigen Abschnitt über Gültigkeitsbereiche wissen wir, dass es sich hierbei - trotz gleichem Namen - um zwei verschiedene Variablen handelt. Eine Integer-Variable im lokalen und eine im globalen Gültigkeitsbereich. Dies gilt jedoch nur für primitive Datentypen, für nicht-primitive Datentypen verhält es sich anders.
 
-\begin{lstlisting}[caption=Übergabe eines nicht-primitiven Datentypes, label=inputParameterFunktionen:lst:nonPrimitiveParameter]
+\begin{lstlisting}[caption=Übergabe eines nicht-primitiven Datentyps, label=inputParameterFunktionen:lst:nonPrimitiveParameter]
 def myFunction(x)
   x[0] = 100
 x = [0,1,2]
@@ -21,9 +21,9 @@ myFunction(x)
 print(x)
 \end{lstlisting}
 
-Da es sich hier (\ref{inputParameterFunktionen:lst:nonPrimitiveParameter}) nicht um einen primitiven Datentypen handelt, stellt der Input-Parameter eine Referenz dar, womit der Wert von x auch in der Methode geändert wird. Beim Ausdrucken erhalten wir: \lstinline$[100,1,2]$.
+Da es sich hier (\ref{inputParameterFunktionen:lst:nonPrimitiveParameter}) nicht um einen primitiven Datentyp handelt, stellt der Input-Parameter eine Referenz dar, womit der Wert von x auch in der Methode geändert wird. Beim Ausdrucken erhalten wir: \lstinline$[100,1,2]$.
 
-Es ist wichtig, sich dieses Verhalten zu merken, da beim objekt-orientierten Programmieren sonst schnell Fehler auftreten.
+Es ist wichtig, sich dieses Verhalten zu merken, da beim objekt-orientierten Programmieren sonst Fehler auftreten.
 
 
 \subsection{Arten von Input-Parametern}
@@ -32,8 +32,7 @@ In folgendem Unterabschnitt gehen wir auf verschiedene Arten von Input-Parameter
 
 \subsubsection{Positionale Parameter}
 
-Diese Art von Parametern dürfte bereits bekannt sein, es handelt sich um eine endliche
-Anzahl von Parametern, welche man von links nach rechts liest.
+Diese Art von Parametern dürfte bereits bekannt sein. Es handelt sich um eine endliche Anzahl von Parametern, die man von links nach rechts liest.
 
 \begin{lstlisting}[caption=Funktion mit positionalen Parameter, label=inputParameterFunktionen:lst:positionalParameter]
 def myFunction(x,y,z):
@@ -44,10 +43,8 @@ def myFunction(x,y,z):
 
 \subsubsection{Schlüsselwort-Parameter}
 
-Bei Schlüsselwort-Parametern ist die Reihenfolge der Parameter egal,
-da die Variablen über den Namens-Wert übergeben werden.
-Achtung: Bei der Verwendung von positionalen und Schlüsselwort-Parametern, müssen
-positionale Parameter immer links von Schlüsselwort-Parametern stehen.
+Bei Schlüsselwort-Parametern ist die Reihenfolge der Parameter nicht elementar, da die Variablen über den Namens-Wert übergeben werden.
+Achtung: Bei der Verwendung von positionalen und Schlüsselwort-Parametern, müssen positionale Parameter immer links der Schlüsselwort-Parameter stehen.
 
 \begin{lstlisting}[caption=Funktion mit Schlüsselwort-Parametern, label=inputParameterFunktionen:lst:keywordParameter]
 def myFunction(x,y,z):
@@ -58,10 +55,8 @@ def myFunction(x,y,z):
 
 \subsubsection{Standard-Parameter}
 
-Standard-Parameter folgen einer ähnlichen Syntax wie Schlüsselwort-Parameter, jedoch
-werden sie in der Funktionsdefinition festgelegt und nicht beim Aufruf.
-Zu beachten ist, dass beim Verwenden von positionalen und Standard-Parametern
-alle Standard-Parameter \textit{nach} den positionalen schreiben muss.
+Standard-Parameter folgen einer ähnlichen Syntax wie Schlüsselwort-Parameter, sie werden jedoch in der Funktionsdefinition festgelegt und nicht beim Aufruf.
+Zu beachten ist, dass beim Verwenden von positionalen und Standard-Parametern alle Standard-Parameter \textit{nach} den positionalen stehen müssen.
 
 \begin{lstlisting}[caption=Funktion mit Standard-Parametern, label=inputParameterFunktionen:lst:standardParameter]
 def myFunction(x, y = 10, z = 20):
@@ -74,11 +69,11 @@ myFunction(0, z = 1)                # 0 10 1
 
 \subsection{Rest-Parameter}
 
-Rest-Parameter ermöglicht quasi eine unendliche Anzahl an Übergabe-Parametern.
+Rest-Parameter ermöglichen quasi eine unendliche Anzahl an Übergabe-Parametern.
 Möchte ein Nutzer beispielsweise den Durchschnitt mehrerer Zahlen wissen, so könnte die
 Funktion wie folgt aussehen:
 
-\begin{lstlisting}[caption=Funktion mit Rest-Parameter, label=inputParameterFunktionen:lst:restParameter]
+\begin{lstlisting}[caption=Funktion mit Rest-Parametern, label=inputParameterFunktionen:lst:restParameter]
 def average(\textbf{*numbers}):
   value = 1
   for number in numbers:
@@ -91,7 +86,6 @@ result = average(5, 5, 10, 8, 2)
 print(result) # druckt das Ergebnis 6
 \end{lstlisting}
 
-Wie wir sehen, werden die multiplen Parameter als Liste gehandhabt.
-Bei der Definition von Rest-Parametern in einer Funktion ist es wichtig,
-dass diese als letztes Argument stehen.
+Die multiplen Parameter werden als Liste gehandhabt.
+Bei der Definition von Rest-Parametern in einer Funktion ist es wichtig, dass sie als letztes Argument stehen.
 

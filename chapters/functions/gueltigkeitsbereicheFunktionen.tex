@@ -1,7 +1,7 @@
 % !TeX root = ../../pythonTutorial.tex
 \section{Gültigkeitsbereich von Variablen}
 
-Je nachdem, wie und wo Funktionen definiert sind, können diese nach einem Aufruf zu anderen Ergebnissen führen. Zur Verdeutlichung folgt ein einfaches Beispiel (\ref{gueltigkeitsbereicheFunktionen:lst:simpleScope}).
+Je nachdem, wie und wo Funktionen definiert sind, können diese zu anderen Ergebnissen führen. Zur Verdeutlichung folgt ein einfaches Beispiel (\ref{gueltigkeitsbereicheFunktionen:lst:simpleScope}).
 
 \begin{lstlisting}[caption=Code-Beispiel zum Gültigkeitsbereich, label=gueltigkeitsbereicheFunktionen:lst:simpleScope]
 def myFunction():
@@ -22,14 +22,13 @@ myFunction: 1
 global: 0
 
 In beiden Bereichen benutzen wir die Variable \lstinline$a$.
-Die Funktion wird nach dem Initialisieren der Variable aufgerufen,
-warum erhalten wir also zwei unterschiedliche Werte?
+Die Funktion wird nach dem Initialisieren der Variable aufgerufen.
+Warum erhalten wir also zwei unterschiedliche Werte?
 
-Der Grund dafür ist, weil es sich eben nicht um die gleiche Variable handelt, denn beide wurden in verschiedenen Gültigkeitsbereichen definiert.
-Würden wir die lokale Zuweisung auslassen, würde zweimal der Wert 0 gedruckt werden.
-Python sucht nach dem nächstmöglichen Gültigkeitsbereich: lokal, umschließend, global und \lstinline$built-in$.
+Der Grund: es handelt sich nicht um die gleiche Variable, da beide Variablen in verschiedenen Gültigkeitsbereichen definiert werden. Ließen wir die lokale Zuweisung aus, würde zweimal der Wert 0 ausgegeben werden.
+Python sucht nach dem nächstmöglichen Gültigkeitsbereich: \lstinline$lokal, umschließend, global und built-in$.
 
-Nun ein Beispiel, mit verschachtelten Funktionen:
+Nun ein Beispiel mit verschachtelten Funktionen:
 
 \begin{lstlisting}[caption=Verschachtelte Funktionen, label=gueltigkeitsbereicheFunktionen:lst:enclosingScope]
 def enclosing():
@@ -58,9 +57,9 @@ global: 0
 
 \subsection{Statements zu Gültigkeitsbereichen - global und nonlocal}
 
-Nicht nur durch die Positionen werden Gültigkeitsbereiche definiert, durch die Schlüsselwörter \lstinline$global$ und \lstinline$nonlocal$ können wir den Gültigkeitsbereich bestimmen.
+Nicht nur durch die Positionen werden Gültigkeitsbereiche definiert, auch durch die Schlüsselwörter \lstinline$global$ und \lstinline$nonlocal$ können wir den Gültigkeitsbereich bestimmen.
 
-Durch nonlocal wird eine Variable auf die nächst umschließende Definition festgelegt (\ref{gueltigkeitsbereicheFunktionen:lst:nonlocalStatement}). 
+Durch \lstinline$nonlocal$ wird eine Variable auf die nächst umschließende Definition festgelegt (\ref{gueltigkeitsbereicheFunktionen:lst:nonlocalStatement}). 
 
 \begin{lstlisting}[caption=Nonlocal Statement, label=gueltigkeitsbereicheFunktionen:lst:nonlocalStatement]
 def enclosing():
@@ -87,9 +86,9 @@ umschließend: 2
 \\*
 global: 0
 
-Achtung: Würde in der enclosing-Funktion \lstinline$a$ auf nonlocal gesetzt, dann käme es zu einer \lstinline$Exception$, da die nächste Ebene global ist.
+Achtung: Würde in der enclosing-Funktion \lstinline$a$ auf \lstinline$nonlocal$ gesetzt, dann käme es zu einer \lstinline$Exception$, da die nächste Ebene global ist.
 
-Das gleiche können wir mit dem globalen Gültigkeitsbereich machen, wie in \ref{gueltigkeitsbereicheFunktionen:lst:globalStatement} gezeigt.
+Das Gleiche können wir mit dem globalen Gültigkeitsbereich machen, wie in \ref{gueltigkeitsbereicheFunktionen:lst:globalStatement} gezeigt.
 
 \begin{lstlisting}[caption=Global Statement, label=gueltigkeitsbereicheFunktionen:lst:globalStatement]
 def enclosing():
@@ -117,4 +116,4 @@ umschließend: 1
 global: 2
 
 
-Während nonlocal nur den nächst umschließenden Gültigkeitsbereich wählt -  in welcher die Variable deklariert wurde - greift global immer auf den globalen Gültigkeitsbereich zu.
+Während \lstinline$nonlocal$ nur den nächst umschließenden Gültigkeitsbereich wählt -  in welcher die Variable deklariert wurde - greift \lstinline$global$ immer auf den globalen Gültigkeitsbereich zu.
