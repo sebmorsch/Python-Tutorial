@@ -5,23 +5,22 @@ Sie beinhaltet unter anderem Folgendes:
 
 \begin{itemize}
   \item mächtige $n$-dimensionale Array-Objekte
-  \item ausgeklügelte Funktionen
   \item Werkzeuge zur Integration von C und Fortran
   \item Lineare Algebra, Fouriertransformation, Erzeugung von Zufallszahlen
 \end{itemize}
 
 % Zitat: http://www.numpy.org
 
-Um Numpy zu installieren, kann der Befehl \verb!pip install numpy! verwendet
-werden.
+Um NumPy zu installieren, kann der Befehl \lstinline!pip install numpy!
+verwendet werden.
 
 \subsection{Arrays}
 
-Der Array-Datentyp von NumPy heißt \verb!numpy.ndarray!. Anders als Pythons
-Listentyp \verb!list! unterstützt \verb!numpy.ndarray! numerische Operationen
-auf Arrays. Die Grundrechenarten werden zwischen zwei Arrays elementweise und
-zwischen Array und \verb!int!/\verb!float! für alle Elemente des Arrays
-durchgeführt.
+Der Array-Datentyp von NumPy heißt \lstinline!numpy.ndarray!. Anders als Pythons
+Listentyp \lstinline!list! unterstützt \lstinline!numpy.ndarray! numerische
+Operationen auf Arrays. Die Grundrechenarten werden zwischen zwei Arrays
+elementweise und zwischen Array und \lstinline!int!/\lstinline!float! für alle
+Elemente des Arrays durchgeführt.
 
 So kann etwa jeder Wert in einem Array mit den folgenden Anweisungen um drei
 erhöht werden:
@@ -55,11 +54,12 @@ a ** b # [  1  32 729]
 a // b # [0 0 0]
 \end{lstlisting}
 
-Um ein Numpy-Array zu erzeugen, übergibt man ein \lstinline!list!-Objekt an
-\lstinline!np.array()!, dabei wird der in der \lstinline{list} enthaltene
-Datentyp in einem Datentyp von Numpy konvertiert. Mit \lstinline!.dtype.name!
-kann man den Datentyp eines Arrays herausfinden. Anders als bei \lstinline!list!
-müssen sämtliche Elemente eines Arrays den gleichen Typ haben.
+Um ein NumPy-Array zu erzeugen, wird ein \lstinline!list!-Objekt an
+\lstinline!np.array()! übergeben, dabei wird der in der \lstinline{list}
+enthaltene Datentyp in einem Datentyp von NumPy konvertiert. Um den Datentyp
+eines Arrays herauszufinden, wird \lstinline!.dtype.name! genutzt. Anders
+als bei \lstinline!list! müssen sämtliche Elemente eines Arrays den gleichen
+Typ haben.
 \begin{lstlisting}
 a = np.array([1,2,3])
 a.dtype.name # 'int64'
@@ -68,7 +68,7 @@ a.dtype.name # 'float64'
 \end{lstlisting}
 
 Wenn \lstinline!int! und \lstinline!float! gemischt übergeben werden,
-konvertiert Numpy in den Fließkommatyp. Wie viele Bit für einen Integer bzw. ein
+konvertiert NumPy in den Fließkommatyp. Wie viele Bit für einen Integer bzw. ein
 Float zur Verfügung stehen, ist von der Prozessorarchitektur abhängig. Moderne
 Computer unterstüzten in der Regel eine Größe von 64 Bit.
 
@@ -99,7 +99,7 @@ nan
 \end{lstlisting}
 
 \lstinline!np.NZERO! steht für die negative Darstellung der Null bei
-Fließkommazahlen, \lstinline!np.PZERO! für die positive Dartellung.
+Fließkommazahlen, \lstinline!np.PZERO! für die positive Darstellung.
 
 NumPy unterstützt eine Vielzahl an mathematischen Funktionen, darunter unter
 anderem trigonometrische Funktionen, Rundungs-,
@@ -120,7 +120,7 @@ elementweise auf das Array angewendet:
 1.73205081e+00, 1.63312394e+16]
 \end{lstlisting}
 
-Daneben ist auch die Umrechung von Radians in Grad
+Auch die Umrechung von Radians in Grad
 \begin{lstlisting}
 >>> a = np.array([0, np.pi/6, np.pi/4, np.pi/3, np.pi/2])
 >>> np.degrees(a)
@@ -134,14 +134,14 @@ und Grad in Radians möglich:
 \end{lstlisting}
 
 Mit \lstinline!np.around! können sämtliche Werte im Array auf eine bestimmte
-Anzahl von Stellen gerundet werden. Ohne Angabe eines zweiten Arguments wird auf
-kaufmännisch auf die nächste Ganzzahl gerundet,
+Anzahl von Stellen gerundet werden. Ohne Angabe eines zweiten Arguments wird
+kaufmännisch auf die nächste Ganzzahl gerundet.
 \begin{lstlisting}
 >>> a = np.array([1.49, 1.5, 1.51])
 >>> np.round(a)
 [1. 2. 2.]
 \end{lstlisting}
-mit dem optionalen zweiten Argument wird die Anzahl an Nachkommastellen, auf die
+Mit dem optionalen zweiten Argument wird die Anzahl an Nachkommastellen, auf die
 gerundet werden soll, angegeben:
 \begin{lstlisting}
 >>> a = np.array([1.25, 1.53, 1.99])
@@ -149,19 +149,21 @@ gerundet werden soll, angegeben:
 [1.2, 1.5, 2. ]
 \end{lstlisting}
 
-Um alle Elemente eines Arrays zu aufzusummieren, kann man
+Um alle Elemente eines Arrays zu aufzusummieren, wird die Funktion \\
+\lstinline!np.sum()! verwendet.
 \begin{lstlisting}
 >>> a = np.array([1, 2, 3])
 >>> np.sum(a)
 6
 \end{lstlisting}
-verwenden. Mit
+Mit \lstinline!np.prod()! können die Elemente der Liste miteinander
+multipliziert werden.
 \begin{lstlisting}
 >>> a = np.array([2, 3, 4])
 >>> np.prod(a)
 24
 \end{lstlisting}
-können die Elemente der Liste miteinander multipliziert werden.
+
 
 Sollten \lstinline!nan! (not a number) im Array vorkommen können, so kann
 \lstinline!np.nansum! beziehungsweise \lstinline!np.nanprod! verwendet werden.
