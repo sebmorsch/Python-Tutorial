@@ -2,8 +2,9 @@
 
 \section{Elementare Datentypen}
 
-Ähnlich wie bei Java und C oder C++ gibt es auch in Python Variablen. Allerdings gibt es dabei immense Unterschiede zu den anderen Programmiersprachen, weshalb sich ein genauerer Blick auf die einzelnen Datentypen in jedem Fall lohnt. Bei vielen bekannten Sprachen wird einer Variablen ein bestimmter Datentyp zugeordnet (deklariert). Der Datentyp kann darauf folgend zur Laufzeit nicht wieder geändert werden, der Wert innerhalb des Datentyps allerdings schon. So lassen sich in eine Variable des Typ Integer beispielsweise keine String-Werte speichern. In Python hingegen ist dies ohne weiteres möglich. Hier wird gänzlich auf eine explizite Typdeklaration verzichtet. Zeigt eine Variable beispielsweise auf eine ganze Zahl, so wird diese als ein Objekt vom Typ Integer interpretiert. Allerdings kann man sie im nächsten Schritt einfach auf ein String-Objekt zeigen lassen. 
-Betrachten wir nun die Datentypen etwas genauer.
+Ähnlich wie bei Java und C oder C++ gibt es auch in Python Variablen. Allerdings gibt es dabei immense Unterschiede zu den anderen Programmiersprachen, weshalb sich ein genauerer Blick auf die einzelnen Datentypen in jedem Fall lohnt. Bei vielen bekannten Sprachen wird einer Variablen ein bestimmter Datentyp zugeordnet (deklariert). Der Datentyp kann darauf folgend zur Laufzeit nicht wieder geändert werden, der Wert innerhalb des Datentyps allerdings schon. So lassen sich in eine Variable des Typ Integer beispielsweise keine String-Werte speichern. In Python hingegen ist dies ohne weiteres möglich. Hier wird gänzlich auf eine explizite Typdeklaration verzichtet. Zeigt eine Variable beispielsweise auf eine ganze Zahl, so wird diese als ein Objekt vom Typ Integer interpretiert. Allerdings kann man sie im nächsten Schritt einfach auf ein String-Objekt zeigen lassen. Dies ist in Python möglich, weil eine Variable ein Objekt lediglich referenziert und dadurch keinem Typ zugewiesen wird.
+
+Soviel zum allgemeinen Unterschied zu den anderen Programmiersprachen. Betrachten wir nun die Datentypen etwas genauer.
 
 \newpage
 \subsection{Zahlenoperatoren}
@@ -51,3 +52,29 @@ print(len(i))
 // Ausgabe: 6
 
 \end{lstlisting}
+
+\subsection{NULL oder NONE}
+
+Das Schlüsselwort \textit{NULL} wird in vielen Programmiersprachen genutzt. Die Idee dahinter ist einer Variable ein neutrales Verhalten zu geben. Das Äquivalent zu \textit{NULL} in Python ist \textit{NONE}. Der Vorteil ist, dass \textit{NONE} exakt der Aufgabe des Schlüsselworts entspricht. Ein Anwendungsfall für \textit{NONE} wäre beispielsweise um zu Überprüfen, ob die Verbindung zu einer Datenbank aufgebaut werden konnte oder nicht (Siehe Beispiel \ref{refnone}).
+
+\begin{lstlisting}[caption={NULL oder NONE},label=refnone]
+database_connection = None
+
+try:
+    database = MyDatabase(host, user, password, database)
+    database_connection = database.connect()
+except DatabaseException:
+    pass
+ 
+if database_connection is None:
+// Solange die Variable "NONE", keine Verbindung aufgebaut					
+    print('The database could not connect')
+else:
+    print('The database could connect')
+\end{lstlisting}
+
+\subsection{Referenz, Identität und Kopie}
+
+Wie wir bereits erwähnt haben, wird in Python eine Variable keinem Typ zugewiesen. Lässt man eine Variable jedoch ständig auf ein neues Objekt zeigen, kann man innerhalb des Codes schnell durcheinander kommen. Um dies zu vermeiden bietet sich die Identitätsfunktion id() an. Diese hilft uns dabei, die verschiedenen Instanzen voneinander zu unterscheiden. Jede Instanz hat dabei unabhängig von ihrem Wert und ihrem Typ eine eindeutige Identität. 
+
+Dies ist in Python möglich, weil eine Variable ein Objekt lediglich referenziert und dadurch keinem Typ zugewiesen wird.
