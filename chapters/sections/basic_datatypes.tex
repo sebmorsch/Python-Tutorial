@@ -2,15 +2,12 @@
 
 \section{Elementare Datentypen}
 
-Ähnlich wie bei Java und C oder C++ gibt es auch in Python Variablen. Allerdings gibt es dabei immense Unterschiede zu den anderen Programmiersprachen, weshalb sich ein genauerer Blick auf die einzelnen Datentypen in jedem Fall lohnt. Bei vielen bekannten Sprachen wird einer Variablen ein bestimmter Datentyp zugeordnet (deklariert). Der Datentyp kann darauf folgend zur Laufzeit nicht wieder geändert werden, der Wert innerhalb des Datentyps allerdings schon. So lassen sich in eine Variable des Typ Integer beispielsweise keine String-Werte speichern. In Python hingegen ist dies ohne weiteres möglich. Hier wird gänzlich auf eine explizite Typdeklaration verzichtet. Zeigt eine Variable beispielsweise auf eine ganze Zahl, so wird diese als ein Objekt vom Typ Integer interpretiert. Allerdings ist es möglich, diese im nächsten Schritt einfach auf ein String-Objekt zeigen zu lassen. Dies ist in Python möglich, weil eine Variable ein Objekt lediglich referenziert und dadurch keinem Typ zugewiesen wird.
-
+Ähnlich wie bei Java und C oder C++ gibt es auch in Python Variablen. Allerdings gibt es dabei immense Unterschiede zu den anderen Programmiersprachen, weshalb sich ein genauerer Blick auf die einzelnen Datentypen in jedem Fall lohnt. Bei vielen bekannten Sprachen wird einer Variablen ein bestimmter Datentyp zugeordnet (deklariert). Der Datentyp kann darauf folgend zur Laufzeit nicht wieder geändert werden, der Wert innerhalb des Datentyps allerdings schon. So lassen sich in eine Variable des Typ Integer beispielsweise keine String-Werte speichern. In Python hingegen ist dies ohne weiteres möglich. Hier wird gänzlich auf eine explizite Typdeklaration verzichtet. Zeigt eine Variable beispielsweise auf eine ganze Zahl, so wird diese als ein Objekt vom Typ Integer interpretiert. Allerdings ist es möglich, diese im nächsten Schritt einfach auf ein String-Objekt zeigen zu lassen. Dies ist in Python möglich, weil eine Variable ein Objekt lediglich referenziert und dadurch keinem Typ zugewiesen wird.\\
 Betrachten wir nun die Datentypen etwas genauer.
 
-\newpage
 \subsection{Zahlenoperatoren}
 
 Da in Python auf Typdeklaration verzichtet wird, muss dies beim Anlegen von Variablen nicht berücksichtigt werden. Wird eine ganze Zahl (Integer) benötigt, kann diese, falls nötig, auch in eine Gleitkommazahl (float) umgewandelt werden, ohne viel am Code zu ändern. Python deklariert im Hintergrund selbst und spart so unnötige Komplexitäten und Fehlerquellen. (Beispiel \ref{refzahl})
-
 
 \begin{lstlisting}[label=refzahl]
 # Zahlenoperatoren
@@ -24,7 +21,7 @@ type(i)
 
 \textbf{Boolean}
 
-Boolean gibt an, ob ein Statement \textit{true} oder \textit{false} ist. Dadurch lassen sich Fallunterscheidungen oder Abfragen ermöglichen. (Beispiel in Listing \ref{refbool})
+Boolean gibt an, ob ein Statement \textit{true} oder \textit{false} ist. Dadurch lassen sich Fallunterscheidungen oder Abfragen ermöglichen. (Beispiel in Listing \ref{basicDatatypes:lst:refbool})
 
 \begin{lstlisting}[label=basicDatatypes:lst:refbool]
 # Boolean
