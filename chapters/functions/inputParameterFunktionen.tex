@@ -67,7 +67,7 @@ def myFunction(x,y,z):
 \subsubsection{Standard-Parameter}
 
 Standard-Parameter folgen einer ähnlichen Syntax wie Schlüsselwort-Parameter, sie werden jedoch in der Funktionsdefinition festgelegt und nicht beim Aufruf.
-Zu beachten ist, dass beim Verwenden von positionalen und Standard-Parametern alle Standard-Parameter \textit{nach} den positionalen stehen müssen.
+Zu beachten ist, dass beim Verwenden von positionalen und Standard-Parametern alle Standard-Parameter \emph{nach} den positionalen stehen müssen.
 
 \begin{lstlisting}[language=Python, label=inputParameterFunktionen:lst:standardParameter]
 # Funktion mit Standard-Parametern
@@ -89,7 +89,7 @@ Funktion wie folgt aussehen:
 \begin{lstlisting}[language=Python, label=inputParameterFunktionen:lst:restParameter]
 # Funktion mit variablen Parametern
 
-def average(\textbf{*numbers}):
+def average(*numbers):
   value = 1
   for number in numbers:
     value = value * number
