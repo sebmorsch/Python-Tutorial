@@ -8,25 +8,34 @@ Python wurde mit dem Ziel größter Einfachheit sowie Übersichtlichkeit entworfen.
 Dies wird nicht zuletzt durch die größe Übersichtlichkeit in der Standardbibliothek versucht zu erreichen sondern auch durch die Modulare Erweiterbarkeit.
 Im folgenden wird die Python in der Version 3 behandelt.
 
-
 \subsection{Installation}
-Python kann auf der Webseite https://www.python.org bezogen werden.
-Nach dem Download des Installationsassistenten kann dieser gestartet werden und führt den Nutzer anschließend durch den Installationsprozess. 
-Er unterscheidet sich zwischen den Betriebssystemen nur gering bis gar nicht.
-
-Nach Abschluss der Installation stehen dem Anwender die verschieden Programme zur Verfügung.
-Unter /Application/Python[Version] befindet sich \textit{IDLE}, die mitgelieferte Standard Entwicklungsumgebung zu Python.
-Der \textit{PythonLauncher}, welcher für das ausführen von Python-Scripts per Doppelklick zuständig ist.
-Das \textit{Build Applet} um Python Script zu lauffähigen Anwendungen zusammen zu packen.
+Python kann auf der Webseite https://www.python.org für eine Vielzahl von Betriebssystemen bezogen werden. Es stehen 32- und 64-Bit Versionen zur Verfügung. 
+Nach dem Start des Installationsassistenten führt er den Nutzer durch den Installationsprozess. 
+Der Ablauf der Installation unterscheidet sich zwischen den Betriebssystemen nur gering bis gar nicht.
+Nach erfolgreichem Abschluss stehen dem Anwender verschiedene Programme und zur Arbeit mit Python zur Verfügung.
+Im vom Nutzer gewählten Installationsverzeichnis befinden sich nun folgende Programme: 
+\begin{description}
+	\item[\textit{IDLE}] Standard IDE\footnote{Integrated Development Environment} für Python
+	\item[Python] Standard Konsolen Interpreter
+	\item[Pythonw] Standard Interpreter ohne Konsolenausgabe
+\end{description}
+Diese Programme reichen aus, um Code mit Python zu entwickeln. Der Python Interpreter kann nun in der Konsole mit dem Befehl ''python'' aufgerufen werden. Die folgenden Abschnitte beschreiben Besonderheiten bei der Installation auf einzelnen Betriebssystemen. 
 \subsubsection{Installation unter Windows}
 %TODO Installation + Hinweis zur Pfad Variable
+Windows Nutzer müssen die Pfad Variable für Python im Installationsassistenten hinzufügen lassen.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.5]{images/InstallationWindows.png} 
+\caption{Start des Installationsassistenten}
+\label{fig:InstallationWindows}
+\end{figure}
 \subsubsection{Installation unter Mac}
 Im Folgenden wird die Installation unter macOS X gezeigt.
 \begin{figure}[ht]
 	\centering
-\includegraphics[scale=0.5]{images/Installationsassistent.png} 
+\includegraphics[scale=0.5]{images/InstallationMac.png} 
 	\caption{Start des Installationsassistenten}
-	\label{fig:InstallAssist}
+	\label{fig:InstallationMac}
 \end{figure}
 Neben der Bestätigung der Lizenzvereinbarung muss während der Installation keine Auswahl getroffen werden.
 Somit erscheint nach Ende der Installation der Python Ordner im Finder (Dateiexplorer).
@@ -57,7 +66,7 @@ Nach Abschluss der Installationsroutine kann wie mit jedem anderen Betriebssyste
 Die einfachste Möglichkeit, Python Code auszuführen, ist direkte Übergabe des Codes an den sogenannten Python Interpreter. 
 Dabei handelt es sich um eine Konsolenanwendung, welche Code ausführt und gegebenenfalls Ergebnisse ausgibt. 
 Dabei kann ein Nutzer den Code entweder direkt in die Konsole eingeben oder diesen aus einer Datei auslesen lassen. 
-Wie bei anderen Programmiersprachen auch, stehen verschiedene IDEs\footnote{Integrated Development Environment} zur Verfügung, welche in Kapitel \ref{} behandelt werden. 
+Wie bei anderen Programmiersprachen auch, stehen verschiedene IDEs zur Verfügung, welche in Kapitel \ref{} behandelt werden. 
 Für die ersten Versuche mit Python reicht der Interpreter jedoch völlig aus. Dieser wird standardmäßig mit Python installiert.\\
 In Abbildung \ref{fig:Interpreter} ist der Interpreter zu sehen. 
 Zusätzlich zur Version werden auch noch der Herausgeber von Python sowie die Uhrzeit angezeigt.
