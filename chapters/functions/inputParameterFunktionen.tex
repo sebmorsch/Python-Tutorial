@@ -3,9 +3,12 @@
 
 In diesem Abschnitt sehen wir uns die verschiedenen Arten von Übergabeparametern genauer an, sowie die Möglichkeiten, diese an eine Funktion zu übergeben.
 
-\begin{lstlisting}[caption=Übergabe eines primitiven Datentypes, label=inputParameterFunktionen:lst:primitiveParameter]
+\begin{lstlisting}[language=Python, label=inputParameterFunktionen:lst:primitiveParameter]
+# Übergabe eines primitiven Datentyps
+
 def myFunction(x):
   x = 1
+  
 x = 2
 myFunction(x)
 print(x)
@@ -13,9 +16,12 @@ print(x)
 
 Mittels Codes (\ref{inputParameterFunktionen:lst:primitiveParameter}) wird der Wert '2' ausgedruckt. Aus dem vorherigen Abschnitt über Gültigkeitsbereiche wissen wir, dass es sich hierbei - trotz gleichem Namen - um zwei verschiedene Variablen handelt. Eine Integer-Variable im lokalen und eine im globalen Gültigkeitsbereich. Dies gilt jedoch nur für primitive Datentypen, für nicht-primitive Datentypen verhält es sich anders.
 
-\begin{lstlisting}[caption=Übergabe eines nicht-primitiven Datentyps, label=inputParameterFunktionen:lst:nonPrimitiveParameter]
+\begin{lstlisting}[language=Python, label=inputParameterFunktionen:lst:nonPrimitiveParameter]
+# Übergabe eines nicht-primitiven Datentyps
+
 def myFunction(x)
   x[0] = 100
+  
 x = [0,1,2]
 myFunction(x)
 print(x)
@@ -34,7 +40,9 @@ In folgendem Unterabschnitt gehen wir auf verschiedene Arten von Input-Parameter
 
 Diese Art von Parametern dürfte bereits bekannt sein. Es handelt sich um eine endliche Anzahl von Parametern, die man von links nach rechts liest.
 
-\begin{lstlisting}[caption=Funktion mit positionalen Parameter, label=inputParameterFunktionen:lst:positionalParameter]
+\begin{lstlisting}[language=Python, label=inputParameterFunktionen:lst:positionalParameter]
+# Funktion mit positionalen Parametern
+
 def myFunction(x,y,z):
   ...
   myFunction(1,2,3)
@@ -47,7 +55,9 @@ Bei Schlüsselwort-Parametern ist die Reihenfolge der Parameter nicht elementar, 
 
 \warning{Bei der Verwendung von positionalen und Schlüsselwort-Parametern, müssen positionale Parameter immer links der Schlüsselwort-Parameter stehen.}
 
-\begin{lstlisting}[caption=Funktion mit Schlüsselwort-Parametern, label=inputParameterFunktionen:lst:keywordParameter]
+\begin{lstlisting}[language=Python, label=inputParameterFunktionen:lst:keywordParameter]
+# Funktion mit Schlüsselwort-Parametern
+
 def myFunction(x,y,z):
   ...
   myFunction(x = 1, z = 3, y = 2)
@@ -59,7 +69,9 @@ def myFunction(x,y,z):
 Standard-Parameter folgen einer ähnlichen Syntax wie Schlüsselwort-Parameter, sie werden jedoch in der Funktionsdefinition festgelegt und nicht beim Aufruf.
 Zu beachten ist, dass beim Verwenden von positionalen und Standard-Parametern alle Standard-Parameter \textit{nach} den positionalen stehen müssen.
 
-\begin{lstlisting}[caption=Funktion mit Standard-Parametern, label=inputParameterFunktionen:lst:standardParameter]
+\begin{lstlisting}[language=Python, label=inputParameterFunktionen:lst:standardParameter]
+# Funktion mit Standard-Parametern
+
 def myFunction(x, y = 10, z = 20):
   print(x, y, z)
 
@@ -68,19 +80,22 @@ myFunction(y = 20, x = 10, z = 30)  # 10 20 30
 myFunction(0, z = 1)                # 0 10 1
 \end{lstlisting}
 
-\subsection{Rest-Parameter}
+\subsection{Variable Parameter}
 
-Rest-Parameter ermöglichen quasi eine unendliche Anzahl an Übergabe-Parametern.
+Variable Parameter ermöglichen quasi eine unendliche Anzahl an Übergabe-Parametern.
 Möchte ein Nutzer beispielsweise den Durchschnitt mehrerer Zahlen wissen, so könnte die
 Funktion wie folgt aussehen:
 
-\begin{lstlisting}[caption=Funktion mit Rest-Parametern, label=inputParameterFunktionen:lst:restParameter]
+\begin{lstlisting}[language=Python, label=inputParameterFunktionen:lst:restParameter]
+# Funktion mit variablen Parametern
+
 def average(\textbf{*numbers}):
   value = 1
   for number in numbers:
     value = value * number
     
-  value = value / len(numbers) # durch die Anzahl an Parametern 
+  value = value / len(numbers)
+  # durch die Anzahl an Parametern 
   return value
 
 result = average(5, 5, 10, 8, 2)
@@ -88,5 +103,5 @@ print(result) # druckt das Ergebnis 6
 \end{lstlisting}
 
 Die multiplen Parameter werden als Liste gehandhabt.
-Bei der Definition von Rest-Parametern in einer Funktion ist es wichtig, dass sie als letztes Argument stehen.
+Bei der Definition von variablen Parametern in einer Funktion ist es wichtig, dass sie als letztes Argument stehen.
 

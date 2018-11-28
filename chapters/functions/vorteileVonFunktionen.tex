@@ -17,7 +17,9 @@ Code-Zeilen. Das kann für den Programmierer und die Kollegen, die an den Aufgabe
 Der Code ist schlecht zu lesen und die Fehlersuche schwierig.
 Schritte, die immer wieder gebraucht werden, wären das Abfangen, Auslesen, Interpretieren und Aufbereiten von Daten. Anfänger könnten den Fehler machen, diese Aufgaben in einer großen komplexen Funktion zu schreiben.
 
-\begin{lstlisting}[caption=Schlechter Umgang mit komplexen Prozessen, label=vorteileVonFunktionen:lst:badComplexFunction]
+\begin{lstlisting}[language=Python, label=vorteileVonFunktionen:lst:badComplexFunction]
+# Beispiel für schlechten Umgang mit komplexen Prozessen
+
 def processData(source):
   ...
   return finalData
@@ -26,8 +28,11 @@ def processData(source):
 Es ist mühsam herauszufinden, was genau in dieser Funktion passiert.
 Ein Beispiel zum Aufteilen des Code-Blocks könnte weiterhelfen.
 
-\begin{lstlisting}[caption=Komplexität aufgeteilt in mehrere Funktionen, label=vorteileVonFunktionen:lst:goodComplexFunction]
-def processData(source)
+\begin{lstlisting}[language=Python, label=vorteileVonFunktionen:lst:goodComplexFunction]
+# Aufteilung des komplexen Prozesses
+# in mehrere kleine Prozesse
+
+def processData(source):
 	rawData = readData(source)
 	parsedData = parseData(rawData)
 	editedData = editData(parsedData)
@@ -60,3 +65,4 @@ näher betrachtet.
 Durch das Kapseln von Prozessen in einzelne Funktionen sind diese auch einfach erweiterbar und veränderbar.
 Wäre der Code nur dupliziert worden, müsste der Nutzer diesen an allen Stellen ändern.
 Da das Programm aber an diesen Stellen nur die Funktion aufruft, muss nur diese Funktion erweitert oder verändert werden.
+
