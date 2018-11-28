@@ -197,7 +197,7 @@
     % Kapitelnummer.Zähler für das Item
     \arabic{chapter}.\arabic{aufgabenCounter}
 }
-% Der Text der Aufgaben steht im Ordner ./pratices/tasks/aufgabenstellungen,
+% Der Text der Aufgaben steht im Ordner ./exercises/tasks/aufgabenstellungen,
 % so können wir die Dateien aus der Veranstaltung
 % Wahrscheinlichkeitsrechnung und Statistik verwenden; und die neuen
 % Aufgaben gehen in den allgemeinen Fundus ein.
@@ -228,17 +228,17 @@
 \newtheorem{datensatz}{Datensatz}
 }
 % Text mit Pfad
-\newcommand{\aufgabentext}[1]{\renewcommand{\labelenumi}{\alph{enumi})}\auftitle\label{#1}\input{./practices/tasks/#1}}
+\newcommand{\aufgabentext}[1]{\renewcommand{\labelenumi}{\alph{enumi})}\auftitle\label{#1}\input{./exercises/tasks/#1}}
 % Funktion für die Lösungs-Hinweise für eine Aufgabe. Der Text
 % steht analog zu den Übungsaufgaben im Ordner tasks/solutions.
-\newcommand{\hinweistext}[1]{\renewcommand{\labelenumi}{\alph{enumi})}\input{./practices/solutions/#1}}
+\newcommand{\hinweistext}[1]{\renewcommand{\labelenumi}{\alph{enumi})}\input{./exercises/solutions/#1}}
 % Und jetzt die Funktionen, die wir im Text aufrufen
 \newcommand{\aufgabe}[1]{\aufgabentext{#1}}
 % Lösungshinweise im Anhang
 \newcommand{\hinweis}[1]{\subsubsection*{Aufgabe \ref{#1}} \hinweistext{#1}}
 %
 % Datensatz-Texte und Daten in eigener Datei
-\newcommand{\dataset}[1]{\begin{datensatz}\label{#1}\input{./practices/datasets/#1}\end{datensatz}}
+\newcommand{\dataset}[1]{\begin{datensatz}\label{#1}\input{./exercises/datasets/#1}\end{datensatz}}
 % Teilaufgaben alphabetisch nummerieren
 \renewcommand{\labelenumi}{\arabic{enumi})}
 %
