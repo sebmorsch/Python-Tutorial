@@ -8,13 +8,14 @@ Dies wird nicht zuletzt durch die Größe Übersichtlichkeit in der Standardbibliot
 Im Folgenden wird die Programmiersprache Python in der Version 3 behandelt.
 
 \section{Installation}
+\randnotiz{Installation}
 \label{grundlagen:sec:Installtion}
 Python kann auf der Webseite \url{https://www.python.org} für eine Vielzahl von Betriebssystemen bezogen werden. 
 Es stehen 32- und 64-Bit Versionen zur Verfügung. 
 Nach dem Start des Installationsassistenten führt er den Nutzer durch den Installationsprozess. 
 Der Ablauf der Installation unterscheidet sich zwischen den Betriebssystemen nur gering bis gar nicht.
 Nach erfolgreichem Abschluss stehen dem Anwender verschiedene Programme und zur Arbeit mit Python zur Verfügung.
-Im vom Nutzer gewählten Installationsverzeichnis befinden sich nun folgende Programme:
+Im vom Nutzer gewählten Installationsverzeichnis befinden sich nun folgende Programme: 
 \begin{description}
     \item[\textit{IDLE}] Standard IDE\footnote{Integrated Development Environment} für Python
     \item[Python] Standard Konsolen Interpreter
@@ -27,7 +28,7 @@ Die folgenden Abschnitte beschreiben Besonderheiten bei der Installation auf ein
 \label{grundlagen:sec:InstallationWindows}
 Windows Nutzer müssen die Systemvariable für Python im Installationsassistenten hinzufügen lassen. 
 Andernfalls kann Python nur im Installationsverzeichnis bzw. durch die Angabe des kompletten Pfades aufgerufen werden. 
-In Abbildung \ref{fig:InstallationWindows} ist die notwendige Auswahl zu sehen. 
+In Abbildung \ref{grundlagen:img:InstallationWindows} ist die notwendige Auswahl zu sehen. 
 \begin{figure}[ht]
 \centering
 \includegraphics[scale=0.5]{images/InstallationWindows.png}
@@ -38,6 +39,7 @@ In Abbildung \ref{fig:InstallationWindows} ist die notwendige Auswahl zu sehen.
 \subsection{Hinweis zur Installation unter Mac}
 \label{grundlagen:sec:InstallationMac}
 Im Folgenden wird die Installation unter macOS X gezeigt.
+
 \begin{figure}[ht]
 	\centering
 	\includegraphics[scale=0.5]{images/InstallationMac.png} 
@@ -61,6 +63,7 @@ Im Folgenden wird die Installation für Ubuntu Version 18.04.1 LTS erläutert.
 Im Gegensatz zu den anderen Betriebssystemen, wird hier von Haus aus ein Python Interpreter in der Version 3.6.6 mitgeliefert, jedoch nicht die Standard Entwicklungsumgebung IDLE.
 Diese kann über das Paket \textit{IDLE} nachträglich installiert werden.
 Sollte trotzdem noch kein Python vorhanden sein, durch den folgenden Befehl die Installation manuell angestoßen werden.
+
 \begin{lstlisting}[language=BASH, label={grundlagen:lst:InstallationLinux}]
 sudo apt-get install python3 python-doc
 \end{lstlisting}
@@ -72,13 +75,13 @@ Nach Abschluss der Installationsroutine kann wie mit jedem anderen Betriebssyste
 \section{Python Interpreter} %WIP ROGU 
 \label{grundlagen:sec:Interpreter}
 %TODO ADD LINKS TO OTHER SECTIONS %WHAT IS PYTHON CODE?
-Die einfachste Möglichkeit, Python Code auszuführen, ist direkte Übergabe des Codes an den sogenannten Python Interpreter.
-Dabei handelt es sich um eine Konsolenanwendung, welche Code ausführen und gegebenenfalls auftretende Ergebnisse ausgeben kann.
-Dabei kann ein Nutzer den Code entweder direkt in die Konsole eingeben oder diesen aus einer Datei auslesen lassen.
-Wie bei anderen Programmiersprachen auch, stehen für Python verschiedene IDEs zur Verfügung, die in Abschnitt \ref{ides:section:ides} behandelt werden.
+Die einfachste Möglichkeit, Python Code auszuführen, ist direkte Übergabe des Codes an den sogenannten Python Interpreter. 
+Dabei handelt es sich um eine Konsolenanwendung, welche Code ausführen und gegebenenfalls auftretende Ergebnisse ausgeben kann. 
+Dabei kann ein Nutzer den Code entweder direkt in die Konsole eingeben oder diesen aus einer Datei auslesen lassen. 
+Wie bei anderen Programmiersprachen auch, stehen für Python verschiedene IDEs zur Verfügung, welche in Kapitel \ref{} behandelt werden. 
 Für die ersten Versuche mit Python reicht der Interpreter jedoch völlig aus. Dieser wird standardmäßig mit Python installiert.
 
-In Abbildung \ref{fig:Interpreter} ist der Interpreter zu sehen.
+In Abbildung \ref{grundlagen:img:Interpreter} ist der Interpreter zu sehen. 
 Zusätzlich zur Version werden auch noch der Herausgeber von Python, sowie die Uhrzeit angezeigt.
 Bereits jetzt kann erster Code ausgeführt werden.
 Im Folgenden werden zu einzelnen Bestandteilen von Python Beispiele beigefügt, welche leicht im Interpreter ausführbar sind. Es wird dem Leser empfohlen, diese zum besseren Verständnis nachzuvollziehen, falls möglich durch eigenständiges Ausprobieren.
@@ -121,6 +124,7 @@ Innerhalb der Programmiersprache Python wird zwischen Zeilen- und Blockkommentar
 Zeilenweise Kommentare werden durch das Rautensymbol (\# ) eingeleitet.
 Blockkommentare hingegen werden durch drei aufeinander folgende Anführungszeichen  $''''''$ jeweils zu Beginn und am Ende des Kommentares markiert.
 Hier wird jeweils ein Beispiel gezeigt:
+
 \lstinputlisting[language=Python,label={grundlagen:lst:Kommentare}]{chapters/basics/src/comment.py}
 \subsection{Typsicherheit}
 \label{grundlagen:sec:Typsicherheit}
@@ -134,6 +138,7 @@ Weitere Informationen zu Datentypen werden in Abschnitt \ref{} erläutert. %TODO 
 %\subsection{Prozedurale Programmierung} %TODO NOT NEEDED ANYMORE?
 
 \section{Beispiel \glqq Hello World!\grqq} %TODO ADD MORE STUFF
+\randnotiz{Beispiel}
 \label{grundlagen:sec:HalloWorld}
 Einfache Ausgaben können mit dem print()- Befehl ausgeführt werden. 
 Innerhalb der Klammern muss ein String übergeben werden, eine einfache Zeichenkette. 
@@ -145,15 +150,12 @@ Mehr erfährt der Leser in späteren Kapiteln. Ein einfaches ''Hello-World!''-Prog
 Es handelt sich dabei um ein vollständiges Python-Programm, welches in dieser Form ausgeführt werden kann. 
 Anders als bei Java oder C++ werden keinerlei Klassenkonstrukte oder main-Methoden benötigt.
 \section{Übung}
+\randnotiz{Übung}
 \label{grundlagen:sec:Uebung}
-Im folgenden sollen  die zuvor gelernten beziehungsweise gezeigten Punkte anhand von Übungen wiederholt und vertieft werden.
-
-\kontrollfrage{
-\item[\kontroll] Installieren sie Python und lassen sie sich im Anschluss über \lstinline$--version$ die Version ihres Python Interpreters ausgeben. 
-
-\tip{Über den Parameter --help können sich alle möglichen Parameter angezeigt werden.}
-\item[\kontroll] Schreiben sie ihr eigenes kleines \lstinline$HalloWorld$ Programm und lassen es im Anschluss über das Terminal ausführen.
-}
+Im folgenden sollen die zuvor gelernten beziehungsweise gezeigten Punkte anhand von Übungen wiederholt und vertieft werden.
+\uebung
+\aufgabe{grundlagen01} 
+\aufgabe{grundlagen02}
 \section{Zusammenfassung} %TODO MOVE TO END OF THE CHAPTER
 \label{grundlagen:sec:Zusammenfassung}
 In diesem Kapitel hat der Leser seine ersten Schritte mit der Sprache Python gemacht. 
