@@ -1,13 +1,13 @@
 % !TeX root = ../../pythonTutorial.tex
-\section{Gültigkeitsbereich von Variablen}
+\section{Gültigkeitsbereich von Variablen und Funktionen}
+\label{scopesOfVariablesAndFunctions}
+Je nachdem, wie und wo Funktionen definiert sind, können diese zu anderen Ergebnissen führen. Zur Verdeutlichung folgt ein einfaches Beispiel (\ref{scopesOfVariablesAndFunctions:lst:simpleScope}).
 
-Je nachdem, wie und wo Funktionen definiert sind, können diese zu anderen Ergebnissen führen. Zur Verdeutlichung folgt ein einfaches Beispiel (\ref{gueltigkeitsbereicheFunktionen:lst:simpleScope}).
-
-\begin{lstlisting}[language=Python, label=gueltigkeitsbereicheFunktionen:lst:simpleScope]
+\begin{lstlisting}[language=Python, label=scopesOfVariablesAndFunctions:lst:simpleScope]
 # Beispiel zu Gültigkeitsbereichen
 
 def myFunction():
-  # lokaler Gültigkeitsereich der Funktion
+  # lokaler Gültigkeitsbereich der Funktion
   a = 1
   print('myFunction:', a)
 
@@ -32,7 +32,7 @@ Python sucht nach dem nächstmöglichen Gültigkeitsbereich: \lstinline$lokal$, \ls
 
 Nun ein Beispiel mit verschachtelten Funktionen:
 
-\begin{lstlisting}[language=Python, label=gueltigkeitsbereicheFunktionen:lst:enclosingScope]
+\begin{lstlisting}[language=Python, label=scopesOfVariablesAndFunctions:lst:enclosingScope]
 # Verschachtelte Funktionen
 
 def enclosing():
@@ -60,12 +60,12 @@ global: 0
 
 
 \subsection{Statements zu Gültigkeitsbereichen - \mbox{global und nonlocal}}
-
+\label{scopesOfVariablesAndFunctions:subsection:statements}
 Nicht nur durch die Positionen werden Gültigkeitsbereiche definiert, auch durch die Schlüsselwörter \lstinline$global$ und \lstinline$nonlocal$ können wir den Gültigkeitsbereich bestimmen.
 
-Durch \lstinline$nonlocal$ wird eine Variable auf die nächst umschließende Definition festgelegt (\ref{gueltigkeitsbereicheFunktionen:lst:nonlocalStatement}). 
+Durch \lstinline$nonlocal$ wird eine Variable auf die nächst umschließende Definition festgelegt (\ref{scopesOfVariablesAndFunctions:lst:nonlocalStatement}). 
 
-\begin{lstlisting}[language=Python, label=gueltigkeitsbereicheFunktionen:lst:nonlocalStatement]
+\begin{lstlisting}[language=Python, label=scopesOfVariablesAndFunctions:lst:nonlocalStatement]
 # Nonlocal Statement
 
 def enclosing():
@@ -94,9 +94,9 @@ global: 0
 
 Achtung: Würde in der enclosing-Funktion \lstinline$a$ auf \lstinline$nonlocal$ gesetzt, dann käme es zu einer \lstinline$Exception$, da die nächste Ebene global ist.
 
-Das Gleiche können wir mit dem globalen Gültigkeitsbereich machen, wie in \ref{gueltigkeitsbereicheFunktionen:lst:globalStatement} gezeigt.
+Das Gleiche können wir mit dem globalen Gültigkeitsbereich machen, wie in \ref{scopesOfVariablesAndFunctions:lst:globalStatement} gezeigt.
 
-\begin{lstlisting}[language=Python, label=gueltigkeitsbereicheFunktionen:lst:globalStatement]
+\begin{lstlisting}[language=Python, label=scopesOfVariablesAndFunctions:lst:globalStatement]
 # Global Statement
 
 def enclosing():
@@ -125,5 +125,3 @@ global: 2
 
 
 Während \lstinline$nonlocal$ nur den nächst umschließenden Gültigkeitsbereich wählt -  in welcher die Variable deklariert wurde - greift \lstinline$global$ immer auf den globalen Gültigkeitsbereich zu.
-
-\newpage
