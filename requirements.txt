@@ -1,0 +1,1 @@
+-e git@github.com:MBrill/StylesAndMore.git#egg=StylesAndMore
