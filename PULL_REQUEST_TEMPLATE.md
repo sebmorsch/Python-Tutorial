@@ -5,7 +5,7 @@ V0.1
 ## Checkliste
 - [ ] [CONTRIBUTING](https://github.com/Informatik-HS-KL/Python-Tutorial/blob/develop/CONTRIBUTING.md) wurde gelesen und angewendet.
 - [ ] Die Richtlinen für LaTeX und Python aus dem [Wiki](https://github.com/Informatik-HS-KL/Python-Tutorial/wiki) wurden angewendet.
-- [ ] Das erstellen der PDF-Datei ist ohne Fehler möglich.
+- [ ] Das Erstellen der PDF-Datei ist ohne Fehler möglich.
 
 ## Beschreibung
 
