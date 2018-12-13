@@ -3,31 +3,32 @@
 Die Programmiersprache Python wurde Anfang der 1990er Jahre von Guido van Rossum entwickelt.
 Der Name der Sprache beruht auf der Komikergruppe  Monty Python.
 Hierzu lassen sich auch zahlreiche Anspielung in der Dokumentation von Python finden.
+Python soll einfach verständlich sein.
 Python wurde mit dem Ziel größter Einfachheit sowie Übersichtlichkeit entworfen.
-Dies wird nicht zuletzt durch die Größe Übersichtlichkeit in der Standardbibliothek versucht zu erreichen sondern auch durch die Modulare Erweiterbarkeit.
+Dies soll nicht nur durch eine übersichtliche Standardbibliothek erreicht werden, sondern auch durch die Modulare Erweiterbarkeit.
 Im Folgenden wird die Programmiersprache Python in der Version 3 behandelt.
 
 \section{Installation}
 \randnotiz{Installation}
-\label{grundlagen:sec:Installtion}
+\label{grundlagen:sec:Installation}
 Python kann auf der Webseite \url{https://www.python.org} für eine Vielzahl von Betriebssystemen bezogen werden. 
 Es stehen 32- und 64-Bit Versionen zur Verfügung. 
-Nach dem Start des Installationsassistenten führt er den Nutzer durch den Installationsprozess. 
-Der Ablauf der Installation unterscheidet sich zwischen den Betriebssystemen nur gering bis gar nicht.
-Nach erfolgreichem Abschluss stehen dem Anwender verschiedene Programme und zur Arbeit mit Python zur Verfügung.
+Nach dem Start des Installationsassistenten wird der Nutzer durch die Installation geführt. 
+Der Ablauf der Installation unterscheidet sich je nach Betriebssystemen nur gering bis gar nicht.
+Nach erfolgreichem Abschluss stehen dem Anwender verschiedene Programme für die Arbeit mit Python zur Verfügung.
 Im vom Nutzer gewählten Installationsverzeichnis befinden sich nun folgende Programme: 
-\begin{description}
-    \item[\textit{IDLE}] Standard IDE\footnote{Integrated Development Environment} für Python
-    \item[Python] Standard Konsolen Interpreter
-    \item[Pythonw] Standard Interpreter ohne Konsolenausgabe
-\end{description}
+\begin{enumerate}
+	\item[\textit{IDLE}] Standard IDE\footnote{Integrated Development Environment} für Python
+	\item[Python] Standard Konsolen Interpreter
+	\item[Pythonw] Standard Interpreter ohne Konsolenausgabe
+\end{enumerate}
 Diese Programme reichen aus, um Code mit Python zu entwickeln. 
-Der Python Interpreter kann nun in der Konsole mit dem Befehl ''python'' aufgerufen werden. 
+Der Python Interpreter kann in der Konsole mit dem Befehl ''python'' aufgerufen werden. 
 Die folgenden Abschnitte beschreiben Besonderheiten bei der Installation auf einzelnen Betriebssystemen. 
 \subsection{Hinweis zur Installation unter Windows}
 \label{grundlagen:sec:InstallationWindows}
 Windows Nutzer müssen die Systemvariable für Python im Installationsassistenten hinzufügen lassen. 
-Andernfalls kann Python nur im Installationsverzeichnis bzw. durch die Angabe des kompletten Pfades aufgerufen werden. 
+Andernfalls kann Python nur im Installationsverzeichnis bzw. durch die Angabe des kompletten Pfads aufgerufen werden. 
 In Abbildung \ref{grundlagen:img:InstallationWindows} ist die notwendige Auswahl zu sehen. 
 \begin{figure}[ht]
 \centering
@@ -55,14 +56,15 @@ Nach Ende der Installation befindet sich der Python Ordner im Finder (Dateiexplo
 	\label{grundlagen:img:FinishInstall}
 \end{figure}
 Zuletzt wurde durch den Assistent unter /Library/Frameworks/Python.framework noch das Python Framework abgelegt.
-Ohne dieses wäre das Arbeiten mit Python unter Mac nicht möglich.
+Ohne das wäre die Arbeit mit Python unter Mac nicht möglich.
 
 \subsection{Hinweis zur Installation unter Linux(Ubuntu)}
 \label{grundlagen:sec:InstallationLinux}
-Im Folgenden wird die Installation für Ubuntu Version 18.04.1 LTS erläutert.
-Im Gegensatz zu den anderen Betriebssystemen, wird hier von Haus aus ein Python Interpreter in der Version 3.6.6 mitgeliefert, jedoch nicht die Standard Entwicklungsumgebung IDLE.
-Diese kann über das Paket \textit{IDLE} nachträglich installiert werden.
-Sollte trotzdem noch kein Python vorhanden sein, durch den folgenden Befehl die Installation manuell angestoßen werden.
+In diesem Kapitel wird die Installation für Ubuntu Version 18.04.1 LTS erläutert.
+Im Gegensatz zu den anderen Betriebssystemen, wird hier nur der Python Interpreter in der Version 3.6.6 mitgeliefert
+Standard Entwicklungsumgebung IDLE ist nicht vorinstalliert.
+Diese kann über das Paket IDLE nachträglich installiert werden.
+Sollte die Arbeit mit Python noch nicht möglich sein, kann durch den folgenden Befehl die Installation manuell angestoßen werden.
 
 \begin{lstlisting}[language=BASH, label={grundlagen:lst:InstallationLinux}]
 sudo apt-get install python3 python-doc
@@ -75,16 +77,17 @@ Nach Abschluss der Installationsroutine kann wie mit jedem anderen Betriebssyste
 \section{Python Interpreter} %WIP ROGU 
 \label{grundlagen:sec:Interpreter}
 %TODO ADD LINKS TO OTHER SECTIONS %WHAT IS PYTHON CODE?
-Die einfachste Möglichkeit, Python Code auszuführen, ist direkte Übergabe des Codes an den sogenannten Python Interpreter. 
-Dabei handelt es sich um eine Konsolenanwendung, welche Code ausführen und gegebenenfalls auftretende Ergebnisse ausgeben kann. 
-Dabei kann ein Nutzer den Code entweder direkt in die Konsole eingeben oder diesen aus einer Datei auslesen lassen. 
+Die einfachste Möglichkeit, Python Code auszuführen, ist die direkte Übergabe des Codes an den sogenannten Python Interpreter. 
+Dabei handelt es sich um eine Konsolenanwendung, die Code ausführen und gegebenenfalls auftretende Ergebnisse ausgeben kann. 
+Dabei kann ein Nutzer den Code entweder direkt in die Konsole eingeben oder aus einer Datei auslesen lassen. 
 Wie bei anderen Programmiersprachen auch, stehen für Python verschiedene IDEs zur Verfügung, welche in Kapitel \ref{} behandelt werden. 
 Für die ersten Versuche mit Python reicht der Interpreter jedoch völlig aus. Dieser wird standardmäßig mit Python installiert.
 
 In Abbildung \ref{grundlagen:img:Interpreter} ist der Interpreter zu sehen. 
-Zusätzlich zur Version werden auch noch der Herausgeber von Python, sowie die Uhrzeit angezeigt.
+Zusätzlich zur Version werden auch noch der Herausgeber von Python sowie die Uhrzeit angezeigt.
 Bereits jetzt kann erster Code ausgeführt werden.
-Im Folgenden werden zu einzelnen Bestandteilen von Python Beispiele beigefügt, welche leicht im Interpreter ausführbar sind. Es wird dem Leser empfohlen, diese zum besseren Verständnis nachzuvollziehen, falls möglich durch eigenständiges Ausprobieren.
+Im Folgenden werden zu einzelnen Bestandteilen von Python Beispiele beigefügt, die leicht im Interpreter ausführbar sind. 
+Es wird dem Leser empfohlen, sie zum besseren Verständnis nachzuvollziehen, falls möglich durch selbständiges Ausprobieren.
 
 \begin{figure}[ht]
 	\centering
@@ -98,31 +101,31 @@ Im Folgenden werden zu einzelnen Bestandteilen von Python Beispiele beigefügt, w
 Wird der Interpreter ohne Angabe einer Quellcodedatei gestartet, befindet dieser sich im interaktiven Modus. 
 Der Nutzer kann hier direkt Anweisungen eingeben. Durch die Ausgabe der Zeichen $>>>$ zeigt die Konsole an, dass sie eine Anweisung erwartet. 
 In Python existieren auch mehrzeilige Anweisungen. 
-Nach der Eingabe der ersten Zeile, werden die Zeichen $...$ ausgegeben, was bedeutet, dass Folgeanweisungen erwartet werden. 
+Nach der Eingabe der ersten Zeile werden die Zeichen $...$ ausgegeben, was bedeutet, dass Folgeanweisungen erwartet werden. 
 \subsection*{Einlesen einer Datei} %WIP ROGU
 \label{grundlagen:sec:EinlesenDatei}
-Dateien, welche Python Code enthalten werden mit der Dateiendung ''.py'' gekennzeichnet. 
+Dateien, welche Python Code enthalten, werden mit der Dateiendung ''.py'' gekennzeichnet. 
 Sie können direkt mit dem der Konsole ausgeführt werden.
-Dazu muss der ausführbaren Datei ''python.exe'' der Pfad der Python-Datei übergeben werden.
+Dazu muss der ausführbaren Datei ''python.exe'' der Pfad der Pythondatei übergeben werden. 
 \section{Syntax}
 \label{grundlagen:sec:Syntax}
-Im Folgenden werden wichtige Grundkonzepte der Sprache Python erläutert.
+Im Folgenden werden wichtige Grundkonzepte der Programmiersprache Python erläutert.
 %\subsection{Ausdrücke} %WIP ROGU
 %Anders als bei anderen Programmiersprachen wie beispielsweise Java, benötigt Python keine Klassenkonstrukte... %TODO AUSDRÃœCKE, kein fester Rahmen zur AusfÃ¼hrung benÃ¶tigt
 %\subsection{Einfache Datentypen}
 %TODO REMOVE SUBSECTION
 \subsection{Leerzeichen und Einrückung} %TODO FORMULIERUNG
 \label{grundlagen:sec:LeerzeichenEinrueckung}
-Um in Python Blöcke auszuzeichnen werden im Gegensatz zu Java oder C++ keine geschweiften Klammern genutzt.
-In Python werden Blöcke durch das Einrücken der Zeilen markiert.
-In Python ist hierfür entweder der Tabulator oder 4 aufeinander folgende Leerzeichen vorgesehen.
+Um in Python Blöcke auszuzeichnen, werden im Gegensatz zu Java oder C++ keine geschweiften Klammern genutzt.
+In Python werden Blöcke durch das Einrücken der Zeilen markiert. 
+Hierfür sind entweder der Tabulator oder vier aufeinander folgende Leerzeichen vorgesehen.
 %Somit kann bei zum Beispiel einer IF-Abfrage der nachfolgende Block leicht falsch zugeordnet werden wenn in den nachfolgenden Zeilen die Einrückung Übersehen wird.
 %TODO REMOVE? if abfragen sind noch nicht eingeführt worden
 \subsection{Kommentare}
 \label{grundlagen:sec:Kommentare}
 Innerhalb der Programmiersprache Python wird zwischen Zeilen- und Blockkommentaren unterschieden.
-Zeilenweise Kommentare werden durch das Rautensymbol (\# ) eingeleitet.
-Blockkommentare hingegen werden durch drei aufeinander folgende Anführungszeichen  $''''''$ jeweils zu Beginn und am Ende des Kommentares markiert.
+Zeilenweise Kommentare werden durch das Rautensymbol (\#) eingeleitet.
+Blockkommentare hingegen werden durch drei aufeinander folgende Anführungszeichen ( \lstinline$"""$) jeweils zu Beginn und am Ende des Kommentars markiert.
 Hier wird jeweils ein Beispiel gezeigt:
 
 \lstinputlisting[language=Python,label={grundlagen:lst:Kommentare}]{chapters/basics/src/comment.py}
@@ -141,14 +144,14 @@ Weitere Informationen zu Datentypen werden in Abschnitt \ref{} erläutert. %TODO 
 \randnotiz{Beispiel}
 \label{grundlagen:sec:HalloWorld}
 Einfache Ausgaben können mit dem print()- Befehl ausgeführt werden. 
-Innerhalb der Klammern muss ein String übergeben werden, eine einfache Zeichenkette. 
+Innerhalb der Klammern muss ein String übergeben werden, sprich eine einfache Zeichenkette. 
 Diese wird durch umschließende einfache oder doppelte Anführungszeichen markiert (''EinString''/'EinString'). 
 Der Einfachheit halber, wird hier noch auf die genaue Erklärung der einzelnen Bestandteile der Anweisung verzichtet. 
-Mehr erfährt der Leser in späteren Kapiteln. Ein einfaches ''Hello-World!''-Programm benötigt in Python tatsächlich nur eine Zeile: 
+Ein einfaches ''Hello-World!''-Programm benötigt in Python nur eine Zeile: 
 
 \lstinputlisting[language=python, label={grundlagen:lst:HalloWorld}]{chapters/basics/src/helloworld.py}
-Es handelt sich dabei um ein vollständiges Python-Programm, welches in dieser Form ausgeführt werden kann. 
-Anders als bei Java oder C++ werden keinerlei Klassenkonstrukte oder main-Methoden benötigt.
+Es handelt sich dabei um ein vollständiges Python-Programm, das in dieser Form ausgeführt werden kann. 
+Anders als bei Java oder C++ werden keine Klassenkonstrukte oder main-Methoden benötigt.
 \section{Übung}
 \randnotiz{Übung}
 \label{grundlagen:sec:Uebung}
