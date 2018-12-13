@@ -1,0 +1,65 @@
+\section{Die Layout-Manager}
+
+In diesem Kapitel werden die Layout- oder Gemeometrie-Manager von Tkinter behandelt.
+Grundsätzlich stehen drei verschiedene Layout-Manager zur Verfügung:
+
+\begin{description}
+    \item Pack
+    \item Grid
+    \item Place
+\end{description}
+
+Layout-Manager dienen in erster Linie dazu, Widgets in einem Wurzel-Element zu regestrieren,
+anzuordnen und darzustellen. Besonders die Anordnung durch Angabe von Position und Größe eines Widgets
+wird durch die Layout-Manager stark vereinfacht.
+
+Einem Wurzel-Element sollte immer nur ein Layout-Manager angehängt werden.
+
+\subsection{Pack}
+
+Der Pack-Manager ist der am einfachsten zu verwendende Layout-Manager.
+Hier werden Widgets in Zeilen oder Spalten 'gepackt' und durch Optionen wie
+\lstinline$fill$ oder \lstinline$expand$ gesteuert.
+
+Im Vergleich zu dem sehr ähnlichen Grid-Manager ist der Pack-Manager etwas eingeschränkt,
+aber in einigen wenigen Situationen sinnvoller zu nutzen. Speziell wenn einfache
+Widgets übereinander oder nebeneinander angeordnet werden, oder Inhalte eines Widgets das gesamte
+übergeordnete Widget ausfüllen sollen wird der Pack-Manager bevorzugt.
+
+Das folgende Beispiel soll die Effekte des Pack-Managers verdeutlichen:
+
+\lstinputlisting[language=Python]{chapters/userInterface/src/GUI_PackExample.py}
+\label{gui:gui_packexample}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.8\textwidth]{images/PackManagerGUI_II.png}
+	\caption{Listbox Widget mit einem Pack-Manager angeordnet}
+	\label{fig:PackManagerGUI_I}
+\end{figure}
+
+\newpage
+
+Standardmäßig wird die Größe der Listbox so gewählt, dass Zehn Elemente angezeigt
+werden können. Im obigen Quelltext werden der Listbox allerdings doppelt so viele Elemente
+übergeben. Versucht der User nun das Wurzel-Element, sprich das Fenster, zu vergößern
+um alle Elemente anzuzeigen, erzeugt Tkinter rund um das Listbox-Widget einen Abstand zum Fenster.
+Um das Widget der gesamten zur Verfügung stehenden Fläche anzupassen, müssen die
+Optionen \lstinline$fill$ und \lstinline$expand$ des Pack-Managers angesprochen werden.
+
+\lstinputlisting[language=Python]{chapters/userInterface/src/GUI_PackExampleII.py}
+\label{gui:gui_packexample}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.8\textwidth]{images/PackManagerGUI_I.png}
+	\caption{Listbox Widget mit einem Pack-Manager angeordnet unter Angabe von fill und expand}
+	\label{fig:PackManagerGUI_II}
+\end{figure}
+
+Die \lstinline$fill$-Option teilt dem Pack-Manager mit, dass der gesamte zur Verfügung
+stehende Raum durch das Widget ausgefüllt werden soll. Der dahinter stehende Wert
+regelt wie der Raum gefüllt wird. \lstinline$BOTH$ bedeutet, dass das Widget
+sowohl horizontal als auch vertikal expandierten soll.
+Alternativ kann der Raum mit der Angabe \lstinline$X$ nur horizontal und mit der Angabe
+\lstinline$Y$ nur vertikal ausgefüllt werden.
