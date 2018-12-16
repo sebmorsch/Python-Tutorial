@@ -1,6 +1,5 @@
-# Bibliotheken einbinden
+# Bibliothek einbinden
 import numpy as numpy		
-import matplotlib.pyplot as pyplot
 
 def readDataSet(filename):
 

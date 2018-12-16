@@ -1,6 +1,6 @@
 % !TeX root = ../../pythonTutorial.tex
 
-\section{Maschinelles Lernen in Python}
+\section{Maschinelles Lernen in Python}\label{maschinelleslernen:einleitung}
 Das Themengebiet des maschinellen Lernens kann verschiedene Komplexitätslevel erreichen. Grundlegend ist das mathematische Verständnis über die verschiedenen im maschinellen lernen eingesetzten Algorithmen. Diese werden in diesem Tutorial nicht beschrieben. \\
 Sind die Algorithmen bekannt und sollen nun mittels Python angewendet werden, sollte zu Beginn mit einem kleinen Projekt gestartet werden. Hierbei ist es sinnvoll sich bereits am Anfang eine Vorgehensweise zu überlegen, wie auch bei allen anderen Projekten. Python bietet im Bereich des maschinellen Lernens viele unterschiedliche Möglichkeiten an, sodass bereits frühzeitig der Aufbau des Projekts entschieden werden sollte. Grob kann ein Projekt in fünf Schritte aufgeteilt werden, anhand derer später das Ergebnis verifiziert werden kann. \\
 
@@ -17,7 +17,7 @@ Eine zweite Möglichkeit ist die Integration von R. Bei R handelt es sich um eine
 Im Folgenden Abschnitt gibt es eine Übersicht, über wichtige und bekannte Bibliotheken aus dem Bereich maschinelles Lernen. Die Anzahl der Bibliotheken macht den Einstieg nicht ganz leicht. Die Stärken und Schwächen der einzelnen Bibliotheken sollten betrachtet werden. 
 
 
-\subsection{Bibliotheken}
+\subsection{Bibliotheken}\label{maschinelleslernen:bibliotheken}
 Im Bereich maschinelles Lernen sind schon viele Bibliotheken vorhanden, die unterschiedliche Schwerpunkte in dem Bereich bedienen. Aus diesem Grund erfolgt zuerst eine Übersicht über verbreitete Bibliotheken.
 
 Alle Bibliotheken\randnotiz{Download und Installation} die genutzt werden sollen müssen zuerst installiert werden. Hierfür gibt es je nach Bibliothek und teilweise je nach Betriebssystem mehrere Wege. Es wird empfohlen hier aus der jeweiligen Webseite die geeignetsten Variante zu wählen und auszuführen.
@@ -42,7 +42,7 @@ print("pandas: {}".format(pandas.__version__))
 # rpy2 version
 import rpy2
 print("rpy2: {}".format(rpy2.__version__))
-\end{lstlisting}
+\end{lstlisting}\label{maschinelleslernen:lst:printversions}
 
 Die Ausgabe ist beispielsweise die Folgende:
 \begin{lstlisting}
@@ -52,11 +52,11 @@ Pyton: 3.6.1 (v3.6.1:69c0db5, Mar 21 2017, 17:54:52)
 numpy: 1.13.3 
 pandas: 0.21.0
 rpy2: 2.8.6
-\end{lstlisting}
+\end{lstlisting}\label{maschinelleslernen:lst:versions}
 
 Auf diese Art und Weise sollten alle Bibliotheken geprüft werden, da so eventuelle Kompatibilitätsprobleme oder fehlerhafte Installation frühzeitig erkannt werden können.
 
-\subsubsection{Bekannte Bibliotheken}
+\subsubsection{Bekannte Bibliotheken}\label{maschinelleslernen:bekanntebibliotheken}
 Grob kann man zwischen Datenanalyse und Visualisierung unterscheiden. Zwei bekannte Bibliotheken aus dem Bereich Datenanalyse sind \textit{numpy} und \textit{pandas}, mit denen beispielsweise Gleichungen und Optimierungsprobleme gelöst werden können. Ergebnisse solcher Berechnungen können beispielsweise mithilfe des Moduls \textit{matplotlib} visualisiert werden.~\cite{Python3}
 
 
@@ -97,24 +97,24 @@ Des Weiteren ist auch mit \textit{scikit-learn} eine Aufbereitung der Daten mögl
 \aufgabe{machinelearning1}
 
 
-\subsection{Anwendungsbeispiele}
+\subsection{Anwendungsbeispiele}\label{maschinelleslernen:anwendungsbeispiele}
 Es gibt verschiedene Herangehensweisen, meist bietet es sich an, erstmal einen groben Überblick über die Daten zu erhalten. Für die erste Erläuterung werden Datensätze angenommen, welche in folgender Datenstruktur vorliegen.
 
 \textbf{Daten lesen}
-\lstinputlisting{chapters/advancedTopics/src/machinelearning/datasample1.txt}
+\lstinputlisting[language=Python]{chapters/advancedTopics/src/machinelearning/datasample1.txt}\label{datasample1:lst:datasample}
 
 
 Nun kann mit der Entwicklung begonnen werden. Um den Datentyp mit Daten zu versorgen findet sich im Folgenden ein kleiner Codeausschnitt:
-\lstinputlisting{chapters/advancedTopics/src/machinelearning/readdatafromfile.py}
+\lstinputlisting{chapters/advancedTopics/src/machinelearning/readdatafromfile.py}\label{readdatafromfile:lst:readdata}
 
 Die aufbereiteten Daten können im nächsten Schritt visualisiert werden. Hier bietet sich ein Scatterplot an.
 
 \textbf{Plot erzeugen}
-\lstinputlisting{chapters/advancedTopics/src/machinelearning/defineplot1.py}
+\lstinputlisting[language=Python]{chapters/advancedTopics/src/machinelearning/defineplot1.py}\label{defineplot1:lst:2dplot}
 
 Eine Darstellung in 3D ist ebenfalls möglich. Hierzu wird aus dem DataSet noch eine dritte Dimension ausgelesen.
 
-\lstinputlisting{chapters/advancedTopics/src/machinelearning/defineplot2.py}
+\lstinputlisting[language=Python]{chapters/advancedTopics/src/machinelearning/defineplot2.py}\label{defineplot2:lst:3dplot}
 
 \uebung
 \aufgabe{machinelearning2}
