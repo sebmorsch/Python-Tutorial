@@ -20,12 +20,9 @@ Im Folgenden Abschnitt gibt es eine Übersicht, über wichtige und bekannte Biblio
 \subsection{Bibliotheken}
 Im Bereich maschinelles Lernen sind schon viele Bibliotheken vorhanden, die unterschiedliche Schwerpunkte in dem Bereich bedienen. Aus diesem Grund erfolgt zuerst eine Übersicht über verbreitete Bibliotheken.
 
+Alle Bibliotheken\randnotiz{Download und Installation} die genutzt werden sollen müssen zuerst installiert werden. Hierfür gibt es je nach Bibliothek und teilweise je nach Betriebssystem mehrere Wege. Es wird empfohlen hier aus der jeweiligen Webseite die geeignetsten Variante zu wählen und auszuführen.
 
-\textbf{Download und Installation}\\
-Alle Bibliotheken die genutzt werden sollen müssen zuerst installiert werden. Hierfür gibt es je nach Bibliothek und teilweise je nach Betriebssystem mehrere Wege. Es wird empfohlen hier aus der jeweiligen Webseite die geeignetsten Variante zu wählen und auszuführen.
-
-\textbf{Versionen und Kompatibilität}\\
-Nach der Installation sollten alle Versionen ausgelesen und abgeglichen werden. Die Kompatibilität ist nicht durchgehend gewährleistet, das betrifft vor allem die unterschiedlichen Python-Versionen.
+Nach der Installation\randnotiz{Versionen und Kompatibilität} sollten alle Versionen ausgelesen und abgeglichen werden. Die Kompatibilität ist nicht durchgehend gewährleistet, das betrifft vor allem die unterschiedlichen Python-Versionen.
 
 Der folgende Codeausschnitt zeigt ein Beispiel. Dieser kann entweder direkt in der Eingabeaufforderung bzw. Konsole nach Start von Python ausgeführt werden oder innerhalb einer geeigneten Entwicklungsumgebung.
 
@@ -64,7 +61,7 @@ Grob kann man zwischen Datenanalyse und Visualisierung unterscheiden. Zwei bekan
 
 
 \textbf{numpy}\\
-In der Bibliothek \textit{numpy}~\cite{numpyreference} wird ein flexibler Datentyp für mehrdimensionale Arrays zur Verfügung gestellt. Dies ermöglicht eine effiziente Durchführung von komplexen Rechnungen.
+\randnotiz{numpy}In der Bibliothek \textit{numpy}~\cite{numpyreference} wird ein flexibler Datentyp für mehrdimensionale Arrays zur Verfügung gestellt. Dies ermöglicht eine effiziente Durchführung von komplexen Rechnungen.
 
 Außerdem lassen sich Integrale berechnen, statistische Berechnungen durchführen und auch simulieren. All das wird für maschinelles Lernen benötigt. Da die Berechnungen mit Routinen nah an der Hardware durchgeführt werden, lassen sich bei entsprechender Programmierung effiziente Programme schreiben.
 
@@ -72,25 +69,52 @@ Die Arrays in \textit{numpy} sind dreidimensional und können so eine Vielzahl vo
 
 
 \textbf{pandas}\\
-Die Webseite zu \textit{pandas}~\cite{pandas} beschreibt dieses als gute Wahl zur schnellen und flexiblen Aufbereitung von Daten. \textit{pandas} bietet verschiedene Möglichkeiten, um schnell auf Einträge zuzugreifen. Dies ist möglich, da mittels \textit{pandas} Serien und Dataframes erzeugt werden können, die im Gegensatz zu einem Array in Python auch Spaltentitel und Indizes können.
+\randnotiz{pandas}Die Webseite zu \textit{pandas}~\cite{pandas} beschreibt dieses als gute Wahl zur schnellen und flexiblen Aufbereitung von Daten. \textit{pandas} bietet verschiedene Möglichkeiten, um schnell auf Einträge zuzugreifen. Dies ist möglich, da mittels \textit{pandas} Serien und Dataframes erzeugt werden können, die im Gegensatz zu einem Array in Python auch Spaltentitel und Indizes können.
 
 Die \textit{describe()}-Methode bietet hierbei einen ersten Überblick über die im Dataframe enthalten Daten. Ohne weitere Programmierung werden Informationen wie Maximalwert, Minimalwert und Durchschnitt für jede Spalte berechnet und angezeigt. 
 
 Spalten und Zeilen können mittels \textit{pandas} gefiltert, erweitert und verändert werden, sodass Pandas oft im ersten Schritt genutzt wird, um die auszuwertenden Daten zu laden und genauer analysieren zu können.
 
 \textbf{scipy}\\
-Ergänzend bzw. aufbauen auf \textit{numpy} werden durch \textit{scipy}~\cite{scipyreference} viele mathematische Operationen bereit gestellt. 
+\randnotiz{scipy}Ergänzend bzw. aufbauen auf \textit{numpy} werden durch \textit{scipy}~\cite{scipyreference} viele mathematische Operationen bereit gestellt. 
 Das Modul \textit{scipy} ist sehr mächtig und daher nochmal in Untermodule aufgeteilt. Innerhalb der Untermodule werden bestimmte Funktionalitäten gruppiert. Eine Übersicht hierzu gibt die Onlinedokumentation.
 
 
 \textbf{scikit-learn}\\
-Viele DataMining bzw. Machine Learning Funktionalitäten werden bereits durch die \textit{scikit-learn}~\cite{scikit} Bibliothek (manchmal aus sklearn abgekürzt) zur Verfügung gestellt. Die klassischen Algorithmen, wie \textit{k-Means} oder \textit{knn} sind bereits integriert.\\
+\randnotiz{scikit-learn}Viele DataMining bzw. Machine Learning Funktionalitäten werden bereits durch die \textit{scikit-learn}~\cite{scikit} Bibliothek (manchmal aus sklearn abgekürzt) zur Verfügung gestellt. Die klassischen Algorithmen, wie \textit{k-Means} oder \textit{knn} sind bereits integriert.\\
 Des Weiteren ist auch mit \textit{scikit-learn} eine Aufbereitung der Daten möglich. Hier werden beispielsweise Normalierung und Skalierung unterstützt. Insgesamt handelt es sich um eine sehr mächtige Bibliothek, mit der es möglich ist unterschiedliche Algorithmen zu probieren und verschiedene Test- und Trainingsverfahren zu testen. Es können auch neue Daten anhand der gelernten Modelle klassifiziert und vorhergesagt werden.
 
 
 \textbf{rpy2}\\
-Eine weitere Möglichkeit ist das Einbinden des Pakets \textit{rpy2}~\cite{rpy2}. Hierbei handelt es sich um eine Bibliothek, welche Komponenten aus R zur Verfügung stellt. \textit{rpy2} ist zu sehen wie eine Schnittstelle zwischen Python und R. Es ist möglich R-Pakete mittels Python zu importieren und mit den darin enthaltenen Funktionalitäten zu interagieren.
+\randnotiz{rpy2}Eine weitere Möglichkeit ist das Einbinden des Pakets \textit{rpy2}~\cite{rpy2}. Hierbei handelt es sich um eine Bibliothek, welche Komponenten aus R zur Verfügung stellt. \textit{rpy2} ist zu sehen wie eine Schnittstelle zwischen Python und R. Es ist möglich R-Pakete mittels Python zu importieren und mit den darin enthaltenen Funktionalitäten zu interagieren.
 
 
 \textbf{matplotlib}\\
-Mit dem Modul \textit{matplotlib}~\cite{matplotlib} können Daten in einem Diagramm dargestellt werden. Hiermit kann ein erstes Verständnis der Daten oder Ergebnisse erreicht werden. Es werden unter anderem Liniendiagramme, Histogramme, Balkendiagramme aber auch Heatmaps unterstützt. Hier können sowohl Achsen, Farben und auch Beschriftungen nach Bedarf angepasst werden. \textit{matplotlib} unterstützt sowohl \textit{pandas} als auch \textit{numpy} und ist daher oft bereits am Anfang von hoher Bedeutung, um einen Überblick über die Daten zu bekommen.
+\randnotiz{matplotlib}Mit dem Modul \textit{matplotlib}~\cite{matplotlib} können Daten in einem Diagramm dargestellt werden. Hiermit kann ein erstes Verständnis der Daten oder Ergebnisse erreicht werden. Es werden unter anderem Liniendiagramme, Histogramme, Balkendiagramme aber auch Heatmaps unterstützt. Hier können sowohl Achsen, Farben und auch Beschriftungen nach Bedarf angepasst werden. \textit{matplotlib} unterstützt sowohl \textit{pandas} als auch \textit{numpy} und ist daher oft bereits am Anfang von hoher Bedeutung, um einen Überblick über die Daten zu bekommen.
+
+
+\uebung
+\aufgabe{machinelearning1}
+
+
+\subsection{Anwendungsbeispiele}
+Es gibt verschiedene Herangehensweisen, meist bietet es sich an, erstmal einen groben Überblick über die Daten zu erhalten. Für die erste Erläuterung werden Datensätze angenommen, welche in folgender Datenstruktur vorliegen.
+
+\textbf{Daten lesen}
+\lstinputlisting{chapters/advancedTopics/src/machinelearning/datasample1.txt}
+
+
+Nun kann mit der Entwicklung begonnen werden. Um den Datentyp mit Daten zu versorgen findet sich im Folgenden ein kleiner Codeausschnitt:
+\lstinputlisting{chapters/advancedTopics/src/machinelearning/readdatafromfile.py}
+
+Die aufbereiteten Daten können im nächsten Schritt visualisiert werden. Hier bietet sich ein Scatterplot an.
+
+\textbf{Plot erzeugen}
+\lstinputlisting{chapters/advancedTopics/src/machinelearning/defineplot1.py}
+
+Eine Darstellung in 3D ist ebenfalls möglich. Hierzu wird aus dem DataSet noch eine dritte Dimension ausgelesen.
+
+\lstinputlisting{chapters/advancedTopics/src/machinelearning/defineplot2.py}
+
+\uebung
+\aufgabe{machinelearning2}
