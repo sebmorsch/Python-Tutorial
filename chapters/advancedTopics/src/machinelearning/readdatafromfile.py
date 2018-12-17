@@ -21,10 +21,11 @@ def readDataSet(filename):
 		if index != 0:				
 			line = line.strip()
 			# Zeile in temporäre Liste splitten
-			listFromLine(line.split(';')) 
+			listFromLine = (line.split(';')) 
 			
 			# Liste in Matrix einfügen
-			mymatrix[index-1,:] = listFromLine[1:4]		
+			mymatrix[index-1,:] = 
+				listFromLine[1:4]		
 			
 			# Kategorien
 			classLabel = listFromLine[4] 
@@ -33,7 +34,7 @@ def readDataSet(filename):
 				color = 'yellow'
 			elif classLabel == "blub":
 				color = 'blue'
-			else
+			else:
 				color = 'red'
 			
 			# Kategorie als Text-Label
