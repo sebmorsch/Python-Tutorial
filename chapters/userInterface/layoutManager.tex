@@ -63,3 +63,33 @@ regelt wie der Raum gefüllt wird. \lstinline$BOTH$ bedeutet, dass das Widget
 sowohl horizontal als auch vertikal expandierten soll.
 Alternativ kann der Raum mit der Angabe \lstinline$X$ nur horizontal und mit der Angabe
 \lstinline$Y$ nur vertikal ausgefüllt werden.
+
+Darüber hinaus können Widgets mithilfe der Layout-Manager angeordnet werden.
+Der Pack-Manager richtet Widgets, ohne weitere Angaben von Optionen, vertikal, sprich in Spalten aus.
+
+\lstinputlisting[language=Python]{chapters/userInterface/src/GUI_PackExampleIII.py}
+\label{gui:gui_packexampleIII}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.8\textwidth]{images/PackManagerGUI_III.png}
+	\caption{Mit Pack-Manager vertikal angeordnete Label-Widgets}
+	\label{fig:PackManagerGUI_II}
+\end{figure}
+
+Über die Option \lstinline$fill=X$ (horizontale) kann die Breite der Labels dem Eltern-Element angepasst werden.
+
+\lstinputlisting[language=Python]{chapters/userInterface/src/GUI_PackExampleIII.py}
+\label{gui:gui_packexampleIV}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.8\textwidth]{images/PackManagerGUI_III.png}
+	\caption{Mit Pack-Manager vertikal angeordnete Label-Widgets unter Angabe von fill}
+	\label{fig:PackManagerGUI_IV}
+\end{figure}
+
+Neben der vertikalen Ausrichtung ist auch eine horizontale möglich, dazu steht
+die \lstinline$side$-Option zur Verfügung. Mit \lstinline$side=LEFT$ werden die
+Widgets von links beginnend angeordnet. Weitere Paramter sind \lstinline$side=TOP$ (default),
+\lstinline$side=BOTTOM$ und \lstinline$side=RIGHT$.
