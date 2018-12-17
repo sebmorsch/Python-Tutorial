@@ -18,7 +18,7 @@ Einem Wurzel-Element sollte immer nur ein Layout-Manager angehängt werden.
 \subsection{Pack}
 
 Der Pack-Manager ist der am einfachsten zu verwendende Layout-Manager.
-Hier werden Widgets in Zeilen oder Spalten 'gepackt' und durch Optionen wie
+Hier werden Widgets in Zeilen oder Spalten (vertikal oder horizontal) 'gepackt' und durch Optionen wie
 \lstinline$fill$ oder \lstinline$expand$ gesteuert.
 
 Im Vergleich zu dem sehr ähnlichen Grid-Manager ist der Pack-Manager etwas eingeschränkt,
@@ -33,12 +33,10 @@ Das folgende Beispiel soll die Effekte des Pack-Managers verdeutlichen:
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.8\textwidth]{images/PackManagerGUI_II.png}
+	\includegraphics[width=0.5\textwidth]{images/PackManagerGUI_II.png}
 	\caption{Listbox Widget mit einem Pack-Manager angeordnet}
 	\label{fig:PackManagerGUI_I}
 \end{figure}
-
-\newpage
 
 Standardmäßig wird die Größe der Listbox so gewählt, dass Zehn Elemente angezeigt
 werden können. Im obigen Quelltext werden der Listbox allerdings doppelt so viele Elemente
@@ -52,7 +50,7 @@ Optionen \lstinline$fill$ und \lstinline$expand$ des Pack-Managers angesprochen 
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.8\textwidth]{images/PackManagerGUI_I.png}
+	\includegraphics[width=0.5\textwidth]{images/PackManagerGUI_I.png}
 	\caption{Listbox Widget mit einem Pack-Manager angeordnet unter Angabe von fill und expand}
 	\label{fig:PackManagerGUI_II}
 \end{figure}
@@ -60,7 +58,7 @@ Optionen \lstinline$fill$ und \lstinline$expand$ des Pack-Managers angesprochen 
 Die \lstinline$fill$-Option teilt dem Pack-Manager mit, dass der gesamte zur Verfügung
 stehende Raum durch das Widget ausgefüllt werden soll. Der dahinter stehende Wert
 regelt wie der Raum gefüllt wird. \lstinline$BOTH$ bedeutet, dass das Widget
-sowohl horizontal als auch vertikal expandierten soll.
+sowohl horizontal als auch vertikal expandieren soll.
 Alternativ kann der Raum mit der Angabe \lstinline$X$ nur horizontal und mit der Angabe
 \lstinline$Y$ nur vertikal ausgefüllt werden.
 
@@ -72,24 +70,63 @@ Der Pack-Manager richtet Widgets, ohne weitere Angaben von Optionen, vertikal, s
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.8\textwidth]{images/PackManagerGUI_III.png}
+	\includegraphics[width=0.3\textwidth]{images/PackManagerGUI_III.png}
 	\caption{Mit Pack-Manager vertikal angeordnete Label-Widgets}
-	\label{fig:PackManagerGUI_II}
+	\label{fig:PackManagerGUI_III}
 \end{figure}
 
-Über die Option \lstinline$fill=X$ (horizontale) kann die Breite der Labels dem Eltern-Element angepasst werden.
+Über die Option \lstinline$fill=X$ (horizontal) kann die Breite der Labels dem Eltern-Element angepasst werden.
 
-\lstinputlisting[language=Python]{chapters/userInterface/src/GUI_PackExampleIII.py}
+\lstinputlisting[language=Python]{chapters/userInterface/src/GUI_PackExampleIV.py}
 \label{gui:gui_packexampleIV}
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.8\textwidth]{images/PackManagerGUI_III.png}
+	\includegraphics[width=0.3\textwidth]{images/PackManagerGUI_IV.png}
 	\caption{Mit Pack-Manager vertikal angeordnete Label-Widgets unter Angabe von fill}
 	\label{fig:PackManagerGUI_IV}
 \end{figure}
 
-Neben der vertikalen Ausrichtung ist auch eine horizontale möglich, dazu steht
+Neben der vertikalen Ausrichtung der labels ist auch eine horizontale möglich, dazu steht
 die \lstinline$side$-Option zur Verfügung. Mit \lstinline$side=LEFT$ werden die
 Widgets von links beginnend angeordnet. Weitere Paramter sind \lstinline$side=TOP$ (default),
 \lstinline$side=BOTTOM$ und \lstinline$side=RIGHT$.
+
+\subsection{Grid}
+
+Der Grid-Manager ist der am flexibelsten einzusetzende Layout-Manager von Tkinter.
+Besonders komfortabel ist der Einsatz bei dem Gestalten von Dialogfeldern. Die Handhabung
+ist denkbar einfach. Das folgende Schaubild erläutert die Aufteilung eines Gitterrasters:
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.4\textwidth]{images/GridManagerGUI.png}
+	\caption{Gitterraster mit zwei Spalten und Reihen}
+	\label{fig:GridManagerGUI}
+\end{figure}
+
+Nach dem Erzeugen eines Widget-Elementes kann es über den Methoden-
+Aufruf des Grid-Managers, unter Angabe von Zeilen und Spalten ausgerichtet
+werden. Dabei muss weder Höhe noch Breite der entsprechenden Zelle angegeben werden, der
+Grid-Manager passt diese dem Content des Widgets an.
+
+\lstinputlisting[language=Python]{chapters/userInterface/src/GUI_GridExampleI.py}
+\label{gui:gui_gridexampleI}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{images/GridManagerGUI_I.png}
+	\caption{Mit Grid-Manager angeordnete Label- und Input-Widgets}
+	\label{fig:GridManagerGUI_I}
+\end{figure}
+
+Leere Spalten und Zeilen werden von dem Layout-Manager ignoriert, das Ergebnis wäre
+das selbe wenn die Angabe anstelle von \lstinline$grid(row=0)$ und \lstinline$grid(row=1)$,
+\lstinline$grid(row=5)$ und \lstinline$grid(row=10)$ lauten würde.
+
+Der Inhalt der Zellen wird ohne weiter Angaben mittig angeordnet, was über die \lstinline$sticky$-Option
+geändert werden kann. Im Gegensatz zu der \lstinline$side$-Option des Pack-Managers,
+nimmt \lstinline$sticky$ Himmelsrichtungen, also N, E, S und W als Angabe entgegen.
+Mit \lstinline$labelRed = Label(...).grid(row=0, sticky=W)$
+beginnt der Text des Label-Widgets am linken Zellenrand (Westen). Auch Kombinationen wie Beispielsweise
+'unten links' (\lstinline$sticky=W+S$) sind möglich.
