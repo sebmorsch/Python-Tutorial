@@ -9,7 +9,7 @@ V0.1
 
 ## Beschreibung
 
-#### Dieser Pull-Request beizeht sich auf Issue #X
+#### Dieser Pull-Request bezieht sich auf Issue #X
 
 <!--
 Kurze Beschreibung was dieser Pull-Request hinzufügt und/oder ändert.
