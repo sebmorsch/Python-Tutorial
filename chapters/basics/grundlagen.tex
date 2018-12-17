@@ -1,10 +1,9 @@
 \section{Was ist Python?} %TODO ADD INFORMATION AND INTRODUCTION
 \label{grundlagen:sec:WasIstPython}
-Die Programmiersprache Python wurde Anfang der 1990er Jahre von Guido van Rossum entwickelt.
-Der Name der Sprache beruht auf der Komikergruppe  Monty Python.
+Die Programmiersprache Python wurde Anfang der 1990er Jahre von Guido van Rossum als Universalprogrammiersprache entwickelt.
+Der Name der Sprache beruht auf der Komikergruppe Monty Python.
 Hierzu lassen sich auch zahlreiche Anspielung in der Dokumentation von Python finden.
-Python soll einfach verständlich sein.
-Python wurde mit dem Ziel größter Einfachheit sowie Übersichtlichkeit entworfen.
+Python wurde mit dem Ziel entworfen, eine einfache, gut verständliche und übersichtliche Programmiersprache zur Verfügung zu stellen.
 Dies soll nicht nur durch eine übersichtliche Standardbibliothek erreicht werden, sondern auch durch die Modulare Erweiterbarkeit.
 Im Folgenden wird die Programmiersprache Python in der Version 3 behandelt.
 
@@ -17,11 +16,13 @@ Nach dem Start des Installationsassistenten wird der Nutzer durch die Installati
 Der Ablauf der Installation unterscheidet sich je nach Betriebssystemen nur gering bis gar nicht.
 Nach erfolgreichem Abschluss stehen dem Anwender verschiedene Programme für die Arbeit mit Python zur Verfügung.
 Im vom Nutzer gewählten Installationsverzeichnis befinden sich nun folgende Programme: 
+%TODO FIX FORMAT
 \begin{enumerate}
 	\item[\textit{IDLE}] Standard IDE\footnote{Integrated Development Environment} für Python
-	\item[Python] Standard Konsolen Interpreter
-	\item[Pythonw] Standard Interpreter ohne Konsolenausgabe
+	\item[\textit{Python}] Standard Konsolen Interpreter
+	\item[\textit{Pythonw}] Standard Interpreter ohne Konsolenausgabe
 \end{enumerate}
+
 Diese Programme reichen aus, um Code mit Python zu entwickeln. 
 Der Python Interpreter kann in der Konsole mit dem Befehl ''python'' aufgerufen werden. 
 Die folgenden Abschnitte beschreiben Besonderheiten bei der Installation auf einzelnen Betriebssystemen. 
@@ -31,10 +32,10 @@ Windows Nutzer müssen die Systemvariable für Python im Installationsassistenten 
 Andernfalls kann Python nur im Installationsverzeichnis bzw. durch die Angabe des kompletten Pfads aufgerufen werden. 
 In Abbildung \ref{grundlagen:img:InstallationWindows} ist die notwendige Auswahl zu sehen. 
 \begin{figure}[ht]
-\centering
-\includegraphics[scale=0.5]{images/InstallationWindows.png}
-\caption{Start des Installationsassistenten}
-\label{grundlagen:img:InstallationWindows}
+	\centering
+	\includegraphics[scale=0.5]{images/InstallationWindows.png}
+	\caption{Start des Installationsassistenten}
+	\label{grundlagen:img:InstallationWindows}
 \end{figure}
 %
 \subsection{Hinweis zur Installation unter Mac}
@@ -73,14 +74,12 @@ sudo apt-get install python3 python-doc
 Diese Installation umfasst unter anderem auch die Dokumentation von Python.
 Nach Abschluss der Installationsroutine kann wie mit jedem anderen Betriebssystem mit Python gearbeitet werden.
 
-%TODO Skript versus Programm
-\section{Python Interpreter} %WIP ROGU 
+\section{Python Interpreter} 
 \label{grundlagen:sec:Interpreter}
-%TODO ADD LINKS TO OTHER SECTIONS %WHAT IS PYTHON CODE?
 Die einfachste Möglichkeit, Python Code auszuführen, ist die direkte Übergabe des Codes an den sogenannten Python Interpreter. 
 Dabei handelt es sich um eine Konsolenanwendung, die Code ausführen und gegebenenfalls auftretende Ergebnisse ausgeben kann. 
 Dabei kann ein Nutzer den Code entweder direkt in die Konsole eingeben oder aus einer Datei auslesen lassen. 
-Wie bei anderen Programmiersprachen auch, stehen für Python verschiedene IDEs zur Verfügung, welche in Kapitel \ref{} behandelt werden. 
+Wie bei anderen Programmiersprachen auch, stehen für Python verschiedene IDEs zur Verfügung, welche in Kapitel \ref{grundlagen:sec:ides} behandelt werden. 
 Für die ersten Versuche mit Python reicht der Interpreter jedoch völlig aus. Dieser wird standardmäßig mit Python installiert.
 
 In Abbildung \ref{grundlagen:img:Interpreter} ist der Interpreter zu sehen. 
@@ -95,32 +94,50 @@ Es wird dem Leser empfohlen, sie zum besseren Verständnis nachzuvollziehen, fall
 	\caption{Ansicht nach Start des Interpreters}
 	\label{grundlagen:img:Interpreter}
 \end{figure}
- 
+
 \subsection*{Interaktiver Modus} 
 \label{grundlagen:sec:InteraktiverModus}
 Wird der Interpreter ohne Angabe einer Quellcodedatei gestartet, befindet dieser sich im interaktiven Modus. 
 Der Nutzer kann hier direkt Anweisungen eingeben. Durch die Ausgabe der Zeichen $>>>$ zeigt die Konsole an, dass sie eine Anweisung erwartet. 
 In Python existieren auch mehrzeilige Anweisungen. 
 Nach der Eingabe der ersten Zeile werden die Zeichen $...$ ausgegeben, was bedeutet, dass Folgeanweisungen erwartet werden. 
-\subsection*{Einlesen einer Datei} %WIP ROGU
+\subsection*{Einlesen einer Datei}
 \label{grundlagen:sec:EinlesenDatei}
+Auf Dauer ist die direkte Übergabe des Codes an den Interpreter sehr unpraktisch. 
+Um Code erneut nutzen zu können und zu speichern, kann dieser in Dateien abgelegt werden.
+Dies kann mit einem simplen Texteditor erfolgen.
 Dateien, welche Python Code enthalten, werden mit der Dateiendung ''.py'' gekennzeichnet. 
 Sie können direkt mit dem der Konsole ausgeführt werden.
-Dazu muss der ausführbaren Datei ''python.exe'' der Pfad der Pythondatei übergeben werden. 
+Dazu muss Python der relative Pfad der Pythondatei (.py-Endung) übergeben werden.  
+\begin{lstlisting}[language=BASH, label={grundlagen:lst:BashStartPython1}]
+python <Relativer Dateipfad der Pythondatei>
+\end{lstlisting} 
+Da nur der relative Pfad angegeben werden muss, muss lediglich der Dateiname angegeben werden, falls die Konsole sich bereits im selben Verzeichnis wie die zu öffnende Datei befindet.
 \section{Syntax}
 \label{grundlagen:sec:Syntax}
 Im Folgenden werden wichtige Grundkonzepte der Programmiersprache Python erläutert.
-%\subsection{Ausdrücke} %WIP ROGU
-%Anders als bei anderen Programmiersprachen wie beispielsweise Java, benötigt Python keine Klassenkonstrukte... %TODO AUSDRÃœCKE, kein fester Rahmen zur AusfÃ¼hrung benÃ¶tigt
-%\subsection{Einfache Datentypen}
-%TODO REMOVE SUBSECTION
-\subsection{Leerzeichen und Einrückung} %TODO FORMULIERUNG
+\subsection{Allgemeine Strukturen}
+\label{grundlagen:sec:AllgemeineStrukturen}
+Anders als bei anderen Programmiersprachen wie beispielsweise Java oder C++, benötigt Python keine Klassenkonstrukte oder main-Methoden zur Ausführung. 
+Dies bedeutet, dass einzelne Anweisungen in Python korrekt ausgeführt werden können. 
+Sollten für die Bearbeitung von komplexeren Problemen objektorientierte Ansätze benötigt werden, kann auch dies mit Python umgesetzt werden. 
+Weitere Informationen zur Objektorientierung mit Python finden sich im weiteren Verlauf des Python Tutorials.
+Für den Moment reicht es für den Leser zu wissen, dass Anweisungen bereits zeilenweise ausgeführt werden können. 
+Dies kann sehr simpel getestet werden, indem der Python Interpreter als einfacher Taschenrechner genutzt wird. 
+In Abbildung \ref{grundlagen:img:AusdrueckeInInterpreter} wird dies gezeigt. Einfache Ausdrücke wie Summen, Subtraktionen, Multiplikationen und Divisionen können direkt eingegeben werden. 
+Nach Betätigung der Eingabe-Taste liefert Python das Ergebnis des Ausdruckes.\\
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\textwidth]{images/AusdrueckeInInterpreter.png} 
+	\caption{Einfache Ausdrücke im Python Interpreter}
+	\label{grundlagen:img:AusdrueckeInInterpreter}
+\end{figure}
+\subsection{Leerzeichen und Einrückung}
 \label{grundlagen:sec:LeerzeichenEinrueckung}
 Um in Python Blöcke auszuzeichnen, werden im Gegensatz zu Java oder C++ keine geschweiften Klammern genutzt.
 In Python werden Blöcke durch das Einrücken der Zeilen markiert. 
 Hierfür sind entweder der Tabulator oder vier aufeinander folgende Leerzeichen vorgesehen.
-%Somit kann bei zum Beispiel einer IF-Abfrage der nachfolgende Block leicht falsch zugeordnet werden wenn in den nachfolgenden Zeilen die Einrückung Übersehen wird.
-%TODO REMOVE? if abfragen sind noch nicht eingeführt worden
 \subsection{Kommentare}
 \label{grundlagen:sec:Kommentare}
 Innerhalb der Programmiersprache Python wird zwischen Zeilen- und Blockkommentaren unterschieden.
@@ -135,15 +152,11 @@ Anders als bei Java und C++ ist Python eine nur schwach typisierte Sprache.
 Somit ist bei der Initialisierung keine Typangabe erforderlich.
 Der Datentyp wird beim Initialisieren dynamisch ermittelt und automatisch zugewiesen.
 Um einer Variable trotzdem einen gewünschten Typ zuzuweisen, kann man sie einfach mit dem entsprechenden Typ initialisieren.
-Weitere Informationen zu Datentypen werden in Abschnitt \ref{} erläutert. %TODO ADD REF
-
-
-%\subsection{Prozedurale Programmierung} %TODO NOT NEEDED ANYMORE?
-
-\section{Beispiel \glqq Hello World!\grqq} %TODO ADD MORE STUFF
+Weitere Informationen zu Datentypen werden in Abschnitt \ref{grundlagen:sec:ElementareDatentypen} erläutert.
+\section{Beispiel \glqq Hello World!\grqq}
 \randnotiz{Beispiel}
 \label{grundlagen:sec:HalloWorld}
-Einfache Ausgaben können mit dem print()- Befehl ausgeführt werden. 
+Einfache Ausgaben können mit der print()- Anweisung gemacht werden. 
 Innerhalb der Klammern muss ein String übergeben werden, sprich eine einfache Zeichenkette. 
 Diese wird durch umschließende einfache oder doppelte Anführungszeichen markiert (''EinString''/'EinString'). 
 Der Einfachheit halber, wird hier noch auf die genaue Erklärung der einzelnen Bestandteile der Anweisung verzichtet. 
@@ -151,14 +164,16 @@ Ein einfaches ''Hello-World!''-Programm benötigt in Python nur eine Zeile:
 
 \lstinputlisting[language=python, label={grundlagen:lst:HalloWorld}]{chapters/basics/src/helloworld.py}
 Es handelt sich dabei um ein vollständiges Python-Programm, das in dieser Form ausgeführt werden kann. 
-Anders als bei Java oder C++ werden keine Klassenkonstrukte oder main-Methoden benötigt.
+Wie bereits erläutert werden anders als bei Java oder C++ keine Klassenkonstrukte oder main-Methoden benötigt.
 \section{Übung}
 \randnotiz{Übung}
 \label{grundlagen:sec:Uebung}
 Im folgenden sollen die zuvor gelernten beziehungsweise gezeigten Punkte anhand von Übungen wiederholt und vertieft werden.
+
 \uebung
 \aufgabe{grundlagen01} 
 \aufgabe{grundlagen02}
+
 \section{Zusammenfassung} %TODO MOVE TO END OF THE CHAPTER
 \label{grundlagen:sec:Zusammenfassung}
 In diesem Kapitel hat der Leser seine ersten Schritte mit der Sprache Python gemacht. 
@@ -166,4 +181,4 @@ Es wurde grundlegend vorgestellt, wobei es sich bei Python überhaupt handelt und
 Es wurde der Python Interpreter vorgestellt, einer einfachen Konsolenanwendung zur Ausführung von Python Code. 
 Weiterhin wurden Kommentare und die Blockstruktur eingeführt. 
 Um das in diesem Kapitel erlangte Wissen anzuwenden, wurde ein klassisches Hello-World! Programm geschrieben. 
-Die Inhalte dieses Kapitels, vor allem die Installation, sollten vom Leser verstanden worden sein, bevor er mit dem Rest des Tutorials  fortfährt.
+Die Inhalte dieses Kapitels, vor allem die Installation, sollten vom Leser verstanden worden sein, bevor er mit dem Rest des Tutorials  fortführt.
