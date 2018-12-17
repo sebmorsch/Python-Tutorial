@@ -1,4 +1,4 @@
-\section{Was ist Python?} %TODO ADD INFORMATION AND INTRODUCTION
+\section{Was ist Python?}
 \label{grundlagen:sec:WasIstPython}
 Die Programmiersprache Python wurde Anfang der 1990er Jahre von Guido van Rossum als Universalprogrammiersprache entwickelt.
 Der Name der Sprache beruht auf der Komikergruppe Monty Python.
@@ -16,15 +16,13 @@ Nach dem Start des Installationsassistenten wird der Nutzer durch die Installati
 Der Ablauf der Installation unterscheidet sich je nach Betriebssystemen nur gering bis gar nicht.
 Nach erfolgreichem Abschluss stehen dem Anwender verschiedene Programme für die Arbeit mit Python zur Verfügung.
 Im vom Nutzer gewählten Installationsverzeichnis befinden sich nun folgende Programme: 
-%TODO FIX FORMAT
-\begin{enumerate}
+\begin{description}
 	\item[\textit{IDLE}] Standard IDE\footnote{Integrated Development Environment} für Python
 	\item[\textit{Python}] Standard Konsolen Interpreter
 	\item[\textit{Pythonw}] Standard Interpreter ohne Konsolenausgabe
-\end{enumerate}
-
+\end{description}
 Diese Programme reichen aus, um Code mit Python zu entwickeln. 
-Der Python Interpreter kann in der Konsole mit dem Befehl ''python'' aufgerufen werden. 
+Der Python Interpreter kann in der Konsole mit dem Befehl \lstinline{python} aufgerufen werden. 
 Die folgenden Abschnitte beschreiben Besonderheiten bei der Installation auf einzelnen Betriebssystemen. 
 \subsection{Hinweis zur Installation unter Windows}
 \label{grundlagen:sec:InstallationWindows}
@@ -56,7 +54,7 @@ Nach Ende der Installation befindet sich der Python Ordner im Finder (Dateiexplo
 	\caption{Fertige Installation}
 	\label{grundlagen:img:FinishInstall}
 \end{figure}
-Zuletzt wurde durch den Assistent unter /Library/Frameworks/Python.framework noch das Python Framework abgelegt.
+Zuletzt wurde durch den Assistent unter \texttt{/Library/Frameworks/\\Python.framework} noch das Python Framework abgelegt.
 Ohne das wäre die Arbeit mit Python unter Mac nicht möglich.
 
 \subsection{Hinweis zur Installation unter Linux(Ubuntu)}
@@ -79,7 +77,7 @@ Nach Abschluss der Installationsroutine kann wie mit jedem anderen Betriebssyste
 Die einfachste Möglichkeit, Python Code auszuführen, ist die direkte Übergabe des Codes an den sogenannten Python Interpreter. 
 Dabei handelt es sich um eine Konsolenanwendung, die Code ausführen und gegebenenfalls auftretende Ergebnisse ausgeben kann. 
 Dabei kann ein Nutzer den Code entweder direkt in die Konsole eingeben oder aus einer Datei auslesen lassen. 
-Wie bei anderen Programmiersprachen auch, stehen für Python verschiedene IDEs zur Verfügung, welche in Kapitel \ref{grundlagen:sec:ides} behandelt werden. 
+Wie bei anderen Programmiersprachen auch, stehen für Python verschiedene IDEs zur Verfügung, welche in Kapitel \ref{ides:section:ides} behandelt werden. 
 Für die ersten Versuche mit Python reicht der Interpreter jedoch völlig aus. Dieser wird standardmäßig mit Python installiert.
 
 In Abbildung \ref{grundlagen:img:Interpreter} ist der Interpreter zu sehen. 
@@ -154,7 +152,6 @@ Der Datentyp wird beim Initialisieren dynamisch ermittelt und automatisch zugewi
 Um einer Variable trotzdem einen gewünschten Typ zuzuweisen, kann man sie einfach mit dem entsprechenden Typ initialisieren.
 Weitere Informationen zu Datentypen werden in Abschnitt \ref{grundlagen:sec:ElementareDatentypen} erläutert.
 \section{Beispiel \glqq Hello World!\grqq}
-\randnotiz{Beispiel}
 \label{grundlagen:sec:HalloWorld}
 Einfache Ausgaben können mit der print()- Anweisung gemacht werden. 
 Innerhalb der Klammern muss ein String übergeben werden, sprich eine einfache Zeichenkette. 
@@ -162,13 +159,10 @@ Diese wird durch umschließende einfache oder doppelte Anführungszeichen markiert
 Der Einfachheit halber, wird hier noch auf die genaue Erklärung der einzelnen Bestandteile der Anweisung verzichtet. 
 Ein einfaches ''Hello-World!''-Programm benötigt in Python nur eine Zeile: 
 
-\lstinputlisting[language=python, label={grundlagen:lst:HalloWorld}]{chapters/basics/src/helloworld.py}
+\randnotiz{Beispiel}
+\lstinputlisting[language=python, label={grundlagen:lst:HalloWorld}]{chapters/basics/src/helloworld.py} 
 Es handelt sich dabei um ein vollständiges Python-Programm, das in dieser Form ausgeführt werden kann. 
 Wie bereits erläutert werden anders als bei Java oder C++ keine Klassenkonstrukte oder main-Methoden benötigt.
-\section{Übung}
-\randnotiz{Übung}
-\label{grundlagen:sec:Uebung}
-Im folgenden sollen die zuvor gelernten beziehungsweise gezeigten Punkte anhand von Übungen wiederholt und vertieft werden.
 
 \uebung
 \aufgabe{grundlagen01} 
