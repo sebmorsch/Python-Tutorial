@@ -130,3 +130,13 @@ nimmt \lstinline$sticky$ Himmelsrichtungen, also N, E, S und W als Angabe entgeg
 Mit \lstinline$Label(...).grid(row=0, sticky=W)$
 beginnt der Text des Label-Widgets am linken Zellenrand (Westen). Auch Kombinationen wie Beispielsweise
 'unten links' (\lstinline$sticky=W+S$) sind möglich.
+
+\subsection{Place}
+
+Der dritte Layout-Manager von Tkinter ist der Place-Manager. Hier kann die Position und Größe eines
+ Fensters explizit festgelegt werden, entweder absolut oder relativ zu einem anderen Fenster.
+In der Regel werden Pack- oder Grid-Manager für die Gestaltung herkömmlicher Dialog- und Fensteroberflächen
+verwendet, in einigen wenigen Fällen ist jedoch der Place-Manager die bessere Wahl.
+Beispielsweiße bei der Anordnung von Steuerelementen in Pop-Up Dialogen kommt der Place-Manager zum Einsatz.
+
+Der Zugriff erfolgt wie bei ben vorherigen Layout-Managern über den Methodenaufruf.
