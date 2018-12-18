@@ -3,11 +3,11 @@
 In diesem Kapitel werden die Layout- oder Gemeometrie-Manager von Tkinter behandelt.
 Grundsätzlich stehen drei verschiedene Layout-Manager zur Verfügung:
 
-\begin{description}
+\begin{itemize}
     \item Pack
     \item Grid
     \item Place
-\end{description}
+\end{itemize}
 
 Layout-Manager dienen in erster Linie dazu, Widgets in einem Wurzel-Element zu regestrieren,
 anzuordnen und darzustellen. Besonders die Anordnung durch Angabe von Position und Größe eines Widgets
@@ -127,6 +127,6 @@ das selbe wenn die Angabe anstelle von \lstinline$grid(row=0)$ und \lstinline$gr
 Der Inhalt der Zellen wird ohne weiter Angaben mittig angeordnet, was über die \lstinline$sticky$-Option
 geändert werden kann. Im Gegensatz zu der \lstinline$side$-Option des Pack-Managers,
 nimmt \lstinline$sticky$ Himmelsrichtungen, also N, E, S und W als Angabe entgegen.
-Mit \lstinline$labelRed = Label(...).grid(row=0, sticky=W)$
+Mit \lstinline$Label(...).grid(row=0, sticky=W)$
 beginnt der Text des Label-Widgets am linken Zellenrand (Westen). Auch Kombinationen wie Beispielsweise
 'unten links' (\lstinline$sticky=W+S$) sind möglich.
