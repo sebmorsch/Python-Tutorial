@@ -1,4 +1,4 @@
-# Kommentar f�r eine Zeile
+# Zeilenweiser Kommentar
 # muss vor jeder Zeile Wiederholt werden!
 
 """
