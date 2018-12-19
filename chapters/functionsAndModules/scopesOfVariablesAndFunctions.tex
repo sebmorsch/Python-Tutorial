@@ -15,13 +15,11 @@ def myFunction():
 a = 0
 myFunction()
 print('global:', a)
+
+# Ausgabe
+# myFunction: 1
+# global: 0
 \end{lstlisting}
-
-Wenn wir diesen Code ausführen, sehen wir folgenden Output:
-
-myFunction: 1
-\\*
-global: 0
 
 In beiden Bereichen benutzen wir die Variable \lstinline$a$.
 Die Funktion wird nach dem Initialisieren der Variable aufgerufen.
@@ -48,16 +46,17 @@ def enclosing():
 a = 0
 enclosing()
 print('global:', a)
+
+# Ausgabe
+# innerste: 2
+# umschließend: 1
+# global: 0
 \end{lstlisting}
 
-Nach dem Ausdrucken erhalten wir:
-
-innerste: 2
-\\*
-umschließend: 1
-\\*
-global: 0
-
+\kontrollfrage{
+	\item[\kontroll] Welche Gültigkeitsbereiche gibt es in Python?
+	\item[\kontroll] Bei der Nutzung einer Variable sucht Python nach dem nächstmöglichen Gültigkeitsbereich. Wie ist die Reihenfolge der Gültigkeitsbereiche?
+}
 
 \subsection{Statements zu Gültigkeitsbereichen - \mbox{global und nonlocal}}
 \label{scopesOfVariablesAndFunctions:subsection:statements}
@@ -82,15 +81,12 @@ def enclosing():
 a = 0
 enclosing()
 print('global:', a)
+
+# Ausgabe:
+# innerste: 2
+# umschließend: 2
+# global: 0
 \end{lstlisting}
-
-Nach dem Ausdrucken erhalten wir:
-
-innerste: 2
-\\*
-umschließend: 2
-\\*
-global: 0
 
 Achtung: Würde in der enclosing-Funktion \lstinline$a$ auf \lstinline$nonlocal$ gesetzt, dann käme es zu einer \lstinline$Exception$, da die nächste Ebene global ist.
 
@@ -113,15 +109,17 @@ def enclosing():
 a = 0
 enclosing()
 print('global:', a)
+
+# Ausgabe
+# innerste: 2
+# umschließend: 1
+# global: 2
 \end{lstlisting}
-
-Nach dem Ausdrucken erhalten wir:
-
-innerste: 2
-\\*
-umschließend: 1
-\\*
-global: 2
 
 
 Während \lstinline$nonlocal$ nur den nächst umschließenden Gültigkeitsbereich wählt -  in welcher die Variable deklariert wurde - greift \lstinline$global$ immer auf den globalen Gültigkeitsbereich zu.
+
+\kontrollfrage{
+	\item[\kontroll] Von welcher Konvention befreit uns die Nutzung von Statements bezüglich des Gültigkeitsbereiches?
+	\item[\kontroll] Was passiert, wenn eine Variable mit dem Statement \lstinline{nonlocal} gekennzeichnet wird, es sich beim nächsten Gültigkeitsbereich jedoch um den globalen handelt?
+}
