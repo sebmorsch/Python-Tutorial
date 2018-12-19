@@ -12,4 +12,5 @@ for d in (dictionary, dictionary1):
     dictionary2.update(d)
 
 print(dictionary2)
-# Ausgabe: {'A': 'Alpha', 'L': 'Lima', 'E': 'Echo', 'X': 'Xray', 'N': 'November', 'T': 'Tango', 'O': 'Oscar'}
+# Ausgabe: {'A': 'Alpha', 'L': 'Lima', 'E': 'Echo', 
+# 'X': 'Xray', 'N': 'November', 'T': 'Tango', 'O': 'Oscar'}
