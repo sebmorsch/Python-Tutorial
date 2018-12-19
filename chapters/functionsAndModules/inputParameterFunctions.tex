@@ -12,6 +12,9 @@ def myFunction(x):
 x = 2
 myFunction(x)
 print(x)
+
+# Ausgabe:
+# 2
 \end{lstlisting}
 
 Mittels Codes (\ref{inputParameterFunctions:lst:primitiveParameter}) wird der Wert '2' ausgedruckt. Aus dem vorherigen Abschnitt über Gültigkeitsbereiche wissen wir, dass es sich hierbei - trotz gleichem Namen - um zwei verschiedene Variablen handelt. Eine Integer-Variable im lokalen und eine im globalen Gültigkeitsbereich. Dies gilt jedoch nur für primitive Datentypen, für nicht-primitive Datentypen verhält es sich anders.
@@ -31,6 +34,10 @@ Da es sich hier (\ref{inputParameterFunctions:lst:nonPrimitiveParameter}) nicht 
 
 Es ist wichtig, sich dieses Verhalten zu merken, da beim objekt-orientierten Programmieren sonst Fehler auftreten.
 
+\kontrollfrage{
+	\item[\kontroll] Unter welcher Voraussetzung führen Änderungen eines Übergabeparameters innerhalb einer Funktion zu Änderungen außerhalb?
+	\item[\kontroll] Welche nicht-primitiven Datentypen kennen wir?
+}
 
 \subsection{Arten von Input-Parametern}
 \label{inputParameterFunctions:subsection:inputParameter}
@@ -105,3 +112,8 @@ print(result) # druckt das Ergebnis 6
 Die multiplen Parameter werden als Liste gehandhabt.
 Bei der Definition von variablen Parametern in einer Funktion ist es wichtig, dass sie als letztes Argument stehen.
 
+\kontrollfrage{
+	\item[\kontroll] Worin liegt der Unterschied zwischen Standard- und Schlüsselwort-Parametern?
+	\item[\kontroll] Worauf ist bei gleichzeitiger Nutzung von positionalen und Standard-Parametern zu achten?
+	\item[\kontroll] Welchen Nutzen bieten variable Parameter? Gibt es Kontrollstrukturen, bei denen sich variable Parameter anbieten?
+}

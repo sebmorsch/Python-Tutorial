@@ -40,6 +40,11 @@ def processData(source):
 	return finalData
 \end{lstlisting}
 
+\kontrollfrage{
+	\item[\kontroll] Was sind die Vorteile, die beim Aufteilen von komplexen in mehrere simple Aufgaben auftreten?
+	\item[\kontroll] Welche Voraussetzungen finden Sie geeignet, um zu beschließen, dass eine Funktion nicht weiter aufgeteilt werden sollte?
+}
+
 \subsection{Reduktion von Code-Duplikationen}
 \label{benefitsFunctions:subsection:codeDuplication}
 Bestimmte Prozesse werden beim Programmieren immer wieder benötigt.
@@ -65,4 +70,8 @@ näher betrachtet.
 Durch das Kapseln von Prozessen in einzelne Funktionen sind diese auch einfach erweiterbar und veränderbar.
 Wäre der Code nur dupliziert worden, müsste der Nutzer diesen an allen Stellen ändern.
 Da das Programm aber an diesen Stellen nur die Funktion aufruft, muss nur diese Funktion erweitert oder verändert werden.
+
+\kontrollfrage{
+	\item[\kontroll] Welchen Vorteil bietet das Auslagern von Code-Duplikationen in eine Funktion? Denken Sie dabei daran, dass Code immer unter der Voraussetzung geschrieben werden sollte, dass er in Zukunft nochmal geändert oder erweitert werden muss.
+}
 
