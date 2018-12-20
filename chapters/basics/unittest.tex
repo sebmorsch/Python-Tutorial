@@ -1,0 +1,18 @@
+% !TeX root = ../../pythonTutorial.tex
+\section{Unit Test}
+\label{unittest:sec:unittest}
+
+Zum testen unter Python gibt es ein eigenen Testing Framework.
+Dieses wurde in Anlehnung an JUnit aus Java erstellt.
+Ziel ist es, dem Programmierer zu ermöglichen kleine wiederholbare Testfälle zu Verfügung zu stellen.
+Mit diesen Testfällen lässt sich Programmcode auf Intergrations- und Operationsebene testen.
+
+\subsection{Beispieltest}
+
+Zum Einstieg in das Thema Testen, zunächst ein kleines Beispiel einer Testklasse.
+\lstinputlisting[language=Python, label={unittest:lst:beispieltest}]]{chapters/basics/src/unittest/simpleTest.py}
+
+Um einen Test zu erstellen muss die Klasse in der die Testfälle definiert werden sollen von \lstinline$unittest.TestCase$ ableiten.
+Hierfür muss zuvor das Testframework \lstinline$unittest$ importiert werden.
+Anschließend können die einzelnen Testmethoden einleitend mit der Bezeichnung \textit{Test} definiert werden.
+Die einzelnen Testfälle werden paralell und ohne Reihenfolge abgearbeitet.
