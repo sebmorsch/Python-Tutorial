@@ -15,6 +15,11 @@ Ob ein Modul lokal oder global ist, hängt vom Speicherort ab. Ein lokales Modul 
 Ein globales Modul wird in einem bestimmten Verzeichnis der Python-Installation angelegt.
 Hierzu gehört beispielsweise das Verzeichnis \emph{site-packages}, in dem auch einige Module von Drittanbietern installiert werden.
 
+\kontrollfrage{
+	\item[\kontroll] Welche Vorteile bietet uns die Modularisierung?
+	\item[\kontroll] Was ist der Unterschied zwischen einem lokalen und einem globalen Modul?
+}
+
 \subsection{Erstellung eines lokalen Moduls}
 \label{modularisation:subsection:createLocalModule}
 Zur Erstellung eines lokalen Moduls wird eine Datei \emph{myModul.py} im Programmverzeichnis angelegt:
@@ -56,7 +61,7 @@ Durch das Einbinden eines Moduls wird ein neuer Namensraum mit dem Modulnamen er
 \begin{lstlisting}[language=Python]
 import myModule
 
-myModule.hello("Welt")
+myModule.hello("World")
 myModule.hello(myModul.MAX)
 \end{lstlisting}
 
@@ -66,6 +71,11 @@ Ausgabe:
 Hello, World
 Hello, Maximilian
 \end{lstlisting}
+
+\kontrollfrage{
+	\item[\kontroll] Wie wird ein Modul erstellt und wie kann man es verwenden? Welches Schlüsselwort wird zum Einbinden benötigt?
+	\item[\kontroll] Was passiert beim Einbinden eines Moduls?
+}
 
 Mit Hilfe der \emph{import/as}-Anweisung ist es möglich den Namen des Namensraums zu verändern:
 \begin{lstlisting}[language=Python]
@@ -104,6 +114,11 @@ from myModul import hello
 hello("World")		# statt: myModule.hello("World")
 \end{lstlisting}
 
+\kontrollfrage{
+	\item[\kontroll] Mit welchem Schlüsselwort können wir den Namensraum eines Moduls ändern?
+	\item[\kontroll] Ist es möglich nur einzelne Elemente eines Moduls einzubinden?
+	\item [\kontroll] Was gilt es beim Einbinden von Modulen bezüglich des Namensraums zu beachten?
+}
 
 Da die Elemente bei der \emph{from/import}-Anweisung in den globalen Namensraum eingebunden werden, können bereits vorhandene Referenzen kommentarlos überschrieben werden.
 
@@ -127,3 +142,8 @@ pi hat den Wert:
 
 Um derartige Fehler zu minimieren, sollte die \emph{from/import}-Anweisung sparsam verwendet werden - also nur dann, wenn einzelne Elemente aus einem Modul benötigt werden.
 Wenn alle oder fast alle Elemente aus einem Modul benötigt werden, empfiehlt es sich, die \emph{import}-Anweisung zu verwenden.
+
+\kontrollfrage{
+	\item[\kontroll] Es wird ein Modul importiert, welches ein Element besitzt, das es schon im derzeitigen Namensraum gibt. Was passiert mit dem Element?
+	\item[\kontroll] Welche Wege gibt es, um dieses Verhalten zu vermeiden?
+}
