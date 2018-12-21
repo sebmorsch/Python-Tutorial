@@ -1,3 +1,6 @@
+# unittest/simpleTest.py
+# einfacher Test in Python
+
 import unittest
 
 class simpleTest(unittest.TestCase):
