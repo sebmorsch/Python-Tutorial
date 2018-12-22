@@ -243,9 +243,3 @@ TSWLatexianTemp*
 
 # generated if using elsarticle.cls
 *.spl
-
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
