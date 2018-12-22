@@ -1,17 +1,30 @@
 % !TeX root = ../../pythonTutorial.tex
-\section{Unit Test}
-\label{unittest:sec:UnitTest}
+\section{Testing}
+\label{tests:sec:Testing}
+Zum testen unter Python gibts es mehrere Möglichkeiten.
+Zum einen gibt es das Modul \lstinline$doctest$ welches als interaktive Dokumentation Testfunktionalitäten übernimmt.
+Zum anderen gibt es noch das Modul \lstinline$unittest$.
+Diese Modul implementiert in Python die unter anderem aus JUnit bekannte Unittesting.
+\subsection{doctest}
+\label{tests:sec:DocTest}
+Das Modul \lstinline$doctest$ ermöglicht test in form von Kommentaren direkt anzuhängen.
+Dies ist sowohl innerhalb einer Funktion als auch außerhalb möglich.
+Hierbei werden die Tests in Kommentarblöcken (\lstinline$"""$) durch die Zeichenfolge \lstinline$>>>$ eingeleitet.
+Diesem folgt dann entweder das Ergebnis oder eine Fehlerbehandlung im falle einer gewollten Exception.
+
+\subsection{unittest}
+\label{tests:sec:UnitTest}
 Zum Testen unter Python gibt es ein eigenes Modul.
 Dieses wurde in Anlehnung an JUnit aus Java erstellt.
 Ziel ist es, dem Programmierer zu ermöglichen kleine Wiederholbare Tests zu schreiben.
 Mit diesen Testfällen lässt sich Programmcode auf Intergrations- und Operationsebene testen.
 
 
-\subsection{Beispieltest}
-\label{unittest:sec:BeispielTest}
+\subsubsection*{Beispieltest}
+\label{tests:sec:BeispielTest}
 
 Zum Einstieg in das Thema Testen, zunächst ein kleines Beispiel einer Testklasse.
-\lstinputlisting[language=Python, label={unittest:lst:BeispielTest}]{chapters/basics/src/unittest/simpleTest.py}
+\lstinputlisting[language=Python, label={tests:lst:BeispielTest}]{chapters/basics/src/tests/simpleTest.py}
 
 Um einen Test zu erstellen muss die Klasse in der die Testfälle definiert werden sollen von \lstinline$unittest.TestCase$ ableiten.
 Hierfür muss zuvor das Testframework \lstinline$unittest$ importiert werden.
@@ -23,8 +36,8 @@ Diese beide Methoden erlauben das ausführen von Code vor und nach jeder einzelne
 Dies ermöglicht bestimmte Variablen beziehungsweise Testzusammenstellungen vor jedem Test zu instantiieren.
 
 
-\subsection{Ausführen von Testzusammenstellungen}
-\label{unittest:sec:AusfuehrenVonTestzusammenstellungen}
+\subsubsection*{Ausführen von Testzusammenstellungen}
+\label{tests:sec:AusfuehrenVonTestzusammenstellungen}
 Die erstellten Tests können nicht so ohne weiteres auf der Konsole ausgeführt werden.
 Um das Testen zu starten ist es notwendig Python über den Parameter \lstinline$-m unittest$ aufzurufen.
 Dies ist erforderlich um das Modul Unittest im Skriptmodus zu starten.
@@ -33,7 +46,7 @@ Dieses kann entweder mehrere Module, eine Klasse oder eine einzelne Methode sein
 Ebenfalls möglich ist es den Pfad zu Pythondatei anzugeben.
 Hierbei werden natürlich nur die Testfälle in der Datei ausgeführt.
 
-\begin{lstlisting}[label=unittest:lst:AusfuehrenVonTestzusammenstellungen,language=bash]
+\begin{lstlisting}[label=tests:lst:AusfuehrenVonTestzusammenstellungen,language=bash]
 python -m unittest test_module1 test_module2
 python -m unittest test_module.TestClass
 python -m unittest test_module.TestClass.test_method
@@ -41,9 +54,9 @@ python -m unittest tests/test_something.py
 \end{lstlisting}
 
 Empfehlenswert ist des Weiteren noch der Parameter \lstinline$-v$ da dieser dafür sorgt das die erfüllten Tests angezeigt werden.
-Weitere Parameter hierzu können der Python Doku \cite{pythondoku}.
+Weitere Parameter hierzu können der Python Dokumentation \cite{pythondoku}.
 Alternativ kann durch den Parameter \lstinline{-h} eine Liste der Parametern auf der Konsole ausgegeben werden.
 
-
-
+\subsubsection*{Test Discovery}
+Das Modul Unittest bietet seit Python 3.2 eine 
 
