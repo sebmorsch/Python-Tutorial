@@ -2,7 +2,7 @@
 % Vorlage für Dokumentation auf LaTeX-Basis im Projekt InfoStuDi
 % --------------------------------------------------------------------------------------------
 \usepackage{mb}
-\usepackage{mbmath}
+ \usepackage{mbmath}
 \usepackage{textcomp}
 % Array-Paket für mehr Kontrolle der Tabellen
 \usepackage{array}
@@ -177,7 +177,7 @@
 \theorembodyfont{\normalfont}
 % Kapitelweise neu nummerieren
 % 2
-\newtheorem{auftitle}{Aufgabe}[chapter]
+\newtheorem{auftitle}{Aufgabe}[section]
 }
 %
 % Definition für die Kennzeichnung der Übungsaufgaben
@@ -191,7 +191,7 @@
 % Ein Counter für die Übungsaufgaben. Wir zählen diesen Counter selbst hoch
 % mit einem entsprechenden Kommando, das wir in \item verwenden.
 % 3
-\newcounter{aufgabenCounter}[chapter]
+\newcounter{aufgabenCounter}[section]
 \newcommand{\auf}[0]{
     \refstepcounter{aufgabenCounter}
     % Kapitelnummer.Zähler für das Item
