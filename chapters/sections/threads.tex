@@ -3,27 +3,41 @@
 
 \label{threads}
 
-In Python werden zwei APIs zur Verwendung von Threads angeboten, die Low-Level API aus dem \_thread-Modul und die Higher-Level API aud dem threading-Modul. Es wird sich an dieser Stelle auf das threading-Modul beschr?nkt, da es Intern auf dem \_thread-Modul basiert und eine Schnittstelle anbietet, welche das Programmieren von Multithreaded Applikationen erleichert. Diese Schnittstelle ist an der Thread-Schnittstelle aus Java angelehnt und sollte daher f?r Java-Entwickler leicht zu verwenden sein. Allerdings gibt es einige Unterschiede zwischen dem Python-Modul und der Java-Implementierung. So sind Bedingungsvariablen und Locks seperate Objekte in Python und es ist auch nur eine Teilmenge des Verhaltens eine Java-Threads in Python verf?gbar. Ein Python-Thread kennt keine Priorit?ten und Thread-Gruppen und er kann nicht zerst?rt, gestopped, angehalten, fortgesetzt oder unterbrochen werden. Soweit vorhanden sind die statischen Methoden aus der Java-Thread-Klasse auf Modul-Ebene in Python implementiert.
+In Python werden zwei APIs zur Verwendung von Threads angeboten, die Low-Level
+API aus dem \_thread-Modul und die Higher-Level API aud dem threading-Modul.
+Es wird sich an dieser Stelle auf das threading-Modul beschränkt, da es Intern auf
+dem \_thread-Modul basiert und eine Schnittstelle anbietet, welche das Programmieren
+von Multithreaded Applikationen erleichert.
+Diese Schnittstelle ist an der Thread-Schnittstelle aus Java angelehnt und sollte daher für
+Java-Entwickler leicht zu verwenden sein.
+Allerdings gibt es einige Unterschiede zwischen dem Python-Modul und der Java-Implementierung.
+So sind Bedingungsvariablen und Locks seperate Objekte in Python und es ist auch
+nur eine Teilmenge des Verhaltens eine Java-Threads in Python verfügbar.
+Ein Python-Thread kennt keine Prioritäten und Thread-Gruppen und er kann nicht zerstört,
+gestopped, angehalten, fortgesetzt oder unterbrochen werden.
+Soweit vorhanden sind die statischen Methoden aus der Java-Thread-Klasse auf Modul-Ebene
+in Python implementiert.
 
 \subsection{Thread Objekte}
 
-Es gibt zwei M?glichkeiten einen Thread zu erzeugen. Entweder wird dem Konstruktor ein aufrufbares Objekt ?bergeben,
+Es gibt zwei Möglichkeiten einen Thread zu erzeugen. Entweder wird dem Konstruktor ein
+aufrufbares Objekt übergeben,
 \begin{lstlisting}
 import threading
 
 def aufgabe():
-    # Nebenl?ufig ausgef?hrte Aufgabe
+    # Nebenläufig ausgeführte Aufgabe
 
 thread = threading.Thread(target=aufgabe)
 thread.start()
 \end{lstlisting}
-oder die \lstinline!run()!-Methode wird in einer von \lstinline!Thread! abgeleiteten Klassen ?berschrieben.
+oder die \lstinline!run()!-Methode wird in einer von \lstinline!Thread! abgeleiteten Klassen überschrieben.
 \begin{lstlisting}
 import threading
 
 class MeinThread(threading.Thread):
     def run(self):
-        # Nebenl?ufig ausgef?hrte Aufgabe
+        # Nebenläufig ausgeführte Aufgabe
 
 thread = MeinThread()
 thread.start()
@@ -31,13 +45,14 @@ thread.start()
 
 Der Konstruktor  der \lstinline!Thread!-Klasse bietet noch weitere Parameter an:
 \begin{itemize}
-    \item \lstinline!group! sollte immer \lstinline!None! sein. Es ist aktuell reserviert f?r sp?tere Erweiterungen.
+    \item \lstinline!group! sollte immer \lstinline!None! sein.
+    Es ist aktuell reserviert für spätere Erweiterungen.
     \item \lstinline!name! setzt den Namen des Threads.
-    \item \lstinline!args! ist ein Tupel aus Parameter f?r das mit \lstinline!target! definiert aufrufbare Objekt.
-    \item \lstinline!kwargs! ist ein Dictionary aus Schl?sselwort-Parameter f?r \lstinline!target!.
-    \item \lstinline!deamon! setzt die D?mon-Eigenschaft des Threads. Sobald sich kein normaler Thread mehr in der Ausf?hrung befindet, werden D?mon-Threads automatisch beendet.
+    \item \lstinline!args! ist ein Tupel aus Parameter für das mit \lstinline!target! definiert aufrufbare Objekt.
+    \item \lstinline!kwargs! ist ein Dictionary aus Schlüsselwort-Parameter für \lstinline!target!.
+    \item \lstinline!deamon! setzt die Dämon-Eigenschaft des Threads. Sobald sich kein normaler Thread
+    mehr in der Ausführung befindet, werden Dämon-Threads automatisch beendet.
 \end{itemize}
 
-
-
-Es ist anzumerken, dass ein \lstinline!Thread!-Objekts bei seiner Erzeugung noch nicht gestartet wird. Hierzu muss explizit die \lstinline!start()!-Methode aufgerufen werden.
+Es ist anzumerken, dass ein \lstinline!Thread!-Objekts bei seiner Erzeugung noch nicht gestartet wird.
+Hierzu muss explizit die \lstinline!start()!-Methode aufgerufen werden.
