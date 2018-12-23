@@ -34,11 +34,11 @@ Python erlaubt die Nutzung von negativen Indizes. Mit diesen kann der Inhalt der
 \lstinputlisting{chapters/basics/src/list/ListNegativeIndex.py}
 \label{collections:lst:lsitnegativeindex}
 
-In Python existiert für die Datenstruktur List keine Methode, die mit \lstinline$contains$ in Java oder der \lstinline$find$ aus C++ vergleichbar ist. Stattdessen stehen die Membership Operatoren \lstinline$in$ oder \lstinline$not in$ zur Verfügung, welche auf eine beliebige Sequenz oder die hier beschriebenen Collections angewendet, Auskunft darüber gibt, ob das spezifizierte Element darin enthalten ist.
+In Python existiert für die Datenstruktur List keine Methode, die mit \lstinline$contains$ in Java oder der \lstinline$find$ aus C++ vergleichbar ist. Stattdessen stehen die Membership Operatoren \lstinline$in$ oder \lstinline$not$ \lstinline$in$ zur Verfügung, die auf eine beliebige Sequenz oder die hier beschriebenen Collections angewendet, Auskunft darüber gibt, ob das spezifizierte Element darin enthalten ist.
 \lstinputlisting{chapters/basics/src/list/ListInOperator.py}
 \label{collections:lst:listinoperator}
     
-Der Python Interpreter stellt nativ einige Funktionen zur Verfügung. Eine davon ist die \lstinline$len$-Methode, welche die Anzahl an Elementen in einem Objekt liefert.
+Der Python Interpreter stellt nativ einige Funktionen zur Verfügung. Eine davon ist die \lstinline$len$-Methode, die die Anzahl an Elementen in einem Objekt liefert.
 \lstinputlisting{chapters/basics/src/list/ListLen.py}
 \label{collections:lst:listlen}
     
@@ -254,7 +254,7 @@ Fügt einem Set die Items eines anderen hinzu. Duplikate werden entfernt.
 \subsubsection{Frozenset}
 
 Im Gegensatz zu einem \glqq{}normalen\grqq{} Set kann ein Frozenset nicht mehr verändert werden. Das Hinzufügen eines neuen Elements ist nicht erlaubt und führt zu einem Fehler.
-\lstinputlisting{chapters/basics/src/set/SetFrozen.py}
+\lstinputlisting{chapters/basics/src/set/FrozenSet.py}
 \label{collections:lst:setfrozen} 
 
 \subsection{Dictionary}
@@ -342,4 +342,23 @@ Liefert eine Liste mit allen im Dictionary enthaltenen Werten.
 \subsection{Zusammenfassung}
 \label{collections:summary}
 
-In diesem Abschnitt wurde gezeigt, dass Python 3 uns mehrere Collections zur Aufbewahrung von Daten bereitstellt. Diese können je nach Datenstruktur unterschiedliche Eigenschaften aufweisen. Während eine List die Daten sortiert vorhält und Duplikate zulässt, werden bei einem Set entsprechende doppelte Einträge vermieden. Betrachtet man das Set und seine Methoden genauer, ist dies der dahinter liegenden Mathematik, konkret der Mengenlehre geschuldet. Aus diesem Grund können alle gängigen mathematischen Operation auf Sets angewendet werden. Zum Schluss haben wir in diesem Abschnitt das Dictionary kennengelernt. Dieses ist ähnlich den Maps in Java. Dabei besteht ein Dictionary aus Schlüssel-Objekt-Paaren, die hinter jedem Schlüssel ein entsprechendes Objekt Mappen bzw. bereitstellen.
+In diesem Abschnitt wurde gezeigt, dass Python 3 uns mehrere Collections zur Aufbewahrung von Daten bereitstellt. Diese können je nach Datenstruktur unterschiedliche Eigenschaften aufweisen. Während eine List die Daten sortiert vorhält und Duplikate zulässt, werden bei einem Set entsprechende doppelte Einträge vermieden. Betrachtet man das Set und seine Methoden genauer, ist dies der dahinter liegenden Mathematik, konkret der Mengenlehre geschuldet. Aus diesem Grund können alle gängigen mathematischen Operation auf Sets angewendet werden. Zum Schluss haben wir in diesem Abschnitt das Dictionary kennengelernt. Dieses ist ähnlich den Maps in Java. Dabei besteht ein Dictionary aus Schlüssel-Objekt-Paaren, die hinter jedem Schlüssel ein entsprechendes Objekt bereitstellen.
+
+
+\uebung
+
+In dieser Übung möchten wir uns mit den Datentypen List, Tuple, Set und Dictionary beschäftigen.
+Dabei ist es wichtig ein grundsätzliches Verständnis für die Datentypen und ihre Verwendung zu erhalten.
+
+\aufgabe{Collections/CollectionsAufgabe1List}
+\label{collections:task1List}
+\aufgabe{Collections/CollectionsAufgabe2List}
+\label{collections.task2List}
+\aufgabe{Collections/CollectionsAufgabe1Tuple}
+\label{collections:task1Tuple}
+\aufgabe{Collections/CollectionsAufgabe2Tuple}
+\label{collections:task2Tuple}
+\aufgabe{Collections/CollectionsAufgabe1Set}
+\label{collections:task1Set}
+\aufgabe{Collections/CollectionsAufgabe1Dictionary}
+\label{collections:task1Dictionary}
