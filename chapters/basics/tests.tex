@@ -1,14 +1,14 @@
 % !TeX root = ../../pythonTutorial.tex
 \section{Testing}
 \label{tests:sec:Testing}
-Zum Testen unter Python gibt es mehrere Möglichkeiten.
+Zum Testen unter Python gibt es mehrere Module die das Testen unterstützen.
 Zum einen das Modul \lstinline$doctest$, welches als interaktive Dokumentation Testmuster bereitstellt.
-Zum anderen gibt es das Modul \lstinline$unittest$.
-Dieses Modul implementiert in Python die unter anderem aus JUnit bekannte Regressionstesten.
+Zum anderen das Modul \lstinline$unittest$, welches den Unittests unter Java mit JUnit sehr ähnelt.
+Beide Module ermöglichen Regressionstesten.
 \subsection{doctest}
 \label{tests:sec:DocTest}
-Das Modul \lstinline$doctest$ ermöglicht Tests in Form von Kommentaren direkt anzuhängen.
-Dies ist sowohl innerhalb einer Funktion als auch außerhalb möglich.
+Das Modul \lstinline$doctest$ ermöglicht es Tests parallel mit dem Programmcode in die selbe Datei zu schreiben.
+Dies ist sowohl innerhalb von Funktionen als auch außerhalb möglich.
 Hierbei werden die Tests in Kommentarblöcken (\lstinline$"""$) durch die Zeichenfolge \lstinline$>>>$ eingeleitet.
 Danach wird die Funktion, die getestet werden soll mit den gewünschten Testparametern aufgerufen.
 Diesem folgt dann entweder das Ergebnis oder eine Fehlerbehandlung im Falle einer zu prüfenden Exception.
@@ -16,14 +16,14 @@ Diesem folgt dann entweder das Ergebnis oder eine Fehlerbehandlung im Falle eine
 \lstinputlisting[language=Python,lastline=37, label={tests:lst:SimpleDocTest}]{chapters/basics/src/tests/simpleDocTest.py}
 
 Beispiel \ref{tests:lst:SimpleDocTest} zeigt, wie \lstinline$doctests$ in der Praxis Anwendung finden.
-Die Tests werden, sobald der Code ausgeführt wird mit ausgeführt. 
-Dadurch das die Tests in der Funktion stehen besteht ein direkter Bezug zwischen Tests und dem zu testenden Code.
-Solle kein Fehler auftreten, erscheint keine Ausgabe.
+Die Tests werden, sobald der Code ausgeführt wird ebenfalls ausgeführt. 
+Dadurch das die Tests nach bei dem zu testenden Code stehen wird ein direkter Bezug zwischen beiden hergestellt.
+Sollte beim Ausführen kein Test Fehlschlagen, kommt es zu keiner Ausgabe durch den Interpreter.
 Ist trotzdem eine Ausgabe erwünscht, ist diese mit dem Parameter \lstinline$-v$ (verbose) aktivierbar.
 
-Im nachfolgenden Beispiel \ref{tests:lst:SimpleDocTestPrintSuccess} sind die Tests aus dem oben gezeigten Beispiel \ref{tests:lst:SimpleDocTest}, zu sehen.
-Der Ablauf ist jedes Mal gleich.
-Zuerst wird der Test, mit den Versuchsparametern aufgeführt und im Anschluss der Erwartungswert gezeigt.
+Im nachfolgenden Beispiel \ref{tests:lst:SimpleDocTestPrintSuccess} ist die Ausgabe der Tests aus dem oben gezeigten Codebeispiel \ref{tests:lst:SimpleDocTest}, zu sehen.
+Der Ablauf, der einzelnen Test, ist jedes Mal gleich.
+Zuerst wird der Test, mit den Versuchsparametern ausgegeben und im Anschluss der Erwartungswert gezeigt.
 Sollte der Rückgabewert der Funktion dem Erwartungswert entsprechen, wird der Test mit OK beendet.
 Gleiches gilt beim Testen auf Exceptions.
 Zum Schluss werden die Ergebnisse in einer Auflistung zusammengefasst und nach Zugehörigkeit gruppiert.
@@ -33,12 +33,12 @@ Dies soll dem Anwender ermöglichen, alle Tests mit einem Blick zu erfassen.
 
 \lstinputlisting[language=python,linerange={1-3,40-69}, label={tests:lst:SimpleDocTestPrintSuccess}]{chapters/basics/src/tests/simpleDocTest.py}
 
-Um auch denn Fehlerfall zu betrachten, habe ich die Rückgabe von \lstinline$x*y$ auf \lstinline$x+y$ geändert.
+Um auch denn Fehlerfall zu betrachten, wurde die Rückgabe der Funktion von \lstinline$x*y$ auf \lstinline$x+y$ geändert.
 Dies sorgte sofort für zwei Fehler beim Start des Programms.
-Die einzelnen Fehler werden durch Balken getrennt.
+Die einzelnen Fehler werden getrennt dargestellt.
 Im Unterschied zum Erfolgsfall wird hier die Stelle angegeben, an der der Test steht.
 Zusätzlich dazu wird der zurückgegebene Wert angezeigt.
-Am ende erfolgt wieder eine Zusammenfassung.
+Am Ende erfolgt wieder eine Zusammenfassung.
 
 \lstinputlisting[language=python,linerange={1-3,73-93}, label={tests:lst:SimpleDocTestPrintFailure}]{chapters/basics/src/tests/simpleDocTest.py}
 
