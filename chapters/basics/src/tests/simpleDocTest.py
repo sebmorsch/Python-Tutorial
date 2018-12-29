@@ -7,7 +7,8 @@ Outside of a function
 25
 """
 
-def area(x,y):
+
+def area(x, y):
     """Inside of a function
     Return the area of an recangle.
 
@@ -23,12 +24,12 @@ def area(x,y):
     Traceback (most recent call last):
         ...
     ValueError: y must be > 0
-    """    
-    
+    """
+
     if not x > 0:
         raise ValueError("x must be > 0")
     if not y > 0:
-        raise ValueError("y must be > 0")    
+        raise ValueError("y must be > 0")
     return x*y
 
 
