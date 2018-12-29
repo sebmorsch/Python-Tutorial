@@ -1,5 +1,5 @@
 # tests/simpleDocTest.py
-# Shows a simple Example of doctest in Python its output
+# Einfaches Beispiel eines DocTests in Python mit Ausgabe
 
 """
 Outside of a function
