@@ -1,12 +1,13 @@
 % !TeX root = ../../pythonTutorial.tex
 \section{Collections}
-\label{collections}
-
+\label{collections:sec:collections}
 
 In Python 3 existieren nativ die vier Datenstrukturen List, Tuple, Set und Dictionary, welche im Folgenden vorgestellt werden.
 
 \subsection{List}
-\label{collections:list}
+\label{collections:sec:list}
+\randnotiz{List}
+
 Die Datenstruktur List bietet einen geordneten und veränderbaren Behälter für Python-Objekte, der Duplikate von Elementen erlaubt. Da eine List immer sortiert ist, können einzelne Elemente aus der Datenstruktur über den entsprechenden Index ausgewählt und verändert werden. Python unterstützt intern keine Arrays, alternativ hierzu kann eine List verwendet werden.
 
 Eine List kann wie folgt initialisiert werden:
@@ -48,7 +49,8 @@ Das \lstinline$del$-Statement erlaubt das Löschen einzelner Elemente oder der ge
     
 
 \subsubsection{Methoden einer List}
-\label{collections:list:methodes}
+\label{collections:sec:listmethodes}
+\randnotiz{List-Methoden}
 
 \textbf{append():}
 Fügt am Ende der List ein Objekt hinzu.
@@ -108,7 +110,8 @@ Sortiert die List.
 
     
 \subsection{Tuple}
-\label{collections:tuple}
+\label{collections:sec:tuple}
+\randnotiz{Tuple} 
 
 Ein Tuple stellt einen geordneten und unveränderbaren Behälter für Python-Objekte dar. Dieser erlaubt, wie eine List, Duplikate und den Zugriff auf einzelne Elemente über einen Index. Tuple sind Datenstrukturen, die ausschließlich gelesen werden können.
 
@@ -119,7 +122,7 @@ Ein Tuple wird mit folgender Syntax erzeugt:
 Es ist möglich, leere Tuple zu erzeugen. Wie zuvor erwähnt, ist deren Inhalt unveränderlich.
 
 \subsubsection{Arbeiten mit einem Tuple}
-\label{collections:workwithtuple} 
+\label{collections:sec:workwithtuple} 
 
 Der Inhalt eines Tuple kann, analog zur List, auf der Konsole ausgegeben werden. Das Zuweisen eines neuen Objekts mittels Index führt im Gegensatz zur List zu einem Fehler.
 \lstinputlisting{chapters/basics/src/tuple/TupleIndex.py}
@@ -134,7 +137,8 @@ Das \lstinline$del$-Statement erlaubt das Löschen des Tuple. Aufgrund der Unverä
 \label{collections:lst:tupledelete}      
 
 \subsubsection{Methoden eines Tuple}
-\label{collections:tuplemethodes}
+\label{collections:sec:tuplemethodes}
+\randnotiz{Tuple-Methoden}
 
 \textbf{count():}
 Liefert die Anzahl des gewählten Werts in einem Tuple.
@@ -147,7 +151,9 @@ Liefert die Position des ersten Werts, der mit dem spezifizierten Wert übereinst
 \label{collections:lst:tupleindexmethode}  
 
 \subsection{Set}
-\label{collections:set}
+\label{collections:sec:set}
+\randnotiz{Set} 
+
 Ein Set ist durch das Hinzufügen oder Entfernen von Objekten veränderbar und erlaubt keine Duplikate. Das Initialisieren mit mehrfach identischen Werten führt nicht zu einem Fehler, jedoch werden die überzähligen Werte aus dem Set entfernt. Die enthaltenen Elemente sind unveränderlich. Zudem ist die Datenstruktur ungeordnet, weshalb nicht auf einzelne Objekte mittels Index zugegriffen werden kann. 
 
 Ein Datenbehälter vom Typ Set kann mit folgender Syntax erzeugt werden:
@@ -155,7 +161,7 @@ Ein Datenbehälter vom Typ Set kann mit folgender Syntax erzeugt werden:
 \label{collections:lst:setinit}  
     
 \subsubsection{Arbeiten mit Sets}
-\label{collections:workwithset}
+\label{collections:sec:workwithset}
 Bei der Ausgabe eines Set auf der Konsole ist die Reihenfolge der Elemente nicht garantiert. 
 
 % Wird der Inhalt eines Sets auf der Konsole ausgegeben, erscheint die Reihenfolge der Elemente willkürlich, da diese nicht geordnet sind.
@@ -168,7 +174,8 @@ Die Syntax für die Ausgabe auf der Konsole ist analog zur List. Die Verwendung e
  
 %\newpage
 \subsubsection{Methoden eines Sets}
-\label{collections:setmethodes} 
+\label{collections:sec:setmethodes} 
+\randnotiz{Set-Methoden}
 
 \textbf{add():}
 Fügt dem Set ein Objekt hinzu.
@@ -252,13 +259,16 @@ Fügt einem Set die Items eines anderen hinzu. Duplikate werden entfernt.
 \label{collections:lst:setupdate} 
     
 \subsubsection{Frozenset}
+\label{collections:sec:frozenset}
+\randnotiz{Frozenset}
 
 Im Gegensatz zu einem \glqq{}normalen\grqq{} Set kann ein Frozenset nicht mehr verändert werden. Das Hinzufügen eines neuen Elements ist nicht erlaubt und führt zu einem Fehler.
 \lstinputlisting{chapters/basics/src/set/FrozenSet.py}
 \label{collections:lst:setfrozen} 
 
 \subsection{Dictionary}
-\label{collections:dictionary}
+\label{collections:sec:dictionary}
+\randnotiz{Dictionary} 
 
 Ein Dictionary ist eine ungeordnete, veränderbare Datenstruktur, die keine Duplikate erlaubt und Schlüssel-Objekt-Paare beinhaltet. Auch beim Dictionary ist die Reihenfolge der Ausgabe nicht garantiert, denn ein Dictionary besitzt keine Ordnung.
 
@@ -282,7 +292,8 @@ Eine alternative Möglichkeit, ein Dictionary zu erstellen, ist die Methode \lsti
 
 %\newline 
 \subsubsection{Methoden eines Dictionary}
-\label{collections:dictionary:methodes}
+\label{collections:sec:dictionarymethodes}
+\randnotiz{Dictionary-Methoden}
 
 \textbf{clear():}
 Entfernt alle Einträge aus dem Dictionary.
@@ -340,7 +351,7 @@ Liefert eine Liste mit allen im Dictionary enthaltenen Werten.
 \label{collections:lst:dictvalues}
 
 \subsection{Zusammenfassung}
-\label{collections:summary}
+\label{collections:sec:summary}
 
 In diesem Abschnitt wurde gezeigt, dass Python 3 uns mehrere Collections zur Aufbewahrung von Daten bereitstellt. Diese können je nach Datenstruktur unterschiedliche Eigenschaften aufweisen. Während eine List die Daten sortiert vorhält und Duplikate zulässt, werden bei einem Set entsprechende doppelte Einträge vermieden. Betrachtet man das Set und seine Methoden genauer, ist dies der dahinter liegenden Mathematik, konkret der Mengenlehre geschuldet. Aus diesem Grund können alle gängigen mathematischen Operation auf Sets angewendet werden. Zum Schluss haben wir in diesem Abschnitt das Dictionary kennengelernt. Dieses ist ähnlich den Maps in Java. Dabei besteht ein Dictionary aus Schlüssel-Objekt-Paaren, die hinter jedem Schlüssel ein entsprechendes Objekt bereitstellen.
 
