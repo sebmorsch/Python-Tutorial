@@ -3,7 +3,7 @@
 
 """
 Outside of a function
->>> area(5,5)
+>>> area(5, 5)
 25
 """
 
@@ -12,15 +12,15 @@ def area(x, y):
     """Inside of a function
     Return the area of an recangle.
 
-    >>> area(1,2)
+    >>> area(1, 2)
     2
 
-    >>> area(0,2)
+    >>> area(0, 2)
     Traceback (most recent call last):
         ...
     ValueError: x must be > 0
 
-    >>> area(2,0)
+    >>> area(2, 0)
     Traceback (most recent call last):
         ...
     ValueError: y must be > 0
@@ -30,7 +30,7 @@ def area(x, y):
         raise ValueError("x must be > 0")
     if not y > 0:
         raise ValueError("y must be > 0")
-    return x*y
+    return x * y
 
 
 if __name__ == "__main__":
@@ -39,24 +39,24 @@ if __name__ == "__main__":
 
 """
 Trying:
-    area(5,5)
+    area(5, 5)
 Expecting:
     25
 ok
 Trying:
-    area(1,2)
+    area(1, 2)
 Expecting:
     2
 ok
 Trying:
-    area(0,2)
+    area(0, 2)
 Expecting:
     Traceback (most recent call last):
         ...
     ValueError: x must be > 0
 ok
 Trying:
-    area(2,0)
+    area(2, 0)
 Expecting:
     Traceback (most recent call last):
         ...
@@ -74,7 +74,7 @@ Test passed.
 **************************************************
 File "simpleDocTest.py", line 6, in __main__
 Failed example:
-    area(5,5)
+    area(5, 5)
 Expected:
     25
 Got:
@@ -82,7 +82,7 @@ Got:
 **************************************************
 File "simpleDocTest.py", line 14, in __main__.area
 Failed example:
-    area(1,2)
+    area(1, 2)
 Expected:
     2
 Got:

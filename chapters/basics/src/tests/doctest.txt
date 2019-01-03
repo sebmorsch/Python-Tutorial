@@ -1,13 +1,13 @@
 # tests/doctest.txt
 # Example for DocTest as external testdocument
 
-Importanweisung  
+# Importanweisung  
 >>> from simpleDocTest import area
 
->>> area(1,2)
+>>> area(1, 2)
 2
 
->>> area(0,2)
+>>> area(0, 2)
 Traceback (most recent call last):
     ...
 ValueError: x must be > 0
