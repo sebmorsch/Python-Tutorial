@@ -7,7 +7,7 @@ In diesem Abschnitt sehen wir uns die verschiedenen Arten von Übergabeparametern
 # Übergabe eines primitiven Datentyps
 
 def myFunction(x):
-  x = 1
+    x = 1
   
 x = 2
 myFunction(x)
@@ -23,7 +23,7 @@ Mittels Codes (\ref{inputParameterFunctions:lst:primitiveParameter}) wird der We
 # Übergabe eines nicht-primitiven Datentyps
 
 def myFunction(x)
-  x[0] = 100
+    x[0] = 100
   
 x = [0,1,2]
 myFunction(x)
@@ -51,8 +51,8 @@ Diese Art von Parametern dürfte bereits bekannt sein. Es handelt sich um eine en
 # Funktion mit positionalen Parametern
 
 def myFunction(x,y,z):
-  ...
-  myFunction(1,2,3)
+    ...
+    myFunction(1,2,3)
 \end{lstlisting}
 
 
@@ -66,8 +66,8 @@ Bei Schlüsselwort-Parametern ist die Reihenfolge der Parameter nicht elementar, 
 # Funktion mit Schlüsselwort-Parametern
 
 def myFunction(x,y,z):
-  ...
-  myFunction(x = 1, z = 3, y = 2)
+    ...
+    myFunction(x = 1, z = 3, y = 2)
 \end{lstlisting}
 
 
@@ -80,7 +80,7 @@ Zu beachten ist, dass beim Verwenden von positionalen und Standard-Parametern al
 # Funktion mit Standard-Parametern
 
 def myFunction(x, y = 10, z = 20):
-  print(x, y, z)
+    print(x, y, z)
 
 myFunction(0)                       # 0 10 20
 myFunction(y = 20, x = 10, z = 30)  # 10 20 30
@@ -97,13 +97,13 @@ Funktion wie folgt aussehen:
 # Funktion mit variablen Parametern
 
 def average(*numbers):
-  value = 1
-  for number in numbers:
-    value = value * number
+    value = 1
+    for number in numbers:
+        value = value * number
     
-  value = value / len(numbers)
-  # durch die Anzahl an Parametern 
-  return value
+    value = value / len(numbers)
+    # durch die Anzahl an Parametern 
+    return value
 
 result = average(5, 5, 10, 8, 2)
 print(result) # druckt das Ergebnis 6

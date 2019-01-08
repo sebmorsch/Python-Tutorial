@@ -7,9 +7,9 @@ Je nachdem, wie und wo Funktionen definiert sind, können diese zu anderen Ergebn
 # Beispiel zu Gültigkeitsbereichen
 
 def myFunction():
-  # lokaler Gültigkeitsbereich der Funktion
-  a = 1
-  print('myFunction:', a)
+    # lokaler Gültigkeitsbereich der Funktion
+    a = 1
+    print('myFunction:', a)
 
 # globaler Gültigkeitsbereich
 a = 0
@@ -34,14 +34,14 @@ Nun ein Beispiel mit verschachtelten Funktionen:
 # Verschachtelte Funktionen
 
 def enclosing():
-  a = 1
+    a = 1
 
-  def innerFunction():
-    a = 2
-    print('innerste:', a)
+    def innerFunction():
+        a = 2
+        print('innerste:', a)
 
-  innerFunction()
-  print('umschließend:', a)
+    innerFunction()
+    print('umschließend:', a)
 
 a = 0
 enclosing()
@@ -68,15 +68,15 @@ Durch \lstinline$nonlocal$ wird eine Variable auf die nächst umschließende Defin
 # Nonlocal Statement
 
 def enclosing():
-  a = 1
+    a = 1
 
-  def innerFunction():
-    nonlocal a
-    a = 2
-    print('innerste:', a)
+    def innerFunction():
+        nonlocal a
+        a = 2
+        print('innerste:', a)
 
-  innerFunction()
-  print('umschließend:', a)
+    innerFunction()
+    print('umschließend:', a)
 
 a = 0
 enclosing()
@@ -96,15 +96,15 @@ Das Gleiche können wir mit dem globalen Gültigkeitsbereich machen, wie in \ref{s
 # Global Statement
 
 def enclosing():
-  a = 1
+    a = 1
 
-  def inner():
-    global a
-    a = 2
-    print('innerste:', a)
+    def inner():
+        global a
+        a = 2
+        print('innerste:', a)
 
-  innereFunction()
-  print('umschließend:', a)
+    innereFunction()
+    print('umschließend:', a)
 
 a = 0
 enclosing()

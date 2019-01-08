@@ -21,8 +21,8 @@ Schritte, die immer wieder gebraucht werden, wären das Abfangen, Auslesen, Inter
 # Beispiel für schlechten Umgang mit komplexen Prozessen
 
 def processData(source):
-  ...
-  return finalData
+    ...
+    return finalData
 \end{lstlisting}
 
 Es ist mühsam herauszufinden, was genau in dieser Funktion passiert.
@@ -33,11 +33,11 @@ Ein Beispiel zum Aufteilen des Code-Blocks könnte weiterhelfen.
 # in mehrere kleine Prozesse
 
 def processData(source):
-	rawData = readData(source)
-	parsedData = parseData(rawData)
-	editedData = editData(parsedData)
-	finalData = sortData(editedData)
-	return finalData
+    rawData = readData(source)
+    parsedData = parseData(rawData)
+    editedData = editData(parsedData)
+    finalData = sortData(editedData)
+    return finalData
 \end{lstlisting}
 
 \kontrollfrage{
