@@ -26,7 +26,10 @@ Die Funktion wird nach dem Initialisieren der Variable aufgerufen.
 Warum erhalten wir also zwei unterschiedliche Werte?
 
 Der Grund: es handelt sich nicht um die gleiche Variable, da beide Variablen in verschiedenen Gültigkeitsbereichen definiert werden. Ließen wir die lokale Zuweisung aus, würde zweimal der Wert 0 ausgegeben werden.
-Python sucht nach dem nächstmöglichen Gültigkeitsbereich: \lstinline$lokal$, \lstinline$umschließend$, \lstinline$global$ und \lstinline$built-in$.
+Python sucht nach dem nächstmöglichen Gültigkeitsbereich:
+\randnotiz{Gültigkeits-
+	bereiche}
+\lstinline$lokal$, \lstinline$umschließend$, \lstinline$global$ und \lstinline$built-in$.
 
 Nun ein Beispiel mit verschachtelten Funktionen:
 
@@ -62,6 +65,7 @@ print('global:', a)
 \label{scopesOfVariablesAndFunctions:subsection:statements}
 Nicht nur durch die Positionen werden Gültigkeitsbereiche definiert, auch durch die Schlüsselwörter \lstinline$global$ und \lstinline$nonlocal$ können wir den Gültigkeitsbereich bestimmen.
 
+\randnotiz{nonlocal-Statement}
 Durch \lstinline$nonlocal$ wird eine Variable auf die nächst umschließende Definition festgelegt (\ref{scopesOfVariablesAndFunctions:lst:nonlocalStatement}). 
 
 \begin{lstlisting}[language=Python, label=scopesOfVariablesAndFunctions:lst:nonlocalStatement]
@@ -90,6 +94,7 @@ print('global:', a)
 
 Achtung: Würde in der enclosing-Funktion \lstinline$a$ auf \lstinline$nonlocal$ gesetzt, dann käme es zu einer \lstinline$Exception$, da die nächste Ebene global ist.
 
+\randnotiz{global-Statement}
 Das Gleiche können wir mit dem globalen Gültigkeitsbereich machen, wie in \ref{scopesOfVariablesAndFunctions:lst:globalStatement} gezeigt.
 
 \begin{lstlisting}[language=Python, label=scopesOfVariablesAndFunctions:lst:globalStatement]

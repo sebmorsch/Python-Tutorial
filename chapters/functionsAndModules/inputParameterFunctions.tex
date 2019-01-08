@@ -3,6 +3,7 @@
 \label{inputParameterFunctions}
 In diesem Abschnitt sehen wir uns die verschiedenen Arten von Übergabeparametern genauer an, sowie die Möglichkeiten, diese an eine Funktion zu übergeben.
 
+\randnotiz{Übergabe eines primitiven Datentyps}
 \begin{lstlisting}[language=Python, label=inputParameterFunctions:lst:primitiveParameter]
 # Übergabe eines primitiven Datentyps
 
@@ -18,7 +19,7 @@ print(x)
 \end{lstlisting}
 
 Mittels Codes (\ref{inputParameterFunctions:lst:primitiveParameter}) wird der Wert '2' ausgedruckt. Aus dem vorherigen Abschnitt über Gültigkeitsbereiche wissen wir, dass es sich hierbei - trotz gleichem Namen - um zwei verschiedene Variablen handelt. Eine Integer-Variable im lokalen und eine im globalen Gültigkeitsbereich. Dies gilt jedoch nur für primitive Datentypen, für nicht-primitive Datentypen verhält es sich anders.
-
+\randnotiz{Übergabe eines nicht-primitiven Datentyps}
 \begin{lstlisting}[language=Python, label=inputParameterFunctions:lst:nonPrimitiveParameter]
 # Übergabe eines nicht-primitiven Datentyps
 
@@ -43,6 +44,7 @@ Es ist wichtig, sich dieses Verhalten zu merken, da beim objekt-orientierten Pro
 \label{inputParameterFunctions:subsection:inputParameter}
 In folgendem Unterabschnitt gehen wir auf verschiedene Arten von Input-Parametern ein.
 
+\randnotiz{Positionale Parameter}
 \subsubsection{Positionale Parameter}
 
 Diese Art von Parametern dürfte bereits bekannt sein. Es handelt sich um eine endliche Anzahl von Parametern, die man von links nach rechts liest.
@@ -55,7 +57,8 @@ def myFunction(x,y,z):
     myFunction(1,2,3)
 \end{lstlisting}
 
-
+\randnotiz{Schlüsselwort-
+	Parameter}
 \subsubsection{Schlüsselwort-Parameter}
 
 Bei Schlüsselwort-Parametern ist die Reihenfolge der Parameter nicht elementar, da die Variablen über den Namens-Wert übergeben werden.
@@ -70,7 +73,8 @@ def myFunction(x,y,z):
     myFunction(x = 1, z = 3, y = 2)
 \end{lstlisting}
 
-
+\randnotiz{Standard-
+	Parameter}
 \subsubsection{Standard-Parameter}
 
 Standard-Parameter folgen einer ähnlichen Syntax wie Schlüsselwort-Parameter, sie werden jedoch in der Funktionsdefinition festgelegt und nicht beim Aufruf.
@@ -87,6 +91,7 @@ myFunction(y = 20, x = 10, z = 30)  # 10 20 30
 myFunction(0, z = 1)                # 0 10 1
 \end{lstlisting}
 
+\randnotiz{Variable Parameter}
 \subsection{Variable Parameter}
 \label{inputParameterFunctions:subsection:multipleParameter}
 Variable Parameter ermöglichen quasi eine unendliche Anzahl an Übergabe-Parametern.
