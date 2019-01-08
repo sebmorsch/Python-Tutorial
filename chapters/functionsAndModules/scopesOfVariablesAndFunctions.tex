@@ -65,8 +65,7 @@ print('global:', a)
 \label{scopesOfVariablesAndFunctions:subsection:statements}
 Nicht nur durch die Positionen werden Gültigkeitsbereiche definiert, auch durch die Schlüsselwörter \lstinline$global$ und \lstinline$nonlocal$ können wir den Gültigkeitsbereich bestimmen.
 
-\randnotiz{nonlocal-Statement}
-Durch \lstinline$nonlocal$ wird eine Variable auf die nächst umschließende Definition festgelegt (\ref{scopesOfVariablesAndFunctions:lst:nonlocalStatement}). 
+Durch \randnotiz{nonlocal-Statement} \lstinline$nonlocal$ wird eine Variable auf die nächst umschließende Definition festgelegt (\ref{scopesOfVariablesAndFunctions:lst:nonlocalStatement}). 
 
 \begin{lstlisting}[language=Python, label=scopesOfVariablesAndFunctions:lst:nonlocalStatement]
 # Nonlocal Statement
@@ -94,8 +93,7 @@ print('global:', a)
 
 Achtung: Würde in der enclosing-Funktion \lstinline$a$ auf \lstinline$nonlocal$ gesetzt, dann käme es zu einer \lstinline$Exception$, da die nächste Ebene global ist.
 
-\randnotiz{global-Statement}
-Das Gleiche können wir mit dem globalen Gültigkeitsbereich machen, wie in \ref{scopesOfVariablesAndFunctions:lst:globalStatement} gezeigt.
+Das Gleiche \randnotiz{global-Statement} können wir mit dem globalen Gültigkeitsbereich machen, wie in \ref{scopesOfVariablesAndFunctions:lst:globalStatement} gezeigt.
 
 \begin{lstlisting}[language=Python, label=scopesOfVariablesAndFunctions:lst:globalStatement]
 # Global Statement
