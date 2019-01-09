@@ -1,12 +1,12 @@
 % !TeX root = ../../pythonTutorial.tex
 \section{Dateien lesen und schreiben}
 \label{grundlagen:section:dateienlesenundschreiben}
-\randnotiz{Dateien lesen und schreiben}
+
 Python bietet nativ Möglichkeiten für das Bearbeiten von Dateien. Hierfür werden Objekte erstellt und verwendet, die eine Datei im Quellcode repräsentieren. Mithilfe dieser, im folgenden \lstinline$fileObjects$ genannt, lässt sich der Inhalt einer Datei ändern und wird gespeichert, sobald es im Code mit der \lstinline$close()$-Methode geschlossen wird.
 
 \subsection{Dateitypen}
 \label{dateienlesenundschreiben:subsection:filetypes}
-\randnotiz{Dateitypen}
+
 In Python werden Dateien in zwei Kategorien eingeteilt. Entweder in Text- oder Binärdateien.
 
 Textdateien bestehen aus Zeilen, die aus einer Zeichensequenz bestehen und mit einem \glqq{}End of Line\grqq{}-Zeichen beendet werden. Als solches kann beispielsweise ein Zeilenumbruch oder Komma dienen. 
@@ -17,7 +17,7 @@ In diesem Kapitel werden Beispiele anhand einer Textdatei durchgeführt.
 
 \subsection{Open-Methode}
 \label{dateienlesenundschreiben:subsection:open}
-\randnotiz{open()}
+
 Die tragenden Rolle für das Bearbeiten von Dateien in Python ist die \lstinline$open()$-Methode. Diese erlaubt das Erstellen, Öffnen, Aktualisieren, Lesen und Schreiben einer Datei.
 
 Mithilfe des folgenden Codes wird eine neue Datei erstellt und als \lstinline$fileObject$ geöffnet.
@@ -55,7 +55,7 @@ Für die \lstinline$open()$-Methode stehen folgende Modi \randnotiz{Zugriffmodus}
 
 \subsection{Methoden}
 \label{dateienlesenundschreiben:subsection:methods}
-\randnotiz{Methoden}
+
 Die zuvor erstellte Datei hat noch keinen Inhalt. Um dies zu ändern, wird die \lstinline$datei.txt$ im \lstinline$"w"$-Modus geöffnet. Danach kann der Datei über die \lstinline$write()$-Methode wie folgt eine Textzeile hinzugefügt werden.
 \lstinputlisting[language=Python, firstline=7,lastline=12]{chapters/basics/src/dateien_lesen_und_schreiben/FileHandlingReadWrite.py}
 \label{dateienlesenundschreiben:lst:openwrite}
@@ -91,7 +91,7 @@ Soll die Ausgabe beider Lists identisch sein, muss der Zeiger an den Anfang zurü
 
 \subsection{With-Statement}
 \label{dateienlesenundschreiben:subsection:withstatement}
-\randnotiz{With-Statement}
+
 Bisher mussten wir in dem Code-Beispiel die \lstinline$open()$-Methode verwenden und darauf achten, dass das \lstinline$fileObject$ mit \lstinline$close()$ nach Gebrauch wieder geschlossen wird.
 
 Alternativ kann das \lstinline$with$-Statement genutzt werden. So wird die Datei nach Verwendung automatisch geschlossen, ohne die explizite Angabe von \lstinline$close()$. Der Code zum Auslesen der datei.txt sieht wie folgt aus:
@@ -100,7 +100,7 @@ Alternativ kann das \lstinline$with$-Statement genutzt werden. So wird die Datei
 
 \subsection{Attribute}
 \label{dateienlesenundschreiben:subsection:attributes}
-\randnotiz{Attribute}
+
 Jedes \lstinline$fileObject$ besitzt Attribute, die Auskunft über das jeweilige Objekt angeben.
 \begin{description}
 	\item[closed:] Gibt Auskunft darüber, ob die Datei geschlossen wurde. Als Rückgabe erhalten wir einen boolean-Wert.
