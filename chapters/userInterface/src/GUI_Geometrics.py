@@ -17,7 +17,7 @@ class Geo:
     def draw(self):
         canvas.create_polygon(self.points, fill=self.color)
 
-#Funktion zum hinzufügen von geometrischen Figuren
+#Funktion zum hinzufuegen von geometrischen Figuren
 def addGeo():
     #Popup-Fenster anlegen
     popup = Tk()
@@ -25,30 +25,35 @@ def addGeo():
     popup.geometry("340x180")
     popup.resizable(0, 0)
 
-    #Popup in obere und untere Hälfte unterteilen
+    #Popup in obere und untere Haelfte unterteilen
     headFrame = Frame(popup)
-    headFrame.pack(side=TOP, fill="both", expand=True, padx=10, pady=10)
+    headFrame.pack(side=TOP, fill="both", expand=True,
+    padx=10, pady=10)
 
     bottomFrame = Frame(popup)
-    bottomFrame.pack(side=BOTTOM, fill="both", padx=10, pady=10)
+    bottomFrame.pack(side=BOTTOM, fill="both", padx=10,
+    pady=10)
 
-    #Funktion zum überprüfen der Eingabefelder anlegen
+    #Funktion zum ueberpruefen der Eingabefelder anlegen
     def checkInput():
         if nameEntry.index("end") == 0:
-            messagebox.showinfo("Error", "Please insert a name")
+            messagebox.showinfo("Error",
+            "Please insert a name")
         else:
             if colorFrame['bg'] == "white":
-                messagebox.showinfo("Error", "Please choose a color")
+                messagebox.showinfo("Error",
+                "Please choose a color")
             else:
                 createGeo(nameEntry.get(), colorFrame['bg'])
 
-    #Funktion zum anzeigen der ausgewählten Farbe anlegen
+    #Funktion zum anzeigen der ausgewaehlten Farbe anlegen
     def getColor():
         color = askcolor()
         hex_tuple = color[1]
         colorFrame['bg'] = hex_tuple
 
-    #Funktion zum erstellen von neuer geometrischer Form mit ausgewählten Parametern
+    #Funktion zum erstellen von neuer geometrischer Form
+    #mit ausgewaehlten Parametern
     def createGeo(name, color):
         points = []
         for i in range(numberPoints.get()):
@@ -61,15 +66,21 @@ def addGeo():
         for item in geometrics:
             listbox.insert(END, item.name)
 
-    #Label-Widget, Eingabe-Widget, Farbauswahl-Widget und Schieberegler-Widget
-    #anlegen und in obere Hälfte des Popup-Fensters einfügen
+    #Label-Widget, Eingabe-Widget, Farbauswahl-Widget und
+    #Schieberegler-Widget anlegen und in obere Haelfte des
+    #Popup-Fensters einfuegen
     nameLabel = Label(headFrame, text="Name:")
     nameEntry = Entry(headFrame)
     colorLabel = Label(headFrame, text="Color:")
-    colorFrame = Frame(headFrame, bg="white", highlightbackground="gray", highlightthickness=1, height=20, width=20)
-    colorPicker = Button(headFrame, text="Select Color", command=getColor)
-    numberPointsLabel = Label(headFrame, text="Number of Points:")
-    numberPoints = Scale(headFrame, length=180, from_=3, to=10, orient=HORIZONTAL)
+    colorFrame = Frame(headFrame, bg="white",
+    highlightbackground="gray", highlightthickness=1,
+    height=20, width=20)
+    colorPicker = Button(headFrame, text="Select Color",
+    command=getColor)
+    numberPointsLabel = Label(headFrame,
+    text="Number of Points:")
+    numberPoints = Scale(headFrame, length=180, from_=3,
+    to=10, orient=HORIZONTAL)
 
     nameLabel.grid(row=0, column=0, sticky=W)
     nameEntry.grid(row=0, column=1, sticky=E)
@@ -79,22 +90,25 @@ def addGeo():
     numberPointsLabel.grid(row=2, column=0, sticky=SW)
     numberPoints.grid(row=2, column=1, sticky=E)
 
-    #Button-Widgets zum übernehmen der Eingabewerte bzw abbrechen anlegen und in
-    #untere Hälfte des Popup-Fensters einfügen
-    okButton = Button(bottomFrame, text="Okay", command=checkInput)
-    cancelButton = Button(bottomFrame, text="Cancel", command = popup.destroy)
+    #Button-Widgets zum uebernehmen der Eingabewerte bzw
+    #abbrechen anlegen und in untere Haelfte des Popup-
+    #Fensters einfuegen
+    okButton = Button(bottomFrame, text="Okay", command=
+    checkInput)
+    cancelButton = Button(bottomFrame, text="Cancel",
+    command = popup.destroy)
     okButton.pack(side=RIGHT)
     cancelButton.pack(side=RIGHT)
 
     #Eventschleife des Popup-Fensters
     popup.mainloop()
 
-#Funktion zum säubern der Zeichenfläche anlegen
+#Funktion zum saeubern der Zeichenflaeche anlegen
 def clearCanvas():
     canvas.delete(ALL)
 
-#Funktion zum zeichnen der ausgewählten geometrischen Figur in
-#dem Listbox-Widget anlegen
+#Funktion zum zeichnen der ausgewaehlten geometrischen Figur
+#in dem Listbox-Widget anlegen
 def curSelect():
     clearCanvas()
     selection = listbox.curselection()
@@ -119,42 +133,50 @@ root = Tk()
 root.title('tkinter Geometrics')
 root.minsize(640,400)
 
-#Fenster in linke und rechte Hälfte unterteilen
+#Fenster in linke und rechte Haelfte unterteilen
 leftFrame = Frame(root)
-leftFrame.pack(side=LEFT, fill="both", expand=True, padx=10, pady=10)
+leftFrame.pack(side=LEFT, fill="both", expand=True,
+padx=10, pady=10)
 
 rightFrame = Frame(root)
-rightFrame.pack(side=RIGHT, fill="both", expand=True, padx=10, pady=10)
+rightFrame.pack(side=RIGHT, fill="both", expand=True,
+padx=10, pady=10)
 
-#Listbox-Widget anlegen und in linke Hälfte einfügen
+#Listbox-Widget anlegen und in linke Haelfte einfuegen
 listbox = Listbox(leftFrame)
 listbox.pack(fill="both", expand=1)
 
 #Zwei geometrische Figuren anlegen
-square = Geo("Square", [120, 120, 120, 220, 220, 220, 220, 120], "yellow")
-triangle = Geo("Triangle", [120, 120, 220, 220, 220, 120], "blue")
+square = Geo("Square", [120, 120, 120, 220, 220, 220, 220,
+120], "yellow")
+triangle = Geo("Triangle", [120, 120, 220, 220, 220, 120],
+"blue")
 geometrics = [square, triangle]
 
-#Figuren dem Listbox-Widget übergeben
+#Figuren dem Listbox-Widget uebergeben
 for item in geometrics:
     listbox.insert(END, item.name)
 
-#Button zum hinzufügen und entfernen von geometrischen Figuren anlegen
-#und in linke Hälfte einfügen
+#Button zum hinzufuegen und entfernen von geometrischen
+#Figuren anlegen und in linke Haelfte einfuegen
 addButton = Button(leftFrame, text="Add", command=addGeo)
-removeButton = Button(leftFrame, text="Remove", command=removeItemFromList)
+removeButton = Button(leftFrame, text="Remove", command=
+removeItemFromList)
 
 addButton.pack(side=RIGHT)
 removeButton.pack(side=RIGHT)
 
-#Canvas-Widget anlegen und in rechte Hälfte einfügen
-canvas = Canvas(rightFrame, highlightbackground="black", highlightthickness=1)
+#Canvas-Widget anlegen und in rechte Haelfte einfuegen
+canvas = Canvas(rightFrame, highlightbackground="black",
+highlightthickness=1)
 canvas.pack(fill="both", expand=True)
 
-#Button zum zeichnen und löschen der geometrischen Figuren anlegen
-#und in rechte Hälfte einfügen
-drawButton = Button(rightFrame, text="Draw", command=curSelect)
-clearButton = Button(rightFrame, text="Clear", command=clearCanvas)
+#Button zum zeichnen und loeschen der geometrischen Figuren
+#anlegen und in rechte Haelfte einfuegen
+drawButton = Button(rightFrame, text="Draw", command=
+curSelect)
+clearButton = Button(rightFrame, text="Clear", command=
+clearCanvas)
 
 drawButton.pack(side=LEFT)
 clearButton.pack(side=LEFT)
