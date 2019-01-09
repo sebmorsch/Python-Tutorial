@@ -23,14 +23,14 @@ Die tragenden Rolle für das Bearbeiten von Dateien in Python ist die \lstinline$
 Mithilfe des folgenden Codes wird eine neue Datei erstellt und als \lstinline$fileObject$ geöffnet.
 \lstinputlisting[language=Python, firstline=1,lastline=4]{chapters/basics/src/dateien_lesen_und_schreiben/FileHandlingReadWrite.py}
 \label{dateienlesenundschreiben:lst:open}
-Zum Erstellen einer neuen Datei wird als erster Parameter ein Dateiname und als zweiter der \lstinline$"x"$-Modus gewählt. Die Datei wird am selben Speicherort, wie die .py-Datei erzeugt, sofern vor dem Dateinamen kein Pfad angegeben wird. Sollte an der angegebenen Stelle bereits eine Datei mit dem gewählten Namen existieren, bleibt diese unverändert und es wird ein Fehler erzeugt. 
+Zum Erstellen einer neuen Datei wird als erster Parameter ein Dateiname und als zweiter der \lstinline$"x"$-Modus gewählt. Die Datei wird am gleichen Speicherort, wie die .py-Datei erzeugt, sofern vor dem Dateinamen kein Pfad angegeben wird. Sollte an der angegebenen Stelle bereits eine Datei mit dem gewählten Namen existieren, bleibt diese unverändert und es wird ein Fehler erzeugt. 
 
 Wird das \lstinline$fileObject$ im Code nicht mehr benötigt, wird es mit folgender Zeilen-Anweisung geschlossen:
 \lstinputlisting[language=Python, linerange={1-3,5-5}]{chapters/basics/src/dateien_lesen_und_schreiben/FileHandlingReadWrite.py}
 \label{dateienlesenundschreiben:lst:close}
 Nach einem Schließen der Datei wird der verwendete Speicherplatz freigegeben. Das Arbeiten ist dann über das entsprechende \lstinline$fileObject$ nicht mehr möglich. 
 
-\tip{Es empfiehlt sich direkt im Anschluss an die Verwendung der \lstinline$open()$-Methode die Datei an anderer Stelle zu schließen. Auf diese Weise wird sichergestellt, dass die Datei nicht unabsichtlich bearbeitet wird.}
+\tip{Direkt nach Ausführen der gewünschten Operationen, empfiehlt es sich die Datei zu schließen. Auf diese Weise wird sichergestellt, dass die Datei nicht unabsichtlich bearbeitet wird.}
 
 Für die \lstinline$open()$-Methode stehen folgende Modi \randnotiz{Zugriffmodus} zur Verfügung:
 
