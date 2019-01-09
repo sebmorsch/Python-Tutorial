@@ -229,14 +229,14 @@
 \newtheorem{datensatz}{Datensatz}
 }
 % Text mit Pfad
-\newcommand{\aufgabentext}[1]{\renewcommand{\labelenumi}{\alph{enumi})}\auftitle\label{#1}\input{./exercises/tasks/#1}}
+\newcommand{\aufgabentext}[1]{\renewcommand{\labelenumi}{\alph{enumi})}\auftitle\label{#1}\input{./exercises/tasks/#1} Im \hyperref[#1sol]{Anhang} finden sie die Lösung zur Aufgabe. }
 % Funktion für die Lösungs-Hinweise für eine Aufgabe. Der Text
 % steht analog zu den Übungsaufgaben im Ordner tasks/solutions.
 \newcommand{\hinweistext}[1]{\renewcommand{\labelenumi}{\alph{enumi})}\input{./exercises/solutions/#1}}
 % Und jetzt die Funktionen, die wir im Text aufrufen
 \newcommand{\aufgabe}[1]{\aufgabentext{#1}}
 % Lösungshinweise im Anhang
-\newcommand{\hinweis}[1]{\subsubsection*{Aufgabe \ref{#1}} \hinweistext{#1}}
+\newcommand{\hinweis}[1]{\subsubsection*{Aufgabe \ref{#1}}\label{#1sol}  \hinweistext{#1}}
 %
 % Datensatz-Texte und Daten in eigener Datei
 \newcommand{\dataset}[1]{\begin{datensatz}\label{#1}\input{./exercises/datasets/#1}\end{datensatz}}
