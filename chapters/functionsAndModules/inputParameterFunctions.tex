@@ -30,7 +30,7 @@ myFunction(x)
 print(x)
 \end{lstlisting}
 
-Da es sich hier (\ref{inputParameterFunctions:lst:nonPrimitiveParameter}) nicht um einen primitiven Datentyp handelt, stellt der Input-Parameter eine Referenz dar, womit der Wert von x auch in der Methode geändert wird. Beim Ausdrucken erhalten wir: \lstinline$[100,1,2]$.
+Da es sich hier (\ref{inputParameterFunctions:lst:nonPrimitiveParameter}) nicht um einen primitiven Datentyp handelt, stellt der Input-Parameter eine Referenz dar, womit der Wert von x auch in der Methode geändert wird. Beim Ausgeben erhalten wir: \lstinline$[100,1,2]$.
 
 Es ist wichtig, sich dieses Verhalten zu merken, da beim objekt-orientierten Programmieren sonst Fehler auftreten.
 
@@ -67,7 +67,7 @@ def myFunction(x,y,z):
     myFunction(x = 1, z = 3, y = 2)
 \end{lstlisting}
 
-Standard-Parameter \randnotiz{Standard} folgen einer ähnlichen Syntax wie Schlüsselwort-Parameter, sie werden jedoch in der Funktionsdefinition festgelegt und nicht beim Aufruf.
+Standard-Parameter \randnotiz{Standard} folgen einer ähnlichen Syntax wie Schlüssel"-wort-Para"-meter, sie werden jedoch in der Funktionsdefinition festgelegt und nicht beim Aufruf.
 Zu beachten ist, dass beim Verwenden von positionalen und Standard-Parametern alle Standard-Parameter \emph{nach} den positionalen stehen müssen.
 
 \begin{lstlisting}[language=Python, label=inputParameterFunctions:lst:standardParameter]

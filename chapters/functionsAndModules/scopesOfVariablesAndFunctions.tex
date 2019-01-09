@@ -91,7 +91,8 @@ print('global:', a)
 # global: 0
 \end{lstlisting}
 
-Achtung: Würde in der enclosing-Funktion \lstinline$a$ auf \lstinline$nonlocal$ gesetzt, dann käme es zu einer \lstinline$Exception$, da die nächste Ebene global ist.
+\warning{Würde in der enclosing-Funktion \lstinline$a$ auf \lstinline$nonlocal$ gesetzt, dann käme es zu einer \lstinline$Exception$, da die nächste Ebene global ist.
+}
 
 Das Gleiche \randnotiz{global-Statement} können wir mit dem globalen Gültigkeitsbereich machen, wie in \ref{scopesOfVariablesAndFunctions:lst:globalStatement} gezeigt.
 

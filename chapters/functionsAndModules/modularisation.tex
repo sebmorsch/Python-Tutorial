@@ -36,7 +36,7 @@ Der Inhalt dieser Datei  führt keinerlei Code aus, sondern stellt lediglich eine
 \label{modularisation:subsection:useModule}
 Um lokale und globale Module verwenden zu können, müssen diese zunächst im Hauptprogramm eingebunden werden.
 Hierzu wird die \emph{import}-Anweisung verwendet. Prinzipiell ist es egal, wo dies im Quellcode geschieht.
-\randnotiz{import-Anweisung}
+\randnotiz{import}
 Es empfiehlt sich jedoch alle Module zu Beginn des Quelltextes einzubinden.
 Die \emph{import}-Anweisung besteht aus dem Schlüsselwort \emph{import}, gefolgt vom Namen des Moduls.
 
@@ -88,7 +88,7 @@ myBib.hello(World)
 \tip{
 Es gilt zu beachten, dass nach dieser Anweisung das Modul \emph{myModule} ausschließlich über den Namensraum \emph{myBib} zu erreichen ist.}
 
-Python bietet \randnotiz{import und from} zudem die Möglichkeit \emph{einzelne} Elemente aus einem Modul zu importieren.
+Python bietet \randnotiz{from x import a} zudem die Möglichkeit \emph{einzelne} Elemente aus einem Modul zu importieren.
 Hierzu wird die \emph{from/import}-Anweisung verwendet:
 
 \begin{lstlisting}[language=Python]
