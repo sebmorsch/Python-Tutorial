@@ -41,6 +41,17 @@ vom Entry entgegen genommen wird.
 
 \subsection{Listbox}
 \label{ui:widgets:subsection:listbox}
+Um verschiedene Elemente in einer Liste anzeigen zu können bietet sich die Listbox an.
+Der Text der vom Entry entgegengenommen wird soll nun einer solchen Listbox hinzugefügt werden.
+Dazu dient die Funktion \lstinline$insert()$. Der erste Parameter der übergeben wird bestimmt
+die Position in der Liste und der zweite das eigentliche Element.
+Zusätzlich wird der Anwendung ein zweiter Button hinzugefügt um das jeweilig angewählte Element
+der Listbox zu entfernen. Die Funktion \lstinline$curselection()$ gibt eine Liste der angewählten
+Elemente zurück. Mithilfe von \lstinline$delete()$ wird dann das erste Element der zurückgegebenen Liste
+aus der Listbox entfernt.
+
+\lstinputlisting[language=Python]{chapters/userInterface/src/GUI_ListboxExample.py}
+\label{ui:widgets:lst:lstinputlisting:gui_listboxwExample}
 
 \subsection{Colorpicker}
 \label{ui:widgets:subsection:colorpicker}
