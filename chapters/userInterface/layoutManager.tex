@@ -1,4 +1,5 @@
 \section{Die Layout-Manager}
+\label{ui:layoutManager:section:dieLayoutManager}
 
 In diesem Kapitel werden die Layout- oder Gemeometrie-Manager von Tkinter behandelt.
 Grundsätzlich stehen drei verschiedene Layout-Manager zur Verfügung:
@@ -16,6 +17,7 @@ wird durch die Layout-Manager stark vereinfacht.
 Einem Wurzel-Element sollte immer nur ein Layout-Manager angehängt werden.
 
 \subsection{Pack}
+\label{ui:layoutManager:subsection:pack}
 
 Der Pack-Manager ist der am einfachsten zu verwendende Layout-Manager.
 Hier werden Widgets in Zeilen oder Spalten (vertikal oder horizontal) 'gepackt' und durch Optionen wie
@@ -29,13 +31,13 @@ Widgets übereinander oder nebeneinander angeordnet werden oder Inhalte eines Wid
 Das folgende Beispiel soll die Effekte des Pack-Managers verdeutlichen:
 
 \lstinputlisting[language=Python]{chapters/userInterface/src/GUI_PackExample.py}
-\label{gui:gui_packexample}
+\label{ui:layoutManager:lst:lstinputlisting:gui_packExample}
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.5\textwidth]{images/PackManagerGUI_II.png}
 	\caption{Listbox Widget mit einem Pack-Manager angeordnet}
-	\label{fig:PackManagerGUI_I}
+	\label{ui:layoutManager:img:PackManagerGUI_II}
 \end{figure}
 
 Standardmäßig wird die Größe der Listbox so gewählt, dass zehn Elemente angezeigt
@@ -46,13 +48,13 @@ Um das Widget der gesamten zur Verfügung stehenden Fläche anzupassen, müssen die
 Optionen \lstinline$fill$ und \lstinline$expand$ des Pack-Managers angesprochen werden.
 
 \lstinputlisting[language=Python]{chapters/userInterface/src/GUI_PackExampleII.py}
-\label{gui:gui_packexample}
+\label{ui:layoutManager:lst:lstinputlisting:gui_packExampleII}
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.5\textwidth]{images/PackManagerGUI_I.png}
 	\caption{Listbox Widget mit einem Pack-Manager angeordnet unter Angabe von \lstinline$fill$ und \lstinline$expand$}
-	\label{fig:PackManagerGUI_II}
+	\label{ui:layoutManager:img:PackManagerGUI_I}
 \end{figure}
 
 Die \lstinline$fill$-Option teilt dem Pack-Manager mit, dass der gesamte zur Verfügung
@@ -66,25 +68,25 @@ Darüber hinaus können Widgets mithilfe der Layout-Manager angeordnet werden.
 Der Pack-Manager richtet Widgets, ohne weitere Angaben von Optionen, vertikal, sprich in Spalten aus.
 
 \lstinputlisting[language=Python]{chapters/userInterface/src/GUI_PackExampleIII.py}
-\label{gui:gui_packexampleIII}
+\label{ui:layoutManager:lst:lstinputlisting:gui_packExampleIII}
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.3\textwidth]{images/PackManagerGUI_III.png}
 	\caption{Mit Pack-Manager vertikal angeordnete Label-Widgets}
-	\label{fig:PackManagerGUI_III}
+	\label{ui:layoutManager:img:PackManagerGUI_III}
 \end{figure}
 
 Über die Option \lstinline$fill=X$ (horizontal) kann die Breite der Labels dem Eltern-Element angepasst werden.
 
 \lstinputlisting[language=Python]{chapters/userInterface/src/GUI_PackExampleIV.py}
-\label{gui:gui_packexampleIV}
+\label{ui:layoutManager:lst:lstinputlisting:gui_packExampleIV}
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.3\textwidth]{images/PackManagerGUI_IV.png}
 	\caption{Mit Pack-Manager vertikal angeordnete Label-Widgets unter Angabe von fill}
-	\label{fig:PackManagerGUI_IV}
+	\label{ui:layoutManager:img:PackManagerGUI_IV}
 \end{figure}
 
 Neben der vertikalen Ausrichtung der Labels ist auch eine horizontale möglich, dazu steht
@@ -93,6 +95,7 @@ Widgets von links beginnend angeordnet. Weitere Paramter sind \lstinline$side=TO
 \lstinline$side=BOTTOM$ und \lstinline$side=RIGHT$.
 
 \subsection{Grid}
+\label{ui:layoutManager:subsection:grid}
 
 Der Grid-Manager ist der am flexibelsten einzusetzende Layout-Manager von Tkinter.
 Besonders komfortabel ist der Einsatz bei dem Gestalten von Dialogfeldern. Die Handhabung
@@ -102,7 +105,7 @@ ist denkbar einfach. Das folgende Schaubild erläutert die Aufteilung eines Gitte
 	\centering
 	\includegraphics[width=0.4\textwidth]{images/GridManagerGUI.png}
 	\caption{Gitterraster mit zwei Spalten und Reihen}
-	\label{fig:GridManagerGUI}
+	\label{ui:layoutManager:img:GridManagerGUI}
 \end{figure}
 
 Nach dem Erzeugen eines Widget-Elements kann es über den Methoden-
@@ -111,13 +114,13 @@ werden. Dabei muss weder Höhe noch Breite der entsprechenden Zelle angegeben wer
 Grid-Manager passt diese dem Content des Widgets an.
 
 \lstinputlisting[language=Python]{chapters/userInterface/src/GUI_GridExampleI.py}
-\label{gui:gui_gridexampleI}
+\label{ui:layoutManager:lst:lstinputlisting:gui_gridExampleI}
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.5\textwidth]{images/GridManagerGUI_I.png}
 	\caption{Mit Grid-Manager angeordnete Label- und Input-Widgets}
-	\label{fig:GridManagerGUI_I}
+	\label{ui:layoutManager:img:GridManagerGUI_I}
 \end{figure}
 
 Leere Spalten und Zeilen werden von dem Layout-Manager ignoriert, das Ergebnis wäre
@@ -132,6 +135,7 @@ beginnt der Text des Label-Widgets am linken Zellenrand (Westen). Auch Kombinati
 'unten links' (\lstinline$sticky=W+S$) sind möglich.
 
 \subsection{Place}
+\label{ui:layoutManager:subsection:place}
 
 Der dritte Layout-Manager von Tkinter ist der Place-Manager. Hier kann die Position und Größe eines
  Fensters explizit festgelegt werden, entweder absolut oder relativ zu einem anderen Fenster.
@@ -145,6 +149,7 @@ der \lstinline$side$-Option des Pack-Managers, die Widgets über Kompass-Richtung
 ausgerichtet werden. Default ist NW (obere linke Ecke des Eltern-Elements).
 
 \subsection{Zusammenfassung}
+\label{ui:layoutManager:subsection:zusammenfassung}
 
 Zusammenfassend kann gesagt werden:
 

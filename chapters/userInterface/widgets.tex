@@ -1,4 +1,5 @@
 \section{Widgets}
+\label{ui:widgets:section:widgets}
 Unter den Widgets werden in Tkinter alle grafischen Interaktionselemente wie Buttons, Labels,
 Listboxes sowie Canvas etc. verstanden. Tkinter bietet hierfür bereits vorgefertigte Klassen,
 aus denen diese Widgets erzeugt werden können. Im Rahmen dieses Kapitels wird eine
@@ -6,15 +7,18 @@ Anwendung erstellt, die den Umgang mit einigen Widgets verdeutlichen soll und fo
 dahingehend erweitert wird.
 
 \subsection{Frame}
+\label{ui:widgets:subsection:frame}
 Frames fungieren, ähnlich wie die sogenannten divs in HTML, als Container um verschiedene
 Widgets oder weitere Frames in einem bestimmten Bereich des Fensters zu gruppieren.
 Dabei wird ein Rechteck erstellt und dem Eltern-Element über den Layout-Manager hinzugefügt.
 
 \subsection{Label}
+\label{ui:widgets:subsection:label}
 Über Labels können im Userinterface einfache Textzeilen ausgegeben werden.
 Diese lassen sich weiterhin auch dynamisch verändern (z.B. bei einem Klick auf einen Button).
 
 \subsection{Button}
+\label{ui:widgets:subsection:button}
 Mit dem Button hat der Nutzer die Möglichkeit mit dem Userinterface über einen Maus-Klick
 zu interagieren. Buttons werden aus der Klasse \lstinline$Button$ erzeugt, dem Fenster oder Frame
 bekannt gemacht und mit einem Text versehen. Zusätzlich kann dem Button über \lstinline$command$
@@ -23,7 +27,7 @@ In folgendem Beispiel wird bei Drücken des Buttons, in einem Label der Satz \lst
 ausgegeben.
 
 \lstinputlisting[language=Python]{chapters/userInterface/src/GUI_ButtonLabelExample.py}
-\label{gui:gui_buttonlabelexample}
+\label{ui:widgets:lst:lstinputlisting:gui_buttonLabelExample}
 
 %\subsection{Entry}
 
