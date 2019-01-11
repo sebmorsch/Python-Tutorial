@@ -29,13 +29,35 @@ ausgegeben.
 \lstinputlisting[language=Python]{chapters/userInterface/src/GUI_ButtonLabelExample.py}
 \label{ui:widgets:lst:lstinputlisting:gui_buttonLabelExample}
 
-%\subsection{Entry}
+\subsection{Entry}
+\label{ui:widgets:subsection:entry}
+Über die sogenannten Entries lassen sich Eingaben vom Nutzer erfassen. Diese können dann im
+Python-Skript weiterverarbeitet werden. Das vorherige Beispiel wird nun dementsprechend
+erweitert, dass der Text, der bei Klick auf den Button ausgegeben wird, über \lstinline$get()$
+vom Entry entgegen genommen wird.
 
-%\subsection{Text}
+\lstinputlisting[language=Python]{chapters/userInterface/src/GUI_EntryExample.py}
+\label{ui:widgets:lst:lstinputlisting:gui_buttonLabelExample}
 
-%\subsection{Listbox}
+\subsection{Listbox}
+\label{ui:widgets:subsection:listbox}
+Um verschiedene Elemente in einer Liste anzeigen zu können bietet sich die Listbox an.
+Der Text der vom Entry entgegengenommen wird soll nun einer solchen Listbox hinzugefügt werden.
+Dazu dient die Funktion \lstinline$insert()$. Der erste Parameter der übergeben wird bestimmt
+die Position in der Liste und der zweite das eigentliche Element.
+Zusätzlich wird der Anwendung ein zweiter Button hinzugefügt um das jeweilig angewählte Element
+der Listbox zu entfernen. Die Funktion \lstinline$curselection()$ gibt eine Liste der angewählten
+Elemente zurück. Mithilfe von \lstinline$delete()$ wird dann das erste Element der zurückgegebenen Liste
+aus der Listbox entfernt.
+
+\lstinputlisting[language=Python]{chapters/userInterface/src/GUI_ListboxExample.py}
+\label{ui:widgets:lst:lstinputlisting:gui_listboxwExample}
 
 %\subsection{Colorpicker}
+%\label{ui:widgets:subsection:colorpicker}
+
+%\subsection{Canvas}
+%\label{ui:widgets:subsection:canvas}
 
 \uebung
 \aufgabe{UI_aufgabe03}
