@@ -30,6 +30,28 @@
 \end{lstlisting} 
 
 \item \begin{lstlisting}[label=datatypesSolutionG]
+#Möglichkeit 1: mit Hilfsvariablen
+
+c = a + b
+d = a - b
+e = a * b
+f = a / b
+g = a % b
+
+print ("Summe: ", c)
+print ("Differenz: ", d)
+print ("Produkt: ", e)
+print ("Quotient: ", f, " mit Rest ", g)
+
+#Möglichkeit 2: ohne Hilfsvariablen
+
+print ("Summe: ", a+b)
+print ("Differenz: ", a-b)
+print ("Produkt: ", a*b)
+print ("Quotient: ", a/b, " mit Rest ", a%b)
+\end{lstlisting} 
+
+\item \begin{lstlisting}[label=datatypesSolutionH]
 	from enum import Enum
 		class Jahreszeit(Enum):
     		FRÜHLING = 1
