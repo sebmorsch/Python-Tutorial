@@ -60,9 +60,10 @@ while Bedingung:
 
 \end{lstlisting}
 
+
 \begin{lstlisting}[label=kontrollstrukturen:lst:reffor]
 # For-Schleife
-for Variable in Objekt:
+for Variable in Objekt (von, bis, Variablenveränderung):
 	Anweisungsblock
 	if Bedingung:
 		Anweisungsblock
@@ -75,7 +76,9 @@ for Variable in Objekt:
 
 \end{lstlisting}
 
-Betrachten wir als Beispiel jeweils eine While-Schleife und eine For-Schleife die die Summe der Zahlen von eins bis zehn berechnen.
+Die while-Schleife erinnert stark an die Verwendung in anderen Programmiersprachen. Wird jedoch die for-Schleife betrachtet, fallen einige Unterschiede bei der Beschreibung der Anweisung auf. Die Variable wird einmalig am Anfang der Anweisung definiert. Anschließend wird die range, also die Grenzen von wo bis wo die Variable in der Schleife durchgegangen werden soll. Die beiden Grenzen werden mit einem Komma getrennt. Fügt man eine dritte Zahl dahinter ein, dient diese dazu die Variable bei jedem Durchgang der Schleife zu verändern. Lässt man diese Zahl weg, so wird die Variable bei jedem Schleifendurchlauf um eins erhöht. Schreibt man beispielsweise eine 3, wird die Variable jedes Mal, wenn die Schleife erneut durchgegangen wird um 3 erhöht.
+
+Zur Veranschaulichung finden Sie im Folgenden zwei Beispiele zur Verwendung einer while- und einer for-Schleife. Beide Schleifen bilden die Summe der Zahlen von 1 bis 10.
 
 \begin{lstlisting}[label=kontrollstrukturen:lst:bspwhile]
 # Beispiel als While-Schleife
@@ -89,6 +92,8 @@ while i <= n:
 	i = i + 1
 
 print ("Summe:", s)
+
+# Ausgabe: "Summe: 55"
 \end{lstlisting}
 
 
@@ -97,11 +102,12 @@ print ("Summe:", s)
 
 s = 0
 
-for i in range (0,10):
-    i = i + 1
+for i in range (0,11):
     s = s + i
     
 print ("Summe: ", s)
+
+# Ausgabe: "Summe: 55"
 \end{lstlisting}
 
 \subsection{Ausdrücke und Operatoren}
