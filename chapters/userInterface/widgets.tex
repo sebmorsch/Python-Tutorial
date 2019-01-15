@@ -11,6 +11,20 @@ dahingehend erweitert wird.
 Frames fungieren, ähnlich wie die sogenannten divs in HTML, als Container um verschiedene
 Widgets oder weitere Frames in einem bestimmten Bereich des Fensters zu gruppieren.
 Dabei wird ein Rechteck erstellt und dem Eltern-Element über den Layout-Manager hinzugefügt.
+In folgendem Beispiel werden drei Frames erzeugt, die sich untereinander befinden und
+unterschiedliche Hintergrundfarben besitzen. Um zu verdeutlichen, dass weitere Widgets
+jetzt den jeweiligen Frame-Bereichen zugeordnet werden können, wird in jedem Frame ein
+Label hinzugefügt. Somit kann die Platzierung von Widgets besser kontrolliert werden.
+
+\lstinputlisting[language=Python]{chapters/userInterface/src/GUI_FrameExample.py}
+\label{ui:widgets:lst:lstinputlisting:gui_frameExample}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{images/FrameExampleGUI.png}
+	\caption{Frame-Widget Beispiel}
+	\label{ui:layoutManager:img:FrameExampleGUI}
+\end{figure}
 
 \subsection{Label}
 \label{ui:widgets:subsection:label}
@@ -29,13 +43,56 @@ ausgegeben.
 \lstinputlisting[language=Python]{chapters/userInterface/src/GUI_ButtonLabelExample.py}
 \label{ui:widgets:lst:lstinputlisting:gui_buttonLabelExample}
 
-%\subsection{Entry}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{images/ButtonLabelGUI.png}
+	\caption{Button- und Label-Widget Beispiel}
+	\label{ui:layoutManager:img:ButtonLabelGUI}
+\end{figure}
 
-%\subsection{Text}
+\subsection{Entry}
+\label{ui:widgets:subsection:entry}
+Über die sogenannten Entries lassen sich Eingaben vom Nutzer erfassen. Diese können dann im
+Python-Skript weiterverarbeitet werden. Das vorherige Beispiel wird nun dementsprechend
+erweitert, dass der Text, der bei Klick auf den Button ausgegeben wird, über \lstinline$get()$
+vom Entry entgegen genommen wird.
 
-%\subsection{Listbox}
+\lstinputlisting[language=Python]{chapters/userInterface/src/GUI_EntryExample.py}
+\label{ui:widgets:lst:lstinputlisting:gui_buttonLabelExample}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{images/EntryExampleGUI.png}
+	\caption{Entry-Widget Beispiel}
+	\label{ui:layoutManager:img:EntryExampleGUI}
+\end{figure}
+
+\subsection{Listbox}
+\label{ui:widgets:subsection:listbox}
+Um verschiedene Elemente in einer Liste anzeigen zu können bietet sich die Listbox an.
+Der Text der vom Entry entgegengenommen wird soll nun einer solchen Listbox hinzugefügt werden.
+Dazu dient die Funktion \lstinline$insert()$. Der erste Parameter der übergeben wird bestimmt
+die Position in der Liste und der zweite das eigentliche Element.
+Zusätzlich wird der Anwendung ein zweiter Button hinzugefügt um das jeweilig angewählte Element
+der Listbox zu entfernen. Die Funktion \lstinline$curselection()$ gibt eine Liste der angewählten
+Elemente zurück. Mithilfe von \lstinline$delete()$ wird dann das erste Element der zurückgegebenen Liste
+aus der Listbox entfernt.
+
+\lstinputlisting[language=Python]{chapters/userInterface/src/GUI_ListboxExample.py}
+\label{ui:widgets:lst:lstinputlisting:gui_listboxwExample}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{images/ListboxExampleGUI.png}
+	\caption{Listbox-Widget Beispiel}
+	\label{ui:layoutManager:img:ListboxExampleGUI}
+\end{figure}
 
 %\subsection{Colorpicker}
+%\label{ui:widgets:subsection:colorpicker}
+
+%\subsection{Canvas}
+%\label{ui:widgets:subsection:canvas}
 
 \uebung
 \aufgabe{UI_aufgabe03}

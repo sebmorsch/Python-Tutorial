@@ -1,14 +1,14 @@
 # gui/GUI_ButtonLabelExample.py
-# Button der den Text eines Labels verändert
+# Button der den Text eines Labels veraendert
 
 from tkinter import *
 
 def printHelloPythonWorld():
-    label_1["text"] = "Hallo Python-World"
+    label_1["text"] = "Hallo Python-World!"
 
 root = Tk()
 
-button_1 = Button(root, text="Click me!", 
+button_1 = Button(root, text="Click me!",
                   command=printHelloPythonWorld)
 button_1.pack()
 
