@@ -46,7 +46,7 @@ x = ("los" if wort == "start" else "halt")
 
 Python hat sowohl bedingte, als auch Zähler-Schleifen, welche wir uns beide im Folgenden genauer ansehen werden (vgl. Listing \ref{kontrollstrukture:lst:refwhile} und \ref{kontrollstrukture:lst:reffor}). Schleifen bestehen aus einer Anweisung und einem Kontrollblock, welcher solange durchlaufen wird, bis die Anweisung oder ein Abbruchkriterium erfüllt wurde. Schleifen, die niemals ein Abbruchkriterium erfüllen und so endlos durchlaufen werden, heißen Endlosschleifen. Diese führen dazu, dass der Interpreter irgendwann aufgibt und abbricht.
 
-\begin{lstlisting}[label=kontrollstrukture:lst:refwhile]
+\begin{lstlisting}[label=kontrollstrukturen:lst:refwhile]
 # While-Schleife
 while Bedingung:
 	Anweisungsblock
@@ -60,7 +60,7 @@ while Bedingung:
 
 \end{lstlisting}
 
-\begin{lstlisting}[label=kontrollstrukture:lst:reffor]
+\begin{lstlisting}[label=kontrollstrukturen:lst:reffor]
 # For-Schleife
 for Variable in Objekt:
 	Anweisungsblock
@@ -75,7 +75,34 @@ for Variable in Objekt:
 
 \end{lstlisting}
 
+Betrachten wir als Beispiel jeweils einmal die While-Schleife und einmal die For-Schleife für die Summe aller Zahlen von eins bis zehn.
 
+\begin{lstlisting}[label=kontrollstrukturen:lst:bspwhile]
+# Beispiel als While-Schleife
+
+n = 10
+s = 0
+i = 1
+
+while i <= n:
+   	s = s + i
+	i = i + 1
+
+print ("Summe:", s)
+\end{lstlisting}
+
+
+\begin{lstlisting}[label=kontrollstrukturen:lst:bspfor]
+# Beispiel als For-Schleife
+
+s = 0
+
+for i in range (0,10):
+    i = i + 1
+    s = s + i
+    
+print ("Summe: ", s)
+\end{lstlisting}
 
 \subsection{Ausdrücke und Operatoren}
 \label{grundlagen:sec:AusdrückeundOperationen}
