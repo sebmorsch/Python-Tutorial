@@ -1,5 +1,5 @@
 # gui/GUI_ListboxExample.py
-# Einlesen und Hinzufügen in Listbox
+# Einlesen und Hinzufuegen in Listbox
 
 from tkinter import *
 
@@ -20,7 +20,7 @@ entry_1.pack()
 button_frame = Frame(root)
 button_frame.pack()
 
-button_add = Button(button_frame, text="ADD", 
+button_add = Button(button_frame, text="ADD",
                     command=addStringToList)
 button_add.pack(side=LEFT)
 

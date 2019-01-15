@@ -1,5 +1,5 @@
 # gui/GUI_EntryExample.py
-# Einlesen und Ausgeben eines String über Entry
+# Einlesen und Ausgeben eines String ueber Entry
 
 from tkinter import *
 
@@ -11,7 +11,7 @@ root = Tk()
 entry_1 = Entry(root)
 entry_1.pack()
 
-button_1 = Button(root, text="Click me!", 
+button_1 = Button(root, text="Click me!",
                   command=printStringFromEntry)
 button_1.pack()
 
