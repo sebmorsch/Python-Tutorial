@@ -31,3 +31,28 @@ else:
 # Ausgabe:
 # Ergebnis: 2.5
 
+
+
+# finally Nutzung
+try:
+    file = open("datei.txt", "w")
+    a, b = 5, 2
+    res = a / b
+    file.write("Ergebnis: " + str(res))
+except ZeroDivisionError as e:
+    print("error message: ", e)
+    print("Das Programm wird beendet.")
+except FileNotFoundError as e:
+    print("error message: ", e)
+    print("Das Programm wird beendet.")
+else:
+    print("Es ist kein Fehler aufgetreten.")
+    print("Ergebnis: " + str(res))
+finally:
+    file.close()
+    print("Die Datei wurde geschlossen.")
+
+# Ausgabe auf der Konsole:
+# Es ist kein Fehler aufgetreten.
+# Ergebnis: 2.5
+# Die Datei wurde geschlossen.

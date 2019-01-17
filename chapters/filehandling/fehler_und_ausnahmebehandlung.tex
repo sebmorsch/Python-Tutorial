@@ -53,3 +53,20 @@ Somit wird nach der Ausführung des \lstinline$try-Blocks$ auch der in \lstinline
 
 \lstinputlisting[language=Python, linerange={1-3,20-32}]{chapters/filehandling/src/fehler_und_ausnahmebehandlung/ExceptionHandling.py}
 \label{filehandling:lst:else}
+
+
+Mit der ebenfalls optionalen Angabe von \lstinline$finally$ \randnotiz{finally} lässt sich ein Codestück unter allen Umständen aus, ausführen. Somit wird gewährleistet das dieser Teil des Codes ungeachtet, ob eine Ausnahme eintrifft oder nicht garantiert durchlaufen wird. Dies kann vor allem bei dem Schließen einer Datei oder einer Datenbankverbindung sehr sinnvoll eingesetzt werden.
+
+Bei dem nachfolgendem Listing wird eine Datei zunächst angelegt und geöffnet. Anschließend wird das Ergebnis in die Datei geschrieben. Ungeachtet dessen ob im \lstinline$try-Block$ eine Fehlerbehandlung eintritt oder nicht wird zum Schluss garantiert die \lstinline$finally$-Anweisung durchlaufen. Damit ist die Schließung der Datei garantiert.
+
+\lstinputlisting[language=Python, linerange={1-3,36-58}]{chapters/filehandling/src/fehler_und_ausnahmebehandlung/ExceptionHandling.py}
+\label{filehandling:lst:finally}
+
+Anstatt die beiden Fehlerklassen \lstinline$ZeroDivisonError$ und \lstinline$FileNotFoundError$ mit demselben Code individuell zu behandeln, bietet es sich hier an, mehrere Ausnahmen innerhalb eines \lstinline$except$ zusammenzufassen. Tritt nun während der Abarbeitung im \lstinline$try-Block$ einer der beiden Fehler auf, wird die Fehlerbehandlung ausgeführt.
+
+\begin{lstlisting}[language=Python]
+except (ZeroDivisionError, FileNotFoundError) as e:
+	print("error message: ", e)
+	print("Das Programm wird beendet.")
+\end{lstlisting}
+
