@@ -1,36 +1,36 @@
 \begin{enumerate}
-  
+
 \item \begin{lstlisting}[label=datatypesSolutionA]
-	a = 8
-	aa = 2
-\end{lstlisting} 
+    a = 8
+    aa = 2
+\end{lstlisting}
 
 \item \begin{lstlisting}[label=datatypesSolutionB]
-	b = (a + aa)
-\end{lstlisting} 
+    b = (a + aa)
+\end{lstlisting}
 
 \item \begin{lstlisting}[label=datatypesSolutionC]
-	c = "Das Ergebnis ist "
-\end{lstlisting} 
+    c = "Das Ergebnis ist "
+\end{lstlisting}
 
 \item \begin{lstlisting}[label=datatypesSolutionD]
- 	a = 0.5
-\end{lstlisting} 
+    a = 0.5
+\end{lstlisting}
 
 \item \begin{lstlisting}[label=datatypesSolutionE]
-	type (a) 	//<class 'float'>
-	type (b) 	//<class 'int'>
-	type (c) 	//<class 'str'>
-\end{lstlisting} 
+    type (a)    //<class 'float'>
+    type (b)    //<class 'int'>
+    type (c)    //<class 'str'>
+\end{lstlisting}
 
-\item \begin{lstlisting}[label=datatypesSolutionF]
-	Das Programm liefert einen Fehler, da die Konkatenation von String und Int-Variablen nicht in einem Print-Statement möglich ist. Eine mögliche Lösung ist:
-	print (c, a + b)
-	um den String mit anschließender Summe auszugeben.
-\end{lstlisting} 
+\item     Das Programm liefert einen Fehler, da die
+    Konkatenation von String und Int-Variablen nicht in einem Print-Statement mÃ¶glich ist. Eine mÃ¶gliche LÃ¶sung um den String mit anschlieÃŸender Summe auszugeben ist
+\begin{lstlisting}[label=datatypesSolutionF]
+    print (c, a + b)
+\end{lstlisting}
 
 \item \begin{lstlisting}[label=datatypesSolutionG]
-#Möglichkeit 1: mit Hilfsvariablen
+#MÃ¶glichkeit 1: mit Hilfsvariablen
 
 c = a + b
 d = a - b
@@ -43,7 +43,7 @@ print ("Differenz: ", d)
 print ("Produkt: ", e)
 print ("Quotient: ", f, " mit Rest ", g)
 
-#Möglichkeit 2: ohne Hilfsvariablen
+#MÃ¶glichkeit 2: ohne Hilfsvariablen
 
 print ("Summe: ", a+b)
 print ("Differenz: ", a-b)
@@ -54,7 +54,7 @@ print ("Quotient: ", a/b, " mit Rest ", a%b)
 \item \begin{lstlisting}[label=datatypesSolutionH]
 	from enum import Enum
 		class Jahreszeit(Enum):
-    		FRÜHLING = 1
+    		FRÃœHLING = 1
    			SOMMER = 2
     		HERBST = 3
     		WINTER = 4
