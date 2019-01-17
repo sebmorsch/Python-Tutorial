@@ -22,7 +22,7 @@ Beispiel:
 
 Im Gegensatz zu Java und C++ muss der Programmierer darauf achten und sicherstellen, dass die Datenstruktur mit Werten des entsprechenden Datentyps befüllt wird, um Fehler aufgrund unterschiedlicher Datentypen zu vermeiden.
 
-Der Inhalt einer List kann über die \lstinline$print$-Methode ausgegeben werden. Im folgenden Beispiel werden verschiedene Elemente der List auf der Konsole ausgegeben.
+Der Inhalt einer List kann über die \lstinline$print()$-Methode ausgegeben werden. Im folgenden Beispiel werden verschiedene Elemente der List auf der Konsole ausgegeben.
 Wird die List als Parameter gewählt, wird der Inhalt ausgegeben.
 \lstinputlisting{chapters/basics/src/list/ListPrint.py}
 \label{collections:lst:listprint}
@@ -35,11 +35,11 @@ Python erlaubt die Nutzung von negativen Indizes. Mit diesen kann der Inhalt der
 \lstinputlisting{chapters/basics/src/list/ListNegativeIndex.py}
 \label{collections:lst:lsitnegativeindex}
 
-In Python existiert für die Datenstruktur List keine Methode, die mit \lstinline$contains$ in Java oder der \lstinline$find$ aus C++ vergleichbar ist. Stattdessen stehen die Membership Operatoren \lstinline$in$ oder \lstinline$not$ \lstinline$in$ zur Verfügung, die auf eine beliebige Sequenz oder die hier beschriebenen Collections angewendet, Auskunft darüber gibt, ob das spezifizierte Element darin enthalten ist.
+In Python existiert für die Datenstruktur List keine Methode, die mit \lstinline$contains()$ in Java oder der \lstinline$find()$ aus C++ vergleichbar ist. Stattdessen stehen die Membership Operatoren \lstinline$in$ oder \lstinline$not$ \lstinline$in$ zur Verfügung, die auf eine beliebige Sequenz oder die hier beschriebenen Collections angewendet, Auskunft darüber gibt, ob das spezifizierte Element darin enthalten ist.
 \lstinputlisting{chapters/basics/src/list/ListInOperator.py}
 \label{collections:lst:listinoperator}
     
-Der Python Interpreter stellt nativ einige Funktionen zur Verfügung. Eine davon ist die \lstinline$len$-Methode, die die Anzahl an Elementen in einem Objekt liefert.
+Der Python Interpreter stellt nativ einige Funktionen zur Verfügung. Eine davon ist die \lstinline$len()$-Methode, die die Anzahl an Elementen in einem Objekt liefert.
 \lstinputlisting{chapters/basics/src/list/ListLen.py}
 \label{collections:lst:listlen}
     
@@ -280,7 +280,7 @@ Demnach befindet sich hinter dem Schlüssel \lstinline$k1$ das Objekt \lstinline$
 \lstinputlisting{chapters/basics/src/dictionary/DictPrint.py}
 \label{collections:lst:dictprint}
 
-Eine alternative Möglichkeit, ein Dictionary zu erstellen, ist die Methode \lstinline$zip$. Mit deren Hilfe kann aus zwei separaten List-Behältern ein Dictionary generiert werden.
+Eine alternative Möglichkeit, ein Dictionary zu erstellen, ist die Methode \lstinline$zip()$. Mit deren Hilfe kann aus zwei separaten List-Behältern ein Dictionary generiert werden.
 \lstinputlisting{chapters/basics/src/dictionary/DictZip.py}
 \label{collections:lst:dictzip}
 

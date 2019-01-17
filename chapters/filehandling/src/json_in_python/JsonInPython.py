@@ -1,4 +1,10 @@
+# src/json_in_python/JsonInPython.py
+
+# JSON Package
+
 import json
+
+# JSON zu Python
 
 student = '{"name":"Student", "age": 24, "height": 1.8}'
 studentDict = json.loads(student)
@@ -12,6 +18,7 @@ print(studentDict["height"])
 # {'name': 'Student', 'age': '24', 'height': '1.8'}
 # 1.8
 
+# Python zu JSON
 
 newStudent = {
     "name": "Neuer Student",
@@ -27,6 +34,7 @@ print(newStudentJSON)
 # {'name': 'Neuer Student', 'age': 26, 'height': 2.0}
 # {"name": "Neuer Student", "age": 26, "height": 2.0}
 
+# JSON-string formatieren
 
 demoStudent = {
     "name": "Harry",
@@ -42,27 +50,31 @@ demoStudent = {
 }
 
 print(json.dumps(demoStudent))
-print(json.dumps(demoStudent, indent=4, sort_keys=True, separators=("| ", " = ")))
 
 # Ausgabe:
 # {"name": "Harry", "age": 20, "height": 1.78 . . .}
+
+print(json.dumps(demoStudent, indent=4,
+                 sort_keys=True, separators=(" & ", " = ")))
+
+# Ausgabe:
 # {
-#     "age" = 20|
-#     "assistant" = false|
-#     "cars" = null|
-#     "height" = 1.78|
-#     "name" = "Harry"|
+#     "age" = 20 &
+#     "assistant" = false &
+#     "cars" = null &
+#     "height" = 1.78 &
+#     "name" = "Harry" &
 #     "pets" = [
-#         "Katze"|
+#         "Katze" &
 #         "Maus"
-#     ]|
+#     ] &
 #     "projects" = [
 #         {
-#             "done" = true|
+#             "done" = true &
 #             "name" = "Pythonkurs"
-#         }|
+#         } &
 #         {
-#             "done" = false|
+#             "done" = false &
 #             "name" = "Giraffen zaehmen"
 #         }
 #     ]

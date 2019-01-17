@@ -7,4 +7,4 @@ file = open("datei.txt", "rt")  # Text
 file = open("datei.txt", "r")  # Text
 
 file = open("datei.txt", "rb")  # Binaer
-flie.close()
+file.close()
