@@ -70,3 +70,16 @@ except (ZeroDivisionError, FileNotFoundError) as e:
 	print("Das Programm wird beendet.")
 \end{lstlisting}
 
+\section {raise}
+\label{filehandling:sec:raise}
+
+Die \lstinline$raise$-Anweisung ermöglicht uns das Generieren bzw. Auslösen einer Ausnahme. Dabei wird die Ausnahme angegeben, die ausgelöst werden soll. 
+
+\lstinputlisting[language=Python, linerange={1-3,61-70}]{chapters/filehandling/src/fehler_und_ausnahmebehandlung/ExceptionHandling.py}
+\label{filehandling:lst:raise}
+
+Somit ist es uns beispielsweise möglich eine \lstinline$ZeroDivisonError$ zu erzwingen, wie das folgende Beispiel demonstriert:
+
+\lstinputlisting[language=Python, linerange={1-3,73-81}]{chapters/filehandling/src/fehler_und_ausnahmebehandlung/ExceptionHandling.py}
+\label{filehandling:lst:raisemitaufruf}
+

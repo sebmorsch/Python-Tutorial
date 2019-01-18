@@ -56,3 +56,26 @@ finally:
 # Es ist kein Fehler aufgetreten.
 # Ergebnis: 2.5
 # Die Datei wurde geschlossen.
+
+
+# raise
+raise NameError('ups')
+
+# Ausgabe:
+# Traceback (most recent call last):
+#   File "C:/Users/t/Python-Tutorial/chapters/filehandling
+#   /src/fehler_und_ausnahmebehandlung
+#   /ExceptionHandling.py", line 2, in <module>
+#     raise NameError('ups')
+# NameError: ups
+
+
+# Erzwingen der ZeroDivisionError
+# raise
+try:
+    raise ZeroDivisionError
+except ZeroDivisionError:
+    print("Das Programm wird beendet.")
+
+# Ausgabe:
+# Das Programm wird beendet.
