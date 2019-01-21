@@ -1,7 +1,6 @@
 % !TeX root = ../../pythonTutorial.tex
+\label{threads:section:threads}
 \section{Threads}
-
-\label{threads}
 
 In Python werden zwei APIs zur Verwendung von Threads angeboten, die Low-Level
 API aus dem \_thread-Modul und die Higher-Level API aud dem threading-Modul.
@@ -18,10 +17,12 @@ gestopped, angehalten, fortgesetzt oder unterbrochen werden.
 Soweit vorhanden sind die statischen Methoden aus der Java-Thread-Klasse auf Modul-Ebene
 in Python implementiert.
 
+\label{threads:subsection:thread_objekte}
 \subsection{Thread Objekte}
 
 Es gibt zwei Möglichkeiten einen Thread zu erzeugen. Entweder wird dem Konstruktor ein
 aufrufbares Objekt übergeben,
+\label{threads:lst:thread_erzeugung_callable}
 \begin{lstlisting}
 import threading
 
@@ -32,6 +33,7 @@ thread = threading.Thread(target=aufgabe)
 thread.start()
 \end{lstlisting}
 oder die \lstinline$run()$-Methode wird in einer von \lstinline$Thread$ abgeleiteten Klasse überschrieben.
+\label{threads:lst:thread_erzeugung_subclass}
 \begin{lstlisting}
 import threading
 
@@ -98,6 +100,7 @@ Wird sie nach dem Starten des Threads geändert, so wird ein \lstinline$RuntimeEr
 \aufgabe{nebenlaufigkeit02}
 
 
+\label{threads:subsection:synchronisierung}
 \subsection{Synchronisierung}
 
 Die meinsten Anwendungen, in denen mehrere Threads zum Einsatz kommen, erfordern einen
@@ -139,6 +142,7 @@ wird, da jeder der 8 Threads den \lstinline$Counter$ eine Millionen mal inkremen
 Erstaunlicherweiße werden allerdings bei mehrmaliger Ausführung unterschiedliche Werte ausgegeben.
 Diese können zum Beispiel wie folgt aussehen:
 
+\label{threads:lst:beispiel_ausgabe}
 \begin{lstlisting}
 # Mögliche Ausgaben:
 4182858
