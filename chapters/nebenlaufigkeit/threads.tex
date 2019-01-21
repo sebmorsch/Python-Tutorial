@@ -26,8 +26,10 @@ aufrufbares Objekt übergeben,
 \begin{lstlisting}
 import threading
 
+
 def aufgabe():
     # Nebenläufig ausgeführte Aufgabe
+
 
 thread = threading.Thread(target=aufgabe)
 thread.start()
@@ -37,9 +39,11 @@ oder die \lstinline$run()$-Methode wird in einer von \lstinline$Thread$ abgeleit
 \begin{lstlisting}
 import threading
 
+
 class MeinThread(threading.Thread):
     def run(self):
         # Nebenläufig ausgeführte Aufgabe
+
 
 thread = MeinThread()
 thread.start()
@@ -100,8 +104,8 @@ Wird sie nach dem Starten des Threads geändert, so wird ein \lstinline$RuntimeEr
 \aufgabe{nebenlaufigkeit02}
 
 
-\label{threads:subsection:synchronisierung}
-\subsection{Synchronisierung}
+\label{threads:subsection:synchronisation}
+\subsection{Synchronisation}
 
 Die meinsten Anwendungen, in denen mehrere Threads zum Einsatz kommen, erfordern einen
 Mechanismus, der die Zugriffe der einzelnen Threads auf gewisse Daten synchronisiert.
@@ -117,20 +121,20 @@ Sie besitzt das Attribut \lstinline$count$, welches durch Aufruf von \lstinline$
 in Einerschritten erhöht wird. 
 
 \label{threads:lst:counter_example}
-\lstinputlisting[language=Python,firstline=3,lastline=8]{exercises/src/nebenlaufigkeit/beispiel_synchronisation_fehler.py}
+\lstinputlisting[language=Python,firstline=4,lastline=9]{chapters/nebenlaufigkeit/src/beispiel_synchronisation_fehler.py}
 
 Es ist weiterhin \lstinline$IncrementerThread$ in Listing \ref{threads:lst:incrementer_thread} gegeben,
 welcher bei der Initialisierung ein \lstinline$Counter$-Objekt erwartet. Dieser Thread ruft eine Millionen mal die \lstinline$increment()$-Methode des \lstinline$Counters$ auf und beendet sich anschließend.
 
 \label{threads:lst:incrementer_thread}
-\lstinputlisting[language=Python,firstline=10,lastline=17]{exercises/src/nebenlaufigkeit/beispiel_synchronisation_fehler.py}
+\lstinputlisting[language=Python,firstline=12,lastline=19]{chapters/nebenlaufigkeit/src/beispiel_synchronisation_fehler.py}
 
 Für dieses Beispiel werden nun 8 \lstinline$IncrementerThreads$ erzeugt und gestartet.
 Anschließend wird auf ihre Terminierung gewartet und dann der Wert \lstinline$count$-Attributs des
 \lstinline$Counters$ ausgegeben (vgl. Listing \ref{threads:lst:example_no_locks}).
 
 \label{threads:lst:example_no_locks}
-\lstinputlisting[language=Python,firstline=19]{exercises/src/nebenlaufigkeit/beispiel_synchronisation_fehler.py}
+\lstinputlisting[language=Python,firstline=22]{chapters/nebenlaufigkeit/src/beispiel_synchronisation_fehler.py}
 
 \kontrollfrage{
 \item[\kontroll] Welche Ausgabe würde erwartet werden, wenn 8 Threads den Counter eine Millionen
@@ -213,3 +217,7 @@ with lock:
 
 \uebung
 \aufgabe{nebenlaufigkeit03}
+
+\randnotiz{Wiedereintrett- bare Schlösser}
+\randnotiz{Bedingungs- variablen}
+\randnotiz{Semaphoren}
