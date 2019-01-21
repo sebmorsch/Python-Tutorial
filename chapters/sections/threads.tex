@@ -31,7 +31,7 @@ def aufgabe():
 thread = threading.Thread(target=aufgabe)
 thread.start()
 \end{lstlisting}
-oder die \lstinline!run()!-Methode wird in einer von \lstinline!Thread! abgeleiteten Klasse überschrieben.
+oder die \lstinline$run()$-Methode wird in einer von \lstinline$Thread$ abgeleiteten Klasse überschrieben.
 \begin{lstlisting}
 import threading
 
@@ -43,32 +43,56 @@ thread = MeinThread()
 thread.start()
 \end{lstlisting}
 
-\uebung
-\aufgabe{nebenlaufigkeit01}
-
-Der Konstruktor  der \lstinline!Thread!-Klasse bietet noch weitere Parameter an:
+Der Konstruktor  der \lstinline$Thread$-Klasse bietet noch weitere Parameter an:
 \begin{itemize}
-    \item \lstinline!group! sollte immer \lstinline!None! sein.
+    \item \lstinline$group$ sollte immer \lstinline$None$ sein.
     Es ist aktuell reserviert für spätere Erweiterungen.
-    \item \lstinline!name! setzt den Namen des Threads.
-    \item \lstinline!args! ist ein Tupel aus Parameter für das mit \lstinline!target! definiert aufrufbare Objekt.
-    \item \lstinline!kwargs! ist ein Dictionary aus Schlüsselwort-Parameter für \lstinline!target!.
-    \item \lstinline!deamon! setzt die Dämon-Eigenschaft des Threads. Sobald sich kein normaler Thread
-    mehr in der Ausführung befindet, werden Dämon-Threads automatisch beendet.
+    \item \lstinline$name$ setzt den Namen des Threads.
+    \item \lstinline$args$ ist ein Tupel aus Parameter für das mit \lstinline$target$ definiert
+    aufrufbare Objekt.
+    \item \lstinline$kwargs$ ist ein Dictionary aus Schlüsselwort-Parameter für \lstinline$target$.
+    \item \lstinline$deamon$ setzt die Dämon-Eigenschaft des Threads.
 \end{itemize}
 
-Es ist anzumerken, dass ein \lstinline!Thread!-Objekts bei seiner Erzeugung noch nicht gestartet wird.
-Hierzu muss explizit die \lstinline!start()!-Methode aufgerufen werden.
+Es ist anzumerken, dass ein \lstinline$Thread$-Objekts bei seiner Erzeugung noch nicht gestartet wird.
+Hierzu muss explizit die \lstinline$start()$-Methode aufgerufen werden.
 Wurde ein Thread gestartet wird er als ''lebendig'' angesehen. 
-Dies bleibt er solange, bis seine \lstinline!run()!-Methode verlassen wurde.
+Dies bleibt er solange, bis seine \lstinline$run()$-Methode verlassen wurde.
 Hierbei macht es keinen Unterschied, ob sie regulär verlassen wurde oder Aufgrund einer Exception.
-Der aktuelle Status eines Threads kann mittels der \lstinline!is_alive()!-Methode abgefragt werden.
+Der aktuelle Status eines Threads kann mittels der \lstinline$is_alive()$-Methode abgefragt werden.
 Soll auf das Ende eines anderen Threads gewartet werden, so kann seine
-\lstinline!join()!-Methode aufgerufen werden. 
+\lstinline$join()$-Methode aufgerufen werden. 
 Hiermit wird der aufrufende Thread blockiert, bis der andere beendet ist.
+Die \lstinline$join$-Methode nimmt einen optionalen Parameter des Typen \lstinline$float$ entgegen,
+der als Timeout in Sekunden dient.
+Wird eine Timeout angegeben, ist es wichtig, dass nach dem \lstinline$join()$-Aufruf die Methode 
+\lstinline$is_alive()$ aufzurufen.
+Da \lstinline$join()$ immer \lstinline$None$ zurückgibt, ist es ansonsten nicht möglich zu wissen, ob
+der Thread tatsächlich beendet wurde, oder nur der Timeout abgelaufen ist.
+
+\kontrollfrage{
+\item[\kontroll] Wie kann auf das Ende der Ausführung eines Threads gewartet werden?
+}
+
 Jeder Thread besitzt einen Namen, welcher initial über den Konstruktor oder direkt über das
-\lstinline!name!-Attribut gesetzt werden kann. 
+\lstinline$name$-Attribut gesetzt werden kann. 
+Threads können als Dämon gekennzeichnet werden.
+Sobald nur noch Dämon-Threads aktiv sind, wird das Python-Programm beendet.
+Die Dämon-Eigenschaft kann initial über den Konstruktor gesetzt werden und übernimmt
+den Werte des erzeugenden Threads als Defaultwert.
+Über das \lstinline$deamon$-Attribut eines Threads kann die Eigenschaft abgefragt und gesetzt werden.
+Hierbei ist es wichtig, dass die Eigenschaft immer vor dem Aufruf der \lstinline$start()$-Methode
+gesetzt wird.
+Wird sie nach dem Starten des Threads geändert, so wird ein \lstinline$RuntimeError$ geworfen.
+
+\warning{
+	Dämon-Threads werden sofort beendet, wenn keine normalen Threads mehr aktiv sind.
+	Das heißt, dass ihre Ressourcen wie zum Beispiel geöffnete Dateien oder Datenbanktransaktionen
+	gegebenenfalls nicht ordentlich freigegeben werden.
+	Um dies zu verhindern sollten die Threads nicht die Dämon-Eigenschaft besitzen und es sollten 
+	geeignete Signalisierungsmechanismen eingesetzt werden (siehe \lstinline$Event$-Objekte). %ggf. entfernen falls Kapitel nicht in finaler Abgabe
+}
 
 \uebung
+\aufgabe{nebenlaufigkeit01}
 \aufgabe{nebenlaufigkeit02}
-
