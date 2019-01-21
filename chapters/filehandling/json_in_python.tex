@@ -1,13 +1,12 @@
 % !TeX root = ../../pythonTutorial.tex
 \section{JSON}
 \label{filehandling:section:json}
-\randnotiz{JSON}
 
-JavaScript Object Notation (JSON) ist ein Format für den Austausch von Daten, welches unabhängig von der Programmiersprache ist. Aufgrund von Konventionen,
-die dieses Format mit Programmiersprachen aus der C-Familie, wie C, C++, Java oder Python, teilt, liefert es eine Programmierern bekannte Textstruktur.
+JavaScript Object Notation (JSON) ist ein Format für den Austausch von Daten, das unabhängig von der Programmiersprache ist. Aufgrund von Konventionen,
+die dieses Format mit Programmiersprachen aus der C-Familie, wie C, C++, Java oder Python teilt, liefert es eine Programmierern bekannte Textstruktur.
 
-In Python 3 ist nativ das json-Package enthalten, welches das Arbeiten mit
-dem JSON-Format ermöglicht. Mit Hilfe des folgenden Codes binden wir das Package in das Projekt ein. 
+In Python 3 ist nativ das json-Package enthalten, das das Arbeiten mit
+dem JSON-Format ermöglicht. Mithilfe des folgenden Codes binden wir das Package in das Projekt ein. 
 \lstinputlisting[language=Python, linerange={1-1,3-5}]{chapters/filehandling/src/json_in_python/JsonInPython.py}
 \label{filehandling:lst:importpackage}
 
@@ -17,7 +16,7 @@ In diesem Fall wird ein Dictionary angelegt.
 \lstinputlisting[language=Python, linerange={1-1,7-19}]{chapters/filehandling/src/json_in_python/JsonInPython.py}
 \label{filehandling:lst:loads}
 
-Für das Umwandeln eines Python-Objekts in einen JSON-String, verwenden wir die 
+Für das Umwandeln eines Python-Objekts in einen JSON-String verwenden wir die 
 \lstinline$dumps()$-Methode.
 \randnotiz{Python zu JSON}
 \lstinputlisting[language=Python, linerange={1-1,21-35}]{chapters/filehandling/src/json_in_python/JsonInPython.py}
@@ -26,14 +25,25 @@ Für das Umwandeln eines Python-Objekts in einen JSON-String, verwenden wir die
 Konvertieren wir Python- zu JSON-Objekte, werden diese im JSON-Äquivalent (JavaScript) angelegt.
 
 Wenn wir einen Dictionary mit mehreren Schlüssel-Objekt-Paaren anlegen,
-werden wir bei der Ausgabe des JSON-Objekts feststellen, dass diese auf eine Zeile beschränkt ist. 
+werden wir bei der Ausgabe des JSON-Objekts feststellen, dass diese auf eine Zeile beschränkt sind. 
 \lstinputlisting[language=Python, linerange={1-1,37-55}]{chapters/filehandling/src/json_in_python/JsonInPython.py}
 \label{filehandling:lst:format1}
 
 Zur Formatierung unserer Ausgabe verwenden wir die \lstinline$dumos()$-Methode.
-Mit Hilfe des \lstinline$indent$-Parameters können festlegen, ob und wie weit die Textstruktur eingerückt werden soll. 
-Der \lstinline$separators$-Parameter legt die Trennzeichen fest und mit \lstinline$sort_keys=True$ wird die Ausgabe der Schlüssel lexikographisch sortiert.
+Mithilfe des \lstinline$indent$-Parameters können wir festlegen, ob und wie weit die Textstruktur eingerückt werden soll. 
+Der \lstinline$separators$-Parameter legt die Trennzeichen fest und mit \lstinline$sort_keys=True$ wird die Ausgabe der Schlüssel lexikografisch sortiert.
 \lstinputlisting[language=Python, linerange={1-1,37-37,56-81}]{chapters/filehandling/src/json_in_python/JsonInPython.py}  
 \label{filehandling:lst:format2}
 
+\subsection{Zusammenfassung}
+\label{filehandling:subsection:zusammenfassungdateienlesenundschreiben}
+
+In diesem Kapitel haben wir uns mit dem lesen und beschreiben einer Datei auseinandergesetzt.
+Dies geschieht in Python mithilfe eines \lstinline$fileObject$ um eine Datei zu erstellen, ändern, löschen und abzuspeichern.
+Dabei kann eine Datei als Textdatei oder Binärdatei interpretiert werden. 
+Eine der wichtigsten Methoden stellt hierbei die \lstinline$open()$-Methode dar. 
+Diese ermöglicht uns das Erstellen, Öffnen, Aktualisieren, Lesen und Beschreiben einer Datei.
+Dabei ist zu beachten, dass die Datei direkt nach der Ausführung der gewünschten Operationen mithilfe der \lstinline$close()$-Methode geschlossen wird.
+Um dies nicht zu vergessen, besteht in Python auch die Möglichkeit ein automatisches Schließen mit dem \lstinline$With$-Statement zu erwirken. 
+Abschließend haben wir noch den Zugriff auf die wichtigsten Attribute, die ein \lstinline$fileObject$ besitzt, kennengelernt und uns mit dem Standardisierten Datenaustausch mittels JSON beschäftigt.
 
