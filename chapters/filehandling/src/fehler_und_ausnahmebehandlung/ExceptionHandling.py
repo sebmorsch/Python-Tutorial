@@ -79,3 +79,19 @@ except ZeroDivisionError:
 
 # Ausgabe:
 # Das Programm wird beendet.
+
+
+
+# Eigene Ausnahme Klasse verwenden
+class MyException(Exception):
+    def __init__(self):
+        self.data = "Eigene Ausnahme aufgetreten!"
+
+
+try:
+    raise MyException
+except MyException as e:
+    print(e.data)
+
+# Ausgabe:
+# Eigene Ausnahme aufgetreten!

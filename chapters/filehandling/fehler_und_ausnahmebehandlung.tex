@@ -83,3 +83,11 @@ Somit ist es uns beispielsweise möglich eine \lstinline$ZeroDivisonError$ zu erz
 \lstinputlisting[language=Python, linerange={1-3,73-81}]{chapters/filehandling/src/fehler_und_ausnahmebehandlung/ExceptionHandling.py}
 \label{filehandling:lst:raisemitaufruf}
 
+\section {Selbst definierte Ausnahmen}
+\label{filehandling:sec:selbstdefinierteeausnahmen}
+
+Nachdem wir uns nun mit der \lstinline$raise$-Anweisung beschäftigt haben, können wir uns nun den selbst definierten Ausnahmen widmen. Diese Ausnahmen werden in der Regel als eigenen Klassen definiert und müssen dabei von der Oberklasse \lstinline$Exception$ erben.
+Das nachfolgende Listing zeigt ein entsprechendes Szenario. Dabei wird zunächst eine eigene Klasse \lstinline$MyException$ definiert, die gleichzeitig von Exception vererbt. Durch die \lstinline$raise$-Anweisung können wir unsere selbst definierte Ausnahme auslösen.
+
+\lstinputlisting[language=Python, linerange={1-3,85-97}]{chapters/filehandling/src/fehler_und_ausnahmebehandlung/ExceptionHandling.py}
+\label{filehandling:lst:eigeneaushamendefiniert}
