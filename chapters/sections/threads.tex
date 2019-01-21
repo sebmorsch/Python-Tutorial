@@ -31,7 +31,7 @@ def aufgabe():
 thread = threading.Thread(target=aufgabe)
 thread.start()
 \end{lstlisting}
-oder die \lstinline!run()!-Methode wird in einer von \lstinline!Thread! abgeleiteten Klassen überschrieben.
+oder die \lstinline!run()!-Methode wird in einer von \lstinline!Thread! abgeleiteten Klasse überschrieben.
 \begin{lstlisting}
 import threading
 
@@ -42,6 +42,9 @@ class MeinThread(threading.Thread):
 thread = MeinThread()
 thread.start()
 \end{lstlisting}
+
+\uebung
+\aufgabe{nebenlaufigkeit01}
 
 Der Konstruktor  der \lstinline!Thread!-Klasse bietet noch weitere Parameter an:
 \begin{itemize}
@@ -56,3 +59,16 @@ Der Konstruktor  der \lstinline!Thread!-Klasse bietet noch weitere Parameter an:
 
 Es ist anzumerken, dass ein \lstinline!Thread!-Objekts bei seiner Erzeugung noch nicht gestartet wird.
 Hierzu muss explizit die \lstinline!start()!-Methode aufgerufen werden.
+Wurde ein Thread gestartet wird er als ''lebendig'' angesehen. 
+Dies bleibt er solange, bis seine \lstinline!run()!-Methode verlassen wurde.
+Hierbei macht es keinen Unterschied, ob sie regulär verlassen wurde oder Aufgrund einer Exception.
+Der aktuelle Status eines Threads kann mittels der \lstinline!is_alive()!-Methode abgefragt werden.
+Soll auf das Ende eines anderen Threads gewartet werden, so kann seine
+\lstinline!join()!-Methode aufgerufen werden. 
+Hiermit wird der aufrufende Thread blockiert, bis der andere beendet ist.
+Jeder Thread besitzt einen Namen, welcher initial über den Konstruktor oder direkt über das
+\lstinline!name!-Attribut gesetzt werden kann. 
+
+\uebung
+\aufgabe{nebenlaufigkeit02}
+
