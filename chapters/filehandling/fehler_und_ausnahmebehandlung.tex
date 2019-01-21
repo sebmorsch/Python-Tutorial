@@ -26,6 +26,7 @@ Anschließend wird der auszuführende Code, der einen Fehler beinhalten könnte, da
 Mit dem Schlüsselwort\randnotiz{except} \lstinline$except$   und dem Namen der zu behandelnden Fehlerklasse wie beispielsweise \\ \lstinline$ZeroDivisionError$ kann ein entsprechender Fehler geeignet behandelt werden. 
 Dabei sind auch mehrere \lstinline$except$-Anweisungen mit unterschiedlichen Fehlerklassen möglich, um eine entsprechende Behandlung zu ermöglichen. 
 Somit kann jeder Fehler nach seiner eigenen Art und Weise nach dem Auftreten konsequent und individuell behandelt werden. 
+% Somit kann jdeder Fehler entsprechend individuell behandelt werden.
 Auch die Erstellung von eigenen Fehlerklassen ist in Python möglich, dazu später mehr.
 \\ \\
 Einige wichtige und gängige Fehlerklassen sind hierbei: 
@@ -41,7 +42,7 @@ Beispiel: Es wird eine Zahl erwartet, aber ein Text übergeben.
 
 Darüber hinaus gibt es noch weitere wie z. B. ImportError, KeyError, MemoryError, NameError, TypeError und viele mehr, die hier im Kontext nicht weiter erläutert werden.
 
-Im nachfolgenden Listing wird ein Fehler provoziert, indem wir eine Division mit der Zahl Null herbeiführen. 
+Im folgenden Listing wird ein Fehler provoziert, indem wir eine Division mit der Zahl Null herbeiführen. 
 Hierbei wird die Fehlerbehandlung mit der Klasse \lstinline$ZeroDivisonError$ abgefangen und anschließend das Programm durch die Fehlerbehandlung ordnungsgemäß beendet. 
 Dabei wird die nachfolgende \lstinline$else-klausel$ durch das Auftreten und Abfangen des Fehlers nicht ausgeführt.
 
@@ -57,14 +58,21 @@ Somit wird nach der Ausführung des \lstinline$try-Blocks$ auch der in \lstinline
 \label{filehandling:lst:else}
 
 
-Mit der ebenfalls optionalen Angabe von \lstinline$finally$ \randnotiz{finally} lässt sich ein Codestück unter allen Umständen aus, ausführen. Somit wird gewährleistet das dieser Teil des Codes ungeachtet, ob eine Ausnahme eintrifft oder nicht garantiert durchlaufen wird. Dies kann vor allem bei dem Schließen einer Datei oder einer Datenbankverbindung sehr sinnvoll eingesetzt werden.
+Mit der ebenfalls optionalen Angabe von \lstinline$finally$ \randnotiz{finally} lässt sich ein Codestück unter allen Umständen, ausführen. 
+Somit wird gewährleistet das dieser Teil des Codes ungeachtet, ob eine Ausnahme eintrifft oder nicht garantiert durchlaufen wird. 
+Dies kann vor allem bei dem Schließen einer Datei oder einer Datenbankverbindung sehr sinnvoll eingesetzt werden.
 
-Bei dem nachfolgendem Listing wird eine Datei zunächst angelegt und geöffnet. Anschließend wird das Ergebnis in die Datei geschrieben. Ungeachtet dessen ob im \lstinline$try-Block$ eine Fehlerbehandlung eintritt oder nicht wird zum Schluss garantiert die \lstinline$finally$-Anweisung durchlaufen. Damit ist die Schließung der Datei garantiert.
+Bei dem folgenden Listing wird eine Datei zunächst angelegt und geöffnet. 
+Anschließend wird das Ergebnis in die Datei geschrieben. 
+Ungeachtet dessen ob im \lstinline$try-Block$ eine Fehlerbehandlung eintritt oder nicht, wird zum Schluss garantiert die \lstinline$finally$-Anweisung durchlaufen. 
+Damit ist die Schließung der Datei garantiert.
 
 \lstinputlisting[language=Python, linerange={1-3,36-58}]{chapters/filehandling/src/fehler_und_ausnahmebehandlung/ExceptionHandling.py}
 \label{filehandling:lst:finally}
 
-Anstatt die beiden Fehlerklassen \lstinline$ZeroDivisonError$ und \lstinline$FileNotFoundError$ mit demselben Code individuell zu behandeln, bietet es sich hier an, mehrere Ausnahmen innerhalb eines \lstinline$except$ zusammenzufassen. Tritt nun während der Abarbeitung im \lstinline$try-Block$ einer der beiden Fehler auf, wird die Fehlerbehandlung ausgeführt.
+Anstatt die beiden Fehlerklassen \lstinline$ZeroDivisonError$ und \lstinline$FileNotFoundError$ mit demselben Code individuell zu behandeln, 
+bietet es sich hier an, mehrere Ausnahmen innerhalb eines \lstinline$except$ zusammenzufassen. 
+Tritt nun während der Abarbeitung im \lstinline$try-Block$ einer der genannten Fehler auf, wird die Fehlerbehandlung ausgeführt.
 
 \begin{lstlisting}[language=Python]
 except (ZeroDivisionError, FileNotFoundError) as e:
@@ -88,8 +96,11 @@ Somit ist es uns beispielsweise möglich eine \lstinline$ZeroDivisonError$ zu erz
 \section {Selbst definierte Ausnahmen}
 \label{filehandling:sec:selbstdefinierteeausnahmen}
 
-Nachdem wir uns nun mit der \lstinline$raise$-Anweisung beschäftigt haben, können wir uns nun den selbst definierten Ausnahmen widmen. Diese Ausnahmen werden in der Regel als eigenen Klassen definiert und müssen dabei von der Oberklasse \lstinline$Exception$ erben.
-Das nachfolgende Listing zeigt ein entsprechendes Szenario. Dabei wird zunächst eine eigene Klasse \lstinline$MyException$ definiert, die gleichzeitig von Exception vererbt. Durch die \lstinline$raise$-Anweisung können wir unsere selbst definierte Ausnahme auslösen.
+Nachdem wir uns mit der \lstinline$raise$-Anweisung beschäftigt haben, widmen wir uns den selbst definierten Ausnahmen. 
+Diese werden in der Regel als eigenen Klassen definiert und müssen dabei von der Oberklasse \lstinline$Exception$ erben.
+Das nachfolgende Listing zeigt ein entsprechendes Szenario. 
+Dabei wird zunächst eine eigene Klasse \lstinline$MyException$ definiert, die von Exception erbt. 
+Durch die \lstinline$raise$-Anweisung können wir unsere selbst definierte Ausnahme auslösen.
 
 \lstinputlisting[language=Python, linerange={1-3,85-97}]{chapters/filehandling/src/fehler_und_ausnahmebehandlung/ExceptionHandling.py}
 \label{filehandling:lst:eigeneaushamendefiniert}
