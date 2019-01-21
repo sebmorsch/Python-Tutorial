@@ -96,3 +96,65 @@ Wird sie nach dem Starten des Threads geändert, so wird ein \lstinline$RuntimeEr
 \uebung
 \aufgabe{nebenlaufigkeit01}
 \aufgabe{nebenlaufigkeit02}
+
+
+\subsection{Synchronisierung}
+
+Die meinsten Anwendungen, in denen mehrere Threads zum Einsatz kommen, erfordern einen
+Mechanismus, der die Zugriffe der einzelnen Threads auf gewisse Daten synchronisiert.
+Hierdurch wird unteranderem vermieden, dass auf invaliden Datensätzen gearbeitet wird, oder ein
+Datenupdate verloren geht.
+Im Folgenden wird ein Beispiel betrachtet, bei dem es zu Fehlern Aufgrund von fehlender
+Synchronisierungsmechanimsen kommt.
+Es werden anschließend neue Konstrukte eingeführt, welche die Fehler beheben werden.
+
+Betrachtet wird nun eine Klasse \lstinline$Counter$, welche in Listing
+\ref{threads:lst:counter_example} gezeigt wird.
+Sie besitzt das Attribut \lstinline$count$, welches durch Aufruf von \lstinline$increment()$
+in Einerschritten erhöht wird. 
+
+\label{threads:lst:counter_example}
+\lstinputlisting[language=Python,firstline=3,lastline=8]{exercises/src/nebenlaufigkeit/beispiel_synchronisation_fehler.py}
+
+Es ist weiterhin \lstinline$IncrementerThread$ in Listing \ref{threads:lst:incrementer_thread} gegeben,
+welcher bei der Initialisierung ein \lstinline$Counter$-Objekt erwartet. Dieser Thread ruft eine Millionen mal die \lstinline$increment()$-Methode des \lstinline$Counters$ auf und beendet sich anschließend.
+
+\label{threads:lst:incrementer_thread}
+\lstinputlisting[language=Python,firstline=10,lastline=17]{exercises/src/nebenlaufigkeit/beispiel_synchronisation_fehler.py}
+
+Für dieses Beispiel werden nun 8 \lstinline$IncrementerThreads$ erzeugt und gestartet.
+Anschließend wird auf ihre Terminierung gewartet und dann der Wert \lstinline$count$-Attributs des
+\lstinline$Counters$ ausgegeben (vgl. Listing \ref{threads:lst:example_no_locks}).
+
+\label{threads:lst:example_no_locks}
+\lstinputlisting[language=Python,firstline=19]{exercises/src/nebenlaufigkeit/beispiel_synchronisation_fehler.py}
+
+\kontrollfrage{
+\item[\kontroll] Welche Ausgabe würde erwartet werden, wenn 8 Threads den Counter eine Millionen
+mal inkrementieren?
+}
+
+Dieser Programmcode würde vermuten lassen, dass bei jeder Ausführung der Wert 8000000 ausgegeben
+wird, da jeder der 8 Threads den \lstinline$Counter$ eine Millionen mal inkrementiert.
+Erstaunlicherweiße werden allerdings bei mehrmaliger Ausführung unterschiedliche Werte ausgegeben.
+Diese können zum Beispiel wie folgt aussehen:
+\begin{lstlisting}
+# Mögliche Ausgaben:
+4182858
+4377165
+3261866
+4490102
+\end{lstlisting}
+Dieses Phänomen lässt sich so erklären, dass die Operation in \lstinline$increment()$ nicht atomar ist.
+Genau genommen werden in ihr drei Operationen, eine lesende, eine addierende und eine schreibende,
+ausgeführt.
+Somit kann es vorkommen, dass zum Beispiel der erste Thread den aktuellen \lstinline$count$-Wert liest
+und dann die aktive Ausführung an einen anderen Thread abgeben muss.
+Dieser zweite Thread liest nun den selben \lstinline$count$-Wert wie der erste Thread, inkrementiert ihn
+und schreibt den neuen Wert zurück in das Attribut.
+Nun wechselt die aktive Ausfürhung zurück zum ersten Thread, welche noch den alten \lstinline$count$-Wert gelesen hat.
+Dieser alte Wert wird nun erneut inkrementiert und zurückgeschrieben. 
+Somit wurde der \lstinline$Counter$ effektiv nicht zweimal sondern nur einmal inkrementiert.
+Um dieses Verhalten zu verhindern, muss sichergestellt werden, dass die drei einzelnen Operationen
+atomar ausgeführt werden.
+Das heißt, dass sie entweder ganz oder garnicht ausgeführt werden.
