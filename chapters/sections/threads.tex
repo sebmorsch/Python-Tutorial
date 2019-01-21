@@ -138,6 +138,7 @@ Dieser Programmcode würde vermuten lassen, dass bei jeder Ausführung der Wert 80
 wird, da jeder der 8 Threads den \lstinline$Counter$ eine Millionen mal inkrementiert.
 Erstaunlicherweiße werden allerdings bei mehrmaliger Ausführung unterschiedliche Werte ausgegeben.
 Diese können zum Beispiel wie folgt aussehen:
+
 \begin{lstlisting}
 # Mögliche Ausgaben:
 4182858
@@ -145,6 +146,7 @@ Diese können zum Beispiel wie folgt aussehen:
 3261866
 4490102
 \end{lstlisting}
+
 Dieses Phänomen lässt sich so erklären, dass die Operation in \lstinline$increment()$ nicht atomar ist.
 Genau genommen werden in ihr drei Operationen, eine lesende, eine addierende und eine schreibende,
 ausgeführt.
@@ -158,3 +160,52 @@ Somit wurde der \lstinline$Counter$ effektiv nicht zweimal sondern nur einmal in
 Um dieses Verhalten zu verhindern, muss sichergestellt werden, dass die drei einzelnen Operationen
 atomar ausgeführt werden.
 Das heißt, dass sie entweder ganz oder garnicht ausgeführt werden.
+
+Als unterste Synchronisationsebene bietet Python die Klasse \lstinline$Lock$ an.
+\randnotiz{Locks}
+Ein Objekt dieser Klasse befindet sich immer in einem von zwei Zuständen, es ist entweder offen
+oder geschlossen.
+Nach der Initialisierung befindet es sich zuerst im geöffneten Zustand.
+Ein \lstinline$Lock$-Objekt stellt die beiden Methoden \lstinline$acquire()$ und \lstinline$release()$ zur
+Verfügung.
+Wird \lstinline$acquire()$ auf einem offenen \lstinline$Lock$ aufgerufen, so begibt sich das \lstinline$Lock$
+in den geschlossenen Zustand und die Methode kehrt sofort zurück.
+Sollte die \lstinline$aquire()$-Methode aufgerufen werden, wenn sich das \lstinline$Lock$ im
+geschlossenen Zustand befindet, so blockiert sie solange, bis \lstinline$release()$ in einem anderen Thread
+aufgerufen wird und somit den Zustand des \lstinline$Locks$ wieder zu geöffnet ändert.
+Die blockierte \lstinline$aquire()$-Methode schließt dann das \lstinline$Lock$ wieder und kehrt zurück.
+Wird auf einem offenen \lstinline$Lock$ die \lstinline$release()$-Methode aufgerufen, so wird ein
+\lstinline$RuntimeError$ geworfen.
+Falls mehrere Threads durch \lstinline$aquire()$ blockiert werden, wird nur ein Thread fortgesetzt sobald
+\lstinline$release()$ aufgerufen wurde.
+Welcher der blockierten Threads fortgesetzt ist hierbei nicht definiert.
+
+\warning{
+Wurde \lstinline$aquire()$ aufgerufen, sollte garantiert sein, dass auch \lstinline$release()$
+aufgerufen wird.
+Wird eine \lstinline$Exception$ geworfen, kann dies allerdings nicht immer garantiert sein.
+Aus diesem Grund wird empfohlen, den synchronisierten Programmcode in einen \lstinline$try$-Block
+zu schreiben und den Aufruf von \lstinline$release()$ in den \lstinline$finally$-Block zu schreiben
+(vgl. Listing \ref{threads:lst:try_aquire_lock}).
+Diese Variante ist allerdings etwas lang und unschön.
+Da die \lstinline$Lock$-Klasse das Context-Management-Protokoll unterstützt, kann das gleich mit dem
+\lstinline$with$-Block erreicht werden (vgl. Listing \ref{threads:lst:with_aquire_lock}).
+Hierbei werden \lstinline$aquire()$ und \lstinline$release()$ automatisch aufgerufen.
+}
+
+\label{threads:lst:try_aquire_lock}
+\begin{lstlisting}[language=Python]
+lock.aquire()
+try:
+    # kritischer Code
+finally:
+    lock.release()
+\end{lstlisting}
+\label{threads:lst:with_aquire_lock}
+\begin{lstlisting}[language=Python]
+with lock:
+    # kritischer Code
+\end{lstlisting}
+
+\uebung
+\aufgabe{nebenlaufigkeit03}
