@@ -19,6 +19,8 @@
 \makeindex[title=Index,columns=2,options=-s german,intoc]
 % Header und Footer mit KomaScript
 \usepackage[automark, headsepline]{scrlayer-scrpage}
+% Caption unteraderm, dass \ref nicht nur zur Caption sondern auch zur Figure springt
+\usepackage{caption}
 %
 % Header für Werkzeuge, Begriffe aus dem Software-Management
 \input{variablen}
@@ -101,8 +103,9 @@
 
 %Achtung in einer Box
 \newcommand{\warning}[1]{%
-	\vspace{4pt}\fboxsep 1mm \framebox[140mm]
-	{\parbox{135mm}{{\textbf{Achtung}}:\\ #1}}\vspace{4pt}}
+	\par\vspace{4pt}\fboxsep 1mm \framebox[140mm]%
+	{\parbox{135mm}{{\textbf{Achtung}}:\\ #1}}\vspace{4pt}%
+}
 %
 
 %
@@ -295,13 +298,16 @@
 
 \Huge{#2}\\\vspace*{0.5cm}%
 
-\vspace*{3.0cm}%
+\vspace*{2.0cm}%
 \includegraphics[height=6cm]{#1}%
 
-\vspace*{3.0cm}%
-\Large{\theAuthor{}}%
+\vspace*{1.0cm}%
 
 \Large{\theProject{}}%
 
 \Large{\theSchool{}}%
-\end{titlepage}} 
+
+\vspace*{2.0cm}%
+
+\normalsize{\theAuthor{}}%
+\end{titlepage}}
