@@ -207,7 +207,31 @@ Die Angabe eines Timeouts ist nur erlaubt, wenn der Parameter \lstinline$blockin
 \aufgabe{nebenlaufigkeit03}
 \aufgabe{nebenlaufigkeit04}
 
+Um das Problem aus Aufgabe \ref{nebenlaufigkeit04} zu lösen bietet Python eine weitere Möglichkeit
+zur Synchronisation an.
+\randnotiz{Reentrant Locks}
+Hierbei handelt es sich um die \lstinline$RLock$-Klasse.
+Das \lstinline$R$ steht für \lstinline$reentrant$, was auf deutsch Wiedereintritt bedeutet.
+Im Gegensatz zu Objekte der \lstinline$Lock$-Klasse, die nie einem Thread zugeordnet werden, werden
+Objekte der \lstinline$RLock$-Klasse an den Thread gebunden, der zuerst die \lstinline$aquire()$-Methode
+aufruft.
+Neben den beiden Zuständen, die die \lstinline$Lock$-Klasse besitzt, merkt sich die \lstinline$RLock$-Klasse
+nun auch, wie oft die \lstinline$aquire()$-Methode aufgerufen wurde.
+Beim ersten Aufruf von \lstinline$aquire()$ merkt sich das \lstinline$RLock$-Objekt, welcher Thread die
+Methode aufgerufen hat und setzt einen internen Zähler auf 1.
+Bei jedem weiteren Aufruf von \lstinline$aquire()$ des selben Threads wird der Zähler inkrementiert.
+Wird \lstinline$release()$ Aufgerufen, so wird der Zähler wieder dekrementiert.
+Das \lstinline$RLock$ ist erst dann wieder offen, wenn \lstinline$release()$ so auf aufgerufen wurde wie
+\lstinline$aquire()$ und der interne Zähler wieder auf 0 steht.
+Ruft ein zweiter Thread die \lstinline$aquire()$-Methode auf, während der erste Thread das
+\lstinline$RLock$ besitzt, so muss er warten, bis der Zähler wieder auf 0 steht.
+Es ist nun also möglich einen gewissen Codeabschnitt auch rekursive vor konkurrierenden Zugriffen 
+zu schützen.
+Wie auch schon beim \lstinline$Lock$, können der \lstinline$aquire()$-Methode des \lstinline$RLocks$ 
+die beiden optionalen Paramter \lstinline$blocking$ und \lstinline$timeout$ mitgegeben werden.
 
-\randnotiz{Wiedereintrett- bare Schlösser}
+\uebung
+\aufgabe{nebenlaufigkeit05}
+
 \randnotiz{Bedingungs- variablen}
 \randnotiz{Semaphoren}

@@ -4,7 +4,7 @@ import threading
 class Counter:
     def __init__(self):
         self.count = 0
-        self.lock = threading.Lock()
+        self.lock = threading.RLock()
 
     def increment(self, value=1):
         with self.lock:
