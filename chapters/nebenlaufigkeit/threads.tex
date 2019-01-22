@@ -254,8 +254,9 @@ Wird kein Lock-Objekt übergeben, erzeugt der Konstruktor ein neues.
 Das so erzeugte \lstinline$Condition$-Objekt kann nun überall wie zuvor das Lock-Objekt
 verwendet werden, das Lock-Objekt muss nicht weiterhin zusätzlich verwaltet werden.
 Es kann nun also das \lstinline$RLock$ aus der \lstinline$Counter$-Klasse gegen eine Condition Variable
-ausgetauscht werden. Das Result davon ist in Listing \ref{threads:lst:counter_condition_variable_example}
-gezeigt.
+ausgetauscht werden.
+Die neue \hyperref[threads:lst:counter_condition_variable_example]{\lstinline$Counter$-Klasse} sieht
+dann wie folgt aus:
 \label{threads:lst:counter_condition_variable_example}
 \lstinputlisting[language=Python,firstline=4,lastline=15]{chapters/nebenlaufigkeit/src/beispiel_condition_variable.py}
 
@@ -341,5 +342,8 @@ folgender Maßen \cite{pythondokuthreads}:
 
 \label{threads:lst:producer_consumer_wait_for}
 \lstinputlisting[language=Python,firstline=32,lastline=35]{chapters/nebenlaufigkeit/src/beispiel_producer_consumer.py}
+
+\uebung
+\aufgabe{nebenlaufigkeit06}
 
 \randnotiz{Semaphoren}
