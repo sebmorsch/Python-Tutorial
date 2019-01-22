@@ -68,7 +68,8 @@ file = open("datei.txt", "r")
 print(file.readlines())
 file.close()
 
-# Ausgabe: ['Hallo Welt.\n', 'Das ist ein...\n', 'Beispieltext']
+# Ausgabe: ['Hallo Welt.\n', 'Das ist ein...\n',
+# 'Beispieltext']
 
 # Ausgeben der Zeigerposition
 

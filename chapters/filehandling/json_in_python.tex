@@ -22,16 +22,18 @@ Für das Umwandeln eines Python-Objekts in einen JSON-String verwenden wir die
 \lstinputlisting[language=Python, linerange={1-1,21-35}]{chapters/filehandling/src/json_in_python/JsonInPython.py}
 \label{filehandling:lst:dumps}
 
-Konvertieren wir Python- zu JSON-Objekte, werden diese im JSON-Äquivalent (JavaScript) angelegt.
+Konvertieren wir Python- zu JSON-Objekte, werden diese im\\
+JSON-Äquivalent (JavaScript) angelegt.
 
 Wenn wir einen Dictionary mit mehreren Schlüssel-Objekt-Paaren anlegen,
 werden wir bei der Ausgabe des JSON-Objekts feststellen, dass diese auf eine Zeile beschränkt sind. 
 \lstinputlisting[language=Python, linerange={1-1,37-55}]{chapters/filehandling/src/json_in_python/JsonInPython.py}
 \label{filehandling:lst:format1}
 
-Zur Formatierung unserer Ausgabe verwenden wir die \lstinline$dumos()$-Methode.
+Zur Formatierung unserer Ausgabe verwenden wir die \lstinline$dumps()$-Methode.
 Mithilfe des \lstinline$indent$-Parameters können wir festlegen, ob und wie weit die Textstruktur eingerückt werden soll. 
-Der \lstinline$separators$-Parameter legt die Trennzeichen fest und mit \lstinline$sort_keys=True$ wird die Ausgabe der Schlüssel lexikografisch sortiert.
+Der \lstinline$separators$-Parameter legt die\\
+Trennzeichen fest und mit \lstinline$sort_keys=True$ wird die Ausgabe der Schlüssel lexikografisch sortiert.
 \lstinputlisting[language=Python, linerange={1-1,37-37,56-81}]{chapters/filehandling/src/json_in_python/JsonInPython.py}  
 \label{filehandling:lst:format2}
 
