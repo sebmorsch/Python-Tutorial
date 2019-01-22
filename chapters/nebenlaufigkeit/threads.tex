@@ -167,26 +167,45 @@ Falls mehrere Threads durch \lstinline$aquire()$ blockiert werden, wird nur ein 
 \lstinline$release()$ aufgerufen wurde.
 Welcher der blockierten Threads fortgesetzt ist hierbei nicht definiert.
 
-\warning{
 Wurde \lstinline$aquire()$ aufgerufen, sollte garantiert sein, dass auch \lstinline$release()$
 aufgerufen wird.
 Wird eine \lstinline$Exception$ geworfen, kann dies allerdings nicht immer garantiert sein.
 Aus diesem Grund wird empfohlen, den synchronisierten Programmcode in einen \lstinline$try$-Block
 zu schreiben und den Aufruf von \lstinline$release()$ in den \lstinline$finally$-Block zu schreiben
 (vgl. Listing \ref{threads:lst:try_aquire_lock}).
+\label{threads:lst:try_aquire_lock}
+\lstinputlisting[language=Python,firstline=5,lastline=9]{chapters/nebenlaufigkeit/src/beispiel_lock_aquire_release.py}
+
 Diese Variante ist allerdings etwas lang und unschön.
 Da die \lstinline$Lock$-Klasse das Context-Management-Protokoll unterstützt, kann das gleich mit dem
 \lstinline$with$-Block erreicht werden (vgl. Listing \ref{threads:lst:with_aquire_lock}).
 Hierbei werden \lstinline$aquire()$ und \lstinline$release()$ automatisch aufgerufen.
-}
-
-\label{threads:lst:try_aquire_lock}
-\lstinputlisting[language=Python,firstline=5,lastline=9]{chapters/nebenlaufigkeit/src/beispiel_lock_aquire_release.py}
 \label{threads:lst:with_aquire_lock}
 \lstinputlisting[language=Python,firstline=11,lastline=12]{chapters/nebenlaufigkeit/src/beispiel_lock_aquire_release.py}
 
+Wird \lstinline$aquire()$ ohne Parameter aufgerufen, blockiert sie solange, bis \lstinline$release()$ 
+aufgerufen wird.
+Ist dies nicht gewünscht, so kann auch der optionale Parameter \lstinline$blocking=False$ angegeben
+werden. 
+In diesem Fall kehrt \lstinline$aquire()$ sofort zurück, egal in welchem Zustand sich das \lstinline$Lock$
+befindet.
+Es muss nun der Rückgabewert von \lstinline$aquire()$ betrachtet werden, um zu wissen, ob das 
+\lstinline$Lock$ offen oder geschlossen ist.
+Ist das \lstinline$Lock$ bereits geschlossen wird der Wert \lstinline$False$ zurückgegeben.
+Andernfalls wird \lstinline$True$ zurückgegeben und das \lstinline$Lock$ ändert seinen Zustand zu
+geschlossen.
+Weiterhin ist es möglich, einen Timeout mittels des optionalen Parametes \lstinline$timeout$ zu 
+spezifizieren.
+Hierbei kann eine beliebige Zeit in Sekunden als \lstinline$float$ Wert angegeben werden.
+In diesem Fall blockiert \lstinline$aquire()$ maximale die spezifizierte Zeit.
+Wurde in dieser Zeit das \lstinline$Lock$ erlangt, so gibt \lstinline$aquire()$ \lstinline$True$ zurück,
+andernfalls \lstinline$False$.
+Die Angabe eines Timeouts ist nur erlaubt, wenn der Parameter \lstinline$blocking$ den Wert
+\lstinline$True$ besitzt.
+
 \uebung
 \aufgabe{nebenlaufigkeit03}
+
 
 \randnotiz{Wiedereintrett- bare Schlösser}
 \randnotiz{Bedingungs- variablen}
