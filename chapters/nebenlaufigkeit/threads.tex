@@ -1,6 +1,6 @@
 % !TeX root = ../../pythonTutorial.tex
-\label{threads:section:threads}
 \section{Threads}
+\label{threads:section:threads}
 
 In Python werden zwei APIs zur Verwendung von Threads angeboten, die Low-Level
 API aus dem \_thread-Modul und die Higher-Level API aud dem threading-Modul.
@@ -17,14 +17,17 @@ gestopped, angehalten, fortgesetzt oder unterbrochen werden.
 Soweit vorhanden sind die statischen Methoden aus der Java-Thread-Klasse auf Modul-Ebene
 in Python implementiert.
 
-\label{threads:subsection:thread_objekte}
 \subsection{Thread Objekte}
+\label{threads:subsection:thread_objekte}
 
 Es gibt zwei Möglichkeiten einen Thread zu erzeugen. Entweder wird dem Konstruktor ein
 aufrufbares Objekt übergeben,
+
 \label{threads:lst:thread_erzeugung_callable}
 \lstinputlisting[language=Python,firstline=4,lastline=9]{chapters/nebenlaufigkeit/src/beispiel_thread_erzeugung.py}
+
 oder die \lstinline$run()$-Methode wird in einer von \lstinline$Thread$ abgeleiteten Klasse überschrieben.
+
 \label{threads:lst:thread_erzeugung_subclass}
 \lstinputlisting[language=Python,firstline=12,lastline=18]{chapters/nebenlaufigkeit/src/beispiel_thread_erzeugung.py}
 
@@ -83,8 +86,8 @@ Wird sie nach dem Starten des Threads geändert, so wird ein \lstinline$RuntimeEr
 \aufgabe{nebenlaufigkeit02}
 
 
-\label{threads:subsection:synchronisation}
 \subsection{Synchronisation}
+\label{threads:subsection:synchronisation}
 
 Die meinsten Anwendungen, in denen mehrere Threads zum Einsatz kommen, erfordern einen
 Mechanismus, der die Zugriffe der einzelnen Threads auf gewisse Daten synchronisiert.
@@ -173,6 +176,7 @@ Wird eine \lstinline$Exception$ geworfen, kann dies allerdings nicht immer garan
 Aus diesem Grund wird empfohlen, den synchronisierten Programmcode in einen \lstinline$try$-Block
 zu schreiben und den Aufruf von \lstinline$release()$ in den \lstinline$finally$-Block zu schreiben
 (vgl. Listing \ref{threads:lst:try_aquire_lock}).
+
 \label{threads:lst:try_aquire_lock}
 \lstinputlisting[language=Python,firstline=5,lastline=9]{chapters/nebenlaufigkeit/src/beispiel_lock_aquire_release.py}
 
@@ -180,6 +184,7 @@ Diese Variante ist allerdings etwas lang und unschön.
 Da die \lstinline$Lock$-Klasse das Context-Management-Protokoll unterstützt, kann das gleich mit dem
 \lstinline$with$-Block erreicht werden (vgl. Listing \ref{threads:lst:with_aquire_lock}).
 Hierbei werden \lstinline$aquire()$ und \lstinline$release()$ automatisch aufgerufen.
+
 \label{threads:lst:with_aquire_lock}
 \lstinputlisting[language=Python,firstline=11,lastline=12]{chapters/nebenlaufigkeit/src/beispiel_lock_aquire_release.py}
 
@@ -257,6 +262,7 @@ Es kann nun also das \lstinline$RLock$ aus der \lstinline$Counter$-Klasse gegen 
 ausgetauscht werden.
 Die neue \hyperref[threads:lst:counter_condition_variable_example]{\lstinline$Counter$-Klasse} sieht
 dann wie folgt aus:
+
 \label{threads:lst:counter_condition_variable_example}
 \lstinputlisting[language=Python,firstline=4,lastline=15]{chapters/nebenlaufigkeit/src/beispiel_condition_variable.py}
 
