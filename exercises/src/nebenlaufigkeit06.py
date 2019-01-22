@@ -4,7 +4,7 @@ import threading
 class Counter:
     def __init__(self):
         self.count = 0
-        self.cv = threading.Condition()
+        self.cv = threading.Condition(threading.RLock())
 
     def increment(self, value=1):
         if 0 >= value:

@@ -8,9 +8,8 @@ Bei diesem Konstrukt handelt es sich um das sogenannte Global-Interpreter-Lock, 
 Für die Verwendung eine GILs in Python sprechen mehrere Punkte.
 Python wurde so entworfen, dass es leicht zu verwenden ist, um den
 Entwicklungsprozess zu beschleunigen.
-Ein GIL verhindert, dass sich mehrere Threads gleichzeitig in der Ausführung befinden können.
-Aus diesem Grund können mit einem GIL keine Wettlaufsituationen auftreten,
-was die Entwicklung erheblich erleichtert.
+Ein GIL verhindert, dass sich mehrere Threads gleichzeitig in der Ausführung befinden können,
+was die Entwicklung von Multithreaded-Programmen erheblich erleichtert.
 Weiterhin wurde der Funktionsumfang von Python durch viele in C geschriebene Erweiterungen ergänzt.
 Um Inkonsistenzen zu verhindern, benötigen diese C-Erweiterungen eine threadsichere
 Speicherverwaltung, welche durch das GIL garantiert ist.
@@ -26,4 +25,4 @@ das Abfragen von Benutzereingaben, können auch trotz des GILs echt parallel ausg
 Durch das Verwenden von mehreren Prozessen ist es auch möglich parallele
 Ausführung von Python-Code zu erreichen.
 Dies funktioniert, da jeder Python-Prozess seinen eignen Python-Interpreter und somit
-auch einen eigenen GIL besitzt.
+auch ein eigenes GIL besitzt.

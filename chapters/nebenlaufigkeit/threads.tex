@@ -6,12 +6,12 @@ In Python werden zwei APIs zur Verwendung von Threads angeboten, die Low-Level
 API aus dem \_thread-Modul und die Higher-Level API aud dem threading-Modul.
 Es wird sich an dieser Stelle auf das threading-Modul beschränkt, da es Intern auf
 dem \_thread-Modul basiert und eine Schnittstelle anbietet, welche das Programmieren
-von Multithreaded Applikationen erleichert.
-Diese Schnittstelle ist an der Thread-Schnittstelle aus Java angelehnt und sollte daher für
+von Multithreaded-Programmen erleichert.
+Diese Schnittstelle ist an der Thread-Schnittstelle von Java angelehnt und sollte daher für
 Java-Entwickler leicht zu verwenden sein.
 Allerdings gibt es einige Unterschiede zwischen dem Python-Modul und der Java-Implementierung.
 So sind Bedingungsvariablen und Locks seperate Objekte in Python und es ist auch
-nur eine Teilmenge des Verhaltens eine Java-Threads in Python verfügbar.
+nur eine Teilmenge des Verhaltens eines Java-Threads in Python verfügbar.
 Ein Python-Thread kennt keine Prioritäten und Thread-Gruppen und er kann nicht zerstört,
 gestopped, angehalten, fortgesetzt oder unterbrochen werden.
 Soweit vorhanden sind die statischen Methoden aus der Java-Thread-Klasse auf Modul-Ebene
@@ -36,26 +36,26 @@ Der Konstruktor  der \lstinline$Thread$-Klasse bietet noch weitere Parameter an:
     \item \lstinline$group$ sollte immer \lstinline$None$ sein.
     Es ist aktuell reserviert für spätere Erweiterungen.
     \item \lstinline$name$ setzt den Namen des Threads.
-    \item \lstinline$args$ ist ein Tupel aus Parameter für das mit \lstinline$target$ definiert
+    \item \lstinline$args$ ist ein Tupel aus Parametern für das mit \lstinline$target$ definierte
     aufrufbare Objekt.
-    \item \lstinline$kwargs$ ist ein Dictionary aus Schlüsselwort-Parameter für \lstinline$target$.
+    \item \lstinline$kwargs$ ist ein Dictionary aus Schlüsselwort-Parametern für \lstinline$target$.
     \item \lstinline$deamon$ setzt die Dämon-Eigenschaft des Threads.
 \end{itemize}
 
-Es ist anzumerken, dass ein \lstinline$Thread$-Objekts bei seiner Erzeugung noch nicht gestartet wird.
+Es ist anzumerken, dass ein \lstinline$Thread$-Objekt bei seiner Erzeugung noch nicht gestartet wird.
 Hierzu muss explizit die \lstinline$start()$-Methode aufgerufen werden.
 Wurde ein Thread gestartet wird er als ''lebendig'' angesehen. 
 Dies bleibt er solange, bis seine \lstinline$run()$-Methode verlassen wurde.
 Hierbei macht es keinen Unterschied, ob sie regulär verlassen wurde oder Aufgrund einer Exception.
 Der aktuelle Status eines Threads kann mittels der \lstinline$is_alive()$-Methode abgefragt werden.
-Soll auf das Ende eines anderen Threads gewartet werden, so kann seine
+Soll auf das Beenden eines anderen Threads gewartet werden, so kann seine
 \lstinline$join()$-Methode aufgerufen werden. 
 Hiermit wird der aufrufende Thread blockiert, bis der andere beendet ist.
 Die \lstinline$join$-Methode nimmt einen optionalen Parameter des Typen \lstinline$float$ entgegen,
 der als Timeout in Sekunden dient.
-Wird eine Timeout angegeben, ist es wichtig, dass nach dem \lstinline$join()$-Aufruf die Methode 
-\lstinline$is_alive()$ aufzurufen.
-Da \lstinline$join()$ immer \lstinline$None$ zurückgibt, ist es ansonsten nicht möglich zu wissen, ob
+Wird ein Timeout angegeben, ist es wichtig, dass nach dem \lstinline$join()$-Aufruf die Methode 
+\lstinline$is_alive()$ aufgerufen wird.
+Da \lstinline$join()$ immer \lstinline$None$ zurückgibt, ist es ansonsten nicht möglich, zu wissen, ob
 der Thread tatsächlich beendet wurde, oder nur der Timeout abgelaufen ist.
 
 \kontrollfrage{
@@ -66,8 +66,8 @@ Jeder Thread besitzt einen Namen, welcher initial über den Konstruktor oder dire
 \lstinline$name$-Attribut gesetzt werden kann. 
 Threads können als Dämon gekennzeichnet werden.
 Sobald nur noch Dämon-Threads aktiv sind, wird das Python-Programm beendet.
-Die Dämon-Eigenschaft kann initial über den Konstruktor gesetzt werden und übernimmt
-den Werte des erzeugenden Threads als Defaultwert.
+Die Dämon-Eigenschaft kann initial über den Konstruktor gesetzt werden.
+Wird kein Wert übergeben, übernimmt der Thread standardmäßig den Werte des erzeugenden Threads.
 Über das \lstinline$deamon$-Attribut eines Threads kann die Eigenschaft abgefragt und gesetzt werden.
 Hierbei ist es wichtig, dass die Eigenschaft immer vor dem Aufruf der \lstinline$start()$-Methode
 gesetzt wird.
@@ -77,8 +77,9 @@ Wird sie nach dem Starten des Threads geändert, so wird ein \lstinline$RuntimeEr
 	Dämon-Threads werden sofort beendet, wenn keine normalen Threads mehr aktiv sind.
 	Das heißt, dass ihre Ressourcen wie zum Beispiel geöffnete Dateien oder Datenbanktransaktionen
 	gegebenenfalls nicht ordentlich freigegeben werden.
-	Um dies zu verhindern sollten die Threads nicht die Dämon-Eigenschaft besitzen und es sollten 
-	geeignete Signalisierungsmechanismen eingesetzt werden (siehe \lstinline$Event$-Objekte). %ggf. entfernen falls Kapitel nicht in finaler Abgabe
+	Um dies zu verhindern, sollten die betroffenen Threads nicht die Dämon-Eigenschaft besitzen und
+	es sollten geeignete Signalisierungsmechanismen eingesetzt werden (siehe \lstinline$Event$-Objekte).
+	%ggf. entfernen falls Kapitel nicht in finaler Abgabe
 }
 
 \uebung
@@ -89,12 +90,12 @@ Wird sie nach dem Starten des Threads geändert, so wird ein \lstinline$RuntimeEr
 \subsection{Synchronisation}
 \label{threads:subsection:synchronisation}
 
-Die meinsten Anwendungen, in denen mehrere Threads zum Einsatz kommen, erfordern einen
+Die meisten Anwendungen, in denen mehrere Threads zum Einsatz kommen, erfordern einen
 Mechanismus, der die Zugriffe der einzelnen Threads auf gewisse Daten synchronisiert.
 Hierdurch wird unteranderem vermieden, dass auf invaliden Datensätzen gearbeitet wird, oder ein
 Datenupdate verloren geht.
 Im Folgenden wird ein Beispiel betrachtet, bei dem es zu Fehlern Aufgrund von fehlender
-Synchronisierungsmechanimsen kommt.
+Synchronisationsmechanismen kommt.
 Es werden anschließend neue Konstrukte eingeführt, welche die Fehler beheben werden.
 
 Betrachtet wird nun eine Klasse \lstinline$Counter$, welche in Listing
@@ -112,7 +113,7 @@ welcher bei der Initialisierung ein \lstinline$Counter$-Objekt erwartet. Dieser 
 \lstinputlisting[language=Python,firstline=12,lastline=19]{chapters/nebenlaufigkeit/src/beispiel_synchronisation_fehler.py}
 
 Für dieses Beispiel werden nun 10 \lstinline$IncrementerThreads$ erzeugt und gestartet.
-Anschließend wird auf ihre Terminierung gewartet und dann der Wert \lstinline$count$-Attributs des
+Anschließend wird auf ihre Terminierung gewartet und dann der Wert des \lstinline$count$-Attributs des
 \lstinline$Counters$ ausgegeben (vgl. Listing \ref{threads:lst:example_no_locks}).
 
 \label{threads:lst:example_no_locks}
@@ -144,9 +145,9 @@ Somit kann es vorkommen, dass zum Beispiel der erste Thread den aktuellen \lstin
 und dann die aktive Ausführung an einen anderen Thread abgeben muss.
 Dieser zweite Thread liest nun den selben \lstinline$count$-Wert wie der erste Thread, inkrementiert ihn
 und schreibt den neuen Wert zurück in das Attribut.
-Nun wechselt die aktive Ausfürhung zurück zum ersten Thread, welche noch den alten \lstinline$count$-Wert gelesen hat.
+Nun wechselt die aktive Ausfürhung zurück zum ersten Thread, welcher noch den alten \lstinline$count$-Wert gelesen hat.
 Dieser alte Wert wird nun erneut inkrementiert und zurückgeschrieben. 
-Somit wurde der \lstinline$Counter$ effektiv nicht zweimal sondern nur einmal inkrementiert.
+Somit wurde der \lstinline$Counter$ effektiv nicht zweimal, sondern nur einmal inkrementiert.
 Um dieses Verhalten zu verhindern, muss sichergestellt werden, dass die drei einzelnen Operationen
 atomar ausgeführt werden.
 Das heißt, dass sie entweder ganz oder garnicht ausgeführt werden.
@@ -166,23 +167,23 @@ aufgerufen wird und somit den Zustand des \lstinline$Locks$ wieder zu geöffnet ä
 Die blockierte \lstinline$aquire()$-Methode schließt dann das \lstinline$Lock$ wieder und kehrt zurück.
 Wird auf einem offenen \lstinline$Lock$ die \lstinline$release()$-Methode aufgerufen, so wird ein
 \lstinline$RuntimeError$ geworfen.
-Falls mehrere Threads durch \lstinline$aquire()$ blockiert werden, wird nur ein Thread fortgesetzt sobald
+Falls mehrere Threads durch \lstinline$aquire()$ blockiert werden, wird nur ein Thread fortgesetzt, sobald
 \lstinline$release()$ aufgerufen wurde.
-Welcher der blockierten Threads fortgesetzt ist hierbei nicht definiert.
+Welcher der blockierten Threads fortgesetzt wird ist hierbei nicht definiert.
 
 Wurde \lstinline$aquire()$ aufgerufen, sollte garantiert sein, dass auch \lstinline$release()$
 aufgerufen wird.
 Wird eine \lstinline$Exception$ geworfen, kann dies allerdings nicht immer garantiert sein.
-Aus diesem Grund wird empfohlen, den synchronisierten Programmcode in einen \lstinline$try$-Block
-zu schreiben und den Aufruf von \lstinline$release()$ in den \lstinline$finally$-Block zu schreiben
-(vgl. Listing \ref{threads:lst:try_aquire_lock}).
+Aus diesem Grund wird empfohlen, den durch das \lstinline$Lock$ geschützten Programmcode in
+einen \lstinline$try$-Block zu schreiben und den Aufruf von \lstinline$release()$ in den
+\lstinline$finally$-Block zu schreiben (vgl. Listing \ref{threads:lst:try_aquire_lock}).
 
 \label{threads:lst:try_aquire_lock}
 \lstinputlisting[language=Python,firstline=5,lastline=9]{chapters/nebenlaufigkeit/src/beispiel_lock_aquire_release.py}
 
 Diese Variante ist allerdings etwas lang und unschön.
-Da die \lstinline$Lock$-Klasse das Context-Management-Protokoll unterstützt, kann das gleich mit dem
-\lstinline$with$-Block erreicht werden (vgl. Listing \ref{threads:lst:with_aquire_lock}).
+Da die \lstinline$Lock$-Klasse das Context-Management-Protokoll unterstützt, kann das Gleiche mit dem
+\lstinline$with$-Statement erreicht werden (vgl. Listing \ref{threads:lst:with_aquire_lock}).
 Hierbei werden \lstinline$aquire()$ und \lstinline$release()$ automatisch aufgerufen.
 
 \label{threads:lst:with_aquire_lock}
@@ -194,7 +195,7 @@ Ist dies nicht gewünscht, so kann auch der optionale Parameter \lstinline$blocki
 werden. 
 In diesem Fall kehrt \lstinline$aquire()$ sofort zurück, egal in welchem Zustand sich das \lstinline$Lock$
 befindet.
-Es muss nun der Rückgabewert von \lstinline$aquire()$ betrachtet werden, um zu wissen, ob das 
+Es muss nun der Rückgabewert von \lstinline$aquire()$ betrachtet werden, um zu erfahren, ob das 
 \lstinline$Lock$ offen oder geschlossen ist.
 Ist das \lstinline$Lock$ bereits geschlossen wird der Wert \lstinline$False$ zurückgegeben.
 Andernfalls wird \lstinline$True$ zurückgegeben und das \lstinline$Lock$ ändert seinen Zustand zu
@@ -226,21 +227,21 @@ Beim ersten Aufruf von \lstinline$aquire()$ merkt sich das \lstinline$RLock$-Obj
 Methode aufgerufen hat und setzt einen internen Zähler auf 1.
 Bei jedem weiteren Aufruf von \lstinline$aquire()$ des selben Threads wird der Zähler inkrementiert.
 Wird \lstinline$release()$ aufgerufen, so wird der Zähler wieder dekrementiert.
-Das \lstinline$RLock$ ist erst dann wieder offen, wenn \lstinline$release()$ so oft aufgerufen wurde wie
-\lstinline$aquire()$ und der interne Zähler wieder auf 0 steht.
+Das \lstinline$RLock$ ist erst dann wieder offen, wenn \lstinline$release()$ genau so oft aufgerufen
+wurde, wie \lstinline$aquire()$, und der interne Zähler wieder auf 0 steht.
 Ruft ein zweiter Thread die \lstinline$aquire()$-Methode auf, während der erste Thread das
 \lstinline$RLock$ besitzt, so muss er warten, bis der Zähler wieder auf 0 steht.
-Es ist nun also möglich einen gewissen Codeabschnitt auch rekursive vor konkurrierenden Zugriffen 
+Es ist nun also möglich einen gewissen Codeabschnitt auch rekursiv vor konkurrierenden Zugriffen 
 zu schützen.
 Wie auch schon beim \lstinline$Lock$, können der \lstinline$aquire()$-Methode des \lstinline$RLocks$ 
-die beiden optionalen Paramter \lstinline$blocking$ und \lstinline$timeout$ mitgegeben werden.
+die beiden optionalen Paramter \lstinline$blocking$ und \lstinline$timeout$ übergegeben werden.
 
 \uebung
 \aufgabe{nebenlaufigkeit05}
 
 Im Folgenden wird das Beispiel mit dem \lstinline$Counter$ und dem \lstinline$IncrementerThread$
 etwas angepasst.
-Der \lstinline$IncrementerThread$ soll nun den \lstinline$Counter$ wieder immer nur um eins erhöhen.
+Der \lstinline$IncrementerThread$ soll nun den \lstinline$Counter$ wieder nur um eins erhöhen.
 Weiterhin wird dem \lstinline$IncrementerThread$ ein Wert übergeben, mit welchem gesteuert wird,
 wann der Thread den \lstinline$Counter$ erhöht. Den 10 erstellten \lstinline$IncrementerThreads$ 
 wird nun eine Zahl von 0 bis 9 übergeben. Der \lstinline$Counter$ soll von den einzelnen Threads immer
@@ -249,14 +250,14 @@ Thread bei der Erzeugung übergeben wurde.
 Demnach müssen die \lstinline$IncrementerThreads$ auf einen bestimmten geteilten Zustand warten,
 bevor sie \lstinline$increment()$ aufrufen dürfen.
 \randnotiz{Condition-Variable}
-Für einen solchen Anwendungsfall stellt Python die \lstinline$Condition$-Klasse zur Verfügung, welche
-einen Mechanismus implementiert, der allgemein als Condition Variable (deutch Bedingungsvariable)
-bekannt ist.
+Für einen solchen Anwendungsfall stellt Python die \lstinline$Condition$-Klasse zur Verfügung.
+Der Mechanismus, der hierdurch implementiert wird, ist allgemein als Condition Variable
+(deutch Bedingungsvariable) bekannt.
 Objekte der \lstinline$Condition$-Klasse sind immer einem \lstinline$Lock$- oder einem
 \lstinline$RLock$-Objekt zugeordnet.
 Dieses kann dem Konstruktor eines \lstinline$Condition$-Objektes übergeben werden.
 Wird kein Lock-Objekt übergeben, erzeugt der Konstruktor ein neues.
-Das so erzeugte \lstinline$Condition$-Objekt kann nun überall wie zuvor das Lock-Objekt
+Das so erzeugte \lstinline$Condition$-Objekt kann nun überall wie das Lock-Objekt
 verwendet werden, das Lock-Objekt muss nicht weiterhin zusätzlich verwaltet werden.
 Es kann nun also das \lstinline$RLock$ aus der \lstinline$Counter$-Klasse gegen eine Condition Variable
 ausgetauscht werden.
@@ -273,7 +274,7 @@ Darüber hinaus bietet die \lstinline$Condition$-Klasse noch weitere Methoden an.
 Diese Methoden dürfen nur aufgerufen werden, wenn zuvor \lstinline$aquire()$ aufgerufen wurde.
 Wurde von einem Thread \lstinline$aquire()$ aufgerufen, aber der aktuelle geteilte Zustand
 nicht den gewünschten Bedingungen entspricht, so wird \lstinline$wait()$ aufgerufen.
-Die \lstinline$wait()$-Methode gibt das Lock wieder frei und blockiert dann den Thread, bis er
+Die \lstinline$wait()$-Methode gibt das Lock wieder frei und blockiert den Thread, bis er
 aufgeweckt wird.
 Ein Thread wird durch Aufruf der \lstinline$notify()$- oder der \lstinline$notifiy_all()$-Methode aufgeweckt.
 Diese Methoden sollten immer dann aufgerufen werden, wenn der geteilte Zustand von einem Thread 
@@ -303,8 +304,20 @@ viele Threads aufgeweckt werden sollen.
 	Durch den Aufruf von \lstinline$notify()$ und \lstinline$notify_all()$ wird das Lock nicht freigegeben.
 	Das heißt, dass Threads, die \lstinline$wait()$ aufgerufen haben, erst dann wieder aufwachen, wenn
 	der Thread, der \lstinline$notify()$ oder \lstinline$notify_all()$ aufgerufen hat das Lock wieder 
-	explizit freigibt.
+	explizit frei gibt.
 }
+
+\kontrollfrage{
+\item[\kontroll] Ist es für das \lstinline$Counter$ und \lstinline$IncrementerThread$ Beispiel ausreichend,
+\lstinline$notify()$ aufzurufen?
+}
+
+Das \lstinline$Counter$ und \lstinline$IncrementerThread$ Beispiel würde nicht funktionieren, wenn 
+immer nur ein beliebiger Thread geweckt wird. 
+Wird der \lstinline$Counter$ inkrementiert, muss \lstinline$notify_all()$ aufgerufen werden,
+um einen Deadlock zu vermeiden.
+Dies liegt daran, das immer nur genau ein wartender Thread fortschreiten kann und es ist nicht
+garantiert werden kann, dass genau dieser Thread aufgeweckt wird.
 
 Wie das generische \hyperref[threads:lst:producer_consumer]{Producer-Consumer-Pattern}
 mithilfe von Condition Variablen implementiert werden kann, ist im folgenden Listing
@@ -314,25 +327,12 @@ In diesem Fall heißt das, dass mindestens ein Element verfügbar ist.
 Sobald ein Producer ein Element erstellt hat, ruft er \lstinline$notify()$ auf.
 Somit wird genau ein Consumer aufgeweckt.
 In diesem Beispiel reicht es vollkommen aus, nur einen Consumer aufzuwecken.
-Es gibt allerdings auch Fälle, in denen es nicht ausreicht, nur einen beliebigen Consumer zu wecken.
-Das \lstinline$Counter$ und \lstinline$IncrementerThread$ Beispiel würde nicht funktionieren, wenn 
-immer nur ein beliebiger Thread geweckt wird. 
-
-\kontrollfrage{
-\item[\kontroll] Warum ist es in diesem Beispiel nicht ausreichend, \lstinline$notify()$ aufzurufen?
-}
-
-In diesem Fall muss bei einer Änderung des geteilten Zustandes \lstinline$notify_all()$ aufgerufen werden,
-um einen Deadlock zu vermeiden.
-Dies liegt daran, das immer nur genau ein wartender Thread fortschreiten kann und es ist nicht
-garantiert werden kann, dass genau dieser Thread aufgeweckt wird.
 
 \label{threads:lst:producer_consumer}
 \lstinputlisting[language=Python,firstline=21,lastline=30]{chapters/nebenlaufigkeit/src/beispiel_producer_consumer.py}
 
-Im Beispiel zum \hyperref[threads:lst:producer_consumer]{Producer-Consumer-Pattern} ruft der
-Consumer \lstinline$wait()$ innerhalb der \lstinline$while$-Schleife auf und prüft jedes mal seine
-Bedingung.
+Der Consumer ruft \lstinline$wait()$ innerhalb der \lstinline$while$-Schleife auf und prüft
+jedes mal seine Bedingung.
 Dies ist notwendig, da sich der Zustand zwischen dem Aufruf von \lstinline$notify()$ und dem 
 Zurückkehren von \lstinline$wait()$ erneut ändern kann. 
 Diese Problematik ist inhärent in der Multithreaded-Programmierung.

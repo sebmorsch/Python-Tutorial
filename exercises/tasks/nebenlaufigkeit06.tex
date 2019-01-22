@@ -18,7 +18,8 @@ Dem Konstruktor soll per Parameter ein Wert für das neue Attribut übergeben werd
 \lstinline$increment()$ nur dann aufgerufen wird, wenn seine Bedingung erfüllt ist.
 
 \tip{
-Sie erhalten das \lstinline$Condition$-Objekt des \lstinline$Counters$ mit folgendem Aufruf:
+Sie erhalten das \lstinline$Condition$-Objekt des \lstinline$Counters$ innerhalb der
+\lstinline$IncrementerThread$-Klasse mit folgendem Aufruf:
 \lstinline$self.counter.cv$
 }
 
@@ -28,5 +29,5 @@ aufgeweckt wurde und gerade inkrementiert.
 \end{enumerate}
 
 \warning{
-Achten Sie darauf, dass Sie Ihren \lstinline$Counter$ wieder nur um 1 erhöhen!
+Achten Sie darauf, dass Sie Ihren \lstinline$Counter$ nur um 1 erhöhen!
 }
