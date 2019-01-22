@@ -19,6 +19,8 @@
 \makeindex[title=Index,columns=2,options=-s german,intoc]
 % Header und Footer mit KomaScript
 \usepackage[automark, headsepline]{scrlayer-scrpage}
+% Caption unteraderm, dass \ref nicht nur zur Caption sondern auch zur Figure springt
+\usepackage{caption}
 %
 % Header für Werkzeuge, Begriffe aus dem Software-Management
 \input{variablen}
@@ -229,14 +231,14 @@
 \newtheorem{datensatz}{Datensatz}
 }
 % Text mit Pfad
-\newcommand{\aufgabentext}[1]{\renewcommand{\labelenumi}{\alph{enumi})}\auftitle\label{#1}\input{./exercises/tasks/#1}}
+\newcommand{\aufgabentext}[1]{\renewcommand{\labelenumi}{\alph{enumi})}\auftitle\label{#1}\input{./exercises/tasks/#1} }
 % Funktion für die Lösungs-Hinweise für eine Aufgabe. Der Text
 % steht analog zu den Übungsaufgaben im Ordner tasks/solutions.
 \newcommand{\hinweistext}[1]{\renewcommand{\labelenumi}{\alph{enumi})}\input{./exercises/solutions/#1}}
 % Und jetzt die Funktionen, die wir im Text aufrufen
 \newcommand{\aufgabe}[1]{\aufgabentext{#1}}
 % Lösungshinweise im Anhang
-\newcommand{\hinweis}[1]{\subsubsection*{Aufgabe \ref{#1}} \hinweistext{#1}}
+\newcommand{\hinweis}[1]{\subsubsection*{Aufgabe \ref{#1}}\label{#1sol}  \hinweistext{#1}}
 %
 % Datensatz-Texte und Daten in eigener Datei
 \newcommand{\dataset}[1]{\begin{datensatz}\label{#1}\input{./exercises/datasets/#1}\end{datensatz}}
@@ -296,13 +298,38 @@
 
 \Huge{#2}\\\vspace*{0.5cm}%
 
-\vspace*{3.0cm}%
+\vspace*{2.0cm}%
 \includegraphics[height=6cm]{#1}%
 
-\vspace*{3.0cm}%
-\Large{\theAuthor{}}%
+\vspace*{1.0cm}%
 
 \Large{\theProject{}}%
 
 \Large{\theSchool{}}%
+
+\vspace*{2.0cm}%
+
+\normalsize{\theAuthor{}}%
 \end{titlepage}}
+
+%\makeatletter
+%\newcommand{\shoppinglist}[1]{%
+%	Shopping list: #1\checknextarg}
+%\newcommand{\checknextarg}{\@ifnextchar\bgroup{\gobblenextarg}{ and that's all!}}
+%\newcommand{\gobblenextarg}[1]{ and also #1\@ifnextchar\bgroup{\gobblenextarg}{ and that's all!}}
+%\makeatother
+
+\makeatletter
+\newcommand{\templabel}{xxx}
+\newcommand{\uebungTutorial}[1]{%
+	\vspace*{11pt}%
+	\begin{tabular}{@{}p{2.25cm}@{}p{11.7cm}}%
+		\huge{\ding{45}}&\Large{\textbf{Übungsaufgaben}}%
+	\end{tabular}%
+	\aufgabe{#1}
+	\renewcommand{\templabel}{#1sol}
+	\checknextarg{#1}
+}
+\newcommand{\checknextarg}[1]{\@ifnextchar\bgroup{\gobblenextarg}{ \leavevmode \\ \\ Die Lösungen zu den Aufgaben finden Sie im Anhang \ref{#1sol}. }}
+\newcommand{\gobblenextarg}[1]{  \aufgabe{#1}\@ifnextchar\bgroup{\gobblenextarg}{ \leavevmode \\ \\  Die Lösungen zu den Aufgaben finden Sie im Anhang \ref{\templabel}.}}
+\makeatother
