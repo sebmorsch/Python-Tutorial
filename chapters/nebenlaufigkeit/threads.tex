@@ -1,6 +1,6 @@
 % !TeX root = ../../pythonTutorial.tex
-\section{Threads}
-\label{threads:section:threads}
+\subsection{Threads}
+\label{threads:subsection:threads}
 
 In Python werden zwei APIs zur Verwendung von Threads angeboten, die Low-Level
 API aus dem \_thread-Modul und die Higher-Level API aud dem threading-Modul.
@@ -17,8 +17,8 @@ gestopped, angehalten, fortgesetzt oder unterbrochen werden.
 Soweit vorhanden sind die statischen Methoden aus der Java-Thread-Klasse auf Modul-Ebene
 in Python implementiert.
 
-\subsection{Thread Objekte}
-\label{threads:subsection:thread_objekte}
+\subsubsection{Thread Objekte}
+\label{threads:subsubsection:thread_objekte}
 
 Es gibt zwei Möglichkeiten einen Thread zu erzeugen. Entweder wird dem Konstruktor ein
 aufrufbares Objekt übergeben,
@@ -87,8 +87,8 @@ Wird sie nach dem Starten des Threads geändert, so wird ein \lstinline$RuntimeEr
 \aufgabe{nebenlaufigkeit02}
 
 
-\subsection{Synchronisation}
-\label{threads:subsection:synchronisation}
+\subsubsection{Synchronisation}
+\label{threads:subsubsection:synchronisation}
 
 Die meisten Anwendungen, in denen mehrere Threads zum Einsatz kommen, erfordern einen
 Mechanismus, der die Zugriffe der einzelnen Threads auf gewisse Daten synchronisiert.
