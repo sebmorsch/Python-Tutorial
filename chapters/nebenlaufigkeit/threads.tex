@@ -108,7 +108,7 @@ welcher bei der Initialisierung ein \lstinline$Counter$-Objekt erwartet. Dieser 
 \label{threads:lst:incrementer_thread}
 \lstinputlisting[language=Python,firstline=12,lastline=19]{chapters/nebenlaufigkeit/src/beispiel_synchronisation_fehler.py}
 
-Für dieses Beispiel werden nun 8 \lstinline$IncrementerThreads$ erzeugt und gestartet.
+Für dieses Beispiel werden nun 10 \lstinline$IncrementerThreads$ erzeugt und gestartet.
 Anschließend wird auf ihre Terminierung gewartet und dann der Wert \lstinline$count$-Attributs des
 \lstinline$Counters$ ausgegeben (vgl. Listing \ref{threads:lst:example_no_locks}).
 
@@ -116,22 +116,22 @@ Anschließend wird auf ihre Terminierung gewartet und dann der Wert \lstinline$co
 \lstinputlisting[language=Python,firstline=22]{chapters/nebenlaufigkeit/src/beispiel_synchronisation_fehler.py}
 
 \kontrollfrage{
-\item[\kontroll] Welche Ausgabe würde erwartet werden, wenn 8 Threads den Counter eine Millionen
+\item[\kontroll] Welche Ausgabe würde erwartet werden, wenn 10 Threads den Counter eine Millionen
 mal inkrementieren?
 }
 
-Dieser Programmcode würde vermuten lassen, dass bei jeder Ausführung der Wert 8000000 ausgegeben
-wird, da jeder der 8 Threads den \lstinline$Counter$ eine Millionen mal inkrementiert.
+Dieser Programmcode würde vermuten lassen, dass bei jeder Ausführung der Wert 10000000 ausgegeben
+wird, da jeder der 10 Threads den \lstinline$Counter$ eine Millionen mal inkrementiert.
 Erstaunlicherweiße werden allerdings bei mehrmaliger Ausführung unterschiedliche Werte ausgegeben.
 Diese können zum Beispiel wie folgt aussehen:
 
 \label{threads:lst:beispiel_ausgabe}
 \begin{lstlisting}
 # Mögliche Ausgaben:
-4182858
-4377165
-3261866
-4490102
+5237496
+3561559
+4089438
+4526494
 \end{lstlisting}
 
 Dieses Phänomen lässt sich so erklären, dass die Operation in \lstinline$increment()$ nicht atomar ist.

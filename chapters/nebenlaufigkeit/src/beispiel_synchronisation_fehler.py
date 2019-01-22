@@ -21,7 +21,7 @@ class IncrementerThread(threading.Thread):
 
 counter = Counter()
 threads = []
-for i in range(8):
+for i in range(10):
     thread = IncrementerThread(counter)
     thread.start()
     threads.append(thread)
