@@ -23,31 +23,10 @@ in Python implementiert.
 Es gibt zwei Möglichkeiten einen Thread zu erzeugen. Entweder wird dem Konstruktor ein
 aufrufbares Objekt übergeben,
 \label{threads:lst:thread_erzeugung_callable}
-\begin{lstlisting}
-import threading
-
-
-def aufgabe():
-    # Nebenläufig ausgeführte Aufgabe
-
-
-thread = threading.Thread(target=aufgabe)
-thread.start()
-\end{lstlisting}
+\lstinputlisting[language=Python,firstline=4,lastline=9]{chapters/nebenlaufigkeit/src/beispiel_thread_erzeugung.py}
 oder die \lstinline$run()$-Methode wird in einer von \lstinline$Thread$ abgeleiteten Klasse überschrieben.
 \label{threads:lst:thread_erzeugung_subclass}
-\begin{lstlisting}
-import threading
-
-
-class MeinThread(threading.Thread):
-    def run(self):
-        # Nebenläufig ausgeführte Aufgabe
-
-
-thread = MeinThread()
-thread.start()
-\end{lstlisting}
+\lstinputlisting[language=Python,firstline=12,lastline=18]{chapters/nebenlaufigkeit/src/beispiel_thread_erzeugung.py}
 
 Der Konstruktor  der \lstinline$Thread$-Klasse bietet noch weitere Parameter an:
 \begin{itemize}
@@ -202,18 +181,9 @@ Hierbei werden \lstinline$aquire()$ und \lstinline$release()$ automatisch aufger
 }
 
 \label{threads:lst:try_aquire_lock}
-\begin{lstlisting}[language=Python]
-lock.aquire()
-try:
-    # kritischer Code
-finally:
-    lock.release()
-\end{lstlisting}
+\lstinputlisting[language=Python,firstline=5,lastline=9]{chapters/nebenlaufigkeit/src/beispiel_lock_aquire_release.py}
 \label{threads:lst:with_aquire_lock}
-\begin{lstlisting}[language=Python]
-with lock:
-    # kritischer Code
-\end{lstlisting}
+\lstinputlisting[language=Python,firstline=11,lastline=12]{chapters/nebenlaufigkeit/src/beispiel_lock_aquire_release.py}
 
 \uebung
 \aufgabe{nebenlaufigkeit03}
