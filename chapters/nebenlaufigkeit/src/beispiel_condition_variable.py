@@ -4,13 +4,13 @@ import threading
 class Counter:
     def __init__(self):
         self.count = 0
-        self.lock = threading.RLock()
+        self.cv = threading.Condition()
 
     def increment(self, value=1):
         if 0 >= value:
             return
 
-        with self.lock:
+        with self.cv:
             self.count += 1
             self.increment(value - 1)
 
@@ -22,7 +22,7 @@ class IncrementerThread(threading.Thread):
 
     def run(self):
         for i in range(1000000):
-            self.counter.increment(5)
+            self.counter.increment()
 
 
 counter = Counter()

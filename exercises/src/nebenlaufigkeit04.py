@@ -7,10 +7,12 @@ class Counter:
         self.lock = threading.Lock()
 
     def increment(self, value=1):
+        if 0 >= value:
+            return
+
         with self.lock:
             self.count += 1
-            if 1 < value:
-                self.increment(value - 1)
+            self.increment(value - 1)
 
 
 class IncrementerThread(threading.Thread):

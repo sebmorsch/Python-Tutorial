@@ -212,7 +212,7 @@ zur Synchronisation an.
 \randnotiz{Reentrant Locks}
 Hierbei handelt es sich um die \lstinline$RLock$-Klasse.
 Das \lstinline$R$ steht für \lstinline$reentrant$, was auf deutsch Wiedereintritt bedeutet.
-Im Gegensatz zu Objekte der \lstinline$Lock$-Klasse, die nie einem Thread zugeordnet werden, werden
+Im Gegensatz zu Objekten der \lstinline$Lock$-Klasse, die nie einem Thread zugeordnet werden, werden
 Objekte der \lstinline$RLock$-Klasse an den Thread gebunden, der zuerst die \lstinline$aquire()$-Methode
 aufruft.
 Neben den beiden Zuständen, die die \lstinline$Lock$-Klasse besitzt, merkt sich die \lstinline$RLock$-Klasse
@@ -220,8 +220,8 @@ nun auch, wie oft die \lstinline$aquire()$-Methode aufgerufen wurde.
 Beim ersten Aufruf von \lstinline$aquire()$ merkt sich das \lstinline$RLock$-Objekt, welcher Thread die
 Methode aufgerufen hat und setzt einen internen Zähler auf 1.
 Bei jedem weiteren Aufruf von \lstinline$aquire()$ des selben Threads wird der Zähler inkrementiert.
-Wird \lstinline$release()$ Aufgerufen, so wird der Zähler wieder dekrementiert.
-Das \lstinline$RLock$ ist erst dann wieder offen, wenn \lstinline$release()$ so auf aufgerufen wurde wie
+Wird \lstinline$release()$ aufgerufen, so wird der Zähler wieder dekrementiert.
+Das \lstinline$RLock$ ist erst dann wieder offen, wenn \lstinline$release()$ so oft aufgerufen wurde wie
 \lstinline$aquire()$ und der interne Zähler wieder auf 0 steht.
 Ruft ein zweiter Thread die \lstinline$aquire()$-Methode auf, während der erste Thread das
 \lstinline$RLock$ besitzt, so muss er warten, bis der Zähler wieder auf 0 steht.
@@ -233,5 +233,113 @@ die beiden optionalen Paramter \lstinline$blocking$ und \lstinline$timeout$ mitg
 \uebung
 \aufgabe{nebenlaufigkeit05}
 
-\randnotiz{Bedingungs- variablen}
+Im Folgenden wird das Beispiel mit dem \lstinline$Counter$ und dem \lstinline$IncrementerThread$
+etwas angepasst.
+Der \lstinline$IncrementerThread$ soll nun den \lstinline$Counter$ wieder immer nur um eins erhöhen.
+Weiterhin wird dem \lstinline$IncrementerThread$ ein Wert übergeben, mit welchem gesteuert wird,
+wann der Thread den \lstinline$Counter$ erhöht. Den 10 erstellten \lstinline$IncrementerThreads$ 
+wird nun eine Zahl von 0 bis 9 übergeben. Der \lstinline$Counter$ soll von den einzelnen Threads immer
+nur dann erhöht werden, wenn der aktuelle Wert des \lstinline$Counters$ auf die Ziffer endet, die dem
+Thread bei der Erzeugung übergeben wurde.
+Demnach müssen die \lstinline$IncrementerThreads$ auf einen bestimmten geteilten Zustand warten,
+bevor sie \lstinline$increment()$ aufrufen dürfen.
+\randnotiz{Condition-Variable}
+Für einen solchen Anwendungsfall stellt Python die \lstinline$Condition$-Klasse zur Verfügung, welche
+einen Mechanismus implementiert, der allgemein als Condition Variable (deutch Bedingungsvariable)
+bekannt ist.
+Objekte der \lstinline$Condition$-Klasse sind immer einem \lstinline$Lock$- oder einem
+\lstinline$RLock$-Objekt zugeordnet.
+Dieses kann dem Konstruktor eines \lstinline$Condition$-Objektes übergeben werden.
+Wird kein Lock-Objekt übergeben, erzeugt der Konstruktor ein neues.
+Das so erzeugte \lstinline$Condition$-Objekt kann nun überall wie zuvor das Lock-Objekt
+verwendet werden, das Lock-Objekt muss nicht weiterhin zusätzlich verwaltet werden.
+Es kann nun also das \lstinline$RLock$ aus der \lstinline$Counter$-Klasse gegen eine Condition Variable
+ausgetauscht werden. Das Result davon ist in Listing \ref{threads:lst:counter_condition_variable_example}
+gezeigt.
+\label{threads:lst:counter_condition_variable_example}
+\lstinputlisting[language=Python,firstline=4,lastline=15]{chapters/nebenlaufigkeit/src/beispiel_condition_variable.py}
+
+Eine Condition Variable kann also wie ein einfaches Lock verwendet werden.
+Die \lstinline$aquire()$- und \lstinline$release()$-Methoden verhalten sich hierbei, wie die des hinterlegten
+Lock-Objektes.
+Darüber hinaus bietet die \lstinline$Condition$-Klasse noch weitere Methoden an.
+Diese Methoden dürfen nur aufgerufen werden, wenn zuvor \lstinline$aquire()$ aufgerufen wurde.
+Wurde von einem Thread \lstinline$aquire()$ aufgerufen, aber der aktuelle geteilte Zustand
+nicht den gewünschten Bedingungen entspricht, so wird \lstinline$wait()$ aufgerufen.
+Die \lstinline$wait()$-Methode gibt das Lock wieder frei und blockiert dann den Thread, bis er
+aufgeweckt wird.
+Ein Thread wird durch Aufruf der \lstinline$notify()$- oder der \lstinline$notifiy_all()$-Methode aufgeweckt.
+Diese Methoden sollten immer dann aufgerufen werden, wenn der geteilte Zustand von einem Thread 
+geändert wurde.
+Sobald ein Thread aufgeweckt wurde, fordert \lstinline$wait()$ wieder das Schloss an und kehrt
+dann zurück.
+Nachdem \lstinline$wait()$ zurückgekehrt ist, sollten die Bedingungen an den geteilten Zustand auf 
+jeden Fall wieder geprüft werden, da eine unbestimmte Zeit zwischen dem Aufruf von \lstinline$notify()$
+oder \lstinline$notify_all()$ und dem Zurückkehren von \lstinline$wait()$ vergehen kann.
+Weiterhin ist es möglich \lstinline$wait()$ den optionalen Parameter \lstinline$timeout$ mitzugeben.
+Läuft diese Zeit ab, bevor ein anderer Thread \lstinline$notify()$ oder \lstinline$notify_all()$ aufruft,
+kehrt \lstinline$wait()$ mit dem Rückgabewert \lstinline$False$ zurück.
+
+\tip{
+Um die Entscheidung zwischen \lstinline$notify()$ und \lstinline$notify_all()$ zu erleichtern, sollte die Frage
+gestellt werden, ob die Änderung des geteilten Zustands für nur einen Thread oder mehrere Threads
+interessant ist.
+}
+
+Durch einen Aufruf von \lstinline$notify_all()$ werden alle Threads, die \lstinline$wait()$ auf dem
+entsprechenden \lstinline$Condition$-Objekt aufgerufen haben, aufgeweckt.
+Mit \lstinline$notify()$ wird nur ein Thread aufgeweckt.
+Es kann ein optionaler Parameter \lstinline$n$ an \lstinline$notify()$ übergeben werden, der angibt, wie
+viele Threads aufgeweckt werden sollen.
+
+\warning{
+	Durch den Aufruf von \lstinline$notify()$ und \lstinline$notify_all()$ wird das Lock nicht freigegeben.
+	Das heißt, dass Threads, die \lstinline$wait()$ aufgerufen haben, erst dann wieder aufwachen, wenn
+	der Thread, der \lstinline$notify()$ oder \lstinline$notify_all()$ aufgerufen hat das Lock wieder 
+	explizit freigibt.
+}
+
+Wie das generische \hyperref[threads:lst:producer_consumer]{Producer-Consumer-Pattern}
+mithilfe von Condition Variablen implementiert werden kann, ist im folgenden Listing
+gezeigt \cite{pythondokuthreads}.
+Die Consumer warten so lange, bis der geteilte Zustand der Bedingung entspricht.
+In diesem Fall heißt das, dass mindestens ein Element verfügbar ist.
+Sobald ein Producer ein Element erstellt hat, ruft er \lstinline$notify()$ auf.
+Somit wird genau ein Consumer aufgeweckt.
+In diesem Beispiel reicht es vollkommen aus, nur einen Consumer aufzuwecken.
+Es gibt allerdings auch Fälle, in denen es nicht ausreicht, nur einen beliebigen Consumer zu wecken.
+Das \lstinline$Counter$ und \lstinline$IncrementerThread$ Beispiel würde nicht funktionieren, wenn 
+immer nur ein beliebiger Thread geweckt wird. 
+
+\kontrollfrage{
+\item[\kontroll] Warum ist es in diesem Beispiel nicht ausreichend, \lstinline$notify()$ aufzurufen?
+}
+
+In diesem Fall muss bei einer Änderung des geteilten Zustandes \lstinline$notify_all()$ aufgerufen werden,
+um einen Deadlock zu vermeiden.
+Dies liegt daran, das immer nur genau ein wartender Thread fortschreiten kann und es ist nicht
+garantiert werden kann, dass genau dieser Thread aufgeweckt wird.
+
+\label{threads:lst:producer_consumer}
+\lstinputlisting[language=Python,firstline=21,lastline=30]{chapters/nebenlaufigkeit/src/beispiel_producer_consumer.py}
+
+Im Beispiel zum \hyperref[threads:lst:producer_consumer]{Producer-Consumer-Pattern} ruft der
+Consumer \lstinline$wait()$ innerhalb der \lstinline$while$-Schleife auf und prüft jedes mal seine
+Bedingung.
+Dies ist notwendig, da sich der Zustand zwischen dem Aufruf von \lstinline$notify()$ und dem 
+Zurückkehren von \lstinline$wait()$ erneut ändern kann. 
+Diese Problematik ist inhärent in der Multithreaded-Programmierung.
+Die \lstinline$Condition$-Klasse bietet neben \lstinline$wait()$ eine weitere Methode an, die das Testen
+der Bedingung automatisieren kann.
+Bei dieser Methode handelt es sich um \lstinline$wait_for()$.
+Ihr Paramater \lstinline$predicate$ nimmt ein Callable-Objekt entgegen, welches einen boolischen Wert
+zurück gibt.
+Es kann zudem ein Timeout angegeben werden, der sich wie bei \lstinline$wait()$ verhält.
+Wird \lstinline$wait_for()$ verwendet, ändert sich das
+\hyperref[threads:lst:producer_consumer_wait_for]{Producer-Consumer-Pattern Beispiel}
+folgender Maßen \cite{pythondokuthreads}:
+
+\label{threads:lst:producer_consumer_wait_for}
+\lstinputlisting[language=Python,firstline=32,lastline=35]{chapters/nebenlaufigkeit/src/beispiel_producer_consumer.py}
+
 \randnotiz{Semaphoren}
