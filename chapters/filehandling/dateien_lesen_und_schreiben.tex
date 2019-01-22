@@ -43,26 +43,22 @@ Das Arbeiten ist dann über das entsprechende \lstinline$fileObject$ nicht mehr m
 
 Für die \lstinline$open()$-Methode stehen folgende Modi \randnotiz{Zugriffmodus} zur Verfügung:
 
-\lstinline$"x"$: Erzeugen einer neuen Datei. 
-Sollte bereits eine Datei mit dem gewählten Namen existieren, wird ein Fehler ausgegeben.
+\begin{description}
+	\item[x:] Erzeugen einer neuen Datei. 
+	Sollte bereits eine Datei mit dem gewählten Namen existieren, wird ein Fehler ausgegeben.
+	\item[r:] Lesen einer Datei.
+	\item[r+:] Lese- und Schreibrechte auf einer Datei.
+	\item[a:]  Hinzufügen von Inhalt am Ende der Datei. 
+	Erzeugt eine neue Datei, falls keine mit dem gewählten Namen an der angegebener Pfadangabe existiert.
+	\item[a+:] \lstinline$"a"$ wird um das Leserecht auf der Datei ergänzt.
+	\item[w:] Schreiben einer Datei. 
+	Überschreibt den Inhalt der Datei. 
+	Sollte die Datei mit dem gewählten Namen noch nicht existieren, wird eine neue erzeugt.
+	\item[w+:] \lstinline$"w"$ wird um das Leserecht auf der Datei ergänzt.
+	\item[t, b:] Angabe, ob die Datei als Text- \lstinline$"t"$ oder Binärdatei \lstinline$"b"$ interpretiert werden soll. 
+	Diese Modi können jeweils zu den anderen hinzugefügt werden. Standardmäßig wird die Datei als Text interpretiert, \lstinline$"t"$ kann hierbei weggelassen werden.
+\end{description}
 
-\lstinline$"r"$: Lesen einer Datei.
-
-\lstinline$"r+"$: Lese- und Schreibrechte auf einer Datei.
-
-\lstinline$"a"$: Hinzufügen von Inhalt am Ende der Datei. 
-Erzeugt eine neue Datei, falls keine mit dem gewählten Namen an der angegebener Pfadangabe existiert.
-
-\lstinline$"a+"$: \lstinline$"a"$ wird um das Leserecht auf der Datei ergänzt.
-
-\lstinline$"w"$: Schreiben einer Datei. 
-Überschreibt den Inhalt der Datei. 
-Sollte die Datei mit dem gewählten Namen noch nicht existieren, wird eine neue erzeugt.
-
-\lstinline$"w+"$: \lstinline$"w"$ wird um das Leserecht auf der Datei ergänzt.
-
-\lstinline$"t","b"$: Angabe, ob die Datei als Text- \lstinline$"t"$ oder Binärdatei \lstinline$"b"$ interpretiert werden soll. 
-Diese Modi können jeweils zu den anderen hinzugefügt werden. Standardmäßig wird die Datei als Text interpretiert, \lstinline$"t"$ kann hierbei weggelassen werden.
 \lstinputlisting[language=Python, firstline=1,lastline=9]{chapters/filehandling/src/dateien_lesen_und_schreiben/FileHandling.py}
 \label{filehandling:lst:opentype}
 
@@ -92,7 +88,7 @@ Dies gilt sowohl für die \lstinline$read()$- als auch für die \lstinline$readlin
 Wird der folgende Code ausgeführt, fällt auf, das die \lstinline$datei.txt$ drei 
 Zeilen enthält und für jede Zeile die Anweisung \lstinline$print(fileObject.readline())$ benötigt wird, 
 um den Inhalt vollständig auszugeben. 
-Folglich muss im 
+Folglich muss im\\ 
 \lstinline$fileObject$ die aktuelle Leseposition gespeichert sein.
 \lstinputlisting[language=Python, linerange={1-1,36-49}]{chapters/filehandling/src/dateien_lesen_und_schreiben/FileHandlingReadWrite.py}
 \label{filehandling:lst:openreadline}
@@ -102,7 +98,7 @@ In diesem Fall verwenden wir eine for-Schleife.
 \lstinputlisting[language=Python, linerange={1-1,51-63}]{chapters/filehandling/src/dateien_lesen_und_schreiben/FileHandlingReadWrite.py}
 \label{filehandling:lst:openreadfor}
 Eine weitere Alternative ist die \lstinline$readlines()$-Methode, die eine List mit den Zeilen der Datei als Inhalt liefert.
-\lstinputlisting[language=Python, linerange={1-1,65-71}]{chapters/filehandling/src/dateien_lesen_und_schreiben/FileHandlingReadWrite.py}
+\lstinputlisting[language=Python, linerange={1-1,65-72}]{chapters/filehandling/src/dateien_lesen_und_schreiben/FileHandlingReadWrite.py}
 \label{filehandling:lst:openreadlines}
 Wird die \lstinline$readlines()$-Methode zweimal hintereinander verwendet, erhalten wir folgende Ausgabe:
 \begin{lstlisting}[language=Python]
@@ -116,12 +112,13 @@ Nach dem ersten Aufruf der Methode befindet sich der Zeiger am Ende des \lstinli
 Somit kann bei dem zweiten Aufruf kein Inhalt mehr ausgelesen werden.
 Mithilfe der \lstinline$tell()$-Methode kann die aktuelle Position des Zeigers ausgegeben werden. 
 Fügen wir den folgenden Code vor den \lstinline$readlines()$-Methoden ein, kann der Zeiger verfolgt werden.
-\lstinputlisting[language=Python, linerange={1-1,73-86}]{chapters/filehandling/src/dateien_lesen_und_schreiben/FileHandlingReadWrite.py}
+\lstinputlisting[language=Python, linerange={1-1,74-87}]{chapters/filehandling/src/dateien_lesen_und_schreiben/FileHandlingReadWrite.py}
 \label{filehandling:lst:opentell}
 Soll die Ausgabe beider Lists identisch sein, muss der Zeiger an den Anfang zurückgesetzt werden. 
 In Python existiert für diesen Zweck die \lstinline$seek()$-Methode. 
-Wird der Zeiger direkt nach der ersten Verwendung der \lstinline$readlines()$-Methode auf die Position \lstinline$0$ zurückgesetzt, erhalten wir die gewünschte Ausgabe.
-\lstinputlisting[language=Python, linerange={1-1,88-102}]{chapters/filehandling/src/dateien_lesen_und_schreiben/FileHandlingReadWrite.py}
+Wird der Zeiger direkt nach der ersten Verwendung der\\
+\lstinline$readlines()$-Methode auf die Position \lstinline$0$ zurückgesetzt, erhalten wir die gewünschte Ausgabe.
+\lstinputlisting[language=Python, linerange={1-1,89-103}]{chapters/filehandling/src/dateien_lesen_und_schreiben/FileHandlingReadWrite.py}
 \label{filehandling:lst:openseek}
 
 \subsection{With-Statement}
@@ -131,9 +128,10 @@ Bisher mussten wir in dem Code-Beispiel die \lstinline$open()$-Methode verwenden
 dass das \lstinline$fileObject$ mit \lstinline$close()$ nach Gebrauch wieder geschlossen wird.
 
 Alternativ kann das \lstinline$with$-Statement genutzt werden. 
-So wird die Datei nach Verwendung automatisch geschlossen, ohne die explizite Angabe von \lstinline$close()$. 
+So wird die Datei nach Verwendung automatisch geschlossen, ohne die explizite Angabe von\\
+\lstinline$close()$. 
 Der Code zum Auslesen der datei.txt sieht wie folgt aus:
-\lstinputlisting[language=Python, linerange={1-1,104-112}]{chapters/filehandling/src/dateien_lesen_und_schreiben/FileHandlingReadWrite.py}
+\lstinputlisting[language=Python, linerange={1-1,105-113}]{chapters/filehandling/src/dateien_lesen_und_schreiben/FileHandlingReadWrite.py}
 \label{filehandling:lst:openwithstatement}
 
 \subsection{Attribute}
