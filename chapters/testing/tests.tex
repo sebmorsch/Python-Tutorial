@@ -1,6 +1,6 @@
 % !TeX root = ../../pythonTutorial.tex
-\section{Testing}
-\label{testing:sec:Testing}
+\section{Grundlegende Testmöglichkeiten}
+\label{testing:sec:grundlegendeTestmoeglichkeiten}
 Zum Testen unter Python gibt es mehrere Module die das Testen unterstützen.
 Zum einen das Modul \lstinline$doctest$, welches als interaktive Dokumentation Testmuster bereitstellt.
 Zum anderen das Modul \lstinline$unittest$, welches den Unittests unter Java mit JUnit sehr ähnelt.
@@ -19,7 +19,7 @@ Dadurch das die Tests bei dem zu testenden Code stehen wird ein direkter Bezug z
 Sollte beim Ausführen kein Test fehlschlagen, kommt es zu keiner Ausgabe durch den Interpreter.
 Ist trotzdem eine Ausgabe erwünscht, ist diese mit dem Parameter \lstinline$-v$ (verbose) aktivierbar.
 
-\lstinputlisting[language=Python,lastline=37, label={tests:lst:SimpleDocTest}]{chapters/basics/src/tests/simpleDocTest.py}
+\lstinputlisting[language=Python,lastline=37, label={tests:lst:SimpleDocTest}]{chapters/testing/src/simpleDocTest.py}
 
 Im nachfolgenden Beispiel ist die Ausgabe der Tests aus dem oben gezeigten Codebeispiel, zu sehen.
 Der Ablauf, der einzelnen Test, ist jedes Mal gleich.
@@ -31,7 +31,7 @@ Hierbei handelt es sich um einen freien Test und drei innerhalb der Funktion.
 Danach gibt es noch eine weitere Zusammenfassung, die die Tests nach Erfolg und Misserfolg gruppiert.
 Dies soll dem Anwender ermöglichen, alle Tests mit einem Blick zu erfassen.
 
-\lstinputlisting[language=python,linerange={1-3,40-69}, label={tests:lst:SimpleDocTestPrintSuccess}]{chapters/basics/src/tests/simpleDocTest.py}
+\lstinputlisting[language=python,linerange={1-3,40-69}, label={tests:lst:SimpleDocTestPrintSuccess}]{chapters/testing/src/simpleDocTest.py}
 
 Um den Fehlerfall zu betrachten, wurde die Rückgabe der Funktion von \lstinline$x * y$ auf \lstinline$x + y$ geändert.
 Dies sorgte sofort für zwei Fehler beim Start des Programms.
@@ -40,7 +40,7 @@ Im Unterschied zum Erfolgsfall wird hier die Stelle angegeben, an der der Test s
 Zusätzlich dazu wird der zurückgegebene Wert angezeigt.
 Am Ende erfolgt wieder eine Zusammenfassung.
 
-\lstinputlisting[language=python,linerange={1-3,73-93}, label={tests:lst:SimpleDocTestPrintFailure}]{chapters/basics/src/tests/simpleDocTest.py}
+\lstinputlisting[language=python,linerange={1-3,73-93}, label={tests:lst:SimpleDocTestPrintFailure}]{chapters/testing/src/simpleDocTest.py}
 
 Über \randnotiz{Strukturierung} das Modul \lstinline$doctest$ ist es einerseits möglich, Tests direkt an den Programmcode zu hängen und über den Docstring der Funktion Tests auszuführen.
 Diese Tests werden am Ende eines Moduls mit \lstinline$doctest.testmod()$ aufgerufen.
@@ -57,7 +57,7 @@ Das Modul erkennt automatisch, dass es in diesem fall \lstinline$doctest.testfil
 
 Die Textdatei für ausgelagerte Testfälle kann die wie folgt aussehen.
 
-\lstinputlisting[label={tests:lst:docTestExtern}]{chapters/basics/src/tests/doctest.txt}
+\lstinputlisting[label={tests:lst:docTestExtern}]{chapters/testing/src/doctest.txt}
 
 \tip{Grundsätzlich ist die Menge des Texts, der zusätzlich zum eigentlichen Test in einer ausgelagerten doctest-Datei steht, beliebig.
 Zu beachten ist lediglich die Importanweisung sowie die Notation mit \lstinline$>>>$ zum Aufrufen der Funktion und deren Ausgabe im Anschluss.}
@@ -74,7 +74,7 @@ Mit diesen Testfällen lässt sich Programmcode auf Integrations- und Operationseb
 \label{testing:sec:BeispielTest} 
 
 Zum Einstieg in das Thema Unittest, zunächst ein kleines Beispiel einer Testklasse.
-\lstinputlisting[language=Python, label={testing:lst:BeispielTest}]{chapters/basics/src/tests/simpleTest.py}
+\lstinputlisting[language=Python, label={testing:lst:BeispielTest}]{chapters/testing/src/simpleTest.py}
 
 Um einen Test zu erstellen, muss die Klasse, in der die Testfälle definiert werden, von der Klasse \lstinline$unittest.TestCase$ ableiten.
 Hierfür muss zuvor das Modul \lstinline$unittest$ importiert werden.

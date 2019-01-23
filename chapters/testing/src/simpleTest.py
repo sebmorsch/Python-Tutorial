@@ -1,4 +1,4 @@
-# tests/simpleTest.py
+# simpleTest.py
 # einfacher Test in Python
 
 import unittest
