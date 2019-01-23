@@ -1,4 +1,4 @@
-# tests/doctest.txt
+# doctest.txt
 # Example for DocTest as external testdocument
 
 # Importanweisung  

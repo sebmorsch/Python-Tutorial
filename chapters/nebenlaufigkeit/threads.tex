@@ -98,16 +98,17 @@ Im Folgenden wird ein Beispiel betrachtet, bei dem es zu Fehlern Aufgrund von fe
 Synchronisationsmechanismen kommt.
 Es werden anschließend neue Konstrukte eingeführt, welche die Fehler beheben werden.
 
-Betrachtet wird nun eine Klasse \lstinline$Counter$, welche in Listing
-\ref{threads:lst:counter_example} gezeigt wird.
+Betrachtet wird nun die folgende \hyperref[threads:lst:counter_example]{\lstinline$Counter$-Klasse}.
 Sie besitzt das Attribut \lstinline$count$, welches durch Aufruf von \lstinline$increment()$
 in Einerschritten erhöht wird. 
 
 \label{threads:lst:counter_example}
 \lstinputlisting[language=Python,firstline=4,lastline=9]{chapters/nebenlaufigkeit/src/beispiel_synchronisation_fehler.py}
 
-Es ist weiterhin \lstinline$IncrementerThread$ in Listing \ref{threads:lst:incrementer_thread} gegeben,
-welcher bei der Initialisierung ein \lstinline$Counter$-Objekt erwartet. Dieser Thread ruft eine Millionen mal die \lstinline$increment()$-Methode des \lstinline$Counters$ auf und beendet sich anschließend.
+Es ist weiterhin die \hyperref[threads:lst:incrementer_thread]{\lstinline$IncrementerThread$-Klasse}
+gegeben, welche bei der Initialisierung ein \lstinline$Counter$-Objekt erwartet.
+Dieser Thread ruft eine Millionen mal die \lstinline$increment()$-Methode des \lstinline$Counters$
+auf und beendet sich anschließend.
 
 \label{threads:lst:incrementer_thread}
 \lstinputlisting[language=Python,firstline=12,lastline=19]{chapters/nebenlaufigkeit/src/beispiel_synchronisation_fehler.py}
@@ -176,15 +177,15 @@ aufgerufen wird.
 Wird eine \lstinline$Exception$ geworfen, kann dies allerdings nicht immer garantiert sein.
 Aus diesem Grund wird empfohlen, den durch das \lstinline$Lock$ geschützten Programmcode in
 einen \lstinline$try$-Block zu schreiben und den Aufruf von \lstinline$release()$ in den
-\lstinline$finally$-Block zu schreiben (vgl. Listing \ref{threads:lst:try_aquire_lock}).
+\lstinline$finally$-Block zu schreiben:
 
 \label{threads:lst:try_aquire_lock}
 \lstinputlisting[language=Python,firstline=5,lastline=9]{chapters/nebenlaufigkeit/src/beispiel_lock_aquire_release.py}
 
 Diese Variante ist allerdings etwas lang und unschön.
 Da die \lstinline$Lock$-Klasse das Context-Management-Protokoll unterstützt, kann das Gleiche mit dem
-\lstinline$with$-Statement erreicht werden (vgl. Listing \ref{threads:lst:with_aquire_lock}).
-Hierbei werden \lstinline$aquire()$ und \lstinline$release()$ automatisch aufgerufen.
+\lstinline$with$-Statement erreicht werden.
+Hierbei werden \lstinline$aquire()$ und \lstinline$release()$ automatisch aufgerufen:
 
 \label{threads:lst:with_aquire_lock}
 \lstinputlisting[language=Python,firstline=11,lastline=12]{chapters/nebenlaufigkeit/src/beispiel_lock_aquire_release.py}
@@ -239,8 +240,8 @@ die beiden optionalen Paramter \lstinline$blocking$ und \lstinline$timeout$ über
 \uebung
 \aufgabe{nebenlaufigkeit05}
 
-Im Folgenden wird das Beispiel mit dem \lstinline$Counter$ und dem \lstinline$IncrementerThread$
-etwas angepasst.
+Im Folgenden wird das Beispiel mit dem \lstinline$Counter$ und dem \lstinline$Incrementer-$
+\lstinline$Thread$ etwas angepasst.
 Der \lstinline$IncrementerThread$ soll nun den \lstinline$Counter$ wieder nur um eins erhöhen.
 Weiterhin wird dem \lstinline$IncrementerThread$ ein Wert übergeben, mit welchem gesteuert wird,
 wann der Thread den \lstinline$Counter$ erhöht. Den 10 erstellten \lstinline$IncrementerThreads$ 
@@ -276,7 +277,8 @@ Wurde von einem Thread \lstinline$aquire()$ aufgerufen, aber der aktuelle geteil
 nicht den gewünschten Bedingungen entspricht, so wird \lstinline$wait()$ aufgerufen.
 Die \lstinline$wait()$-Methode gibt das Lock wieder frei und blockiert den Thread, bis er
 aufgeweckt wird.
-Ein Thread wird durch Aufruf der \lstinline$notify()$- oder der \lstinline$notifiy_all()$-Methode aufgeweckt.
+Ein Thread wird durch Aufruf der \lstinline$notify()$- oder der \lstinline$notifiy_all()$
+-Methode aufgeweckt.
 Diese Methoden sollten immer dann aufgerufen werden, wenn der geteilte Zustand von einem Thread 
 geändert wurde.
 Sobald ein Thread aufgeweckt wurde, fordert \lstinline$wait()$ wieder das Schloss an und kehrt
@@ -321,7 +323,7 @@ garantiert werden kann, dass genau dieser Thread aufgeweckt wird.
 
 Wie das generische \hyperref[threads:lst:producer_consumer]{Producer-Consumer-Pattern}
 mithilfe von Condition Variablen implementiert werden kann, ist im folgenden Listing
-gezeigt \cite{pythondokuthreads}.
+gezeigt (vgl. \cite{pythondokuthreads}).
 Die Consumer warten so lange, bis der geteilte Zustand der Bedingung entspricht.
 In diesem Fall heißt das, dass mindestens ein Element verfügbar ist.
 Sobald ein Producer ein Element erstellt hat, ruft er \lstinline$notify()$ auf.
@@ -344,7 +346,7 @@ zurück gibt.
 Es kann zudem ein Timeout angegeben werden, der sich wie bei \lstinline$wait()$ verhält.
 Wird \lstinline$wait_for()$ verwendet, ändert sich das
 \hyperref[threads:lst:producer_consumer_wait_for]{Producer-Consumer-Pattern Beispiel}
-folgender Maßen \cite{pythondokuthreads}:
+folgender Maßen (vgl. \cite{pythondokuthreads}):
 
 \label{threads:lst:producer_consumer_wait_for}
 \lstinputlisting[language=Python,firstline=32,lastline=35]{chapters/nebenlaufigkeit/src/beispiel_producer_consumer.py}
@@ -444,4 +446,3 @@ aufeinander warten müssen.
 Die einzelnen Threads rufen die \lstinline$wait()$-Methode der \lstinline$Barrier$ auf, welche solange 
 blockiert, bis die mit \lstinline$parties$ spezifizierte Anzahl an Threads \lstinline$wait()$ aufgerufen haben.
 Wurde diese Anzahl erreicht, werden alle Threads zeitgleich fortgesetzt.
-

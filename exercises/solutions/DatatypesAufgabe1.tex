@@ -24,18 +24,40 @@
 \end{lstlisting}
 
 \item     Das Programm liefert einen Fehler, da die
-    Konkatenation von String und Int-Variablen nicht in einem Print-Statement möglich ist. Eine mögliche Lösung um den String mit anschließender Summe auszugeben ist
+    Konkatenation von String und Int-Variablen nicht in einem Print-Statement mÃ¶glich ist. Eine mÃ¶gliche LÃ¶sung um den String mit anschlieÃŸender Summe auszugeben ist
 \begin{lstlisting}[label=datatypesSolutionF]
     print (c, a + b)
 \end{lstlisting}
 
 \item \begin{lstlisting}[label=datatypesSolutionG]
-    from enum import Enum
-        class Jahreszeit(Enum):
-            FRÜHLING = 1
-            SOMMER = 2
-            HERBST = 3
-            WINTER = 4
-\end{lstlisting}
+#MÃ¶glichkeit 1: mit Hilfsvariablen
 
-\end{enumerate} 
+c = a + b
+d = a - b
+e = a * b
+f = a / b
+g = a % b
+
+print ("Summe: ", c)
+print ("Differenz: ", d)
+print ("Produkt: ", e)
+print ("Quotient: ", f, " mit Rest ", g)
+
+#MÃ¶glichkeit 2: ohne Hilfsvariablen
+
+print ("Summe: ", a+b)
+print ("Differenz: ", a-b)
+print ("Produkt: ", a*b)
+print ("Quotient: ", a/b, " mit Rest ", a%b)
+\end{lstlisting} 
+
+\item \begin{lstlisting}[label=datatypesSolutionH]
+	from enum import Enum
+		class Jahreszeit(Enum):
+    		FRÃœHLING = 1
+   			SOMMER = 2
+    		HERBST = 3
+    		WINTER = 4
+\end{lstlisting} 
+
+\end{enumerate}
