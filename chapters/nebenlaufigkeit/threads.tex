@@ -446,3 +446,27 @@ aufeinander warten müssen.
 Die einzelnen Threads rufen die \lstinline$wait()$-Methode der \lstinline$Barrier$ auf, welche solange 
 blockiert, bis die mit \lstinline$parties$ spezifizierte Anzahl an Threads \lstinline$wait()$ aufgerufen haben.
 Wurde diese Anzahl erreicht, werden alle Threads zeitgleich fortgesetzt.
+Neben \lstinline$parties$ nimmt der Konstruktor von \lstinline$Barrier$ die beiden optionalen Parameter
+\lstinline$timeout$ und \lstinline$action$.
+Durch \lstinline$timeout$ wird der Default-Timeout der \lstinline$wait()$-Methode gesetzt.
+Läuft dieser Timeout ab, bevor alle Threads an der \lstinline$Barrier$ warten, werden die bereits
+wartenden Threads wieder aufgeweckt und die \lstinline$Barrier$ wird in einen ''zerstörten''
+Zustand gebracht.
+Der \lstinline$wait()$-Methode kann zudem ebenfalls ein \lstinline$timeout$-Parameter übergeben werden.
+In diesem Fall hat der in \lstinline$wait()$ definierte Timeout vorrang.
+Durch den \lstinline$action$-Parameter kann ein Callable-Objekt definiert werden, dass aufgerufen wird,
+sobald alle Threads \lstinline$wait()$ aufgerufen haben und bevor sie ihre Ausführung fortsetzen.
+Der Rückgabewert von \lstinline$wait()$ ist ein Integer im Intervall [0, \lstinline$parties$). 
+Hierüber kann zum Beispiel ein Thread ausgewählt werden, um eine Besondere Aufgabe auszuführen.
+Wurde die \lstinline$Barrier$ genutzt, kann sie über \lstinline$reset()$ in ihren Initialzustand versetzt
+werden und erneut verwendet werden.
+Durch Aufruf von \lstinline$abort()$ wird die \lstinline$Barrier$ in einen ''zerstörten'' Zustand überführt.
+Es kann jederzeit die Anzahl der Threads, auf die gewartet wird, und die Anzahl der bereits wartenden
+Threads über die Attribute \lstinline$parties$ und \lstinline$n_waiting$ abgefragt werden.
+Das Attribut \lstinline$broken$ gibt an, ob sich die \lstinline$Barrier$ im ''zerstörten'' Zustand befindet.
+
+\tip{
+Tritt in einem Thread ein Problem auf, und er kann nicht ordnugsgemäß fortgesetzt werden, kann
+\lstinline$abort()$ genutzt werden, um so die bereits wartenden Threads aufzuwecken und einen
+Deadlock zu vermeiden.
+}
