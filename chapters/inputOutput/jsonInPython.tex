@@ -7,19 +7,19 @@ die dieses Format mit Programmiersprachen aus der C-Familie, wie C, C++, Java od
 
 In Python 3 ist nativ das json-Package enthalten, das das Arbeiten mit
 dem JSON-Format ermöglicht. Mithilfe des folgenden Codes binden wir das Package in das Projekt ein. 
-\lstinputlisting[language=Python, linerange={1-1,3-5}]{chapters/filehandling/src/json_in_python/JsonInPython.py}
+\lstinputlisting[language=Python, linerange={1-1,3-5}]{chapters/inputOutput/src/jsonInPython/JsonInPython.py}
 \label{filehandling:lst:importpackage}
 
 Ein gegebener JSON-String wird über die \lstinline$loads()$-Methode in ein in Python existierendes, entsprechendes Objekt geparst.
 In diesem Fall wird ein Dictionary angelegt.
 \randnotiz{JSON zu Python}
-\lstinputlisting[language=Python, linerange={1-1,7-19}]{chapters/filehandling/src/json_in_python/JsonInPython.py}
+\lstinputlisting[language=Python, linerange={1-1,7-19}]{chapters/inputOutput/src/jsonInPython/JsonInPython.py}
 \label{filehandling:lst:loads}
 
 Für das Umwandeln eines Python-Objekts in einen JSON-String verwenden wir die 
 \lstinline$dumps()$-Methode.
 \randnotiz{Python zu JSON}
-\lstinputlisting[language=Python, linerange={1-1,21-35}]{chapters/filehandling/src/json_in_python/JsonInPython.py}
+\lstinputlisting[language=Python, linerange={1-1,21-35}]{chapters/inputOutput/src/jsonInPython/JsonInPython.py}
 \label{filehandling:lst:dumps}
 
 Konvertieren wir Python- zu JSON-Objekte, werden diese im\\
@@ -27,25 +27,14 @@ JSON-Äquivalent (JavaScript) angelegt.
 
 Wenn wir einen Dictionary mit mehreren Schlüssel-Objekt-Paaren anlegen,
 werden wir bei der Ausgabe des JSON-Objekts feststellen, dass diese auf eine Zeile beschränkt sind. 
-\lstinputlisting[language=Python, linerange={1-1,37-55}]{chapters/filehandling/src/json_in_python/JsonInPython.py}
+\lstinputlisting[language=Python, linerange={1-1,37-55}]{chapters/inputOutput/src/jsonInPython/JsonInPython.py}
 \label{filehandling:lst:format1}
 
 Zur Formatierung unserer Ausgabe verwenden wir die \lstinline$dumps()$-Methode.
 Mithilfe des \lstinline$indent$-Parameters können wir festlegen, ob und wie weit die Textstruktur eingerückt werden soll. 
 Der \lstinline$separators$-Parameter legt die\\
 Trennzeichen fest und mit \lstinline$sort_keys=True$ wird die Ausgabe der Schlüssel lexikografisch sortiert.
-\lstinputlisting[language=Python, linerange={1-1,37-37,56-81}]{chapters/filehandling/src/json_in_python/JsonInPython.py}  
+\lstinputlisting[language=Python, linerange={1-1,37-37,56-81}]{chapters/inputOutput/src/jsonInPython/JsonInPython.py}  
 \label{filehandling:lst:format2}
 
-\subsection{Zusammenfassung}
-\label{filehandling:subsection:zusammenfassungdateienlesenundschreiben}
-
-In diesem Kapitel haben wir uns mit dem lesen und beschreiben einer Datei auseinandergesetzt.
-Dies geschieht in Python mithilfe eines \lstinline$fileObject$ um eine Datei zu erstellen, ändern, löschen und abzuspeichern.
-Dabei kann eine Datei als Textdatei oder Binärdatei interpretiert werden. 
-Eine der wichtigsten Methoden stellt hierbei die \lstinline$open()$-Methode dar. 
-Diese ermöglicht uns das Erstellen, Öffnen, Aktualisieren, Lesen und Beschreiben einer Datei.
-Dabei ist zu beachten, dass die Datei direkt nach der Ausführung der gewünschten Operationen mithilfe der \lstinline$close()$-Methode geschlossen wird.
-Um dies nicht zu vergessen, besteht in Python auch die Möglichkeit ein automatisches Schließen mit dem \lstinline$With$-Statement zu erwirken. 
-Abschließend haben wir noch den Zugriff auf die wichtigsten Attribute, die ein \lstinline$fileObject$ besitzt, kennengelernt und uns mit dem Standardisierten Datenaustausch mittels JSON beschäftigt.
 

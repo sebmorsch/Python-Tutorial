@@ -1,4 +1,4 @@
-# src/FileHandling.py
+# src/dateienLesenUndSchreiben/FileHandling.py
 # Typ des Datei-Objekts festlegen
 # Beispiel am "r"-Modus
 
