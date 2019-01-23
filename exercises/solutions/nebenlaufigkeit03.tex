@@ -1,0 +1,7 @@
+Hierzu wird ein \lstinline$Lock$-Objekt im Konstruktor der \lstinline$Counter$-Klasse erzeugt
+und in einem neuen Attribut gespeichert.
+In der \lstinline$increment()$-Methode wird nun das Inkrementieren des \lstinline$count$-Attributs 
+nach dem Aufruf von \lstinline$aquire()$ auf dem neuen \lstinline$Lock$-Objekt ausgeführt.
+Anschließend wird \lstinline$release()$ aufgerufen.
+
+Es bietet sich an, das \lstinline$with$-Statemant zu verwenden.
