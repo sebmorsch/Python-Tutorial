@@ -352,4 +352,78 @@ folgender Maßen \cite{pythondokuthreads}:
 \uebung
 \aufgabe{nebenlaufigkeit06}
 
+Eine weitere Problematik, die bei der Multithreaded-Programmierung vorkommt, ist das Schützen
+einer Ressource mit einer begrenzten Kapazität.
+Als Beispiel aus dem Alltag dient hierfür ein Parkhaus, welches nur eine begrenzte Anzahl an
+Parkplätzen besitzt.
+Es dürfen sich immer nur maximal so viele Autos im Parkhaus befinden, wie Parkplätze vorhanden sind.
+Die Klasse \hyperref[threads:lst:parkhaus]{\lstinline$CarPark$} simuliert ein Parkhaus und verwendet
+eine Condition Variable, um sich vor konkurrierenden Zugriffen zu schützen.
+
+\label{threads:lst:parkhaus}
+\lstinputlisting[language=Python,firstline=6,lastline=29]{chapters/nebenlaufigkeit/src/beispiel_parkhaus.py}
+
+Ein Auto, dass zuerst eine gewisse Zeit umher fährt, bevor es eine zufällige Zeit parkt, wird durch die
+Klasse \hyperref[threads:lst:auto]{\lstinline$Car$} simuliert.
+Um eine zufällige Zeit im Intervall von \lstinline$x$ bis \lstinline$y$ zu schlafen wird hier die
+\lstinline$uniform(x,y)$-Methode aus dem \lstinline$random$-Modul verwendet.
+
+\label{threads:lst:auto}
+\lstinputlisting[language=Python,firstline=32,lastline=54]{chapters/nebenlaufigkeit/src/beispiel_parkhaus.py}
+
+Es wird nun ein neues \lstinline$CarPark$-Objekt erzeugt, das 5 Parkplätze besitzt.
+Anschließend werden 10 \lstinline$Car$-Objekte initialisiert und gestartet.
+Wird das folgende \hyperref[threads:lst:parkhaus_ausführung]{Programm} ausgeführt, kann über die
+Ausgaben nachvollzogen werden, welches Auto gerade in das Parkhaus einfahren möcht, einen
+Parkplatz gefunden hat und wieder ausfährt.
+
+\label{threads:lst:parkhaus_ausführung}
+\lstinputlisting[language=Python,firstline=57,lastline=60]{chapters/nebenlaufigkeit/src/beispiel_parkhaus.py}
+
+Dieses Beispiel stellt eine vereinfachte Ansicht auf das reale Geschehen.
+Es wird hier nämlich keine Rücksicht auf die Reihenfolge genommen, in der die Autos in das 
+Parkhaus einfahren möchten.
+Demnach ist es möglich, dass Autos in der Warteschlange übersprungen werden.
+
+\kontrollfrage{
+\item[\kontroll] Weshalb wird hier die Reihenfolge der Autos in der Warteschlange nicht beachtet?
+}
+
+Es ist etwas lästig, selbst über die aktuell belegten Ressourcen Buch zu führen.
 \randnotiz{Semaphoren}
+Durch die \lstinline$Semaphore$-Klasse wird in Python eine Synchronisationsprimitive angeboten, 
+die das Verwalten der zu schützenden Ressourcen übernimmt.
+Eine \lstinline$Semaphore$ ähnelt einem \lstinline$Lock$, mit dem Unterschied, dass ihr bei der Erzeugung
+über den \lstinline$value$-Parameter eine Kapazität übergeben werden kann.
+Intern verwaltet sie einen Zähler, der mit der angegebenen Kapazität initialisiert wird.
+Jedes mal, wenn \lstinline$aquire()$ aufgerufen wird, wird dieser Zähler dekrementiert.
+Die \lstinline$aquire()$-Methode blockiert nur dann, wenn der Zähler auf 0 steht.
+Erst wenn \lstinline$release()$ aufgerufen wird, wird der Zähler wieder inkrementiert.
+Werden Threads durch \lstinline$aquire()$ blockiert, wird genau einer dieser Threads automatisch
+aufgeweckt, sobald \lstinline$release()$ aufgerufen wird.
+Wie auch zuvor bei \lstinline$Lock$ unterstützt die \lstinline$aquire()$-Methode der
+\lstinline$Semaphore$-Klasse die beiden optionalen Parameter \lstinline$blocking$ und \lstinline$timeout$.
+Hierbei ist zu beachten, dass die \lstinline$Semaphore$-Klasse es zulässt, \lstinline$release()$ öfter 
+aufzurufen, als \lstinline$aquire()$.
+Dies hat zur Folge, dass der intere Zähler größer anwächst, als er initial gesetzt wurde, und somit die 
+maximale Anzahl an gleichzeitigen Zugriffen auf die geschützte Ressource erhöht wird.
+Ist ein solches Verhalten nicht gewünscht, bietet Python die \lstinline$BoundedSemaphore$-Klasse an.
+Würde hier durch einen Aufruf von \lstinline$release()$ der interne Zähler größer werden, als der initial
+gestezte Wert, so wird anstelle des Inkrementierens des Zählers ein \lstinline$ValueError$ geworfen.
+
+\tip{
+Um eventuelle Programmierfehler zu reduzieren, sollte \lstinline$Bounded-$ \lstinline$Semaphore$
+bevorzugt verwendet werden, da andernfalls der Fehler unbemerkt bleibt.
+}
+
+Wie eine \lstinline$Semaphore$ den gleichzeitigen Zugriff auf eine Datenbankverbindung beschränken
+kann ist im folgenden Beispiel gezeigt.
+Hier wird eine beschränkung von maximal 5 gleichzeitigen Zugriffen gesetzt.
+Das \lstinline$with$-Statement ruft wieder automatisch \lstinline$aquire()$ und \lstinline$release()$ auf.
+Somit ist garantiert, dass sich immer maximal 5 Threads innerhalb des \lstinline$with$-Statements 
+befinden.
+
+\label{threads:lst:semaphore}
+\lstinputlisting[language=Python,firstline=3,lastline=15]{chapters/nebenlaufigkeit/src/beispiel_semaphore.py}
+
+
