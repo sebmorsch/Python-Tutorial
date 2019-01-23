@@ -428,3 +428,20 @@ befinden.
 
 \uebung
 \aufgabe{nebenlaufigkeit07}
+
+In manchen Situationen ist es notwendig, dass bestimmte Threads aufeinander warten, bevor sie mit
+ihrer Ausführung fortschreiten.
+\randnotiz{Barrier}
+So kann es zum Beispiel sein, dass mit der eigentlichen Aufgabe gewartet werden muss, bis gewisse
+Initialisierungen geschehen sind.
+Es könnte auch ein Algorithmus betrachtet werden, dessen Teilschritte zwar für sich betrachtet
+nebenläufig ausgeführt werden können, es aber zu Fehlern kommt, wenn mit Schritt 2 begonnen wird,
+bevor Schritt 1 vollständig bearbeitet wurde.
+Für solche Anwendungsfälle bietet Python mit der \lstinline$Barrier$-Klasse eine weitere
+Synchronisationsprimitive an.
+Ihr wird bei der Erzeugung über den \lstinline$parties$-Parameter angegeben, wie viele Threads 
+aufeinander warten müssen.
+Die einzelnen Threads rufen die \lstinline$wait()$-Methode der \lstinline$Barrier$ auf, welche solange 
+blockiert, bis die mit \lstinline$parties$ spezifizierte Anzahl an Threads \lstinline$wait()$ aufgerufen haben.
+Wurde diese Anzahl erreicht, werden alle Threads zeitgleich fortgesetzt.
+
