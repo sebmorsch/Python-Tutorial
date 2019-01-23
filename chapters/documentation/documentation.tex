@@ -30,7 +30,7 @@ Ein Beispiel für eine korrekte Dokumentationserstellung durch epydoc sieht wie f
 \begin{lstlisting}[label=documentation:lst:epydocbsp]
 $ epydoc.py --html --output gewuenschtes_verzeichnis testprogramm
 \end{lstlisting}
-Dadurch wird die Dokumentation zum Modul \textit{testprogramm} als HTML-Datei im Verzeichnis \textit{gewuenschtes_verzeichnis} gespeichert.
+Dadurch wird die Dokumentation zum Modul \textit{testprogramm} als HTML-Datei im Verzeichnis \textit{gewuenschtesverzeichnis} gespeichert.
 
 
 \subsection*{Docstrings}
@@ -62,7 +62,7 @@ def myfunction():
 \end{lstlisting}
 
 Innerhalb des Programms kann man durch einen Befehl einen beliebigen Docstring aufrufen. 
-Dazu dient das Attribut _doc_, das zu jeder Instanz automatisch erstellt wird.
+Dazu dient das Attribut \_doc\_, das zu jeder Instanz automatisch erstellt wird.
 
 \begin{lstlisting}[label=documentation:lst:docstringausgeben]
 >>> print myclass.__doc__
@@ -75,7 +75,7 @@ Python hat intern jedoch keine Möglichkeit, um für Variablen Docstrings zu nutze
 Diese Möglichkeit wird durch epydoc ermöglicht. 
 Folgt in der folgenden Zeile nach einer Variablenzuweisung ein Blockkommentar, wird dieser automatisch als Docstring zur Variablen interpretiert. 
 Eine weitere Möglichkeit ist es, den Docstring vor die Wertezuweisung der Variablen zu definieren. 
-In diesem Fall wird auf die dreifachen Anführungszeichen verzichtet und je Zeile eine Raute mit Doppelpunkt #: vorangestellt.
+In diesem Fall wird auf die dreifachen Anführungszeichen verzichtet und je Zeile eine Raute mit Doppelpunkt \#: vorangestellt.
 
 \begin{lstlisting}[label=documentation:lst:docstringepydoc]
 a = 42
