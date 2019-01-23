@@ -1,0 +1,123 @@
+% !TeX root = ../../pythonTutorial.tex
+
+\section{Documentation}
+\label{documentation:sec:Dokumentation}
+
+Wie in allen Programmiersprachen ist vor allem bei gro�en Programmen eine gute Dokumentation wichtig. Viele Funktionen sind ohne ausreichende Beschreibungen nicht gut nachvollziehbar und man kann oft nur erahnen, was ein bestimmter Programmteil letztendlich bewirkt. Da von vielen Programmierern aus Bequemlichkeit und Schreibfaulheit auf eine umfassende Dokumentation verzichtet wird, sind viele Programme kaum bis �berhaupt nicht wartbar oder ver�nderbar. 
+
+In Python gibt es f�r genau dieses Problem Tools, mit dessen Hilfe die Dokumentation von Programmen auf ein angenehmes Ma� reduziert wird. Eines dieser Plattform-unabh�ngigen Werkzeuge mit dem Namen \textit{epydoc} wird im Folgenden genauer betrachtet. \randnotiz{epydoc} epydoc analysiert Python-Programme anhand des Quellcodes, verwertet diesen und gibt anschlie�end eine Dokumentation als PDF- oder HTML-Datei aus. Bei dieser Analyse werden Docstrings ben�tigt, deren Benutzung und Einbindung noch genauer betrachtet wird.
+
+Unter \url{http://epydoc.sourceforge.net} k�nnen Sie sich die aktuelle epydoc-Version herunterladen und anschlie�end installieren. 
+
+
+\subsection*{epydoc}
+\label{documentation:sec:epydoc}
+
+Nach der erfolgreichen Installation kann epydoc �ber die Konsole aufgerufen werden. Dazu wird der Befehl \textit{epydoc.py} benutzt. (in Linux ohne .py) 
+Eine Dokumentation zu einer bestimmten Pyhton-Datei ist dann m�glich, wenn epydoc an der selben Stelle im Dateipfad ausgef�hrt wird. 
+
+Um das Format zwischen PDF und HTML zu wechseln, wird der Befehl \textit{--pdf} beziehungsweise \textit{--html} verwendet. Auch den Speicherort der Dokumentation kann frei variiert werden. Dazu wird der Befehl \textit{--output} vor den gew�nschten Verzeichnisort geschrieben. 
+
+Ein Beispiel f�r eine korrekte Dokumentationserstellung durch epydoc sieht wie folgt aus:
+\begin{lstlisting}[label=documentation:lst:epydocbsp]
+$ epydoc.py --html --output gewuenschtes_verzeichnis testprogramm
+\end{lstlisting}
+Dadurch wird die Dokumentation zum Modul \textit{testprogramm} als HTML-Datei im Verzeichnis \textit{gewuenschtes_verzeichnis} gespeichert.
+
+
+\subsection*{Docstrings}
+\label{documentation:sec:docstrings}
+
+Python bietet uns durch drei einfache oder doppelte Anf�hrungszeichen die M�glichkeit, sogenannte Blockkommentare �ber mehrere Zeilen zu verfassen. Der darin eingefasste Text wird als Documentation String, kurz \textit{Docstring} bezeichnet. 
+
+\begin{lstlisting}[label=documentation:lst:docstringbsp]
+"""
+Dieser Text ist ein Docstring.
+Er wird von epydoc als solcher erkannt, 
+analysiert und interpretiert.
+"""
+\end{lstlisting}
+
+Docstrings sollten zur Beschreibung aller Programmierteile benutzt werden, vor allem Funktionen und Klassen sollten durchgehend kommentiert werden.
+
+\begin{lstlisting}[label=documentation:lst:docstringbsp2]
+class myclass(object): 
+	"""Docstring zur Klasse myclass
+	Beschreibung, wozu die Klasse dient.
+	"""
+
+def myfunction():
+	"""Docstring zur Funktion myfunction
+	Beschreibung, was die Funktion macht.
+	"""
+\end{lstlisting}
+
+Innerhalb des Programms kann man durch einen Befehl einen beliebigen Docstring aufrufen. Dazu dient das Attribut _doc_, das zu jeder Instanz automatisch erstellt wird.
+
+\begin{lstlisting}[label=documentation:lst:docstringausgeben]
+>>> print myclass.__doc__
+Docstring zur Klasse myclass
+	Beschreibung, wozu die Klasse dient.
+\end{lstlisting}
+
+
+Python hat intern jedoch keine M�glichkeit, um f�r Variablen Docstrings zu nutzen. Diese M�glichkeit wird durch epydoc erm�glicht. Folgt in der folgenden Zeile nach einer Variablenzuweisung ein Blockkommentar, wird dieser automatisch als Docstring zur Variablen interpretiert. Eine weitere M�glichkeit ist es, den Docstring vor die Wertezuweisung der Variablen zu definieren. In diesem Fall wird auf die dreifachen Anf�hrungszeichen verzichtet und je Zeile eine Raute mit Doppelpunkt #: vorangestellt.
+
+\begin{lstlisting}[label=documentation:lst:docstringepydoc]
+a = 42
+""" Die Variable a ist 42
+"""
+
+#: Die Variable b
+#: ist 24
+b = 24
+\end{lstlisting}
+
+
+\subsection*{Epytext}
+\label{documentation:sec:Epytext}
+Um sicherzustellen, dass epydoc die Docstrings richtig interpretiert, wurde die Beschreibungssprache Epytext eingef�hrt. Darin sind Regeln f�r die Formatierung und die Umsetzung mit Docstrings festgehalten, um eine einheitliche Benutzung zu gew�hrleisten. 
+Im Folgenden werden einige der Regeln und M�glichkeiten betrachtet.
+
+Zum einen ist in Epytext, genau wie in Python die korrekte Einr�ckung von entscheidender Wichtigkeit.
+
+\begin{lstlisting}[label=documentation:lst:einrueckung]
+def myfunction(): 
+	"""
+	Wichtig ist die richtige Einr�ckung
+	"""
+\end{lstlisting}
+
+Auch Listen sind innerhalb von Docstrings m�glich. Diese k�nnen als einfache Auflistung oder  Nummerierung benutzt werden.
+\begin{lstlisting}[label=documentation:lst:liste]
+"""
+Auflistung:
+- Eier
+- Milch
+- Mehl
+
+Nummerierung:
+1. Aufstehen
+2. Z�hne putzen
+3. Duschen
+"""
+\end{lstlisting}
+
+Weitere Formatierungsm�glichkeiten werden kurz in folgendem Beispiel gezeigt. Der Aufbau ist dabei stets in der Form eines Gro�buchstabens mit dem zu formatierenden Strings in geschweiften Klammern \textit{x{*}}.
+
+\begin{lstlisting}[label=documentation:lst:liste]
+"""
+I{Dieser String ist kursiv}
+F{Dieser String ist fett}
+M{Dies ist ein mathematischer Ausdruck}
+U{Dieser String ist eine URL und wird als Hyperlink interpretiert}
+E{Verhindert die Interpretation}
+"""
+\end{lstlisting}
+
+\subsection*{Zusammenfassung}
+\label{documentation:sec:zusammenfassung}
+Vielen Programmierern ist die st�ndige Dokumentation seit jeher ein Dorn im Auge. Mit epydoc ist in der Python-Programmierung jedoch ein Tool vorhanden, welche einem die Arbeit zu einem gewissen Teil abnimmt. Deshalb sollte dieses oder ein �hnliches Programm verwendet werden, um sicherzustellen, dass auch nach der Fertigstellung des Programms nachvollziehbar wird, was der eigentliche Sinn und Zweck hinter den einzelnen Programmteilen ist. 
+Falls Sie sich nach diesem Grund�berblick noch weiter �ber epydoc und Epytext informieren m�chten, k�nnen Sie sich die Dokumentation auf der offiziellen Homepage von epydoc anschauen.
+
+Diese finden Sie unter \url{http//epydoc.sourceforge.net}
