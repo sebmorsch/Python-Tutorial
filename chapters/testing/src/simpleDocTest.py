@@ -1,4 +1,4 @@
-# tests/simpleDocTest.py
+# simpleDocTest.py
 # Einfaches Beispiel eines DocTests in Python mit Ausgabe
 
 """
