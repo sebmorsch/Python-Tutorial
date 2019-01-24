@@ -1,6 +1,6 @@
 % !TeX root = ../../pythonTutorial.tex
 
-\section{Documentation}
+\chapter{Documentation}
 \label{documentation:sec:Dokumentation}
 
 Wie in allen Programmiersprachen ist vor allem bei großen Programmen eine gute Dokumentation wichtig. 
@@ -8,9 +8,9 @@ Viele Funktionen sind ohne ausreichende Beschreibungen nicht gut nachvollziehbar
 Da von vielen Programmierern aus Bequemlichkeit und Schreibfaulheit auf eine umfassende Dokumentation verzichtet wird, sind viele Programme kaum bis überhaupt nicht wartbar oder veränderbar. 
 
 In Python gibt es für genau dieses Problem Tools, mit dessen Hilfe die Dokumentation von Programmen auf ein angenehmes Maß reduziert wird. 
-Eines dieser Plattform-unabhängigen Werkzeuge mit dem Namen \textit{epydoc} wird im Folgenden genauer betrachtet. 
+Eines dieser plattformunabhängigen Werkzeuge mit dem Namen \textit{epydoc} wird im Folgenden genauer betrachtet. 
 \randnotiz{epydoc} epydoc analysiert Python-Programme anhand des Quellcodes, verwertet diesen und gibt anschließend eine Dokumentation als PDF- oder HTML-Datei aus. 
-Bei dieser Analyse werden Docstrings benötigt, deren Benutzung und Einbindung noch genauer betrachtet wird.
+Bei dieser Analyse werden Doc- strings benötigt, deren Benutzung und Einbindung noch genauer betrachtet wird.
 
 Unter \url{http://epydoc.sourceforge.net} können Sie sich die aktuelle epydoc-Version herunterladen und anschließend installieren. 
 
@@ -28,7 +28,7 @@ Dazu wird der Befehl \textit{--output} vor den gewünschten Verzeichnisort geschr
 
 Ein Beispiel für eine korrekte Dokumentationserstellung durch epydoc sieht wie folgt aus:
 \begin{lstlisting}[label=documentation:lst:epydocbsp]
-$ epydoc.py --html --output gewuenschtes_verzeichnis testprogramm
+$ epydoc.py --html --output eigenes_verzeichnis testprogramm
 \end{lstlisting}
 Dadurch wird die Dokumentation zum Modul \textit{testprogramm} als HTML-Datei im Verzeichnis \textit{gewuenschtesverzeichnis} gespeichert.
 
@@ -51,14 +51,14 @@ Docstrings sollten zur Beschreibung aller Programmierteile benutzt werden, vor a
 
 \begin{lstlisting}[label=documentation:lst:docstringbsp2]
 class myclass(object): 
-	"""Docstring zur Klasse myclass
-	Beschreibung, wozu die Klasse dient.
-	"""
+   """Docstring zur Klasse myclass
+   Beschreibung, wozu die Klasse dient.
+   """
 
 def myfunction():
-	"""Docstring zur Funktion myfunction
-	Beschreibung, was die Funktion macht.
-	"""
+   """Docstring zur Funktion myfunction
+   Beschreibung, was die Funktion macht.
+   """
 \end{lstlisting}
 
 Innerhalb des Programms kann man durch einen Befehl einen beliebigen Docstring aufrufen. 
@@ -67,7 +67,7 @@ Dazu dient das Attribut \_doc\_, das zu jeder Instanz automatisch erstellt wird.
 \begin{lstlisting}[label=documentation:lst:docstringausgeben]
 >>> print myclass.__doc__
 Docstring zur Klasse myclass
-	Beschreibung, wozu die Klasse dient.
+   Beschreibung, wozu die Klasse dient.
 \end{lstlisting}
 
 
@@ -98,9 +98,9 @@ Zum einen ist in Epytext, genau wie in Python die korrekte Einrückung von entsch
 
 \begin{lstlisting}[label=documentation:lst:einrueckung]
 def myfunction(): 
-	"""
-	Wichtig ist die richtige Einrückung
-	"""
+   """
+   Wichtig ist die richtige Einrückung
+   """
 \end{lstlisting}
 
 Auch Listen sind innerhalb von Docstrings möglich. 
@@ -114,7 +114,7 @@ Auflistung:
 
 Nummerierung:
 1. Aufstehen
-2. Zï¿½hne putzen
+2. Zähne putzen
 3. Duschen
 """
 \end{lstlisting}
@@ -127,7 +127,7 @@ Der Aufbau ist dabei stets in der Form eines Großbuchstabens mit dem zu formatie
 I{Dieser String ist kursiv}
 F{Dieser String ist fett}
 M{Dies ist ein mathematischer Ausdruck}
-U{Dieser String ist eine URL und wird als Hyperlink interpretiert}
+U{String ist eine URL und wird als Hyperlink interpretiert}
 E{Verhindert die Interpretation}
 """
 \end{lstlisting}
@@ -139,4 +139,4 @@ Mit epydoc ist in der Python-Programmierung jedoch ein Tool vorhanden, welche ei
 Deshalb sollte dieses oder ein ähnliches Programm verwendet werden, um sicherzustellen, dass auch nach der Fertigstellung des Programms nachvollziehbar wird, was der eigentliche Sinn und Zweck hinter den einzelnen Programmteilen ist. 
 Falls Sie sich nach diesem Grundüberblick noch weiter über epydoc und Epytext informieren möchten, können Sie sich die Dokumentation auf der offiziellen Homepage von epydoc anschauen.
 
-Diese finden Sie unter \url{http//epydoc.sourceforge.net}
+Diese finden Sie unter \url{http//epydoc.sourceforge.net}.
