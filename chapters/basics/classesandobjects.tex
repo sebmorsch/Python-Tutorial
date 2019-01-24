@@ -54,11 +54,11 @@ Hierbei ist der self Parameter notwendig um die Klasse selbst zu referenzieren u
 \begin{lstlisting}[language=Python,
 label={classesandobjects:subsection:initclass:initclass}]
 class Kreis:
-def __init__(self, radius):
-self.radius = radius
-
-def getRadius(self):
-print(self.radius)
+    def __init__(self, radius):
+        self.radius = radius
+	
+    def getRadius(self):
+        print(self.radius)
 
 kreis1 = Kreis(3)
 kreis2 = Kreis(5)
@@ -75,11 +75,11 @@ Objekte enthalten die aus den Klassen übernommenen Methoden. Diese Methoden gehö
 \begin{lstlisting}[language=Python,
 label={classesandobjects:subsection:initclass:delobjektname}]
 class Kreis:
-def __init__(self, radius):
-self.radius = radius
+    def __init__(self, radius):
+        self.radius = radius
 
-def getRadius(self):
-print(self.radius)
+    def getRadius(self):
+        print(self.radius)
 
 kreis1 = Kreis(3)
 kreis2 = Kreis(5)
@@ -100,19 +100,19 @@ Ein weiterer wichtiger Aspekt der Klassen in Python ist die Vererbung und Ergänz
 \begin{lstlisting}[language=Python,
 label={classesandobjects:subsection:heredity:heredity}]
 class Kreis:
-def __init__(self, radius):
-self.radius = radius
+    def __init__(self, radius):
+        self.radius = radius
 
-def getRadius(self):
-print(self.radius)
+    def getRadius(self):
+        print(self.radius)
 
 class Farbe:
-def __init__(self, farbe):
-Kreis.__init__(self, farbe)
-self.farbe = "blau";
+    def __init__(self, farbe):
+        Kreis.__init__(self, farbe)
+        self.farbe = "blau";
 
-def getRadius(self):
-print(Kreis.getRadius(self) + ", " + self.farbe)
+    def getRadius(self):
+        print(Kreis.getRadius(self) + ", " + self.farbe)
 
 kreis1 = Farbe(3,"rot")
 kreis2 = Farbe(5, "gelb")
@@ -131,11 +131,11 @@ Zum Schluss bleibt zu erwähnen, dass auch komplette Objekte löschbar sind. Dies 
 \begin{lstlisting}[language=Python,
 label={classesandobjects:subsection:heredity:heredity}]
 class Kreis:
-def __init__(self, radius):
-self.radius = radius
+    def __init__(self, radius):
+        self.radius = radius
 
-def getRadius(self):
-print(self.radius)
+    def getRadius(self):
+        print(self.radius)
 
 kreis1 = Kreis(3)
 kreis2 = Kreis(5)
