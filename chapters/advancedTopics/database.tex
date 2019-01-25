@@ -1,0 +1,139 @@
+% !TeX root = ../../pythonTutorial.tex
+
+\section{Datenbanken}\label{database:einleitung}
+In diesem Kapitel wird die Benutzung zweier verschiedener Datenbanksysteme, in der Programmiersprache Python, demonstriert. 
+\subsection{Relationale Datenbanken}\label{database:relationaldatabase}
+Relationale Datenbanken, die bereits im dritten Semester in der Vorlesung \glqq Datenbanken\grqq  durchgenommen wurden, dienen zur elektronischen Speicherung von Daten. In folgendem Kapitel wird das Einbinden von SQLite in eine Python-Anwendung genauer erläutert.
+\subsubsection{SQLite}\label{database:sqlite}
+SQLite ist ein relationales Datenbankmanagementsystem, welches in einer C-Bibliothek enthalten ist. Anders als beispielsweise MySQL nutzt  SQLite nicht das client-server model, sondern ist später im fertigen Programm lokal integriert. Eingesetzt wird SQLite sehr häufig in Android-Apps. Diese Speichern Nutzerdaten lokal auf dem Gerät. Im weiteren Verlauf des Kapitels wird das Einbinden von SQLite in eine Python-Anwendung erläutert.
+
+\textbf{Einbinden von SQLite}
+
+Um SQL in einem Python-Projekt verwenden zu können, wird lediglich ein import statement benötigt.
+\begin{lstlisting}
+#import sqlite
+import sqlite3
+\end{lstlisting}\label{database:lst:importsqlite}
+Anschließend muss eine neue Datenbank angelegt werden. Hierfür kann die Methode connect() verwendet werden. Für diese Methode muss der Übergabeparameter aus einem string mit der Endung \glqq.db\grqq  übergeben werden.
+\begin{lstlisting}
+#connect sqlite
+connection = sqlite3.connect("beispiel.db")
+\end{lstlisting}\label{database:lst:connect}
+Falls alle Tabellen angelegt und wie gewollt befüllt wurden, können mit der Methode commit() alle Änderungen an der Datenbank abgespeichert werden.
+\begin{lstlisting}
+#commit
+connection.commit()
+\end{lstlisting}\label{database:lst:commit}
+Um die Verbindung zur Datenbank zu beenden benutzt man die Methode close()
+\begin{lstlisting}
+#close
+connection.close()
+\end{lstlisting}\label{database:lst:close}
+
+\textbf{Create bei SQLite}
+
+In Folge dessen können nun einzelne Tabellen zur Datenbank hinzugefügt werden. Dies kann umgesetzt werden, indem ein neuer \glqq sql\_command\grqq angelegt wird, welcher ein korrektes SQL-Kommando beinhalten muss.
+
+\begin{lstlisting}
+#create
+sql_command = """
+CREATE TABLE mitarbeiter( 
+mitarbeiterid INTEGER PRIMARY KEY, 
+vname VARCHAR(20), 
+nname VARCHAR(30), 
+geschlecht CHAR(1), 
+beitritt DATE,
+geburtstag DATE);"""
+\end{lstlisting}\label{database:lst:create}
+ 
+\textbf{Insert bei SQLite}
+
+Eine Tabelle wird im Anschluss wie folgt befüllt.
+\begin{lstlisting}
+#insert
+sql_command = """INSERT INTO mitarbeiter
+(mitarbeiterid, vname, nname, geschlecht, geburtstag)
+VALUES (NULL, "Peter", "Maffay", "m", "30.08.1949");"""
+\end{lstlisting}\label{database:lst:insert}
+
+\textbf{Delete bei SQLite}
+
+Eine Tabelle oder einen bestimmten Mitarbeiter kann durch einen ?delete? Befehl wieder entfernt werden. In folgendem Listing werden zwei Möglichkeiten, Daten aus der Datenbank zu entfernen, aufgezeigt.
+\begin{lstlisting}
+#delete
+sql_command1 = """DELETE FROM mitarbeiter 
+WHERE mitarbeiterid = 1;???
+sql_command2 = """DELETE FROM mitarbeiter;???
+\end{lstlisting}\label{database:lst:delete}
+
+\textbf{Update bei SQLite}
+
+Um einen Eintrag im Nachhinein zu ändern, kann durch den ?Update? Befehl ein oder mehrere bestimmte Einträge geändert werden. Im Listing wird der Vorname des Mitarbeiters mit der MitarbeiterId 1 auf Peter gesetzt.
+\begin{lstlisting}
+#update
+sql_command = """UPDATE mitarbeiter SET vname=?Peter?
+WHERE mitarbeiterid = 1;"""
+\end{lstlisting}\label{database:lst:update}
+
+\textbf{Select bei SQLite}
+
+Möchte man Eibträge der Datenbank auslesen benutzt man den Select-Befehl.
+Dieser Ermöglicht es uns einen oder mehrere Beiträge auszulesen.
+\begin{lstlisting}
+#select
+sql_command1 = """SELECT * FROM mitarbeiter;"""
+sql_command2 = """SELECT * FROM mitarbeiter 
+WHERE mitarbeiterid = 1;"""
+
+\end{lstlisting}\label{database:lst:select}
+
+\subsection{NoSQL Datenbanken}
+
+NoSql steht für \glqq not only SQL\grqq  Hier wird allerdings SQL als Synonym für relationale Datenbanksysteme verwendet. Die Grundidee ist die, dass man nicht von Anfang an durch alte Gewohnheit direkt eine relationale Datenbank benutzt. Sondern sich für ein Datenbanksystem entscheidet, dass am Besten zum geplanten Projekt passt. Entstanden sind solche NoSQL Datenbanken unter anderem durch soziale Netzwerke. Hier müssen mehrere Millionen Daten sehr schnell gespeichert und abgerufen werden. Eine solche Masse an Anfragen stellte ganz neue Anforderung an Datenbanksysteme.
+Die wichtigsten Kategorien von NoSQL-Datenbanken sind Key-Value, spaltenorientierte, Value und dokumentenorientierte Datenbanken. In folgendem Kapitel, wird das Einbinden der dokumentenbasierten NoSQL Datenbank MongoDB genauer beschrieben. [2]
+
+\subsubsection{MongoDB}
+MongoDB ist eine open-source dokumentenbasierte NoSQL-Datenbank, die eine hohe Performance und automatische Skalierung bietet. [1]. Als ?record? bezeichnet man in MongoDB eine Datenstruktur (key/value) mit field und den dazugehörigen values. Diese MongoDB Dokumenten sind ähnlich zu den uns bekannten JSON-Objekts. In diesem Kapitel wird die Einbindung und die Benutzung einer MongoDB Datenbank genauer erläutert.
+
+\textbf{Einbinden von MongoDB}
+
+Um eine Verbindung mit MongoDB herzustellen muss zunächst die Python distribution PyMongo installiert werden.
+\begin{lstlisting}
+#import mongodb
+import pymongo
+\end{lstlisting}\label{database:lst:importmongodb}
+Danach muss mit mongod eine MongoDB Instanz gestartet werden.
+Als nächstes muss ein MongoClient erstellt werden, welcher auf die laufende mongod Instanz zugreift und dabei mit dem default Host und default Port verbunden.
+\begin{lstlisting}
+#create client
+from pymongo import MongoClient
+client = MongoClient()
+\end{lstlisting}\label{database:lst:client}
+Man kann den Host und Port aber auch explizit spezifizeren, indem man eines der folgen Formate benutzt.
+\begin{lstlisting}
+#Host Name und Passwort spezifizieren
+client1 = MongoClient('localhost', 12345)
+client2 = MongoClient('mongodb://localhost:12345/')
+\end{lstlisting}\label{database:lst:host}
+In PyMongo greift man mit attribute style access auf die Datenbanken zu, da eine Instanz von MongoDB mehrere unabhängige Datenbanken unterstützt. Dabei kann man die beiden folgenden Formate benutzen.
+\begin{lstlisting}
+#Zugriff auf die Datenbank in zwei Varianten
+db1 = client.test_database
+db2 = client['test-database']
+\end{lstlisting}\label{database:lst:databaseconnection}
+Das Equivalent zu tables in relationalen Datenbanken in MongoDB wird Connections genannt. Diese bestehen aus mehreren Dokumenten. Auf diese greift man genauso zu wie auf die Datenbank.
+\begin{lstlisting}
+#Zugriff auf Connections in zwei Varianten
+collection = db.test_collection
+collection = db['test-collection']
+\end{lstlisting}\label{database:lst:tableconnection}
+Die oben genannten Dokumente (JSON-Style) sind die Repräsentanten und Speicher der Daten in der Datenbank.
+\begin{lstlisting}
+#JSON
+import datetime
+test = {	"author": "Lukas",
+"text": "Hallo",
+"tags": ["hallo", "pymongo"]
+?date?: datetime.datetime.utcnow()}
+\end{lstlisting}\label{database:lst:json}
+
