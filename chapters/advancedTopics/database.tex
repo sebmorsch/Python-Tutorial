@@ -5,7 +5,7 @@ In diesem Kapitel wird die Benutzung zweier verschiedener Datenbanksysteme, in d
 \subsection{Relationale Datenbanken}\label{database:relationaldatabase}
 Relationale Datenbanken, die bereits im dritten Semester in der Vorlesung \glqq Datenbanken\grqq  durchgenommen wurden, dienen zur elektronischen Speicherung von Daten. In folgendem Kapitel wird das Einbinden von SQLite in eine Python-Anwendung genauer erläutert.
 \subsubsection{SQLite}\label{database:sqlite}
-SQLite ist ein relationales Datenbankmanagementsystem, welches in einer C-Bibliothek enthalten ist. Anders als beispielsweise MySQL nutzt  SQLite nicht das client-server model, sondern ist später im fertigen Programm lokal integriert. Eingesetzt wird SQLite sehr häufig in Android-Apps. Diese Speichern Nutzerdaten lokal auf dem Gerät. Im weiteren Verlauf des Kapitels wird das Einbinden von SQLite in eine Python-Anwendung erläutert.
+SQLite ist ein relationales Datenbankmanagementsystem, welches in einer C-Bibliothek enthalten ist. Anders als beispielsweise MySQL nutzt  SQLite nicht das client-server model, sondern ist später im fertigen Programm lokal integriert. Eingesetzt wird SQLite sehr häufig in Android-Apps. Diese speichern Nutzerdaten lokal auf dem Gerät. Im weiteren Verlauf des Kapitels wird das Einbinden von SQLite in eine Python-Anwendung erläutert.
 
 \textbf{Einbinden von SQLite}
 
@@ -58,7 +58,7 @@ VALUES (NULL, "Peter", "Maffay", "m", "30.08.1949");"""
 
 \textbf{Delete bei SQLite}
 
-Eine Tabelle oder einen bestimmten Mitarbeiter kann durch einen ?delete? Befehl wieder entfernt werden. In folgendem Listing werden zwei Möglichkeiten, Daten aus der Datenbank zu entfernen, aufgezeigt.
+Eine Tabelle oder einen bestimmten Mitarbeiter kann durch einen \glqq delete\grqq  Befehl wieder entfernt werden. In folgendem Listing werden zwei Möglichkeiten, Daten aus der Datenbank zu entfernen, aufgezeigt.
 \begin{lstlisting}
 #delete
 sql_command1 = """DELETE FROM mitarbeiter 
@@ -68,7 +68,7 @@ sql_command2 = """DELETE FROM mitarbeiter;???
 
 \textbf{Update bei SQLite}
 
-Um einen Eintrag im Nachhinein zu ändern, kann durch den ?Update? Befehl ein oder mehrere bestimmte Einträge geändert werden. Im Listing wird der Vorname des Mitarbeiters mit der MitarbeiterId 1 auf Peter gesetzt.
+Um einen Eintrag im Nachhinein zu ändern, kann durch den \glqq Update\grqq Befehl ein oder mehrere bestimmte Einträge geändert werden. Im Listing wird der Vorname des Mitarbeiters mit der MitarbeiterId 1 auf Peter gesetzt.
 \begin{lstlisting}
 #update
 sql_command = """UPDATE mitarbeiter SET vname=?Peter?
@@ -93,7 +93,8 @@ NoSql steht für \glqq not only SQL\grqq  Hier wird allerdings SQL als Synonym fü
 Die wichtigsten Kategorien von NoSQL-Datenbanken sind Key-Value, spaltenorientierte, Value und dokumentenorientierte Datenbanken. In folgendem Kapitel, wird das Einbinden der dokumentenbasierten NoSQL Datenbank MongoDB genauer beschrieben. [2]
 
 \subsubsection{MongoDB}
-MongoDB ist eine open-source dokumentenbasierte NoSQL-Datenbank, die eine hohe Performance und automatische Skalierung bietet. [1]. Als ?record? bezeichnet man in MongoDB eine Datenstruktur (key/value) mit field und den dazugehörigen values. Diese MongoDB Dokumenten sind ähnlich zu den uns bekannten JSON-Objekts. In diesem Kapitel wird die Einbindung und die Benutzung einer MongoDB Datenbank genauer erläutert.
+MongoDB ist eine open-source dokumentenbasierte NoSQL-Datenbank, die eine hohe Performance und automatische Skalierung bietet. [1]. Als \glqq record\grqq
+bezeichnet man in MongoDB eine Datenstruktur (key/value) mit field und den dazugehörigen values. Diese MongoDB Dokumenten sind ähnlich zu den uns bekannten JSON-Objekts. In diesem Kapitel wird die Einbindung und die Benutzung einer MongoDB Datenbank genauer erläutert.
 
 \textbf{Einbinden von MongoDB}
 
@@ -121,7 +122,7 @@ In PyMongo greift man mit attribute style access auf die Datenbanken zu, da eine
 db1 = client.test_database
 db2 = client['test-database']
 \end{lstlisting}\label{database:lst:databaseconnection}
-Das Equivalent zu tables in relationalen Datenbanken in MongoDB wird Connections genannt. Diese bestehen aus mehreren Dokumenten. Auf diese greift man genauso zu wie auf die Datenbank.
+Das Equivalent zu Tabellen in relationalen Datenbanken in MongoDB wird Connections genannt. Diese bestehen aus mehreren Dokumenten. Auf diese greift man genauso zu wie auf die Datenbank.
 \begin{lstlisting}
 #Zugriff auf Connections in zwei Varianten
 collection = db.test_collection
@@ -137,3 +138,60 @@ test = {	"author": "Lukas",
 ?date?: datetime.datetime.utcnow()}
 \end{lstlisting}\label{database:lst:json}
 
+\textbf{Insert und Delete bei MongoDB}
+
+Um ein Dokument einzufügen, muss man die insert\_one() Methode benutzen.
+\begin{lstlisting}
+#insert_one
+test = db.test
+test_id = test.insert_one(test).inserted_id
+test_id
+ObjectId('...')(Ausgabe)
+\end{lstlisting}\label{database:lst:insertone}
+
+Beim Einfügen eines Dokuments wird diesem automatisch eine \_id zugewiesen, falls es noch keine vorher bestimmte \_id hat. Diese \_id muss einzigartig in der Collection sein. Nachdem man nun dieses Dokument hinzugefügt hat, wurde eine Test Collection erstellt. Indem man nun eine Liste aller Collections anzeigen lässt, kann man dies bestätigen.
+\begin{lstlisting}
+#collection_names
+db.collection_names(include_system_collections=False)
+\end{lstlisting}\label{database:lst:collectionnames}
+Um ein bereits hinzugefügtes Dokument zu löschen wird die Methode delete\_one() genutzt.
+
+\textbf{Select bei MongoDB}
+
+Man kann mit der folgenden Methode auf bestimmte oder das erste (kein Parameter) Dokument einer Collection zugreifen.
+\begin{lstlisting}
+#find_one mit autor
+test.find_one({?author?: ?Lukas?})
+\end{lstlisting}\label{database:lst:findone}
+Mithilfe der \_id kann man auch auf die einzelnen Dokumente zugreifen.
+\begin{lstlisting}
+#find_one mit id
+test.find_one({?_id?: test_id})
+\end{lstlisting}\label{database:lst:findone}
+
+\textbf{Update bei MongoDB}
+
+Um einem Dokument neue Parameter zu geben, wird die Funktion update\_one(altes Dokument, neues Dokument) genutzt. Das neue Dokument muss den Operator set
+enthalten. 
+\begin{lstlisting}
+#update
+newvalue { "$set": { "author": "Lukas" } }
+\end{lstlisting}\label{database:lst:update}
+Die Methoden insert\_one() und find\_one() können in abgeänderter Form auch für mehrere Dokumente genutzt werden.
+insert\_many() benutzt man um mehrere Dokumente hinzuzufügen
+
+Um auf mehrere Dokumente zuzugreifen, benutzt man find().
+Die Anzahl der Dokumente wird in unserem Fall mit test.count\_documents({}).
+Mit .sort kann man die Ergebnisse nach verschiedenen Parametern sortieren.
+Nun wird ein neuer Index erstellt.
+\begin{lstlisting}
+#XXXXXXXX
+result = db.profiles.create_index(
+[('user_id',pymongo.ASCENDING)],unique=True)
+\end{lstlisting}\label{database:lst:XXXXXX}
+Das hat zur Folge, dass es nun eine \_id und eine user\_id gibt, welche einzigartig sein müssen.
+Zuletzt wird die Verbindung mit der Datenbank unterbrochen.
+\begin{lstlisting}
+#close
+client.close
+\end{lstlisting}\label{database:lst:close}
