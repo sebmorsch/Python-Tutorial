@@ -48,7 +48,7 @@ connection.close()
 
 \textbf{Create bei SQLite} \randnotiz{CREATE}
 
-In Folge dessen können nun einzelne Tabellen zur Datenbank hinzugefügt werden. Dies kann umgesetzt werden, indem ein neuer \glqq sql\_command\grqq{} angelegt wird, welcher ein korrektes SQL-Kommando beinhalten muss.
+In Folge dessen können nun einzelne Tabellen zur Datenbank hinzugefügt werden. Dies kann umgesetzt werden, indem ein neuer \lstinline{sql_command} angelegt wird, welcher ein korrektes SQL-Kommando beinhalten muss.
 
 \begin{lstlisting}[language=Python]
 #create
@@ -74,7 +74,7 @@ VALUES (NULL, "Peter", "Maffay", "m", "30.08.1949");"""
 
 \textbf{Select bei SQLite} \randnotiz{SELECT}
 
-Daten aus der SQLite Datenbank werden mit einem SELECT-Befehl ausgelesen.
+Daten aus der SQLite Datenbank werden mit einem \lstinline{Select} Befehl ausgelesen.
 Dieser ermöglicht es uns, einen oder mehrere Beiträge auszulesen. Mit dem SQL-Statment \lstinline{sql_command1} im Listing\ref{database:lst:select} werden alle Einträge aus der Tabelle mitarbeiter ausgelesen.
 
 \begin{lstlisting}[language=Python]
@@ -87,7 +87,7 @@ WHERE mitarbeiterid = 1;"""
 
 \textbf{Update bei SQLite} \randnotiz{UPDATE}
 
-Um einen Eintrag im Nachhinein zu ändern, kann durch den \glqq Update\grqq Befehl ein oder mehrere bestimmte Einträge geändert werden. Im Listing wird der Vorname des Mitarbeiters mit der \lstinline{MitarbeiterId = 1} auf Peter gesetzt.
+Um einen Eintrag im Nachhinein zu ändern, kann durch den \lstinline{Update} Befehl ein oder mehrere bestimmte Einträge geändert werden. Im Listing wird der Vorname des Mitarbeiters mit der \lstinline{MitarbeiterId = 1} auf Peter gesetzt.
 \begin{lstlisting}[language=Python]
 #update
 sql_command = """UPDATE mitarbeiter SET vname="Peter"
@@ -100,7 +100,7 @@ WHERE mitarbeiterid = 1;"""
 
 \textbf{Delete bei SQLite} \randnotiz{DELETE}
 
-Eine Tabelle oder einen bestimmten Mitarbeiter kann durch einen \glqq delete\grqq{}  Befehl wieder entfernt werden. In folgendem Listing\ref{database:lst:delete} werden zwei Möglichkeiten Daten aus der Datenbank zu entfernen aufgezeigt.
+Eine Tabelle oder einen bestimmten Mitarbeiter kann durch einen \lstinline{Delete} Befehl wieder entfernt werden. In folgendem Listing\ref{database:lst:delete} werden zwei Möglichkeiten Daten aus der Datenbank zu entfernen aufgezeigt.
 \begin{lstlisting}[language=Python]
 #delete
 sql_command1 = """DELETE FROM mitarbeiter 
